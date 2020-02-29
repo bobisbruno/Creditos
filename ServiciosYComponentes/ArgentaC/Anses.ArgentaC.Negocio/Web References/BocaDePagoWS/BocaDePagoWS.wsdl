@@ -1,0 +1,1792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://BocaDePago.Anses.Gov.Ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://BocaDePago.Anses.Gov.Ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://BocaDePago.Anses.Gov.Ar/">
+      <s:element name="ObtenerBeneficiosDelCUIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuip" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerBeneficiosDelCUIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerBeneficiosDelCUIPResult" type="tns:ArrayOfBeneficioDetalle" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBeneficioDetalle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BeneficioDetalle" nillable="true" type="tns:BeneficioDetalle" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficioDetalle">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Resultado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Beneficio" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TipoBeneficio" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BancoNombre" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AgenciaNombre" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BancoCodigo" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="AgenciaCodigo" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="BancoLocalidad" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BancoDireccion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Caja" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="BancoCodigoPostal" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="BancoCodigoProv" type="s:short" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Resultado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Error" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerExCajas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerExCajasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerExCajasResult" type="tns:ArrayOfExCaja" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfExCaja">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExCaja" nillable="true" type="tns:ExCaja" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExCaja">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Resultado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescrAbreviada" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodCajaNacional" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ObtenerProvincias">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerProvinciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerProvinciasResult" type="tns:ArrayOfProvincia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProvincia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Provincia" nillable="true" type="tns:Provincia" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Resultado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ConsultarExistenciaNovedadPendiente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarExistenciaNovedadPendienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarExistenciaNovedadPendienteResult" type="tns:ArrayOfNovedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Novedad" nillable="true" type="tns:Novedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Novedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ExCaja" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Coparticipe" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoMovimiento" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="GrupoNovedad" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentePagador" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCarga" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hora" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Oficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Termident" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Operador" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAProcesar" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaProcesada" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuilBeneficiario" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultarHistoricoNovedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultarHistoricoNovedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultarHistoricoNovedadResult" type="tns:ArrayOfDetalleSolicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDetalleSolicitud">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DetalleSolicitud" nillable="true" type="tns:DetalleSolicitud" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DetalleSolicitud">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Resultado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Beneficio" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="ExCaja" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="Tipo" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="Numero" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Coparticipe" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoMovimiento" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="GrupoNovedad" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoEstado" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoBanco" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodigoAgencia" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodigoBancoAgencia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Agencia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FechaProceso" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DomCalle" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DomNumero" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DomPiso" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DomDepto" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DomLocalidad" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DomCodigoPostal" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="DomCodigoProvincia" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="FechaCarga" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GrabarNovedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuip" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentepagador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="oficina" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="operador" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="periodo" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarNovedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GrabarNovedadResult" type="tns:Confirmacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Confirmacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BajarNovedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuip" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="oficina" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="operador" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BajarNovedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BajarNovedadResult" type="tns:Confirmacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarNovedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuip" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="agentepagador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="oficina" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="terminal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="operador" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="periodo" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarNovedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificarNovedadResult" type="tns:Confirmacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaBancoAgencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoPostal" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoProvincia" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaBancoAgenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaBancoAgenciaResult" type="tns:ArrayOfBancoAgencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBancoAgencia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BancoAgencia" nillable="true" type="tns:BancoAgencia" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BancoAgencia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoBanco" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoAgencia" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoLocalidad" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Depto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoPostal" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoProvincia" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaDetallesBancoAgencia">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod_banco" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="cod_agencia" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaDetallesBancoAgenciaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaDetallesBancoAgenciaResult" type="tns:ArrayOfBancoAgencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDetallesBancoAgenciaPorBcoAge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cod_banco" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="cod_age" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDetallesBancoAgenciaPorBcoAgeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDetallesBancoAgenciaPorBcoAgeResult" type="tns:ArrayOfBancoAgencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerZonasAustrales">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerZonasAustralesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerZonasAustralesResult" type="tns:ArrayOfZonaAustral" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfZonaAustral">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ZonaAustral" nillable="true" type="tns:ZonaAustral" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ZonaAustral">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoProvincia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cobertura" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoPostal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerDependenciasHabilitadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerDependenciasHabilitadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDependenciasHabilitadasResult" type="tns:ArrayOfDependencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDependencia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Dependencia" nillable="true" type="tns:Dependencia" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dependencia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ActualizarDependenciaHabilitada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarDependenciaHabilitadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarDependenciaHabilitadaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarDependenciaHabilitada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarDependenciaHabilitadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarDependenciaHabilitadaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarDependenciaHabilitada">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarDependenciaHabilitadaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarDependenciaHabilitadaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarZonaAustral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_provincia" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="cobertura" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigopostal" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="localidad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AgregarZonaAustralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgregarZonaAustralResult" nillable="true" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarZonaAustral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codigoprovincia" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigopostal" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarZonaAustralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarZonaAustralResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarZonaAustral">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id_provincia" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigopostal" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="localidad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarZonaAustralResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarZonaAustralResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfBeneficioDetalle" nillable="true" type="tns:ArrayOfBeneficioDetalle" />
+      <s:element name="ArrayOfExCaja" nillable="true" type="tns:ArrayOfExCaja" />
+      <s:element name="ArrayOfProvincia" nillable="true" type="tns:ArrayOfProvincia" />
+      <s:element name="ArrayOfNovedad" nillable="true" type="tns:ArrayOfNovedad" />
+      <s:element name="ArrayOfDetalleSolicitud" nillable="true" type="tns:ArrayOfDetalleSolicitud" />
+      <s:element name="Confirmacion" nillable="true" type="tns:Confirmacion" />
+      <s:element name="ArrayOfBancoAgencia" nillable="true" type="tns:ArrayOfBancoAgencia" />
+      <s:element name="ArrayOfZonaAustral" nillable="true" type="tns:ArrayOfZonaAustral" />
+      <s:element name="ArrayOfDependencia" nillable="true" type="tns:ArrayOfDependencia" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="short" nillable="true" type="s:short" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerBeneficiosDelCUIPSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerBeneficiosDelCUIP" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosDelCUIPSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerBeneficiosDelCUIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerExCajas" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerExCajasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProvinciasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerProvincias" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProvinciasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerProvinciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarExistenciaNovedadPendienteSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarExistenciaNovedadPendiente" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarExistenciaNovedadPendienteSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarExistenciaNovedadPendienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoNovedadSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultarHistoricoNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoNovedadSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultarHistoricoNovedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrabarNovedadSoapIn">
+    <wsdl:part name="parameters" element="tns:GrabarNovedad" />
+  </wsdl:message>
+  <wsdl:message name="GrabarNovedadSoapOut">
+    <wsdl:part name="parameters" element="tns:GrabarNovedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="BajarNovedadSoapIn">
+    <wsdl:part name="parameters" element="tns:BajarNovedad" />
+  </wsdl:message>
+  <wsdl:message name="BajarNovedadSoapOut">
+    <wsdl:part name="parameters" element="tns:BajarNovedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarNovedadSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ModificarNovedadSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarNovedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaBancoAgenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaBancoAgenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaBancoAgenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDetallesBancoAgenciaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaDetallesBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDetallesBancoAgenciaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaDetallesBancoAgenciaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesBancoAgenciaPorBcoAgeSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDetallesBancoAgenciaPorBcoAge" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesBancoAgenciaPorBcoAgeSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDetallesBancoAgenciaPorBcoAgeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerZonasAustralesSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerZonasAustrales" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerZonasAustralesSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerZonasAustralesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDependenciasHabilitadasSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDependenciasHabilitadas" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDependenciasHabilitadasSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDependenciasHabilitadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDependenciaHabilitadaSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarDependenciaHabilitada" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDependenciaHabilitadaSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarDependenciaHabilitadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDependenciaHabilitadaSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarDependenciaHabilitada" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDependenciaHabilitadaSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarDependenciaHabilitadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarDependenciaHabilitadaSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarDependenciaHabilitada" />
+  </wsdl:message>
+  <wsdl:message name="EliminarDependenciaHabilitadaSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarDependenciaHabilitadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="AgregarZonaAustralSoapIn">
+    <wsdl:part name="parameters" element="tns:AgregarZonaAustral" />
+  </wsdl:message>
+  <wsdl:message name="AgregarZonaAustralSoapOut">
+    <wsdl:part name="parameters" element="tns:AgregarZonaAustralResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarZonaAustralSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarZonaAustral" />
+  </wsdl:message>
+  <wsdl:message name="EliminarZonaAustralSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarZonaAustralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarZonaAustralSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarZonaAustral" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarZonaAustralSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarZonaAustralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosDelCUIPHttpGetIn">
+    <wsdl:part name="cuip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosDelCUIPHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficioDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasHttpGetIn" />
+  <wsdl:message name="ObtenerExCajasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfExCaja" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProvinciasHttpGetIn" />
+  <wsdl:message name="ObtenerProvinciasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProvincia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarExistenciaNovedadPendienteHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarExistenciaNovedadPendienteHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoNovedadHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoNovedadHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDetalleSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="GrabarNovedadHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+    <wsdl:part name="agentepagador" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="terminal" type="s:string" />
+    <wsdl:part name="operador" type="s:string" />
+    <wsdl:part name="periodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GrabarNovedadHttpGetOut">
+    <wsdl:part name="Body" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="BajarNovedadHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="terminal" type="s:string" />
+    <wsdl:part name="operador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BajarNovedadHttpGetOut">
+    <wsdl:part name="Body" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="ModificarNovedadHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+    <wsdl:part name="agentepagador" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="terminal" type="s:string" />
+    <wsdl:part name="operador" type="s:string" />
+    <wsdl:part name="periodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModificarNovedadHttpGetOut">
+    <wsdl:part name="Body" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaBancoAgenciaHttpGetIn">
+    <wsdl:part name="codigoPostal" type="s:string" />
+    <wsdl:part name="codigoProvincia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaBancoAgenciaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDetallesBancoAgenciaHttpGetIn">
+    <wsdl:part name="cod_banco" type="s:string" />
+    <wsdl:part name="cod_agencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDetallesBancoAgenciaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesBancoAgenciaPorBcoAgeHttpGetIn">
+    <wsdl:part name="cod_banco" type="s:string" />
+    <wsdl:part name="cod_age" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesBancoAgenciaPorBcoAgeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerZonasAustralesHttpGetIn" />
+  <wsdl:message name="ObtenerZonasAustralesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfZonaAustral" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDependenciasHabilitadasHttpGetIn" />
+  <wsdl:message name="ObtenerDependenciasHabilitadasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDependencia" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDependenciaHabilitadaHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDependenciaHabilitadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDependenciaHabilitadaHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDependenciaHabilitadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="EliminarDependenciaHabilitadaHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EliminarDependenciaHabilitadaHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="AgregarZonaAustralHttpGetIn">
+    <wsdl:part name="id_provincia" type="s:string" />
+    <wsdl:part name="cobertura" type="s:string" />
+    <wsdl:part name="codigopostal" type="s:string" />
+    <wsdl:part name="localidad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AgregarZonaAustralHttpGetOut">
+    <wsdl:part name="Body" element="tns:short" />
+  </wsdl:message>
+  <wsdl:message name="EliminarZonaAustralHttpGetIn">
+    <wsdl:part name="codigoprovincia" type="s:string" />
+    <wsdl:part name="codigopostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EliminarZonaAustralHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarZonaAustralHttpGetIn">
+    <wsdl:part name="id_provincia" type="s:string" />
+    <wsdl:part name="codigopostal" type="s:string" />
+    <wsdl:part name="localidad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarZonaAustralHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosDelCUIPHttpPostIn">
+    <wsdl:part name="cuip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosDelCUIPHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficioDetalle" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasHttpPostIn" />
+  <wsdl:message name="ObtenerExCajasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfExCaja" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerProvinciasHttpPostIn" />
+  <wsdl:message name="ObtenerProvinciasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProvincia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarExistenciaNovedadPendienteHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarExistenciaNovedadPendienteHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoNovedadHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarHistoricoNovedadHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDetalleSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="GrabarNovedadHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+    <wsdl:part name="agentepagador" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="terminal" type="s:string" />
+    <wsdl:part name="operador" type="s:string" />
+    <wsdl:part name="periodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GrabarNovedadHttpPostOut">
+    <wsdl:part name="Body" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="BajarNovedadHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="terminal" type="s:string" />
+    <wsdl:part name="operador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BajarNovedadHttpPostOut">
+    <wsdl:part name="Body" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="ModificarNovedadHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+    <wsdl:part name="agentepagador" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="terminal" type="s:string" />
+    <wsdl:part name="operador" type="s:string" />
+    <wsdl:part name="periodo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModificarNovedadHttpPostOut">
+    <wsdl:part name="Body" element="tns:Confirmacion" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaBancoAgenciaHttpPostIn">
+    <wsdl:part name="codigoPostal" type="s:string" />
+    <wsdl:part name="codigoProvincia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaBancoAgenciaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDetallesBancoAgenciaHttpPostIn">
+    <wsdl:part name="cod_banco" type="s:string" />
+    <wsdl:part name="cod_agencia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaDetallesBancoAgenciaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesBancoAgenciaPorBcoAgeHttpPostIn">
+    <wsdl:part name="cod_banco" type="s:string" />
+    <wsdl:part name="cod_age" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetallesBancoAgenciaPorBcoAgeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBancoAgencia" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerZonasAustralesHttpPostIn" />
+  <wsdl:message name="ObtenerZonasAustralesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfZonaAustral" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDependenciasHabilitadasHttpPostIn" />
+  <wsdl:message name="ObtenerDependenciasHabilitadasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDependencia" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDependenciaHabilitadaHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDependenciaHabilitadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDependenciaHabilitadaHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AgregarDependenciaHabilitadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="EliminarDependenciaHabilitadaHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EliminarDependenciaHabilitadaHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="AgregarZonaAustralHttpPostIn">
+    <wsdl:part name="id_provincia" type="s:string" />
+    <wsdl:part name="cobertura" type="s:string" />
+    <wsdl:part name="codigopostal" type="s:string" />
+    <wsdl:part name="localidad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AgregarZonaAustralHttpPostOut">
+    <wsdl:part name="Body" element="tns:short" />
+  </wsdl:message>
+  <wsdl:message name="EliminarZonaAustralHttpPostIn">
+    <wsdl:part name="codigoprovincia" type="s:string" />
+    <wsdl:part name="codigopostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EliminarZonaAustralHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarZonaAustralHttpPostIn">
+    <wsdl:part name="id_provincia" type="s:string" />
+    <wsdl:part name="codigopostal" type="s:string" />
+    <wsdl:part name="localidad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarZonaAustralHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="BocaDePagoWSSoap">
+    <wsdl:operation name="ObtenerBeneficiosDelCUIP">
+      <wsdl:input message="tns:ObtenerBeneficiosDelCUIPSoapIn" />
+      <wsdl:output message="tns:ObtenerBeneficiosDelCUIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajas">
+      <wsdl:input message="tns:ObtenerExCajasSoapIn" />
+      <wsdl:output message="tns:ObtenerExCajasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProvincias">
+      <wsdl:input message="tns:ObtenerProvinciasSoapIn" />
+      <wsdl:output message="tns:ObtenerProvinciasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistenciaNovedadPendiente">
+      <wsdl:input message="tns:ConsultarExistenciaNovedadPendienteSoapIn" />
+      <wsdl:output message="tns:ConsultarExistenciaNovedadPendienteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoNovedad">
+      <wsdl:input message="tns:ConsultarHistoricoNovedadSoapIn" />
+      <wsdl:output message="tns:ConsultarHistoricoNovedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrabarNovedad">
+      <wsdl:input message="tns:GrabarNovedadSoapIn" />
+      <wsdl:output message="tns:GrabarNovedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajarNovedad">
+      <wsdl:input message="tns:BajarNovedadSoapIn" />
+      <wsdl:output message="tns:BajarNovedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNovedad">
+      <wsdl:input message="tns:ModificarNovedadSoapIn" />
+      <wsdl:output message="tns:ModificarNovedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaBancoAgencia">
+      <wsdl:input message="tns:ConsultaBancoAgenciaSoapIn" />
+      <wsdl:output message="tns:ConsultaBancoAgenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDetallesBancoAgencia">
+      <wsdl:input message="tns:ConsultaDetallesBancoAgenciaSoapIn" />
+      <wsdl:output message="tns:ConsultaDetallesBancoAgenciaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesBancoAgenciaPorBcoAge">
+      <wsdl:input message="tns:ObtenerDetallesBancoAgenciaPorBcoAgeSoapIn" />
+      <wsdl:output message="tns:ObtenerDetallesBancoAgenciaPorBcoAgeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerZonasAustrales">
+      <wsdl:input message="tns:ObtenerZonasAustralesSoapIn" />
+      <wsdl:output message="tns:ObtenerZonasAustralesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDependenciasHabilitadas">
+      <wsdl:input message="tns:ObtenerDependenciasHabilitadasSoapIn" />
+      <wsdl:output message="tns:ObtenerDependenciasHabilitadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDependenciaHabilitada">
+      <wsdl:input message="tns:ActualizarDependenciaHabilitadaSoapIn" />
+      <wsdl:output message="tns:ActualizarDependenciaHabilitadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDependenciaHabilitada">
+      <wsdl:input message="tns:AgregarDependenciaHabilitadaSoapIn" />
+      <wsdl:output message="tns:AgregarDependenciaHabilitadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDependenciaHabilitada">
+      <wsdl:input message="tns:EliminarDependenciaHabilitadaSoapIn" />
+      <wsdl:output message="tns:EliminarDependenciaHabilitadaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarZonaAustral">
+      <wsdl:input message="tns:AgregarZonaAustralSoapIn" />
+      <wsdl:output message="tns:AgregarZonaAustralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarZonaAustral">
+      <wsdl:input message="tns:EliminarZonaAustralSoapIn" />
+      <wsdl:output message="tns:EliminarZonaAustralSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarZonaAustral">
+      <wsdl:input message="tns:ActualizarZonaAustralSoapIn" />
+      <wsdl:output message="tns:ActualizarZonaAustralSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BocaDePagoWSHttpGet">
+    <wsdl:operation name="ObtenerBeneficiosDelCUIP">
+      <wsdl:input message="tns:ObtenerBeneficiosDelCUIPHttpGetIn" />
+      <wsdl:output message="tns:ObtenerBeneficiosDelCUIPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajas">
+      <wsdl:input message="tns:ObtenerExCajasHttpGetIn" />
+      <wsdl:output message="tns:ObtenerExCajasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProvincias">
+      <wsdl:input message="tns:ObtenerProvinciasHttpGetIn" />
+      <wsdl:output message="tns:ObtenerProvinciasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistenciaNovedadPendiente">
+      <wsdl:input message="tns:ConsultarExistenciaNovedadPendienteHttpGetIn" />
+      <wsdl:output message="tns:ConsultarExistenciaNovedadPendienteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoNovedad">
+      <wsdl:input message="tns:ConsultarHistoricoNovedadHttpGetIn" />
+      <wsdl:output message="tns:ConsultarHistoricoNovedadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrabarNovedad">
+      <wsdl:input message="tns:GrabarNovedadHttpGetIn" />
+      <wsdl:output message="tns:GrabarNovedadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajarNovedad">
+      <wsdl:input message="tns:BajarNovedadHttpGetIn" />
+      <wsdl:output message="tns:BajarNovedadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNovedad">
+      <wsdl:input message="tns:ModificarNovedadHttpGetIn" />
+      <wsdl:output message="tns:ModificarNovedadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaBancoAgencia">
+      <wsdl:input message="tns:ConsultaBancoAgenciaHttpGetIn" />
+      <wsdl:output message="tns:ConsultaBancoAgenciaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDetallesBancoAgencia">
+      <wsdl:input message="tns:ConsultaDetallesBancoAgenciaHttpGetIn" />
+      <wsdl:output message="tns:ConsultaDetallesBancoAgenciaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesBancoAgenciaPorBcoAge">
+      <wsdl:input message="tns:ObtenerDetallesBancoAgenciaPorBcoAgeHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDetallesBancoAgenciaPorBcoAgeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerZonasAustrales">
+      <wsdl:input message="tns:ObtenerZonasAustralesHttpGetIn" />
+      <wsdl:output message="tns:ObtenerZonasAustralesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDependenciasHabilitadas">
+      <wsdl:input message="tns:ObtenerDependenciasHabilitadasHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDependenciasHabilitadasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDependenciaHabilitada">
+      <wsdl:input message="tns:ActualizarDependenciaHabilitadaHttpGetIn" />
+      <wsdl:output message="tns:ActualizarDependenciaHabilitadaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDependenciaHabilitada">
+      <wsdl:input message="tns:AgregarDependenciaHabilitadaHttpGetIn" />
+      <wsdl:output message="tns:AgregarDependenciaHabilitadaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDependenciaHabilitada">
+      <wsdl:input message="tns:EliminarDependenciaHabilitadaHttpGetIn" />
+      <wsdl:output message="tns:EliminarDependenciaHabilitadaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarZonaAustral">
+      <wsdl:input message="tns:AgregarZonaAustralHttpGetIn" />
+      <wsdl:output message="tns:AgregarZonaAustralHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarZonaAustral">
+      <wsdl:input message="tns:EliminarZonaAustralHttpGetIn" />
+      <wsdl:output message="tns:EliminarZonaAustralHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarZonaAustral">
+      <wsdl:input message="tns:ActualizarZonaAustralHttpGetIn" />
+      <wsdl:output message="tns:ActualizarZonaAustralHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BocaDePagoWSHttpPost">
+    <wsdl:operation name="ObtenerBeneficiosDelCUIP">
+      <wsdl:input message="tns:ObtenerBeneficiosDelCUIPHttpPostIn" />
+      <wsdl:output message="tns:ObtenerBeneficiosDelCUIPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajas">
+      <wsdl:input message="tns:ObtenerExCajasHttpPostIn" />
+      <wsdl:output message="tns:ObtenerExCajasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProvincias">
+      <wsdl:input message="tns:ObtenerProvinciasHttpPostIn" />
+      <wsdl:output message="tns:ObtenerProvinciasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistenciaNovedadPendiente">
+      <wsdl:input message="tns:ConsultarExistenciaNovedadPendienteHttpPostIn" />
+      <wsdl:output message="tns:ConsultarExistenciaNovedadPendienteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoNovedad">
+      <wsdl:input message="tns:ConsultarHistoricoNovedadHttpPostIn" />
+      <wsdl:output message="tns:ConsultarHistoricoNovedadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrabarNovedad">
+      <wsdl:input message="tns:GrabarNovedadHttpPostIn" />
+      <wsdl:output message="tns:GrabarNovedadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BajarNovedad">
+      <wsdl:input message="tns:BajarNovedadHttpPostIn" />
+      <wsdl:output message="tns:BajarNovedadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNovedad">
+      <wsdl:input message="tns:ModificarNovedadHttpPostIn" />
+      <wsdl:output message="tns:ModificarNovedadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaBancoAgencia">
+      <wsdl:input message="tns:ConsultaBancoAgenciaHttpPostIn" />
+      <wsdl:output message="tns:ConsultaBancoAgenciaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDetallesBancoAgencia">
+      <wsdl:input message="tns:ConsultaDetallesBancoAgenciaHttpPostIn" />
+      <wsdl:output message="tns:ConsultaDetallesBancoAgenciaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesBancoAgenciaPorBcoAge">
+      <wsdl:input message="tns:ObtenerDetallesBancoAgenciaPorBcoAgeHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDetallesBancoAgenciaPorBcoAgeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerZonasAustrales">
+      <wsdl:input message="tns:ObtenerZonasAustralesHttpPostIn" />
+      <wsdl:output message="tns:ObtenerZonasAustralesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDependenciasHabilitadas">
+      <wsdl:input message="tns:ObtenerDependenciasHabilitadasHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDependenciasHabilitadasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDependenciaHabilitada">
+      <wsdl:input message="tns:ActualizarDependenciaHabilitadaHttpPostIn" />
+      <wsdl:output message="tns:ActualizarDependenciaHabilitadaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDependenciaHabilitada">
+      <wsdl:input message="tns:AgregarDependenciaHabilitadaHttpPostIn" />
+      <wsdl:output message="tns:AgregarDependenciaHabilitadaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDependenciaHabilitada">
+      <wsdl:input message="tns:EliminarDependenciaHabilitadaHttpPostIn" />
+      <wsdl:output message="tns:EliminarDependenciaHabilitadaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarZonaAustral">
+      <wsdl:input message="tns:AgregarZonaAustralHttpPostIn" />
+      <wsdl:output message="tns:AgregarZonaAustralHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarZonaAustral">
+      <wsdl:input message="tns:EliminarZonaAustralHttpPostIn" />
+      <wsdl:output message="tns:EliminarZonaAustralHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarZonaAustral">
+      <wsdl:input message="tns:ActualizarZonaAustralHttpPostIn" />
+      <wsdl:output message="tns:ActualizarZonaAustralHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BocaDePagoWSSoap" type="tns:BocaDePagoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerBeneficiosDelCUIP">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerBeneficiosDelCUIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajas">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerExCajas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProvincias">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerProvincias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistenciaNovedadPendiente">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultarExistenciaNovedadPendiente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoNovedad">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultarHistoricoNovedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarNovedad">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/GrabarNovedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajarNovedad">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/BajarNovedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNovedad">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ModificarNovedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaBancoAgencia">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultaBancoAgencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDetallesBancoAgencia">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultaDetallesBancoAgencia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesBancoAgenciaPorBcoAge">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerDetallesBancoAgenciaPorBcoAge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerZonasAustrales">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerZonasAustrales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDependenciasHabilitadas">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerDependenciasHabilitadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDependenciaHabilitada">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ActualizarDependenciaHabilitada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDependenciaHabilitada">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/AgregarDependenciaHabilitada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDependenciaHabilitada">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/EliminarDependenciaHabilitada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarZonaAustral">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/AgregarZonaAustral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarZonaAustral">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/EliminarZonaAustral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarZonaAustral">
+      <soap:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ActualizarZonaAustral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BocaDePagoWSSoap12" type="tns:BocaDePagoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerBeneficiosDelCUIP">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerBeneficiosDelCUIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajas">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerExCajas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProvincias">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerProvincias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistenciaNovedadPendiente">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultarExistenciaNovedadPendiente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoNovedad">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultarHistoricoNovedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarNovedad">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/GrabarNovedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajarNovedad">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/BajarNovedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNovedad">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ModificarNovedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaBancoAgencia">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultaBancoAgencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDetallesBancoAgencia">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ConsultaDetallesBancoAgencia" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesBancoAgenciaPorBcoAge">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerDetallesBancoAgenciaPorBcoAge" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerZonasAustrales">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerZonasAustrales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDependenciasHabilitadas">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ObtenerDependenciasHabilitadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDependenciaHabilitada">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ActualizarDependenciaHabilitada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDependenciaHabilitada">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/AgregarDependenciaHabilitada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDependenciaHabilitada">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/EliminarDependenciaHabilitada" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarZonaAustral">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/AgregarZonaAustral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarZonaAustral">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/EliminarZonaAustral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarZonaAustral">
+      <soap12:operation soapAction="http://BocaDePago.Anses.Gov.Ar/ActualizarZonaAustral" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BocaDePagoWSHttpGet" type="tns:BocaDePagoWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ObtenerBeneficiosDelCUIP">
+      <http:operation location="/ObtenerBeneficiosDelCUIP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajas">
+      <http:operation location="/ObtenerExCajas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProvincias">
+      <http:operation location="/ObtenerProvincias" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistenciaNovedadPendiente">
+      <http:operation location="/ConsultarExistenciaNovedadPendiente" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoNovedad">
+      <http:operation location="/ConsultarHistoricoNovedad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarNovedad">
+      <http:operation location="/GrabarNovedad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajarNovedad">
+      <http:operation location="/BajarNovedad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNovedad">
+      <http:operation location="/ModificarNovedad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaBancoAgencia">
+      <http:operation location="/ConsultaBancoAgencia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDetallesBancoAgencia">
+      <http:operation location="/ConsultaDetallesBancoAgencia" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesBancoAgenciaPorBcoAge">
+      <http:operation location="/ObtenerDetallesBancoAgenciaPorBcoAge" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerZonasAustrales">
+      <http:operation location="/ObtenerZonasAustrales" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDependenciasHabilitadas">
+      <http:operation location="/ObtenerDependenciasHabilitadas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDependenciaHabilitada">
+      <http:operation location="/ActualizarDependenciaHabilitada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDependenciaHabilitada">
+      <http:operation location="/AgregarDependenciaHabilitada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDependenciaHabilitada">
+      <http:operation location="/EliminarDependenciaHabilitada" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarZonaAustral">
+      <http:operation location="/AgregarZonaAustral" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarZonaAustral">
+      <http:operation location="/EliminarZonaAustral" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarZonaAustral">
+      <http:operation location="/ActualizarZonaAustral" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BocaDePagoWSHttpPost" type="tns:BocaDePagoWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ObtenerBeneficiosDelCUIP">
+      <http:operation location="/ObtenerBeneficiosDelCUIP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajas">
+      <http:operation location="/ObtenerExCajas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerProvincias">
+      <http:operation location="/ObtenerProvincias" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarExistenciaNovedadPendiente">
+      <http:operation location="/ConsultarExistenciaNovedadPendiente" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarHistoricoNovedad">
+      <http:operation location="/ConsultarHistoricoNovedad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarNovedad">
+      <http:operation location="/GrabarNovedad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BajarNovedad">
+      <http:operation location="/BajarNovedad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarNovedad">
+      <http:operation location="/ModificarNovedad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaBancoAgencia">
+      <http:operation location="/ConsultaBancoAgencia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaDetallesBancoAgencia">
+      <http:operation location="/ConsultaDetallesBancoAgencia" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetallesBancoAgenciaPorBcoAge">
+      <http:operation location="/ObtenerDetallesBancoAgenciaPorBcoAge" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerZonasAustrales">
+      <http:operation location="/ObtenerZonasAustrales" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDependenciasHabilitadas">
+      <http:operation location="/ObtenerDependenciasHabilitadas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDependenciaHabilitada">
+      <http:operation location="/ActualizarDependenciaHabilitada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarDependenciaHabilitada">
+      <http:operation location="/AgregarDependenciaHabilitada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarDependenciaHabilitada">
+      <http:operation location="/EliminarDependenciaHabilitada" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarZonaAustral">
+      <http:operation location="/AgregarZonaAustral" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarZonaAustral">
+      <http:operation location="/EliminarZonaAustral" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarZonaAustral">
+      <http:operation location="/ActualizarZonaAustral" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BocaDePagoWS">
+    <wsdl:port name="BocaDePagoWSSoap" binding="tns:BocaDePagoWSSoap">
+      <soap:address location="http://ansesnegodesapp/BocaDePagoServicio/BocaDePagoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BocaDePagoWSSoap12" binding="tns:BocaDePagoWSSoap12">
+      <soap12:address location="http://ansesnegodesapp/BocaDePagoServicio/BocaDePagoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BocaDePagoWSHttpGet" binding="tns:BocaDePagoWSHttpGet">
+      <http:address location="http://ansesnegodesapp/BocaDePagoServicio/BocaDePagoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BocaDePagoWSHttpPost" binding="tns:BocaDePagoWSHttpPost">
+      <http:address location="http://ansesnegodesapp/BocaDePagoServicio/BocaDePagoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7DECEAA4-E60C-4DC7-B77F-903754C25BA7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ar.Gov.Anses.Microinformatica.DAT.Entidades</RootNamespace>
+    <AssemblyName>DATEntidades</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>http://localhost/DATEntidades/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder">
+      <HintPath>bin\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adherente.cs" />
+    <Compile Include="BeneficioDisponible.cs" />
+    <Compile Include="CancelacionAnticipada.cs" />
+    <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="DatosDeNovedadDeRecupero.cs" />
+    <Compile Include="Documento.cs" />
+    <Compile Include="EstadoNovedad\Cobro.cs" />
+    <Compile Include="DocumentacionScaneada.cs" />
+    <Compile Include="Auditoria.cs" />
+    <Compile Include="Beneficiario.cs" />
+    <Compile Include="Caratulacion.cs" />
+    <Compile Include="Cierre.cs" />
+    <Compile Include="CodDescripcion.cs" />
+    <Compile Include="Comercializador.cs" />
+    <Compile Include="ConceptoLiquidacion.cs" />
+    <Compile Include="Agencia.cs" />
+    <Compile Include="ContactoReclamo.cs" />
+    <Compile Include="ConsultaBatch.cs" />
+    <Compile Include="CodigoPreAprobado.cs" />
+    <Compile Include="EstadoNovedad\EstadoNovedad.cs" />
+    <Compile Include="FiltroDeRecuperos.cs" />
+    <Compile Include="FlujoFondo.cs" />
+    <Compile Include="GestionRecuperoForm.cs" />
+    <Compile Include="ModalidadDePago.cs" />
+    <Compile Include="NovedadesHistoricas\NovedadCambioEstado.cs" />
+    <Compile Include="NovedadesTotales\ContenedorDeCuotas.cs" />
+    <Compile Include="NovedadInventario.cs" />
+    <Compile Include="NovedadesTotales\NovedadTotal.cs" />
+    <Compile Include="Feriado.cs" />
+    <Compile Include="Recupero.cs" />
+    <Compile Include="RecuperoDetalle.cs" />
+    <Compile Include="RecuperoDetalleForm.cs" />
+    <Compile Include="Siniestro.cs" />
+    <Compile Include="TablasTipoPersonas.cs" />
+    <Compile Include="TablasTipoPersonasList.cs" />
+    <Compile Include="TipoServicio.cs" />
+    <Compile Include="TipoEmbozado.cs" />
+    <Compile Include="Regional.cs" />
+    <Compile Include="NovedadLiquidada.cs" />
+    <Compile Include="PinLink.cs" />
+    <Compile Include="Tarjeta.cs" />
+    <Compile Include="Cuota.cs" />
+    <Compile Include="CuotaSocial.cs" />
+    <Compile Include="Domicilio.cs" />
+    <Compile Include="Entidad_Prest_Comer.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="Estado.cs" />
+    <Compile Include="CodigoMovimiento.cs" />
+    <Compile Include="EstadoReclamo.cs" />
+    <Compile Include="FechaMensual.cs" />
+    <Compile Include="Informe_NovedadesALiquidar.cs" />
+    <Compile Include="KeyValue.cs" />
+    <Compile Include="MarcaPC.cs" />
+    <Compile Include="ModeloImpresion.cs" />
+    <Compile Include="ModeloPC.cs" />
+    <Compile Include="NoValida.cs" />
+    <Compile Include="Novedad.cs" />
+    <Compile Include="NovedadCaratulada.cs" />
+    <Compile Include="NovedadDocumentacion.cs" />
+    <Compile Include="Parametros.cs" />
+    <Compile Include="Prestador.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provincia.cs" />
+    <Compile Include="Reclamo.cs" />
+    <Compile Include="Resultado.cs" />
+    <Compile Include="SolicitudVamosPaseo.cs" />
+    <Compile Include="Sucursal.cs" />
+    <Compile Include="Tasa.cs" />
+    <Compile Include="Tipo.cs" />
+    <Compile Include="TipoConcepto.cs" />
+    <Compile Include="TipoDocumentoPresentado.cs" />
+    <Compile Include="TipoDomicilio.cs" />
+    <Compile Include="TipoEstadoRecupero.cs" />
+    <Compile Include="TipoEstado_SC.cs" />
+    <Compile Include="TipoMotivoRecupero.cs" />
+    <Compile Include="TipoReclamo.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="ValidaEntidad.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

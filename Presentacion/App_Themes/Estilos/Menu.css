@@ -1,0 +1,54 @@
+#ctl00_Menu1_menuDinamico {
+	Z-INDEX: 5; POSITION: relative
+}
+.jquerycssmenu {
+	PADDING-BOTTOM: 6px; BACKGROUND-COLOR: #a0d081; PADDING-LEFT: 6px; PADDING-RIGHT: 6px; FONT: 12px Verdana; HEIGHT: 23px; PADDING-TOP: 6px
+}
+.jquerycssmenu UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.jquerycssmenu UL LI {
+	POSITION: relative; DISPLAY: inline; FLOAT: left
+}
+.jquerycssmenu UL LI A {
+	BORDER-LEFT: #cee5b8 5px solid; PADDING-BOTTOM: 4px; BACKGROUND-COLOR: #b8db9b; PADDING-LEFT: 7px; PADDING-RIGHT: 7px; DISPLAY: block; COLOR: #414142; MARGIN-RIGHT: 3px; TEXT-DECORATION: none; PADDING-TOP: 5px
+}
+.jquerycssmenu UL LI A:hover {
+	BACKGROUND-COLOR: #cee5b8
+}
+.jquerycssmenu UL LI UL {
+	POSITION: absolute; DISPLAY: block; VISIBILITY: hidden; BORDER-TOP: black 0px solid; LEFT: 0px
+}
+.jquerycssmenu UL LI UL LI {
+	DISPLAY: list-item; FLOAT: none
+}
+.jquerycssmenu UL LI UL LI UL {
+	TOP: 0px
+}
+.jquerycssmenu UL LI UL LI A {
+	BORDER-BOTTOM: white 1px solid; PADDING-BOTTOM: 4px; BACKGROUND-COLOR: #c7ddf3; MARGIN: 0px; PADDING-LEFT: 5px; WIDTH: 160px; PADDING-RIGHT: 5px; FONT: 13px Verdana; BORDER-TOP-WIDTH: 0px; COLOR: #414142; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 4px
+}
+.jquerycssmenu UL LI UL LI A:hover {
+	BACKGROUND: #d9e6f4
+}
+.downarrowclass {
+	POSITION: absolute; TOP: 7px; RIGHT: 5px
+}
+.rightarrowclass {
+	POSITION: absolute; TOP: 5px; RIGHT: 5px
+}
+#navbar {
+	Z-INDEX: 6; BORDER-BOTTOM: black 1px solid; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #a0d081; PADDING-LEFT: 8px; PADDING-RIGHT: 0px; FONT: 12px Verdana; HEIGHT: 27px; PADDING-TOP: 8px
+}
+.MenuNet {
+	FONT-FAMILY: Verdana; BACKGROUND: #cee5b8; COLOR: #414142; FONT-SIZE: 9pt
+}
+.MenuHover {
+	BACKGROUND: #c7ddf3
+}
+.MenufondoDesplegable {
+	BACKGROUND: #c7ddf3
+}
+.MenuEspacios {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; FONT-SIZE: 9pt; PADDING-TOP: 2px
+}

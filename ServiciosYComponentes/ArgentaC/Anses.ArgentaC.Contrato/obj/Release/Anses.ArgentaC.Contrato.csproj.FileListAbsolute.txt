@@ -1,0 +1,4 @@
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\bin\Release\Anses.ArgentaC.Contrato.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\bin\Release\Anses.ArgentaC.Contrato.pdb
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\obj\Release\Anses.ArgentaC.Contrato.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\obj\Release\Anses.ArgentaC.Contrato.pdb

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="ANSeS.SBA.ServicesContracts.Enums" elementFormDefault="qualified" targetNamespace="ANSeS.SBA.ServicesContracts.Enums" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="FingerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="RightThumb" />
+      <xs:enumeration value="RightIndex" />
+      <xs:enumeration value="RightMiddle" />
+      <xs:enumeration value="RightRing" />
+      <xs:enumeration value="RightLittle" />
+      <xs:enumeration value="LeftThumb" />
+      <xs:enumeration value="LeftIndex" />
+      <xs:enumeration value="LeftMiddle" />
+      <xs:enumeration value="LeftRing" />
+      <xs:enumeration value="LeftLittle" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FingerType" nillable="true" type="tns:FingerType" />
+  <xs:simpleType name="FingerprintType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LatentImpression" />
+      <xs:enumeration value="LatentLift" />
+      <xs:enumeration value="LatentPhoto" />
+      <xs:enumeration value="LatentTracing" />
+      <xs:enumeration value="LiveScanContactless" />
+      <xs:enumeration value="LiveScanPlain" />
+      <xs:enumeration value="LiveScanRolled" />
+      <xs:enumeration value="NonliveScanPlain" />
+      <xs:enumeration value="NonliveScanRolled" />
+      <xs:enumeration value="Swipe" />
+      <xs:enumeration value="None">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">99</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FingerprintType" nillable="true" type="tns:FingerprintType" />
+  <xs:simpleType name="TemplateFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="ANSI378" />
+      <xs:enumeration value="Neurotechnology" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TemplateFormat" nillable="true" type="tns:TemplateFormat" />
+</xs:schema>

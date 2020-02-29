@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TraerCierresAnteriores">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraerCierresAnterioresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerCierresAnterioresResult" type="tns:ArrayOfCierre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCierre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cierre" nillable="true" type="tns:Cierre" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cierre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FecCierre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensual" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecProceso" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecAplicacionPagos" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerFechaCierreProx">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraerFechaCierreProxResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerFechaCierreProxResult" type="tns:Cierre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerFechaCierreAnterior">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraerFechaCierreAnteriorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerFechaCierreAnteriorResult" type="tns:Cierre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfCierre" nillable="true" type="tns:ArrayOfCierre" />
+      <s:element name="Cierre" nillable="true" type="tns:Cierre" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerCierresAnterioresSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerCierresAnteriores" />
+  </wsdl:message>
+  <wsdl:message name="TraerCierresAnterioresSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerCierresAnterioresResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreProxSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerFechaCierreProx" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreProxSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerFechaCierreProxResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreAnteriorSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerFechaCierreAnterior" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreAnteriorSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerFechaCierreAnteriorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerCierresAnterioresHttpGetIn" />
+  <wsdl:message name="TraerCierresAnterioresHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCierre" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreProxHttpGetIn" />
+  <wsdl:message name="TraerFechaCierreProxHttpGetOut">
+    <wsdl:part name="Body" element="tns:Cierre" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreAnteriorHttpGetIn" />
+  <wsdl:message name="TraerFechaCierreAnteriorHttpGetOut">
+    <wsdl:part name="Body" element="tns:Cierre" />
+  </wsdl:message>
+  <wsdl:message name="TraerCierresAnterioresHttpPostIn" />
+  <wsdl:message name="TraerCierresAnterioresHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCierre" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreProxHttpPostIn" />
+  <wsdl:message name="TraerFechaCierreProxHttpPostOut">
+    <wsdl:part name="Body" element="tns:Cierre" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaCierreAnteriorHttpPostIn" />
+  <wsdl:message name="TraerFechaCierreAnteriorHttpPostOut">
+    <wsdl:part name="Body" element="tns:Cierre" />
+  </wsdl:message>
+  <wsdl:portType name="CierreWSSoap">
+    <wsdl:operation name="TraerCierresAnteriores">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerCierresAnteriores</wsdl:documentation>
+      <wsdl:input message="tns:TraerCierresAnterioresSoapIn" />
+      <wsdl:output message="tns:TraerCierresAnterioresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreProx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerFechaCierreProx</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaCierreProxSoapIn" />
+      <wsdl:output message="tns:TraerFechaCierreProxSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreAnterior">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerFechaCierreAnterior</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaCierreAnteriorSoapIn" />
+      <wsdl:output message="tns:TraerFechaCierreAnteriorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CierreWSHttpGet">
+    <wsdl:operation name="TraerCierresAnteriores">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerCierresAnteriores</wsdl:documentation>
+      <wsdl:input message="tns:TraerCierresAnterioresHttpGetIn" />
+      <wsdl:output message="tns:TraerCierresAnterioresHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreProx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerFechaCierreProx</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaCierreProxHttpGetIn" />
+      <wsdl:output message="tns:TraerFechaCierreProxHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreAnterior">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerFechaCierreAnterior</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaCierreAnteriorHttpGetIn" />
+      <wsdl:output message="tns:TraerFechaCierreAnteriorHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CierreWSHttpPost">
+    <wsdl:operation name="TraerCierresAnteriores">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerCierresAnteriores</wsdl:documentation>
+      <wsdl:input message="tns:TraerCierresAnterioresHttpPostIn" />
+      <wsdl:output message="tns:TraerCierresAnterioresHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreProx">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerFechaCierreProx</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaCierreProxHttpPostIn" />
+      <wsdl:output message="tns:TraerFechaCierreProxHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreAnterior">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerFechaCierreAnterior</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaCierreAnteriorHttpPostIn" />
+      <wsdl:output message="tns:TraerFechaCierreAnteriorHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CierreWSSoap" type="tns:CierreWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerCierresAnteriores">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerCierresAnteriores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreProx">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerFechaCierreProx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreAnterior">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerFechaCierreAnterior" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CierreWSSoap12" type="tns:CierreWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerCierresAnteriores">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerCierresAnteriores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreProx">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerFechaCierreProx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreAnterior">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerFechaCierreAnterior" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CierreWSHttpGet" type="tns:CierreWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerCierresAnteriores">
+      <http:operation location="/TraerCierresAnteriores" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreProx">
+      <http:operation location="/TraerFechaCierreProx" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreAnterior">
+      <http:operation location="/TraerFechaCierreAnterior" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CierreWSHttpPost" type="tns:CierreWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerCierresAnteriores">
+      <http:operation location="/TraerCierresAnteriores" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreProx">
+      <http:operation location="/TraerFechaCierreProx" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaCierreAnterior">
+      <http:operation location="/TraerFechaCierreAnterior" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CierreWS">
+    <wsdl:port name="CierreWSSoap" binding="tns:CierreWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/CierreWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CierreWSSoap12" binding="tns:CierreWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/CierreWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CierreWSHttpGet" binding="tns:CierreWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/CierreWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CierreWSHttpPost" binding="tns:CierreWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/CierreWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,5 @@
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\bin\Debug\Anses.ArgentaC.Contrato.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\bin\Debug\Anses.ArgentaC.Contrato.pdb
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\obj\Debug\Anses.ArgentaC.Contrato.csprojResolveAssemblyReference.cache
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\obj\Debug\Anses.ArgentaC.Contrato.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Contrato\obj\Debug\Anses.ArgentaC.Contrato.pdb

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TraerAgencias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unaAgencia" type="tns:Agencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Agencia">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfAgencia">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Cuit" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsMayorista" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Habilitada" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="NroCuenta" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NroLegajo" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IdAgencia" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfAgencia" />
+      <s:element name="TraerAgenciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerAgenciasResult" type="tns:ArrayOfAgencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAgencia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Agencia" nillable="true" type="tns:Agencia" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GuardarAgencias">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idAgencia" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarAgenciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GuardarAgenciasResult" type="tns:ArrayOfError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Error" nillable="true" type="tns:Error" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Error">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDeError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Metodo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionConcatenada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Parametros" type="tns:ArrayOfAnyType" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfError" nillable="true" type="tns:ArrayOfError" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerAgenciasSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerAgencias" />
+  </wsdl:message>
+  <wsdl:message name="TraerAgenciasSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerAgenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAgenciasSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarAgencias" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAgenciasSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarAgenciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAgenciasHttpGetIn">
+    <wsdl:part name="idAgencia" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAgenciasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfError" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAgenciasHttpPostIn">
+    <wsdl:part name="idAgencia" type="s:string" />
+    <wsdl:part name="descripcion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GuardarAgenciasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfError" />
+  </wsdl:message>
+  <wsdl:portType name="AgenciaWSSoap">
+    <wsdl:operation name="TraerAgencias">
+      <wsdl:input message="tns:TraerAgenciasSoapIn" />
+      <wsdl:output message="tns:TraerAgenciasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAgencias">
+      <wsdl:input message="tns:GuardarAgenciasSoapIn" />
+      <wsdl:output message="tns:GuardarAgenciasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AgenciaWSHttpGet">
+    <wsdl:operation name="GuardarAgencias">
+      <wsdl:input message="tns:GuardarAgenciasHttpGetIn" />
+      <wsdl:output message="tns:GuardarAgenciasHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AgenciaWSHttpPost">
+    <wsdl:operation name="GuardarAgencias">
+      <wsdl:input message="tns:GuardarAgenciasHttpPostIn" />
+      <wsdl:output message="tns:GuardarAgenciasHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AgenciaWSSoap" type="tns:AgenciaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerAgencias">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerAgencias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAgencias">
+      <soap:operation soapAction="http://dat.anses.gov.ar/GuardarAgencias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgenciaWSSoap12" type="tns:AgenciaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerAgencias">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerAgencias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarAgencias">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/GuardarAgencias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgenciaWSHttpGet" type="tns:AgenciaWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GuardarAgencias">
+      <http:operation location="/GuardarAgencias" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgenciaWSHttpPost" type="tns:AgenciaWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GuardarAgencias">
+      <http:operation location="/GuardarAgencias" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AgenciaWS">
+    <wsdl:port name="AgenciaWSSoap" binding="tns:AgenciaWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/AgenciaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgenciaWSSoap12" binding="tns:AgenciaWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/AgenciaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgenciaWSHttpGet" binding="tns:AgenciaWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/AgenciaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgenciaWSHttpPost" binding="tns:AgenciaWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/AgenciaWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

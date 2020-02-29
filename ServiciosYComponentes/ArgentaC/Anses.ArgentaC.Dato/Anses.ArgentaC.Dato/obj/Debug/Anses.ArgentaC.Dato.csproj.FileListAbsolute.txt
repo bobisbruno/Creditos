@@ -1,0 +1,12 @@
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.ArgentaC.Dato.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.ArgentaC.Dato.pdb
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.ArgentaC.Comun.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.ArgentaC.Contrato.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\UsuarioDirector.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.Director.Session.lib.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.ArgentaC.Comun.pdb
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.ArgentaC.Comun.dll.config
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\bin\Debug\Anses.ArgentaC.Contrato.pdb
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\obj\Debug\Anses.ArgentaC.Dato.csprojResolveAssemblyReference.cache
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\obj\Debug\Anses.ArgentaC.Dato.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\obj\Debug\Anses.ArgentaC.Dato.pdb

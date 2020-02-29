@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="FeriadosTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fecha" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FeriadosTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FeriadosTraerResult" type="tns:ArrayOfFeriado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFeriado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Feriado" nillable="true" type="tns:Feriado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Feriado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oficina" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltModificacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FeriadosABM">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unFeriado" type="tns:Feriado" />
+            <s:element minOccurs="1" maxOccurs="1" name="esBaja" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FeriadosABMResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FeriadosABMResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FeriadosBaja">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaFeriado" type="tns:ArrayOfDateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="esBaja" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDateTime">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FeriadosBajaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FeriadosBajaResult" type="tns:ArrayOfKeyValue" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfKeyValue">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="KeyValue" type="tns:KeyValue" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="KeyValue">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Key" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FeriadosTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:FeriadosTraer" />
+  </wsdl:message>
+  <wsdl:message name="FeriadosTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:FeriadosTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="FeriadosABMSoapIn">
+    <wsdl:part name="parameters" element="tns:FeriadosABM" />
+  </wsdl:message>
+  <wsdl:message name="FeriadosABMSoapOut">
+    <wsdl:part name="parameters" element="tns:FeriadosABMResponse" />
+  </wsdl:message>
+  <wsdl:message name="FeriadosBajaSoapIn">
+    <wsdl:part name="parameters" element="tns:FeriadosBaja" />
+  </wsdl:message>
+  <wsdl:message name="FeriadosBajaSoapOut">
+    <wsdl:part name="parameters" element="tns:FeriadosBajaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FeriadoWSSoap">
+    <wsdl:operation name="FeriadosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FeriadosTraer</wsdl:documentation>
+      <wsdl:input message="tns:FeriadosTraerSoapIn" />
+      <wsdl:output message="tns:FeriadosTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FeriadosABM">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FeriadosABM</wsdl:documentation>
+      <wsdl:input message="tns:FeriadosABMSoapIn" />
+      <wsdl:output message="tns:FeriadosABMSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FeriadosBaja">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">FeriadosBajas</wsdl:documentation>
+      <wsdl:input message="tns:FeriadosBajaSoapIn" />
+      <wsdl:output message="tns:FeriadosBajaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FeriadoWSHttpGet" />
+  <wsdl:portType name="FeriadoWSHttpPost" />
+  <wsdl:binding name="FeriadoWSSoap" type="tns:FeriadoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FeriadosTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/FeriadosTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FeriadosABM">
+      <soap:operation soapAction="http://dat.anses.gov.ar/FeriadosABM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FeriadosBaja">
+      <soap:operation soapAction="http://dat.anses.gov.ar/FeriadosBaja" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FeriadoWSSoap12" type="tns:FeriadoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FeriadosTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/FeriadosTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FeriadosABM">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/FeriadosABM" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FeriadosBaja">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/FeriadosBaja" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FeriadoWSHttpGet" type="tns:FeriadoWSHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="FeriadoWSHttpPost" type="tns:FeriadoWSHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="FeriadoWS">
+    <wsdl:port name="FeriadoWSSoap" binding="tns:FeriadoWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/FeriadoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FeriadoWSSoap12" binding="tns:FeriadoWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/FeriadoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FeriadoWSHttpGet" binding="tns:FeriadoWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/FeriadoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FeriadoWSHttpPost" binding="tns:FeriadoWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/FeriadoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

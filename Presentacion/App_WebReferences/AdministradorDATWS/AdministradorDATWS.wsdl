@@ -1,0 +1,1563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="FlujoFondos_Obtener">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_IdSistema" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_MensualCobranzaDesde" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_MensualCobranzaHasta" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FlujoFondos_ObtenerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FlujoFondos_ObtenerResult" type="tns:ArrayOfFlujoFondos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFlujoFondos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FlujoFondos" nillable="true" type="tns:FlujoFondos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FlujoFondos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Prestador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MensualCobranza" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCreditosCuilito" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCreditosTitular" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amortizacion" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Intereses" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InteresCuotaCero" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="GastoAdmin" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeguroVida" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InformeDeDevolucionesCierreDiario_Obtener">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FechaDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="FechaHasta" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformeDeDevolucionesCierreDiario_ObtenerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformeDeDevolucionesCierreDiario_ObtenerResult" type="tns:ArrayOfInformeDeDevolucionesCierreDiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInformeDeDevolucionesCierreDiario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InformeDeDevolucionesCierreDiario" nillable="true" type="tns:InformeDeDevolucionesCierreDiario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InformeDeDevolucionesCierreDiario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="nombreArchivoCoelsaEnvio" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroInforme" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CUIL" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreyApellido" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoDevolucion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDevolucion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Mensual_Obtener">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="proposito" type="tns:enum_Proposito" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enum_Proposito">
+        <s:restriction base="s:string">
+          <s:enumeration value="FlujoDeFondos" />
+          <s:enumeration value="TableroDeCobranzas" />
+          <s:enumeration value="CuentaCorriente" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Mensual_ObtenerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Mensual_ObtenerResult" type="tns:ArrayOfMensual" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMensual">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Mensual" nillable="true" type="tns:Mensual" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Mensual">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Descripcion" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Concepto_Obtener">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="proposito" type="tns:enum_Proposito" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Concepto_ObtenerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Concepto_ObtenerResult" type="tns:ArrayOfConcepto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConcepto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Concepto" nillable="true" type="tns:Concepto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Concepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TableroCobranza_Obtener">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="_mensual" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="_concepto" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TableroCobranza_ObtenerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TableroCobranza_ObtenerResult" type="tns:TableroCobranza" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TableroCobranza">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InfCobranza" type="tns:InformeDeCobranza" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepCobranza" type="tns:ReporteDeCobranza" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfPendCobro" type="tns:InformePendientesDeCobro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InformeDeCobranza">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="listaCobranzas" type="tns:ArrayOfCobranza" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCobranza">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cobranza" nillable="true" type="tns:Cobranza" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cobranza">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Mensual" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodConceptoOriginante" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SistemaApropiador" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoCuotaTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amortizacion" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Intereses" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="GastoAdministrativo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeguroVida" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InteresCuotaCero" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoCuotaSinRedondeo" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReporteDeCobranza">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="listaCobranzas" type="tns:ArrayOfCobranzaReporte" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCobranzaReporte">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CobranzaReporte" nillable="true" type="tns:CobranzaReporte" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CobranzaReporte">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Mensual" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SistemaOriginante" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DV_CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="DV_Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PANT_CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="PANT_Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="F_CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="F_Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="A_LIQ_CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="A_LIQ_Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AHU_CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AHU_Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SUAF_CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SUAF_Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PEND_CantCreditos" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="PEND_Importe" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InformePendientesDeCobro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="listaPendientesDeCobro" type="tns:ArrayOfPendientesDeCobro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPendientesDeCobro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PendientesDeCobro" nillable="true" type="tns:PendientesDeCobro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PendientesDeCobro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Mensual" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCasos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InformesPreparados_Buscar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="mensual" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="concepto" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoInforme" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformesPreparados_BuscarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformesPreparados_BuscarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TblDTSVariables_Buscar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="variable" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TblDTSVariables_BuscarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TblDTSVariables_BuscarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MotivoBaja_traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="MotivoBaja_traerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MotivoBaja_traerResult" type="tns:ArrayOfEnum_TipoEstadoNovedad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEnum_TipoEstadoNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="enum_TipoEstadoNovedad" type="tns:enum_TipoEstadoNovedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoEstadoNovedad">
+        <s:restriction base="s:string">
+          <s:enumeration value="Indeterminado" />
+          <s:enumeration value="Pre_Acuerdo" />
+          <s:enumeration value="Prestamo_Generado" />
+          <s:enumeration value="Prestamo_Supervisado" />
+          <s:enumeration value="Cancelado_Por_Vto_Turno" />
+          <s:enumeration value="Cancelado_Por_Inaccion_Sup" />
+          <s:enumeration value="Cancelado_Por_Modificacion" />
+          <s:enumeration value="Baja" />
+          <s:enumeration value="Puesto_En_Observacion" />
+          <s:enumeration value="Cancelado_Por_Excepcion" />
+          <s:enumeration value="Acreditado_en_CBU" />
+          <s:enumeration value="Devolucion_Bancaria" />
+          <s:enumeration value="Credito_Confirmado_MiAnses" />
+          <s:enumeration value="Rendido_para_transferencia" />
+          <s:enumeration value="Cancelado_por_DOA" />
+          <s:enumeration value="Baja_por_fallecido" />
+          <s:enumeration value="Baja_por_error_operativo" />
+          <s:enumeration value="Baja_por_desitimiento" />
+          <s:enumeration value="Baja_por_Fraude" />
+          <s:enumeration value="Baja_por_orden_judicial" />
+          <s:enumeration value="Baja_por_Cancelacion_anticipada" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ObtenerNovedadesBSR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iTipoBSR" type="tns:enum_TipoBSR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enum_TipoBSR">
+        <s:restriction base="s:string">
+          <s:enumeration value="Baja" />
+          <s:enumeration value="Suspension" />
+          <s:enumeration value="Rehabilitacion" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ObtenerNovedadesBSRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNovedadesBSRResult" type="tns:ArrayOfONovedadBSRPre" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfONovedadBSRPre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONovedadBSRPre" nillable="true" type="tns:ONovedadBSRPre" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ONovedadBSRPre">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:NovedadBSR">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaAprobacion" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotas" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="NovedadBSR">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoYNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoDescuento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoNovedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoNovedad" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadCambiarEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="iParam" type="tns:INovedadBSR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="INovedadBSR">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoOrigen" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoDestino" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idProducto" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Monto" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="imposibilidadFirma" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="expediente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="motivoSuspension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadCambiarEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NovedadCambiarEstadoResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="codError" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgResultado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCuotasNovedadBaja">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstadoNovedadMotivoDeBaja" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerCuotasNovedadBajaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerCuotasNovedadBajaResult" type="tns:ArrayOfCuota_Baja_Suspension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCuota_Baja_Suspension">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cuota_Baja_Suspension" nillable="true" type="tns:Cuota_Baja_Suspension" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cuota_Baja_Suspension">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedadDetalle" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuilRelacionado" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCuota" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuota" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="mensual" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="montoCuotaTotal" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerNovedadBSRPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iTipoBSR" type="tns:enum_TipoBSR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNovedadBSRPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNovedadBSRPostResult" type="tns:ONovedadBSRPost" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ONovedadBSRPost">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:NovedadBSR">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdNovedadBaja" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="cuilTomador" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreyApellido" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CuotasPendiente" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CuotasPaga" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CuotasImpaga" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="CuotasEnviadaLiq" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ObtenerNovedadesBSRPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iTipo" type="tns:enum_TipoBSR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNovedadesBSRPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNovedadesBSRPostResult" type="tns:ArrayOfONovedadBSRPost" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfONovedadBSRPost">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONovedadBSRPost" nillable="true" type="tns:ONovedadBSRPost" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerNovedadHistoricoEstados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerNovedadHistoricoEstadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerNovedadHistoricoEstadosResult" type="tns:ArrayOfONovedadHistoEstados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfONovedadHistoEstados">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ONovedadHistoEstados" nillable="true" type="tns:ONovedadHistoEstados" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ONovedadHistoEstados">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tramite" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCredito" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoNovedad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cuilTomador" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasPendiente" nillable="true" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasPaga" nillable="true" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasImpaga" nillable="true" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasEnviadaLiq" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="expediente" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Mensual" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerSuspensionesHabilitacionesDeNovedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerSuspensionesHabilitacionesDeNovedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerSuspensionesHabilitacionesDeNovedadResult" type="tns:ArrayOfNovedadSuspension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedadSuspension">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NovedadSuspension" nillable="true" type="tns:NovedadSuspension" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NovedadSuspension">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Orden" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedadSuspension" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedadReactivacion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoNovedadSuspension" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoNovedadSuspensionDescripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoNovedadReactivacion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoNovedadReactivacionDescripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expediente" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualSuspension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoSuspension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioSuspension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaSuspension" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaReactivacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualReactivacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoReactivacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioReactivacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaReactivacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerSuspensionReactivacionDeNovedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idSuspension" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idReactivacion" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerSuspensionReactivacionDeNovedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerSuspensionReactivacionDeNovedadResult" type="tns:NovedadSuspension" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSuspensionModificar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="n" type="tns:NovedadSuspension" />
+            <s:element minOccurs="1" maxOccurs="1" name="e" type="tns:enum_TipoBSR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSuspensionModificarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NovedadSuspensionModificarResult" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodError" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="MsgResultado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfInformeDeDevolucionesCierreDiario" nillable="true" type="tns:ArrayOfInformeDeDevolucionesCierreDiario" />
+      <s:element name="ArrayOfMensual" nillable="true" type="tns:ArrayOfMensual" />
+      <s:element name="ArrayOfConcepto" nillable="true" type="tns:ArrayOfConcepto" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfEnum_TipoEstadoNovedad" nillable="true" type="tns:ArrayOfEnum_TipoEstadoNovedad" />
+      <s:element name="ArrayOfONovedadBSRPre" nillable="true" type="tns:ArrayOfONovedadBSRPre" />
+      <s:element name="ArrayOfCuota_Baja_Suspension" nillable="true" type="tns:ArrayOfCuota_Baja_Suspension" />
+      <s:element name="ONovedadBSRPost" nillable="true" type="tns:ONovedadBSRPost" />
+      <s:element name="ArrayOfONovedadBSRPost" nillable="true" type="tns:ArrayOfONovedadBSRPost" />
+      <s:element name="ArrayOfONovedadHistoEstados" nillable="true" type="tns:ArrayOfONovedadHistoEstados" />
+      <s:element name="ArrayOfNovedadSuspension" nillable="true" type="tns:ArrayOfNovedadSuspension" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FlujoFondos_ObtenerSoapIn">
+    <wsdl:part name="parameters" element="tns:FlujoFondos_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="FlujoFondos_ObtenerSoapOut">
+    <wsdl:part name="parameters" element="tns:FlujoFondos_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformeDeDevolucionesCierreDiario_ObtenerSoapIn">
+    <wsdl:part name="parameters" element="tns:InformeDeDevolucionesCierreDiario_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="InformeDeDevolucionesCierreDiario_ObtenerSoapOut">
+    <wsdl:part name="parameters" element="tns:InformeDeDevolucionesCierreDiario_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Mensual_ObtenerSoapIn">
+    <wsdl:part name="parameters" element="tns:Mensual_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="Mensual_ObtenerSoapOut">
+    <wsdl:part name="parameters" element="tns:Mensual_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Concepto_ObtenerSoapIn">
+    <wsdl:part name="parameters" element="tns:Concepto_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="Concepto_ObtenerSoapOut">
+    <wsdl:part name="parameters" element="tns:Concepto_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TableroCobranza_ObtenerSoapIn">
+    <wsdl:part name="parameters" element="tns:TableroCobranza_Obtener" />
+  </wsdl:message>
+  <wsdl:message name="TableroCobranza_ObtenerSoapOut">
+    <wsdl:part name="parameters" element="tns:TableroCobranza_ObtenerResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformesPreparados_BuscarSoapIn">
+    <wsdl:part name="parameters" element="tns:InformesPreparados_Buscar" />
+  </wsdl:message>
+  <wsdl:message name="InformesPreparados_BuscarSoapOut">
+    <wsdl:part name="parameters" element="tns:InformesPreparados_BuscarResponse" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarSoapIn">
+    <wsdl:part name="parameters" element="tns:TblDTSVariables_Buscar" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarSoapOut">
+    <wsdl:part name="parameters" element="tns:TblDTSVariables_BuscarResponse" />
+  </wsdl:message>
+  <wsdl:message name="MotivoBaja_traerSoapIn">
+    <wsdl:part name="parameters" element="tns:MotivoBaja_traer" />
+  </wsdl:message>
+  <wsdl:message name="MotivoBaja_traerSoapOut">
+    <wsdl:part name="parameters" element="tns:MotivoBaja_traerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadesBSR" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadesBSRResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadCambiarEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadCambiarEstado" />
+  </wsdl:message>
+  <wsdl:message name="NovedadCambiarEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadCambiarEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCuotasNovedadBajaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerCuotasNovedadBaja" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCuotasNovedadBajaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerCuotasNovedadBajaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadBSRPostSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadBSRPost" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadBSRPostSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadBSRPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRPostSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadesBSRPost" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRPostSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadesBSRPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadHistoricoEstadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadHistoricoEstados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadHistoricoEstadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerNovedadHistoricoEstadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionesHabilitacionesDeNovedadSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerSuspensionesHabilitacionesDeNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionesHabilitacionesDeNovedadSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerSuspensionesHabilitacionesDeNovedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionReactivacionDeNovedadSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerSuspensionReactivacionDeNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionReactivacionDeNovedadSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerSuspensionReactivacionDeNovedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSuspensionModificarSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadSuspensionModificar" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSuspensionModificarSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadSuspensionModificarResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformeDeDevolucionesCierreDiario_ObtenerHttpGetIn">
+    <wsdl:part name="FechaDesde" type="s:string" />
+    <wsdl:part name="FechaHasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InformeDeDevolucionesCierreDiario_ObtenerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInformeDeDevolucionesCierreDiario" />
+  </wsdl:message>
+  <wsdl:message name="Mensual_ObtenerHttpGetIn">
+    <wsdl:part name="proposito" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Mensual_ObtenerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMensual" />
+  </wsdl:message>
+  <wsdl:message name="Concepto_ObtenerHttpGetIn">
+    <wsdl:part name="proposito" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Concepto_ObtenerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConcepto" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpGetIn">
+    <wsdl:part name="batch" type="s:string" />
+    <wsdl:part name="variable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MotivoBaja_traerHttpGetIn" />
+  <wsdl:message name="MotivoBaja_traerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEnum_TipoEstadoNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="idNovedad" type="s:string" />
+    <wsdl:part name="iTipoBSR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfONovedadBSRPre" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCuotasNovedadBajaHttpGetIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+    <wsdl:part name="idEstadoNovedadMotivoDeBaja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCuotasNovedadBajaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCuota_Baja_Suspension" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadBSRPostHttpGetIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+    <wsdl:part name="iTipoBSR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadBSRPostHttpGetOut">
+    <wsdl:part name="Body" element="tns:ONovedadBSRPost" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRPostHttpGetIn">
+    <wsdl:part name="iTipo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRPostHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfONovedadBSRPost" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadHistoricoEstadosHttpGetIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadHistoricoEstadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfONovedadHistoEstados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionesHabilitacionesDeNovedadHttpGetIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionesHabilitacionesDeNovedadHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadSuspension" />
+  </wsdl:message>
+  <wsdl:message name="InformeDeDevolucionesCierreDiario_ObtenerHttpPostIn">
+    <wsdl:part name="FechaDesde" type="s:string" />
+    <wsdl:part name="FechaHasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InformeDeDevolucionesCierreDiario_ObtenerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInformeDeDevolucionesCierreDiario" />
+  </wsdl:message>
+  <wsdl:message name="Mensual_ObtenerHttpPostIn">
+    <wsdl:part name="proposito" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Mensual_ObtenerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMensual" />
+  </wsdl:message>
+  <wsdl:message name="Concepto_ObtenerHttpPostIn">
+    <wsdl:part name="proposito" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Concepto_ObtenerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConcepto" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpPostIn">
+    <wsdl:part name="batch" type="s:string" />
+    <wsdl:part name="variable" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TblDTSVariables_BuscarHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MotivoBaja_traerHttpPostIn" />
+  <wsdl:message name="MotivoBaja_traerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEnum_TipoEstadoNovedad" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="idNovedad" type="s:string" />
+    <wsdl:part name="iTipoBSR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfONovedadBSRPre" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCuotasNovedadBajaHttpPostIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+    <wsdl:part name="idEstadoNovedadMotivoDeBaja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerCuotasNovedadBajaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCuota_Baja_Suspension" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadBSRPostHttpPostIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+    <wsdl:part name="iTipoBSR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadBSRPostHttpPostOut">
+    <wsdl:part name="Body" element="tns:ONovedadBSRPost" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRPostHttpPostIn">
+    <wsdl:part name="iTipo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadesBSRPostHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfONovedadBSRPost" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadHistoricoEstadosHttpPostIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerNovedadHistoricoEstadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfONovedadHistoEstados" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionesHabilitacionesDeNovedadHttpPostIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerSuspensionesHabilitacionesDeNovedadHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadSuspension" />
+  </wsdl:message>
+  <wsdl:portType name="AdministradorDATWSSoap">
+    <wsdl:operation name="FlujoFondos_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el flujo de fondos a partir de un período dado</wsdl:documentation>
+      <wsdl:input message="tns:FlujoFondos_ObtenerSoapIn" />
+      <wsdl:output message="tns:FlujoFondos_ObtenerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformeDeDevolucionesCierreDiario_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el informe de devoluciones</wsdl:documentation>
+      <wsdl:input message="tns:InformeDeDevolucionesCierreDiario_ObtenerSoapIn" />
+      <wsdl:output message="tns:InformeDeDevolucionesCierreDiario_ObtenerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Mensual_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la lista de periodos mensuales a consultar</wsdl:documentation>
+      <wsdl:input message="tns:Mensual_ObtenerSoapIn" />
+      <wsdl:output message="tns:Mensual_ObtenerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Concepto_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la lista de conceptos a consultar</wsdl:documentation>
+      <wsdl:input message="tns:Concepto_ObtenerSoapIn" />
+      <wsdl:output message="tns:Concepto_ObtenerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TableroCobranza_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene las grillas de Tablero de Cobranzas</wsdl:documentation>
+      <wsdl:input message="tns:TableroCobranza_ObtenerSoapIn" />
+      <wsdl:output message="tns:TableroCobranza_ObtenerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformesPreparados_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la url del archivo del informe correspondiente segun los parametros</wsdl:documentation>
+      <wsdl:input message="tns:InformesPreparados_BuscarSoapIn" />
+      <wsdl:output message="tns:InformesPreparados_BuscarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la url del archivo del informe correspondiente segun los parametros</wsdl:documentation>
+      <wsdl:input message="tns:TblDTSVariables_BuscarSoapIn" />
+      <wsdl:output message="tns:TblDTSVariables_BuscarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MotivoBaja_traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna listado de Estados de novedad correspondientes a baja</wsdl:documentation>
+      <wsdl:input message="tns:MotivoBaja_traerSoapIn" />
+      <wsdl:output message="tns:MotivoBaja_traerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lista de novedades  para un cuil o novedad para Baja o Suspension / Rehabilitacion</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadesBSRSoapIn" />
+      <wsdl:output message="tns:ObtenerNovedadesBSRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadCambiarEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Efectua la Baja o Suspension/Rehabilitacion de una novedad</wsdl:documentation>
+      <wsdl:input message="tns:NovedadCambiarEstadoSoapIn" />
+      <wsdl:output message="tns:NovedadCambiarEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuotasNovedadBaja">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de cuotas pasibles de ser canceladas correspondientes a una novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerCuotasNovedadBajaSoapIn" />
+      <wsdl:output message="tns:ObtenerCuotasNovedadBajaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadBSRPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene novedad de Baja o Suspendida / Rehabilitada por id de novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadBSRPostSoapIn" />
+      <wsdl:output message="tns:ObtenerNovedadBSRPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSRPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de novedades de Baja o Suspendida / Rehabilitada</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadesBSRPostSoapIn" />
+      <wsdl:output message="tns:ObtenerNovedadesBSRPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadHistoricoEstados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de historico de estados por id de novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadHistoricoEstadosSoapIn" />
+      <wsdl:output message="tns:ObtenerNovedadHistoricoEstadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionesHabilitacionesDeNovedad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de historico suspensiones y habilitaciones de una novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSuspensionesHabilitacionesDeNovedadSoapIn" />
+      <wsdl:output message="tns:ObtenerSuspensionesHabilitacionesDeNovedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionReactivacionDeNovedad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene datos de suspension y reactivacion especificos de una novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSuspensionReactivacionDeNovedadSoapIn" />
+      <wsdl:output message="tns:ObtenerSuspensionReactivacionDeNovedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSuspensionModificar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Modifica una suspension o reactivacion de una novedad</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSuspensionModificarSoapIn" />
+      <wsdl:output message="tns:NovedadSuspensionModificarSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AdministradorDATWSHttpGet">
+    <wsdl:operation name="InformeDeDevolucionesCierreDiario_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el informe de devoluciones</wsdl:documentation>
+      <wsdl:input message="tns:InformeDeDevolucionesCierreDiario_ObtenerHttpGetIn" />
+      <wsdl:output message="tns:InformeDeDevolucionesCierreDiario_ObtenerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Mensual_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la lista de periodos mensuales a consultar</wsdl:documentation>
+      <wsdl:input message="tns:Mensual_ObtenerHttpGetIn" />
+      <wsdl:output message="tns:Mensual_ObtenerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Concepto_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la lista de conceptos a consultar</wsdl:documentation>
+      <wsdl:input message="tns:Concepto_ObtenerHttpGetIn" />
+      <wsdl:output message="tns:Concepto_ObtenerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la url del archivo del informe correspondiente segun los parametros</wsdl:documentation>
+      <wsdl:input message="tns:TblDTSVariables_BuscarHttpGetIn" />
+      <wsdl:output message="tns:TblDTSVariables_BuscarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MotivoBaja_traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna listado de Estados de novedad correspondientes a baja</wsdl:documentation>
+      <wsdl:input message="tns:MotivoBaja_traerHttpGetIn" />
+      <wsdl:output message="tns:MotivoBaja_traerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lista de novedades  para un cuil o novedad para Baja o Suspension / Rehabilitacion</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadesBSRHttpGetIn" />
+      <wsdl:output message="tns:ObtenerNovedadesBSRHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuotasNovedadBaja">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de cuotas pasibles de ser canceladas correspondientes a una novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerCuotasNovedadBajaHttpGetIn" />
+      <wsdl:output message="tns:ObtenerCuotasNovedadBajaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadBSRPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene novedad de Baja o Suspendida / Rehabilitada por id de novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadBSRPostHttpGetIn" />
+      <wsdl:output message="tns:ObtenerNovedadBSRPostHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSRPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de novedades de Baja o Suspendida / Rehabilitada</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadesBSRPostHttpGetIn" />
+      <wsdl:output message="tns:ObtenerNovedadesBSRPostHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadHistoricoEstados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de historico de estados por id de novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadHistoricoEstadosHttpGetIn" />
+      <wsdl:output message="tns:ObtenerNovedadHistoricoEstadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionesHabilitacionesDeNovedad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de historico suspensiones y habilitaciones de una novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSuspensionesHabilitacionesDeNovedadHttpGetIn" />
+      <wsdl:output message="tns:ObtenerSuspensionesHabilitacionesDeNovedadHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AdministradorDATWSHttpPost">
+    <wsdl:operation name="InformeDeDevolucionesCierreDiario_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene el informe de devoluciones</wsdl:documentation>
+      <wsdl:input message="tns:InformeDeDevolucionesCierreDiario_ObtenerHttpPostIn" />
+      <wsdl:output message="tns:InformeDeDevolucionesCierreDiario_ObtenerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Mensual_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la lista de periodos mensuales a consultar</wsdl:documentation>
+      <wsdl:input message="tns:Mensual_ObtenerHttpPostIn" />
+      <wsdl:output message="tns:Mensual_ObtenerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Concepto_Obtener">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la lista de conceptos a consultar</wsdl:documentation>
+      <wsdl:input message="tns:Concepto_ObtenerHttpPostIn" />
+      <wsdl:output message="tns:Concepto_ObtenerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la url del archivo del informe correspondiente segun los parametros</wsdl:documentation>
+      <wsdl:input message="tns:TblDTSVariables_BuscarHttpPostIn" />
+      <wsdl:output message="tns:TblDTSVariables_BuscarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MotivoBaja_traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna listado de Estados de novedad correspondientes a baja</wsdl:documentation>
+      <wsdl:input message="tns:MotivoBaja_traerHttpPostIn" />
+      <wsdl:output message="tns:MotivoBaja_traerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lista de novedades  para un cuil o novedad para Baja o Suspension / Rehabilitacion</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadesBSRHttpPostIn" />
+      <wsdl:output message="tns:ObtenerNovedadesBSRHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuotasNovedadBaja">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de cuotas pasibles de ser canceladas correspondientes a una novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerCuotasNovedadBajaHttpPostIn" />
+      <wsdl:output message="tns:ObtenerCuotasNovedadBajaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadBSRPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene novedad de Baja o Suspendida / Rehabilitada por id de novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadBSRPostHttpPostIn" />
+      <wsdl:output message="tns:ObtenerNovedadBSRPostHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSRPost">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de novedades de Baja o Suspendida / Rehabilitada</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadesBSRPostHttpPostIn" />
+      <wsdl:output message="tns:ObtenerNovedadesBSRPostHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadHistoricoEstados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de historico de estados por id de novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerNovedadHistoricoEstadosHttpPostIn" />
+      <wsdl:output message="tns:ObtenerNovedadHistoricoEstadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionesHabilitacionesDeNovedad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene listado de historico suspensiones y habilitaciones de una novedad</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerSuspensionesHabilitacionesDeNovedadHttpPostIn" />
+      <wsdl:output message="tns:ObtenerSuspensionesHabilitacionesDeNovedadHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AdministradorDATWSSoap" type="tns:AdministradorDATWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FlujoFondos_Obtener">
+      <soap:operation soapAction="http://tempuri.org/FlujoFondos_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformeDeDevolucionesCierreDiario_Obtener">
+      <soap:operation soapAction="http://tempuri.org/InformeDeDevolucionesCierreDiario_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mensual_Obtener">
+      <soap:operation soapAction="http://tempuri.org/Mensual_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Concepto_Obtener">
+      <soap:operation soapAction="http://tempuri.org/Concepto_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TableroCobranza_Obtener">
+      <soap:operation soapAction="http://tempuri.org/TableroCobranza_Obtener" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformesPreparados_Buscar">
+      <soap:operation soapAction="http://tempuri.org/InformesPreparados_Buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <soap:operation soapAction="http://tempuri.org/TblDTSVariables_Buscar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MotivoBaja_traer">
+      <soap:operation soapAction="http://tempuri.org/MotivoBaja_traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSR">
+      <soap:operation soapAction="http://tempuri.org/ObtenerNovedadesBSR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadCambiarEstado">
+      <soap:operation soapAction="http://tempuri.org/NovedadCambiarEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuotasNovedadBaja">
+      <soap:operation soapAction="http://tempuri.org/ObtenerCuotasNovedadBaja" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadBSRPost">
+      <soap:operation soapAction="http://tempuri.org/ObtenerNovedadBSRPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSRPost">
+      <soap:operation soapAction="http://tempuri.org/ObtenerNovedadesBSRPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadHistoricoEstados">
+      <soap:operation soapAction="http://tempuri.org/ObtenerNovedadHistoricoEstados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionesHabilitacionesDeNovedad">
+      <soap:operation soapAction="http://tempuri.org/ObtenerSuspensionesHabilitacionesDeNovedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionReactivacionDeNovedad">
+      <soap:operation soapAction="http://tempuri.org/ObtenerSuspensionReactivacionDeNovedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSuspensionModificar">
+      <soap:operation soapAction="http://tempuri.org/NovedadSuspensionModificar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AdministradorDATWSSoap12" type="tns:AdministradorDATWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FlujoFondos_Obtener">
+      <soap12:operation soapAction="http://tempuri.org/FlujoFondos_Obtener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformeDeDevolucionesCierreDiario_Obtener">
+      <soap12:operation soapAction="http://tempuri.org/InformeDeDevolucionesCierreDiario_Obtener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mensual_Obtener">
+      <soap12:operation soapAction="http://tempuri.org/Mensual_Obtener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Concepto_Obtener">
+      <soap12:operation soapAction="http://tempuri.org/Concepto_Obtener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TableroCobranza_Obtener">
+      <soap12:operation soapAction="http://tempuri.org/TableroCobranza_Obtener" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformesPreparados_Buscar">
+      <soap12:operation soapAction="http://tempuri.org/InformesPreparados_Buscar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <soap12:operation soapAction="http://tempuri.org/TblDTSVariables_Buscar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MotivoBaja_traer">
+      <soap12:operation soapAction="http://tempuri.org/MotivoBaja_traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSR">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerNovedadesBSR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadCambiarEstado">
+      <soap12:operation soapAction="http://tempuri.org/NovedadCambiarEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuotasNovedadBaja">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerCuotasNovedadBaja" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadBSRPost">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerNovedadBSRPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSRPost">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerNovedadesBSRPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadHistoricoEstados">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerNovedadHistoricoEstados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionesHabilitacionesDeNovedad">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerSuspensionesHabilitacionesDeNovedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionReactivacionDeNovedad">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerSuspensionReactivacionDeNovedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSuspensionModificar">
+      <soap12:operation soapAction="http://tempuri.org/NovedadSuspensionModificar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AdministradorDATWSHttpGet" type="tns:AdministradorDATWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="InformeDeDevolucionesCierreDiario_Obtener">
+      <http:operation location="/InformeDeDevolucionesCierreDiario_Obtener" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mensual_Obtener">
+      <http:operation location="/Mensual_Obtener" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Concepto_Obtener">
+      <http:operation location="/Concepto_Obtener" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <http:operation location="/TblDTSVariables_Buscar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MotivoBaja_traer">
+      <http:operation location="/MotivoBaja_traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSR">
+      <http:operation location="/ObtenerNovedadesBSR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuotasNovedadBaja">
+      <http:operation location="/ObtenerCuotasNovedadBaja" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadBSRPost">
+      <http:operation location="/ObtenerNovedadBSRPost" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSRPost">
+      <http:operation location="/ObtenerNovedadesBSRPost" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadHistoricoEstados">
+      <http:operation location="/ObtenerNovedadHistoricoEstados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionesHabilitacionesDeNovedad">
+      <http:operation location="/ObtenerSuspensionesHabilitacionesDeNovedad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AdministradorDATWSHttpPost" type="tns:AdministradorDATWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="InformeDeDevolucionesCierreDiario_Obtener">
+      <http:operation location="/InformeDeDevolucionesCierreDiario_Obtener" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Mensual_Obtener">
+      <http:operation location="/Mensual_Obtener" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Concepto_Obtener">
+      <http:operation location="/Concepto_Obtener" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TblDTSVariables_Buscar">
+      <http:operation location="/TblDTSVariables_Buscar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MotivoBaja_traer">
+      <http:operation location="/MotivoBaja_traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSR">
+      <http:operation location="/ObtenerNovedadesBSR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerCuotasNovedadBaja">
+      <http:operation location="/ObtenerCuotasNovedadBaja" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadBSRPost">
+      <http:operation location="/ObtenerNovedadBSRPost" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadesBSRPost">
+      <http:operation location="/ObtenerNovedadesBSRPost" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerNovedadHistoricoEstados">
+      <http:operation location="/ObtenerNovedadHistoricoEstados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerSuspensionesHabilitacionesDeNovedad">
+      <http:operation location="/ObtenerSuspensionesHabilitacionesDeNovedad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AdministradorDATWS">
+    <wsdl:port name="AdministradorDATWSSoap" binding="tns:AdministradorDATWSSoap">
+      <soap:address location="http://localhost/ArgentaCWS/AdministradorDATWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AdministradorDATWSSoap12" binding="tns:AdministradorDATWSSoap12">
+      <soap12:address location="http://localhost/ArgentaCWS/AdministradorDATWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AdministradorDATWSHttpGet" binding="tns:AdministradorDATWSHttpGet">
+      <http:address location="http://localhost/ArgentaCWS/AdministradorDATWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AdministradorDATWSHttpPost" binding="tns:AdministradorDATWSHttpPost">
+      <http:address location="http://localhost/ArgentaCWS/AdministradorDATWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

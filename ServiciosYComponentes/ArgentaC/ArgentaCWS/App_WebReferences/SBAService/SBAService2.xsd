@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://mihuella.anses.gov.ar" elementFormDefault="qualified" targetNamespace="http://mihuella.anses.gov.ar" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd2" namespace="ANSeS.SBA.ServicesContracts.DTO" />
+  <xs:element name="Enroll">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="request" nillable="true" type="q1:EnrollRequestDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EnrollResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="EnrollResult" nillable="true" type="q2:EnrollResponseDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnrollResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="request" nillable="true" type="q3:EnrollResultRequestDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEnrollResultResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="GetEnrollResultResult" nillable="true" type="q4:EnrollResultResponseDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Verify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="request" nillable="true" type="q5:VerifyRequestDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="VerifyResult" nillable="true" type="q6:VerifyResponseDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Identify">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="request" nillable="true" type="q7:IdentifyRequestDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdentifyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="IdentifyResult" nillable="true" type="q8:IdentifyResponseDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCuilState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="request" nillable="true" type="q9:CuilStateRequestDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCuilStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="ANSeS.SBA.ServicesContracts.DTO" minOccurs="0" name="GetCuilStateResult" nillable="true" type="q10:CuilStateResponseDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

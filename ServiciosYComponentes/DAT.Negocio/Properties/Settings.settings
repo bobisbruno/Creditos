@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Anses.DAT.Negocio.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Anses_DAT_Negocio_ADPDescripciones_ADPDescripciones" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://presdesabper/UNICEN/BUC/ADPDescripciones.asmx</Value>
+    </Setting>
+    <Setting Name="Anses_DAT_Negocio_WSValidarCBU_ValidarCBU" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://presdesabper/ServicioValidacionCBU/ValidarCBU.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Traer_xIdNovedad">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Traer_xIdNovedadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_xIdNovedadResult" type="tns:ArrayOfNovedadCaratulada" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedadCaratulada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NovedadCaratulada" nillable="true" type="tns:NovedadCaratulada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NovedadCaratulada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NroExpediente" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FAlta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FInicioAfjp" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoExpediente" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoCaratulacion" nillable="true" type="tns:enum_EstadoCaratulacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesEstadoCaratulacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="novedad" type="tns:Novedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tiporechazo" type="tns:TipoRechazoExpediente" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_EstadoCaratulacion">
+        <s:restriction base="s:string">
+          <s:enumeration value="Pendiente_de_verificación" />
+          <s:enumeration value="Confirmado_Control" />
+          <s:enumeration value="Rechazado_Control" />
+          <s:enumeration value="Expediente_dado_baja" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Novedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEM" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Otorgamiento" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm_Mensual" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuota_Social" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTNAReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEAReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_AdmM_ensual_Real" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TIRReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoReg" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilioBeneficiario" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Otro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Tarjeta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaBaja" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Sucursal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Ticket" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FReposicion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoCredito" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmortizado" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="idItem" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodMotivoAlta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodOperacion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="unContacto" type="tns:Contacto" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasSinLiquidar" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProximoMensualAliq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoEstado_SC" type="tns:TipoEstado_SC" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadosNovedad" type="tns:ArrayOfEstadoNovedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelacionAnticipada" type="tns:ArrayOfCancelacionAnticipada" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiniestroCobrado" type="tns:ArrayOfSiniestroCobrado" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAgencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnBeneficiario" type="tns:Beneficiario" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnPrestador" type="tns:Prestador" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInforme" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstadoReg" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstadoNovedad" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnCodMovimiento" type="tns:CodigoMovimiento" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteCuota" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteALiquidar" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteLiquidado" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotas" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Porcentaje" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comprobante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaImportacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerMensual" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualCarga" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimaMensualCuota" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualCuota" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stock" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MensualReenvio" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnModeloPC" type="tns:ModeloPC" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotasRestantes" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasLiquidadas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuotaLiquidada" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaBaja" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnTipoTarjeta" nillable="true" type="tns:enum_TipoTarjeta" />
+          <s:element minOccurs="0" maxOccurs="1" name="GeneraNominada" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FEstimadaEntrega" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescOficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unaLista_Cuotas" type="tns:ArrayOfCuota" />
+          <s:element minOccurs="0" maxOccurs="1" name="unaLista_Adhetentes" type="tns:ArrayOfAdherente" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeneraCompImpedimentoFirma" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentacionScaneada" type="tns:ArrayOfDocumentacionScaneada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contacto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Telediscado1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono1" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular1" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telediscado2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstado_SC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="novedadEstaVigente" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstadoNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstadoNovedad" nillable="true" type="tns:EstadoNovedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoNovedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacionTotal" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCancelacionAnticipada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CancelacionAnticipada" nillable="true" type="tns:CancelacionAnticipada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CancelacionAnticipada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobroFGS" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiniestroCobrado" nillable="true" type="tns:SiniestroCobrado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobroFGS" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="idSiniestro" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idLote" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fSolicitudCobro" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Beneficiario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="unDomicilio" type="tns:Domicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDoc" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTipoDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoBruto" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoParaOblig" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfectacionDisponible" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotObligatoria" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotNovedad" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantOcurrenciasDisp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExAFJP" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista_Reclamos" type="tns:ArrayOfReclamo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista_Novedades" type="tns:ArrayOfNovedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="es_CBUSocial" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoSolicitarTarjeta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FVencimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codAgencia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Domicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsSucursal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilio" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaProvincia" type="tns:Provincia" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoDomicilio" type="tns:TipoDomicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nacionalidad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionProvincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDomicilio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoDomicilio" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoDomicilio" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoReclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Estado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FecCambio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="observacion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TieneObservacion" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PaseAutomatico" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsFinal" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="FecManual" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MensajeInfo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Control" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ControlTexto" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ControlIdModelo" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EstadoAnme" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfReclamo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Reclamo" nillable="true" type="tns:Reclamo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Reclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfReclamo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdReclamo" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="SolicitaReintegro" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaNovedad" type="tns:Novedad" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaAltaReclamo" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescripcionReclamo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Expediente" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnTipoReclamo" type="tns:TipoReclamo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnContactoReclamo" type="tns:ContactoReclamo" />
+              <s:element minOccurs="1" maxOccurs="1" name="PresentoDoc" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstadoReclamo" type="tns:EstadoReclamo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoriaRespuesta" type="tns:Auditoria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfReclamo" />
+      <s:complexType name="TipoReclamo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoReclamo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leyenda" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContactoReclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfContactoReclamo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telediscado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Celular" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfContactoReclamo" />
+      <s:complexType name="ArrayOfNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Novedad" nillable="true" type="tns:Novedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prestador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodoFicinaANME" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArrayComercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsNominada" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsAnses" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EntregaDocumentacionEnFGS" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsEntidadOficial" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsComercio" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Entidad_Prest_Comer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfEntidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreFantasia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+              <s:element minOccurs="1" maxOccurs="1" name="IDEstado" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tasas" type="tns:ArrayOfTasa" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnDomicilio" type="tns:Domicilio" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfEntidad_Prest_Comer" />
+      <s:complexType name="ArrayOfTasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tasa" nillable="true" type="tns:Tasa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAudAprobacion" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicioVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFinVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GastoAdministrativo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasHasta" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineaCredito" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Plazo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FAprobacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prestador" type="tns:Prestador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comercializador" type="tns:Comercializador" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aprobada" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comercializador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioridad" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodSidif" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obligatorio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAfiliacion" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoOnLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoConcepto" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoLiquidacion" nillable="true" type="tns:ConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfComercializador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comercializador" nillable="true" type="tns:Comercializador" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CodigoMovimiento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodMovimiento" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModeloPC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdModeloPC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaMarcaPC" type="tns:MarcaPC" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarcaPC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdMarca" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoTarjeta">
+        <s:restriction base="s:string">
+          <s:enumeration value="Blanca" />
+          <s:enumeration value="Nominada" />
+          <s:enumeration value="Carnet" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCuota">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cuota" nillable="true" type="tns:Cuota" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cuota">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe_Cuota" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensual_Cuota" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Intereses" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amortizacion" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm_Tarjeta" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Seguro_Vida" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnviadoALiquidar" nillable="true" type="tns:enum_enviadoLiquidar" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdMensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MensualEmision" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacion" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteCuotaLiq" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesEstado_E" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdentPago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descEstadoRub" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="daEstadoRub" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoRub" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_enviadoLiquidar">
+        <s:restriction base="s:string">
+          <s:enumeration value="P" />
+          <s:enumeration value="S" />
+          <s:enumeration value="N" />
+          <s:enumeration value="B" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfAdherente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Adherente" nillable="true" type="tns:Adherente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Adherente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CUIL" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido_Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaUltModificacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentacionScaneada" nillable="true" type="tns:DocumentacionScaneada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Idnovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Imagen" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdGralImagen" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdImagen" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoImagen" type="tns:TipoImagen" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCreacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoImagen">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoImagenDW" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAbrev" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoRechazoExpediente">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Tipo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PideNroResolucion" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Tipo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadesCaratuladas_Alta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Expediente" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="FecRecepcion" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="FecAlta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="EstadoExpediente" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="faltaIngresarDocumentacion" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="observaciones" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarios" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdPrestador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesCaratuladas_AltaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Novedades_Cartula_Cambia_Estado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CambiaEstado" type="tns:enum_Cartula_Cambia_Estado" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Novedad" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="expediente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="observaciones" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroResolucion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoRechazo" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enum_Cartula_Cambia_Estado">
+        <s:restriction base="s:string">
+          <s:enumeration value="APROBAR" />
+          <s:enumeration value="RECHAZAR" />
+          <s:enumeration value="BAJA" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Novedades_Cartula_Cambia_EstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Novedades_Cartula_Cambia_EstadoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_Caratuladas_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nombreConsulta" type="tns:enum_ConsultaBatch_NombreConsulta" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha_Recepcion_desde" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fecha_Recepcion_hasta" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstado" nillable="true" type="tns:enum_EstadoCaratulacion" />
+            <s:element minOccurs="1" maxOccurs="1" name="conErrores" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_Beneficiario" nillable="true" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="generaArchivo" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="generadoAdmin" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enum_ConsultaBatch_NombreConsulta">
+        <s:restriction base="s:string">
+          <s:enumeration value="NOVEDADES_DOCUMENTACION" />
+          <s:enumeration value="NOVEDADES_DOCUMENTACION_V3" />
+          <s:enumeration value="NOVEDADES_CANCELADAS" />
+          <s:enumeration value="NOVEDADES_CARATULADAS" />
+          <s:enumeration value="NOVEDADES_INGRESADAS" />
+          <s:enumeration value="NOVEDADES_INGRESADAS_FGS" />
+          <s:enumeration value="NOVEDADES_INGRESADAS_FGS_OPERADOR" />
+          <s:enumeration value="NOVEDADESLIQUIDADAS" />
+          <s:enumeration value="NOVEDADES_NOAPLICADAS" />
+          <s:enumeration value="NOVEDADES_CANCELADASV2" />
+          <s:enumeration value="NOVEDADES_TARJETATIPO3" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Novedades_Caratuladas_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_Caratuladas_TraerResult" type="tns:ArrayOfNovedadCaratulada" />
+            <s:element minOccurs="0" maxOccurs="1" name="rutaArchivoSal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_Caratuladas_Traer_Por_Estado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" nillable="true" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fDesde" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fHasta" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_Caratuladas_Traer_Por_EstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_Caratuladas_Traer_Por_EstadoResult" type="tns:ArrayOfNovedadCaratuladaTotales" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedadCaratuladaTotales">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NovedadCaratuladaTotales" nillable="true" type="tns:NovedadCaratuladaTotales" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NovedadCaratuladaTotales">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoExpediente" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesEstadoExpediente" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoCaratulacion" nillable="true" type="tns:enum_EstadoCaratulacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesEstadoCaratulacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDifiere" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalSinDuplicado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalNovedades" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Novedades_Caratuladas_Traer_Difiere_Estado">
+        <s:complexType />
+      </s:element>
+      <s:element name="Novedades_Caratuladas_Traer_Difiere_EstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_Caratuladas_Traer_Difiere_EstadoResult" type="tns:ArrayOfNovedadCaratuladaTotales" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TipoRechazoExpediente_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoRechazoExpediente_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoRechazoExpediente_TraerResult" type="tns:ArrayOfTipoRechazoExpediente" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoRechazoExpediente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoRechazoExpediente" nillable="true" type="tns:TipoRechazoExpediente" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="NovedadesCaratuladas_OficinasSinVencimiento_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadesCaratuladas_OficinasSinVencimiento_TraerResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfNovedadCaratulada" nillable="true" type="tns:ArrayOfNovedadCaratulada" />
+      <s:element name="ArrayOfNovedadCaratuladaTotales" nillable="true" type="tns:ArrayOfNovedadCaratuladaTotales" />
+      <s:element name="ArrayOfTipoRechazoExpediente" nillable="true" type="tns:ArrayOfTipoRechazoExpediente" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Traer_xIdNovedadSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_xIdNovedad" />
+  </wsdl:message>
+  <wsdl:message name="Traer_xIdNovedadSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_xIdNovedadResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_AltaSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadesCaratuladas_Alta" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_AltaSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadesCaratuladas_AltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Cartula_Cambia_EstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_Cartula_Cambia_Estado" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Cartula_Cambia_EstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_Cartula_Cambia_EstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Caratuladas_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_Caratuladas_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Caratuladas_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_Caratuladas_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Caratuladas_Traer_Por_EstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_Caratuladas_Traer_Por_Estado" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Caratuladas_Traer_Por_EstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_Caratuladas_Traer_Por_EstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Caratuladas_Traer_Difiere_EstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_Caratuladas_Traer_Difiere_Estado" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_Caratuladas_Traer_Difiere_EstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_Caratuladas_Traer_Difiere_EstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoRechazoExpediente_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoRechazoExpediente_Traer" />
+  </wsdl:message>
+  <wsdl:message name="TipoRechazoExpediente_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoRechazoExpediente_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_OficinasSinVencimiento_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadesCaratuladas_OficinasSinVencimiento_Traer" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_OficinasSinVencimiento_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadesCaratuladas_OficinasSinVencimiento_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Traer_xIdNovedadHttpGetIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Traer_xIdNovedadHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadCaratulada" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_AltaHttpGetIn">
+    <wsdl:part name="Expediente" type="s:string" />
+    <wsdl:part name="IdNovedad" type="s:string" />
+    <wsdl:part name="FecRecepcion" type="s:string" />
+    <wsdl:part name="FecAlta" type="s:string" />
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="IdBeneficiario" type="s:string" />
+    <wsdl:part name="EstadoExpediente" type="s:string" />
+    <wsdl:part name="faltaIngresarDocumentacion" type="s:string" />
+    <wsdl:part name="observaciones" type="s:string" />
+    <wsdl:part name="usuarios" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="ip" type="s:string" />
+    <wsdl:part name="IdPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_AltaHttpGetOut" />
+  <wsdl:message name="Novedades_Caratuladas_Traer_Difiere_EstadoHttpGetIn" />
+  <wsdl:message name="Novedades_Caratuladas_Traer_Difiere_EstadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadCaratuladaTotales" />
+  </wsdl:message>
+  <wsdl:message name="TipoRechazoExpediente_TraerHttpGetIn" />
+  <wsdl:message name="TipoRechazoExpediente_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoRechazoExpediente" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpGetIn" />
+  <wsdl:message name="NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="Traer_xIdNovedadHttpPostIn">
+    <wsdl:part name="idNovedad" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Traer_xIdNovedadHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadCaratulada" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_AltaHttpPostIn">
+    <wsdl:part name="Expediente" type="s:string" />
+    <wsdl:part name="IdNovedad" type="s:string" />
+    <wsdl:part name="FecRecepcion" type="s:string" />
+    <wsdl:part name="FecAlta" type="s:string" />
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="IdBeneficiario" type="s:string" />
+    <wsdl:part name="EstadoExpediente" type="s:string" />
+    <wsdl:part name="faltaIngresarDocumentacion" type="s:string" />
+    <wsdl:part name="observaciones" type="s:string" />
+    <wsdl:part name="usuarios" type="s:string" />
+    <wsdl:part name="oficina" type="s:string" />
+    <wsdl:part name="ip" type="s:string" />
+    <wsdl:part name="IdPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_AltaHttpPostOut" />
+  <wsdl:message name="Novedades_Caratuladas_Traer_Difiere_EstadoHttpPostIn" />
+  <wsdl:message name="Novedades_Caratuladas_Traer_Difiere_EstadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadCaratuladaTotales" />
+  </wsdl:message>
+  <wsdl:message name="TipoRechazoExpediente_TraerHttpPostIn" />
+  <wsdl:message name="TipoRechazoExpediente_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoRechazoExpediente" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpPostIn" />
+  <wsdl:message name="NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:portType name="CaratulacionWSSoap">
+    <wsdl:operation name="Traer_xIdNovedad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer la novedad para caratular</wsdl:documentation>
+      <wsdl:input message="tns:Traer_xIdNovedadSoapIn" />
+      <wsdl:output message="tns:Traer_xIdNovedadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Alta de la novedad para caratular</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesCaratuladas_AltaSoapIn" />
+      <wsdl:output message="tns:NovedadesCaratuladas_AltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Cartula_Cambia_Estado">
+      <wsdl:input message="tns:Novedades_Cartula_Cambia_EstadoSoapIn" />
+      <wsdl:output message="tns:Novedades_Cartula_Cambia_EstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer">
+      <wsdl:input message="tns:Novedades_Caratuladas_TraerSoapIn" />
+      <wsdl:output message="tns:Novedades_Caratuladas_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Por_Estado">
+      <wsdl:input message="tns:Novedades_Caratuladas_Traer_Por_EstadoSoapIn" />
+      <wsdl:output message="tns:Novedades_Caratuladas_Traer_Por_EstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Difiere_Estado">
+      <wsdl:input message="tns:Novedades_Caratuladas_Traer_Difiere_EstadoSoapIn" />
+      <wsdl:output message="tns:Novedades_Caratuladas_Traer_Difiere_EstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoRechazoExpediente_Traer">
+      <wsdl:input message="tns:TipoRechazoExpediente_TraerSoapIn" />
+      <wsdl:output message="tns:TipoRechazoExpediente_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Oficinas Sin Vencimiento</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesCaratuladas_OficinasSinVencimiento_TraerSoapIn" />
+      <wsdl:output message="tns:NovedadesCaratuladas_OficinasSinVencimiento_TraerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CaratulacionWSHttpGet">
+    <wsdl:operation name="Traer_xIdNovedad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer la novedad para caratular</wsdl:documentation>
+      <wsdl:input message="tns:Traer_xIdNovedadHttpGetIn" />
+      <wsdl:output message="tns:Traer_xIdNovedadHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Alta de la novedad para caratular</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesCaratuladas_AltaHttpGetIn" />
+      <wsdl:output message="tns:NovedadesCaratuladas_AltaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Difiere_Estado">
+      <wsdl:input message="tns:Novedades_Caratuladas_Traer_Difiere_EstadoHttpGetIn" />
+      <wsdl:output message="tns:Novedades_Caratuladas_Traer_Difiere_EstadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoRechazoExpediente_Traer">
+      <wsdl:input message="tns:TipoRechazoExpediente_TraerHttpGetIn" />
+      <wsdl:output message="tns:TipoRechazoExpediente_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Oficinas Sin Vencimiento</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpGetIn" />
+      <wsdl:output message="tns:NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CaratulacionWSHttpPost">
+    <wsdl:operation name="Traer_xIdNovedad">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer la novedad para caratular</wsdl:documentation>
+      <wsdl:input message="tns:Traer_xIdNovedadHttpPostIn" />
+      <wsdl:output message="tns:Traer_xIdNovedadHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Alta de la novedad para caratular</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesCaratuladas_AltaHttpPostIn" />
+      <wsdl:output message="tns:NovedadesCaratuladas_AltaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Difiere_Estado">
+      <wsdl:input message="tns:Novedades_Caratuladas_Traer_Difiere_EstadoHttpPostIn" />
+      <wsdl:output message="tns:Novedades_Caratuladas_Traer_Difiere_EstadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoRechazoExpediente_Traer">
+      <wsdl:input message="tns:TipoRechazoExpediente_TraerHttpPostIn" />
+      <wsdl:output message="tns:TipoRechazoExpediente_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Oficinas Sin Vencimiento</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpPostIn" />
+      <wsdl:output message="tns:NovedadesCaratuladas_OficinasSinVencimiento_TraerHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CaratulacionWSSoap" type="tns:CaratulacionWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_xIdNovedad">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_xIdNovedad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_Alta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadesCaratuladas_Alta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Cartula_Cambia_Estado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_Cartula_Cambia_Estado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_Caratuladas_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Por_Estado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_Caratuladas_Traer_Por_Estado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Difiere_Estado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_Caratuladas_Traer_Difiere_Estado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoRechazoExpediente_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TipoRechazoExpediente_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadesCaratuladas_OficinasSinVencimiento_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CaratulacionWSSoap12" type="tns:CaratulacionWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_xIdNovedad">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_xIdNovedad" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_Alta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadesCaratuladas_Alta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Cartula_Cambia_Estado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_Cartula_Cambia_Estado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_Caratuladas_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Por_Estado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_Caratuladas_Traer_Por_Estado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Difiere_Estado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_Caratuladas_Traer_Difiere_Estado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoRechazoExpediente_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TipoRechazoExpediente_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadesCaratuladas_OficinasSinVencimiento_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CaratulacionWSHttpGet" type="tns:CaratulacionWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Traer_xIdNovedad">
+      <http:operation location="/Traer_xIdNovedad" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_Alta">
+      <http:operation location="/NovedadesCaratuladas_Alta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Difiere_Estado">
+      <http:operation location="/Novedades_Caratuladas_Traer_Difiere_Estado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoRechazoExpediente_Traer">
+      <http:operation location="/TipoRechazoExpediente_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+      <http:operation location="/NovedadesCaratuladas_OficinasSinVencimiento_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CaratulacionWSHttpPost" type="tns:CaratulacionWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Traer_xIdNovedad">
+      <http:operation location="/Traer_xIdNovedad" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_Alta">
+      <http:operation location="/NovedadesCaratuladas_Alta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_Caratuladas_Traer_Difiere_Estado">
+      <http:operation location="/Novedades_Caratuladas_Traer_Difiere_Estado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoRechazoExpediente_Traer">
+      <http:operation location="/TipoRechazoExpediente_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesCaratuladas_OficinasSinVencimiento_Traer">
+      <http:operation location="/NovedadesCaratuladas_OficinasSinVencimiento_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CaratulacionWS">
+    <wsdl:port name="CaratulacionWSSoap" binding="tns:CaratulacionWSSoap">
+      <soap:address location="http://localhost/datserviciov2/CaratulacionWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CaratulacionWSSoap12" binding="tns:CaratulacionWSSoap12">
+      <soap12:address location="http://localhost/datserviciov2/CaratulacionWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CaratulacionWSHttpGet" binding="tns:CaratulacionWSHttpGet">
+      <http:address location="http://localhost/datserviciov2/CaratulacionWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CaratulacionWSHttpPost" binding="tns:CaratulacionWSHttpPost">
+      <http:address location="http://localhost/datserviciov2/CaratulacionWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

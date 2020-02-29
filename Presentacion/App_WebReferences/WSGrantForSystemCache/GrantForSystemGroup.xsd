@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ansesarqdir01.anses.gov.ar:8091/DirectorSOA/GrantForSystemGroup.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Anses.Director" />
+  <xs:element name="GetGrantFromSystemGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="system" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="group" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGrantFromSystemGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Anses.Director" minOccurs="0" name="GetGrantFromSystemGroupResult" nillable="true" type="q1:ArrayOfDTOServicioAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimpiarGrantFromSystemGroup">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LimpiarGrantFromSystemGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

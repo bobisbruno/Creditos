@@ -1,0 +1,111 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/Controls/MenuGenerales.ascx" TagName="MenuGenerales" TagPrefix="arq" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9, IE=9" />
+    <title>Modulo Administrador de e@Descuentos </title>
+    <link rel="shortcut icon" href="~/App_Themes/Imagenes/favicon.ico" type="image/x-icon" />
+    <link href="../App_Themes/Estilos/Anses.css" rel="stylesheet" media="screen" type="text/css" />
+    <link href="~/App_Themes/Estilos/AnsesPrint.css" rel="stylesheet" media="print" type="text/css" />
+    <link href="~/App_Themes/Estilos/Menu.css" rel="stylesheet" type="text/css" />
+    <link href="~/App_Themes/Estilos/AnsesMarco.css" rel="stylesheet" type="text/css" />
+    <link href="~/App_Themes/Estilos/EstilosPropios.css" rel="stylesheet" type="text/css" />
+    <style type="text/css" media="screen">
+        .noPrint
+        {
+            display: block;
+        }
+        .siPrint
+        {
+            display: none;
+        }
+    </style>
+    <style type="text/css" media="print">
+        .noPrint
+        {
+            display: none;
+        }
+        .siPrint
+        {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript" language="javascript">
+        var aspbh_endHandler = [];
+        var dry_System = "dat_admin";
+        var dry_ErrorPage = "<% = ResolveClientUrl("~/Paginas/Varios/SesionCaducada.aspx") %>";     
+    </script>   
+    <script type="text/javascript" language="javascript" src="<% = ResolveClientUrl("~/Scripts/jquery.min.js") %>"></script>
+    <script type="text/javascript" language="javascript" src="<% = ResolveClientUrl("~/Scripts/jquerycssmenu.js") %>"></script>
+    <script type="text/javascript" language="javascript" src="<% = ResolveClientUrl("~/Scripts/Controles/Controles.js") %>"></script>
+    <script type="text/javascript" language="javascript" src="<% = ResolveClientUrl("~/Scripts/Funciones.js") %>"></script>
+    <script type="text/javascript" language="javascript" src="<% = ResolveClientUrl("~/Scripts/Validaciones.js") %>"></script>
+    <script type="text/javascript" language="javascript" src="<% = ResolveClientUrl("~/Scripts/dry_app.js") %>"></script>
+    <script type="text/javascript">
+
+        arrowimages.down[1] = "App_Themes/Imagenes/arrow-down.gif";
+        arrowimages.right[1] = "App_Themes/Imagenes/arrow-right.gif";
+
+    </script>
+    <form id="frmMasterPage" runat="server">    
+    <ajaxCrtl:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableScriptGlobalization="True"    EnablePageMethods="true" CombineScripts="true" AsyncPostBackTimeOut="6000" ScriptMode="Release">
+    </ajaxCrtl:ToolkitScriptManager>
+ 
+    <asp:Panel ID="pnl_main" runat="server" DefaultButton="btn_dummy">      
+        <!-- el boton btn_dummy es para que no se ejecute el enter sobre el document y cierre sesion -->
+        <asp:Button ID="btn_dummy" runat="server" OnClientClick="javascript:return false;"
+            Style="display: none; visibility: hidden;" />
+        <div class="page">
+            <div class="header">
+                <div  style="margin-top:8px; float:left; width:30%; height:70px">
+                    <img id="logoAnses" runat="server" src="~/App_Themes/Imagenes/logo_Anses.png"
+                            style="float: left; margin: 5px auto 5px 10px; width:30%" />
+                    <img id="logoPresidencia" runat="server" src="~/App_Themes/Imagenes/Logo Presidencia-Trans.png"
+                            style="float: left; margin: 0px auto 5px 40px; width:25%" />
+                </div>
+                <div align="right" id="fondoHeader" style="margin-top: 10px">
+                    <h2 style="margin-right: 50px">
+                        DAT</h2>
+                    <h3 style="font-size: large; margin-top: -12px">
+                        Admin</h3>
+                </div>
+            </div>
+            <div align="left" id="encab_Menu" style="padding-top: 10px">
+                <arq:MenuGenerales ID="MenuBarraInfo" runat="server" Visible="true" />
+            </div>
+            <div class="tblMasterPage" style="text-align: center; margin: 0px auto; width: 100%">
+                <div style="width: 100%; margin: 0px auto 10px auto;">                    
+                     <asp:ContentPlaceHolder ID="pchMain" runat="server"></asp:ContentPlaceHolder>                           
+                </div>
+            </div>
+            <div id="footer">
+                <p>
+                    Términos de uso - Política de privacidad - Política de abuso - ANSES - Administración
+                    Nacional de la Seguridad Social - 2010 - Todos los Derechos Reservados</p>
+            </div>
+        </div>      
+    </asp:Panel>
+    <!--Funcion de Javascript para invalidar el F5 -->
+    <script type="text/javascript">
+        // IF IE:
+        if (document.all) {
+
+            document.onkeydown = function () {
+                var key_f5 = 116; // 116 = F5
+                if (key_f5 == event.keyCode) {
+                    event.keyCode = 0;
+                    return false;                  
+                }
+                return true;
+            }
+        }
+
+    </script>
+    </form>
+    <!-- #include file="ajaxhandler_spinner.asp"-->
+</body>
+</html>

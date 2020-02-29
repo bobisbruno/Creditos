@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://ansesnegodesapp/EmplBenefWS/EmplBenef.asmx?wsdl" docRef="http://ansesnegodesapp/EmplBenefWS/EmplBenef.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://ansesnegodesapp/EmplBenefWS/EmplBenef.asmx" xmlns:q1="http://anses.gov.ar/EmplBenef" binding="q1:EmplBenefSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://ansesnegodesapp/EmplBenefWS/EmplBenef.asmx" xmlns:q2="http://anses.gov.ar/EmplBenef" binding="q2:EmplBenefSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

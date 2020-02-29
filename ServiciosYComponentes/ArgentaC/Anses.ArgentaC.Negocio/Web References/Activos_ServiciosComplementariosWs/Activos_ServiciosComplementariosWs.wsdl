@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ConsultaAltaTemprana">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaAltaTempranaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaAltaTempranaResult" type="tns:ArrayOfDatosDeConsultaAltaTemprana" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDatosDeConsultaAltaTemprana">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatosDeConsultaAltaTemprana" nillable="true" type="tns:DatosDeConsultaAltaTemprana" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosDeConsultaAltaTemprana">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAltaTemprana" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAbreviadaMovimiento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFinRelacionLaboral" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaCondenadoProcesado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaCondenadoProcesadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaCondenadoProcesadoResult" type="tns:ArrayOfDatosDeConsultaCondenadoProcesado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDatosDeConsultaCondenadoProcesado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatosDeConsultaCondenadoProcesado" nillable="true" type="tns:DatosDeConsultaCondenadoProcesado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosDeConsultaCondenadoProcesado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCarga" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoEstado" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeriodoLiquidacion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoInterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuit" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConsultaAltaTempranaSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaAltaTemprana" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaAltaTempranaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaAltaTempranaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCondenadoProcesadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaCondenadoProcesado" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaCondenadoProcesadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaCondenadoProcesadoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Activos_ServiciosComplementariosWsSoap">
+    <wsdl:operation name="ConsultaAltaTemprana">
+      <wsdl:input message="tns:ConsultaAltaTempranaSoapIn" />
+      <wsdl:output message="tns:ConsultaAltaTempranaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCondenadoProcesado">
+      <wsdl:input message="tns:ConsultaCondenadoProcesadoSoapIn" />
+      <wsdl:output message="tns:ConsultaCondenadoProcesadoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Activos_ServiciosComplementariosWsSoap" type="tns:Activos_ServiciosComplementariosWsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaAltaTemprana">
+      <soap:operation soapAction="http://tempuri.org/ConsultaAltaTemprana" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCondenadoProcesado">
+      <soap:operation soapAction="http://tempuri.org/ConsultaCondenadoProcesado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Activos_ServiciosComplementariosWsSoap12" type="tns:Activos_ServiciosComplementariosWsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConsultaAltaTemprana">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaAltaTemprana" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaCondenadoProcesado">
+      <soap12:operation soapAction="http://tempuri.org/ConsultaCondenadoProcesado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Activos_ServiciosComplementariosWs">
+    <wsdl:port name="Activos_ServiciosComplementariosWsSoap" binding="tns:Activos_ServiciosComplementariosWsSoap">
+      <soap:address location="http://ansesnegodesapp/activos_ServiciosComplementariosWs/Activos_ServiciosComplementariosWs.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Activos_ServiciosComplementariosWsSoap12" binding="tns:Activos_ServiciosComplementariosWsSoap12">
+      <soap12:address location="http://ansesnegodesapp/activos_ServiciosComplementariosWs/Activos_ServiciosComplementariosWs.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

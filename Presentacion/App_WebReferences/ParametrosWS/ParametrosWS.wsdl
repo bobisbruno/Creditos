@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="SitioHabilitado">
+        <s:complexType />
+      </s:element>
+      <s:element name="SitioHabilitadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SitioHabilitadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaxCantCuotas">
+        <s:complexType />
+      </s:element>
+      <s:element name="MaxCantCuotasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MaxCantCuotasResult" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MaxPorcentaje">
+        <s:complexType />
+      </s:element>
+      <s:element name="MaxPorcentajeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MaxPorcentajeResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiasHabiles">
+        <s:complexType />
+      </s:element>
+      <s:element name="DiasHabilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DiasHabilesResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParametrosSitio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="batch" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ParametrosSitioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParametrosSitioResult" type="tns:Parametros" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Parametros">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantMaximaCuotas" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxPorcentaje" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraCorte" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraCierre" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nominada1A1" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantDiasTarjetaUDAI" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxMontoCreditoFGSInundado" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxMontoCreditoFGSTotal" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxMontoCreditoFGS" type="s:float" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComercioFirma" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComercioDocumentacion" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComercioHuella" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TSAltaAutomatica" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TSAltaAutomaticaDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CantCuotasHabilitadaArgenta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VlaidaEdadTipoDoc" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValidaEdadTipoDocDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValidaEdadTipoDocFechaCorte" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaLeyendaSoloDNITarjeta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaLeyendaSoloDNITarjetaDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaAltaTurno" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaAltaTurnoDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaArgentaUVHI" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaArgentaUVHIDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaAltaPNC" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaAltaPNCDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaSBAHuella" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaSBAHuellaDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaANME" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiniestroResumenTope" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaCalculoMontoPrestamoTotal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaValidacionMadre7H" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaValidacionMadre7HDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaValidacionRiesgo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaValidacionRiesgoDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaValidacionDomicilioExranjero" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaValidacionDomicilioExranjeroDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaDeudaArgenta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaDeudaArgentaDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SiniestroTopeFilaXPagina" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Parametros_CodConcepto_T3_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Codconceptoliq" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parametros_CodConcepto_T3_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parametros_CodConcepto_T3_TraerResult" type="tns:ArrayOfParametros_CodConcepto_T3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParametros_CodConcepto_T3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Parametros_CodConcepto_T3" nillable="true" type="tns:Parametros_CodConcepto_T3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Parametros_CodConcepto_T3">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codconceptoliq" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantMinCuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantMaxCuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMinCred" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoMaxCred" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiereCBU" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Parametros_CostoFinanciero_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="Parametros_CostoFinanciero_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parametros_CostoFinanciero_TraerResult" type="tns:ArrayOfParametros_CostoFinaciero" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParametros_CostoFinaciero">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Parametros_CostoFinaciero" nillable="true" type="tns:Parametros_CostoFinaciero" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Parametros_CostoFinaciero">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FDesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FHasta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasDesde" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasHasta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="PorcentajeError" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cantcuotas" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Parametros_CostoFinanciero_Traer_X_CantCuotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Parametros_CostoFinanciero_Traer_X_CantCuotaResult" type="tns:Parametros_CostoFinaciero" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="unsignedByte" type="s:unsignedByte" />
+      <s:element name="float" type="s:float" />
+      <s:element name="int" type="s:int" />
+      <s:element name="Parametros" nillable="true" type="tns:Parametros" />
+      <s:element name="ArrayOfParametros_CodConcepto_T3" nillable="true" type="tns:ArrayOfParametros_CodConcepto_T3" />
+      <s:element name="ArrayOfParametros_CostoFinaciero" nillable="true" type="tns:ArrayOfParametros_CostoFinaciero" />
+      <s:element name="Parametros_CostoFinaciero" nillable="true" type="tns:Parametros_CostoFinaciero" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SitioHabilitadoSoapIn">
+    <wsdl:part name="parameters" element="tns:SitioHabilitado" />
+  </wsdl:message>
+  <wsdl:message name="SitioHabilitadoSoapOut">
+    <wsdl:part name="parameters" element="tns:SitioHabilitadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaxCantCuotasSoapIn">
+    <wsdl:part name="parameters" element="tns:MaxCantCuotas" />
+  </wsdl:message>
+  <wsdl:message name="MaxCantCuotasSoapOut">
+    <wsdl:part name="parameters" element="tns:MaxCantCuotasResponse" />
+  </wsdl:message>
+  <wsdl:message name="MaxPorcentajeSoapIn">
+    <wsdl:part name="parameters" element="tns:MaxPorcentaje" />
+  </wsdl:message>
+  <wsdl:message name="MaxPorcentajeSoapOut">
+    <wsdl:part name="parameters" element="tns:MaxPorcentajeResponse" />
+  </wsdl:message>
+  <wsdl:message name="DiasHabilesSoapIn">
+    <wsdl:part name="parameters" element="tns:DiasHabiles" />
+  </wsdl:message>
+  <wsdl:message name="DiasHabilesSoapOut">
+    <wsdl:part name="parameters" element="tns:DiasHabilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ParametrosSitioSoapIn">
+    <wsdl:part name="parameters" element="tns:ParametrosSitio" />
+  </wsdl:message>
+  <wsdl:message name="ParametrosSitioSoapOut">
+    <wsdl:part name="parameters" element="tns:ParametrosSitioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CodConcepto_T3_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Parametros_CodConcepto_T3_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CodConcepto_T3_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Parametros_CodConcepto_T3_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Parametros_CostoFinanciero_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Parametros_CostoFinanciero_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_Traer_X_CantCuotaSoapIn">
+    <wsdl:part name="parameters" element="tns:Parametros_CostoFinanciero_Traer_X_CantCuota" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_Traer_X_CantCuotaSoapOut">
+    <wsdl:part name="parameters" element="tns:Parametros_CostoFinanciero_Traer_X_CantCuotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SitioHabilitadoHttpGetIn" />
+  <wsdl:message name="SitioHabilitadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MaxCantCuotasHttpGetIn" />
+  <wsdl:message name="MaxCantCuotasHttpGetOut">
+    <wsdl:part name="Body" element="tns:unsignedByte" />
+  </wsdl:message>
+  <wsdl:message name="MaxPorcentajeHttpGetIn" />
+  <wsdl:message name="MaxPorcentajeHttpGetOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="DiasHabilesHttpGetIn" />
+  <wsdl:message name="DiasHabilesHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ParametrosSitioHttpGetIn">
+    <wsdl:part name="batch" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ParametrosSitioHttpGetOut">
+    <wsdl:part name="Body" element="tns:Parametros" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CodConcepto_T3_TraerHttpGetIn">
+    <wsdl:part name="Codconceptoliq" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CodConcepto_T3_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParametros_CodConcepto_T3" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_TraerHttpGetIn" />
+  <wsdl:message name="Parametros_CostoFinanciero_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParametros_CostoFinaciero" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_Traer_X_CantCuotaHttpGetIn">
+    <wsdl:part name="cantcuotas" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_Traer_X_CantCuotaHttpGetOut">
+    <wsdl:part name="Body" element="tns:Parametros_CostoFinaciero" />
+  </wsdl:message>
+  <wsdl:message name="SitioHabilitadoHttpPostIn" />
+  <wsdl:message name="SitioHabilitadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MaxCantCuotasHttpPostIn" />
+  <wsdl:message name="MaxCantCuotasHttpPostOut">
+    <wsdl:part name="Body" element="tns:unsignedByte" />
+  </wsdl:message>
+  <wsdl:message name="MaxPorcentajeHttpPostIn" />
+  <wsdl:message name="MaxPorcentajeHttpPostOut">
+    <wsdl:part name="Body" element="tns:float" />
+  </wsdl:message>
+  <wsdl:message name="DiasHabilesHttpPostIn" />
+  <wsdl:message name="DiasHabilesHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ParametrosSitioHttpPostIn">
+    <wsdl:part name="batch" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ParametrosSitioHttpPostOut">
+    <wsdl:part name="Body" element="tns:Parametros" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CodConcepto_T3_TraerHttpPostIn">
+    <wsdl:part name="Codconceptoliq" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CodConcepto_T3_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParametros_CodConcepto_T3" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_TraerHttpPostIn" />
+  <wsdl:message name="Parametros_CostoFinanciero_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfParametros_CostoFinaciero" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_Traer_X_CantCuotaHttpPostIn">
+    <wsdl:part name="cantcuotas" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Parametros_CostoFinanciero_Traer_X_CantCuotaHttpPostOut">
+    <wsdl:part name="Body" element="tns:Parametros_CostoFinaciero" />
+  </wsdl:message>
+  <wsdl:portType name="ParametrosWSSoap">
+    <wsdl:operation name="SitioHabilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sitio_esta_habilitado</wsdl:documentation>
+      <wsdl:input message="tns:SitioHabilitadoSoapIn" />
+      <wsdl:output message="tns:SitioHabilitadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxCantCuotas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cantidad_Maxima_de_Cuotas_Permitidas</wsdl:documentation>
+      <wsdl:input message="tns:MaxCantCuotasSoapIn" />
+      <wsdl:output message="tns:MaxCantCuotasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxPorcentaje">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Porcentaje_Maximo_Permitido</wsdl:documentation>
+      <wsdl:input message="tns:MaxPorcentajeSoapIn" />
+      <wsdl:output message="tns:MaxPorcentajeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DiasHabiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dias_Habiles</wsdl:documentation>
+      <wsdl:input message="tns:DiasHabilesSoapIn" />
+      <wsdl:output message="tns:DiasHabilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametrosSitio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Todos_los_metodos_mencionados</wsdl:documentation>
+      <wsdl:input message="tns:ParametrosSitioSoapIn" />
+      <wsdl:output message="tns:ParametrosSitioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CodConcepto_T3_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Parametros_CodConcepto_T3_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CodConcepto_T3_TraerSoapIn" />
+      <wsdl:output message="tns:Parametros_CodConcepto_T3_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Todos_los_metodos_mencionados</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CostoFinanciero_TraerSoapIn" />
+      <wsdl:output message="tns:Parametros_CostoFinanciero_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Costo_Financiero</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CostoFinanciero_Traer_X_CantCuotaSoapIn" />
+      <wsdl:output message="tns:Parametros_CostoFinanciero_Traer_X_CantCuotaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ParametrosWSHttpGet">
+    <wsdl:operation name="SitioHabilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sitio_esta_habilitado</wsdl:documentation>
+      <wsdl:input message="tns:SitioHabilitadoHttpGetIn" />
+      <wsdl:output message="tns:SitioHabilitadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxCantCuotas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cantidad_Maxima_de_Cuotas_Permitidas</wsdl:documentation>
+      <wsdl:input message="tns:MaxCantCuotasHttpGetIn" />
+      <wsdl:output message="tns:MaxCantCuotasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxPorcentaje">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Porcentaje_Maximo_Permitido</wsdl:documentation>
+      <wsdl:input message="tns:MaxPorcentajeHttpGetIn" />
+      <wsdl:output message="tns:MaxPorcentajeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DiasHabiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dias_Habiles</wsdl:documentation>
+      <wsdl:input message="tns:DiasHabilesHttpGetIn" />
+      <wsdl:output message="tns:DiasHabilesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametrosSitio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Todos_los_metodos_mencionados</wsdl:documentation>
+      <wsdl:input message="tns:ParametrosSitioHttpGetIn" />
+      <wsdl:output message="tns:ParametrosSitioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CodConcepto_T3_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Parametros_CodConcepto_T3_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CodConcepto_T3_TraerHttpGetIn" />
+      <wsdl:output message="tns:Parametros_CodConcepto_T3_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Todos_los_metodos_mencionados</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CostoFinanciero_TraerHttpGetIn" />
+      <wsdl:output message="tns:Parametros_CostoFinanciero_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Costo_Financiero</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CostoFinanciero_Traer_X_CantCuotaHttpGetIn" />
+      <wsdl:output message="tns:Parametros_CostoFinanciero_Traer_X_CantCuotaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ParametrosWSHttpPost">
+    <wsdl:operation name="SitioHabilitado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sitio_esta_habilitado</wsdl:documentation>
+      <wsdl:input message="tns:SitioHabilitadoHttpPostIn" />
+      <wsdl:output message="tns:SitioHabilitadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxCantCuotas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cantidad_Maxima_de_Cuotas_Permitidas</wsdl:documentation>
+      <wsdl:input message="tns:MaxCantCuotasHttpPostIn" />
+      <wsdl:output message="tns:MaxCantCuotasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MaxPorcentaje">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Porcentaje_Maximo_Permitido</wsdl:documentation>
+      <wsdl:input message="tns:MaxPorcentajeHttpPostIn" />
+      <wsdl:output message="tns:MaxPorcentajeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DiasHabiles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Dias_Habiles</wsdl:documentation>
+      <wsdl:input message="tns:DiasHabilesHttpPostIn" />
+      <wsdl:output message="tns:DiasHabilesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ParametrosSitio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Todos_los_metodos_mencionados</wsdl:documentation>
+      <wsdl:input message="tns:ParametrosSitioHttpPostIn" />
+      <wsdl:output message="tns:ParametrosSitioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CodConcepto_T3_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Parametros_CodConcepto_T3_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CodConcepto_T3_TraerHttpPostIn" />
+      <wsdl:output message="tns:Parametros_CodConcepto_T3_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Todos_los_metodos_mencionados</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CostoFinanciero_TraerHttpPostIn" />
+      <wsdl:output message="tns:Parametros_CostoFinanciero_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Costo_Financiero</wsdl:documentation>
+      <wsdl:input message="tns:Parametros_CostoFinanciero_Traer_X_CantCuotaHttpPostIn" />
+      <wsdl:output message="tns:Parametros_CostoFinanciero_Traer_X_CantCuotaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ParametrosWSSoap" type="tns:ParametrosWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SitioHabilitado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/SitioHabilitado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxCantCuotas">
+      <soap:operation soapAction="http://dat.anses.gov.ar/MaxCantCuotas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxPorcentaje">
+      <soap:operation soapAction="http://dat.anses.gov.ar/MaxPorcentaje" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiasHabiles">
+      <soap:operation soapAction="http://dat.anses.gov.ar/DiasHabiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametrosSitio">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ParametrosSitio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CodConcepto_T3_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Parametros_CodConcepto_T3_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Parametros_CostoFinanciero_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Parametros_CostoFinanciero_Traer_X_CantCuota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ParametrosWSSoap12" type="tns:ParametrosWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SitioHabilitado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/SitioHabilitado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxCantCuotas">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/MaxCantCuotas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxPorcentaje">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/MaxPorcentaje" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiasHabiles">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/DiasHabiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametrosSitio">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ParametrosSitio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CodConcepto_T3_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Parametros_CodConcepto_T3_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Parametros_CostoFinanciero_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Parametros_CostoFinanciero_Traer_X_CantCuota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ParametrosWSHttpGet" type="tns:ParametrosWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SitioHabilitado">
+      <http:operation location="/SitioHabilitado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxCantCuotas">
+      <http:operation location="/MaxCantCuotas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxPorcentaje">
+      <http:operation location="/MaxPorcentaje" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiasHabiles">
+      <http:operation location="/DiasHabiles" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametrosSitio">
+      <http:operation location="/ParametrosSitio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CodConcepto_T3_Traer">
+      <http:operation location="/Parametros_CodConcepto_T3_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer">
+      <http:operation location="/Parametros_CostoFinanciero_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+      <http:operation location="/Parametros_CostoFinanciero_Traer_X_CantCuota" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ParametrosWSHttpPost" type="tns:ParametrosWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SitioHabilitado">
+      <http:operation location="/SitioHabilitado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxCantCuotas">
+      <http:operation location="/MaxCantCuotas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MaxPorcentaje">
+      <http:operation location="/MaxPorcentaje" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiasHabiles">
+      <http:operation location="/DiasHabiles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ParametrosSitio">
+      <http:operation location="/ParametrosSitio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CodConcepto_T3_Traer">
+      <http:operation location="/Parametros_CodConcepto_T3_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer">
+      <http:operation location="/Parametros_CostoFinanciero_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Parametros_CostoFinanciero_Traer_X_CantCuota">
+      <http:operation location="/Parametros_CostoFinanciero_Traer_X_CantCuota" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ParametrosWS">
+    <wsdl:port name="ParametrosWSSoap" binding="tns:ParametrosWSSoap">
+      <soap:address location="http://localhost/datserviciov2/ParametrosWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ParametrosWSSoap12" binding="tns:ParametrosWSSoap12">
+      <soap12:address location="http://localhost/datserviciov2/ParametrosWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ParametrosWSHttpGet" binding="tns:ParametrosWSHttpGet">
+      <http:address location="http://localhost/datserviciov2/ParametrosWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ParametrosWSHttpPost" binding="tns:ParametrosWSHttpPost">
+      <http:address location="http://localhost/datserviciov2/ParametrosWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TraerPrestadoresAdm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodConcLiq" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPrestadoresAdmResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPrestadoresAdmResult" type="tns:ArrayOfPrestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPrestador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Prestador" nillable="true" type="tns:Prestador" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prestador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodoFicinaANME" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArrayComercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsNominada" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsAnses" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EntregaDocumentacionEnFGS" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsEntidadOficial" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsComercio" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Entidad_Prest_Comer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfEntidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreFantasia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+              <s:element minOccurs="1" maxOccurs="1" name="IDEstado" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tasas" type="tns:ArrayOfTasa" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnDomicilio" type="tns:Domicilio" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfEntidad_Prest_Comer" />
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tasa" nillable="true" type="tns:Tasa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAudAprobacion" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicioVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFinVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GastoAdministrativo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasHasta" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineaCredito" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Plazo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FAprobacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prestador" type="tns:Prestador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comercializador" type="tns:Comercializador" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aprobada" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comercializador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Domicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsSucursal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilio" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaProvincia" type="tns:Provincia" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoDomicilio" type="tns:TipoDomicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nacionalidad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionProvincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDomicilio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoDomicilio" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoDomicilio" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioridad" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodSidif" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obligatorio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAfiliacion" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoOnLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoConcepto" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoLiquidacion" nillable="true" type="tns:ConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfComercializador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comercializador" nillable="true" type="tns:Comercializador" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ContactosTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDomicilio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ContactosTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactosTraerResult" type="tns:ArrayOfPrestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomiciliosTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomiciliosTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DomiciliosTraerResult" type="tns:ArrayOfDomicilio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDomicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Domicilio" nillable="true" type="tns:Domicilio" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConveniosTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConveniosTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConveniosTraerResult" type="tns:ArrayOfPrestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerConceptosPorCodSistema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codSistema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerConceptosPorCodSistemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerConceptosPorCodSistemaResult" type="tns:ArrayOfPrestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerConceptosPorCodConcepto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codConcepto" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerConceptosPorCodConceptoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerConceptosPorCodConceptoResult" type="tns:ArrayOfPrestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPrestador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orden" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPrestadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPrestadorResult" type="tns:ArrayOfPrestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPrestador_x_CUIT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CUIT" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPrestador_x_CUITResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPrestador_x_CUITResult" type="tns:Prestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerConceptosTodo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerConceptosTodoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerConceptosTodoResult" type="tns:ArrayOfTipoConcepto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoConcepto" nillable="true" type="tns:TipoConcepto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Traer_Prestadores_Entrega_FGS">
+        <s:complexType />
+      </s:element>
+      <s:element name="Traer_Prestadores_Entrega_FGSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_Prestadores_Entrega_FGSResult" type="tns:ArrayOfPrestador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerTasas_xidPrestadorIdComercializador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idComercializadora" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerTasas_xidPrestadorIdComercializadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerTasas_xidPrestadorIdComercializadorResult" type="tns:ArrayOfTasa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadas_TxTop20">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipoTasa" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="tasaDesde" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="tasaHasta" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuotaDesde" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuotaHasta" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadas_TxTop20Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TasasAplicadas_TxTop20Result" type="tns:ArrayOfTasa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasParaGestionUCATxTop50">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigoSistema" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="razonSocial" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaHasta" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="habilita" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasParaGestionUCATxTop50Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TasasAplicadasParaGestionUCATxTop50Result" type="tns:ArrayOfTasa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasMB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idComercializador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unaTasaAplicada" type="tns:Tasa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasMBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TasasAplicadasMBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idComercializador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unaTasaAplicada" type="tns:Tasa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TasasAplicadasAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasHabilitaDeshabilita">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TasasAplicadas" type="tns:ArrayOfTasa" />
+            <s:element minOccurs="1" maxOccurs="1" name="habilita" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TasasAplicadasHabilitaDeshabilitaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TasasAplicadasHabilitaDeshabilitaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfPrestador" nillable="true" type="tns:ArrayOfPrestador" />
+      <s:element name="ArrayOfDomicilio" nillable="true" type="tns:ArrayOfDomicilio" />
+      <s:element name="Prestador" nillable="true" type="tns:Prestador" />
+      <s:element name="ArrayOfTipoConcepto" nillable="true" type="tns:ArrayOfTipoConcepto" />
+      <s:element name="ArrayOfTasa" nillable="true" type="tns:ArrayOfTasa" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerPrestadoresAdmSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPrestadoresAdm" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadoresAdmSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPrestadoresAdmResponse" />
+  </wsdl:message>
+  <wsdl:message name="ContactosTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:ContactosTraer" />
+  </wsdl:message>
+  <wsdl:message name="ContactosTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:ContactosTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="DomiciliosTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:DomiciliosTraer" />
+  </wsdl:message>
+  <wsdl:message name="DomiciliosTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:DomiciliosTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConveniosTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:ConveniosTraer" />
+  </wsdl:message>
+  <wsdl:message name="ConveniosTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:ConveniosTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodSistemaSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerConceptosPorCodSistema" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodSistemaSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerConceptosPorCodSistemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodConceptoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerConceptosPorCodConcepto" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodConceptoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerConceptosPorCodConceptoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadorSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadorSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPrestadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestador_x_CUITSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPrestador_x_CUIT" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestador_x_CUITSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPrestador_x_CUITResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosTodoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerConceptosTodo" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosTodoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerConceptosTodoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Traer_Prestadores_Entrega_FGSSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_Prestadores_Entrega_FGS" />
+  </wsdl:message>
+  <wsdl:message name="Traer_Prestadores_Entrega_FGSSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_Prestadores_Entrega_FGSResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerTasas_xidPrestadorIdComercializadorSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerTasas_xidPrestadorIdComercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerTasas_xidPrestadorIdComercializadorSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerTasas_xidPrestadorIdComercializadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadas_TxTop20SoapIn">
+    <wsdl:part name="parameters" element="tns:TasasAplicadas_TxTop20" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadas_TxTop20SoapOut">
+    <wsdl:part name="parameters" element="tns:TasasAplicadas_TxTop20Response" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasParaGestionUCATxTop50SoapIn">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasParaGestionUCATxTop50" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasParaGestionUCATxTop50SoapOut">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasParaGestionUCATxTop50Response" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasMBSoapIn">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasMB" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasMBSoapOut">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasMBResponse" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasASoapIn">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasA" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasASoapOut">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasAResponse" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasHabilitaDeshabilitaSoapIn">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasHabilitaDeshabilita" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasHabilitaDeshabilitaSoapOut">
+    <wsdl:part name="parameters" element="tns:TasasAplicadasHabilitaDeshabilitaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadoresAdmHttpGetIn">
+    <wsdl:part name="CodigoSistema" type="s:string" />
+    <wsdl:part name="CodConcLiq" type="s:string" />
+    <wsdl:part name="RazonSocial" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadoresAdmHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="ContactosTraerHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idDomicilio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ContactosTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="DomiciliosTraerHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DomiciliosTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDomicilio" />
+  </wsdl:message>
+  <wsdl:message name="ConveniosTraerHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConveniosTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodSistemaHttpGetIn">
+    <wsdl:part name="codSistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodSistemaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodConceptoHttpGetIn">
+    <wsdl:part name="codConcepto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodConceptoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadorHttpGetIn">
+    <wsdl:part name="orden" type="s:string" />
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestador_x_CUITHttpGetIn">
+    <wsdl:part name="CUIT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestador_x_CUITHttpGetOut">
+    <wsdl:part name="Body" element="tns:Prestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosTodoHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosTodoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoConcepto" />
+  </wsdl:message>
+  <wsdl:message name="Traer_Prestadores_Entrega_FGSHttpGetIn" />
+  <wsdl:message name="Traer_Prestadores_Entrega_FGSHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerTasas_xidPrestadorIdComercializadorHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializadora" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerTasas_xidPrestadorIdComercializadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTasa" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadas_TxTop20HttpGetIn">
+    <wsdl:part name="tipoTasa" type="s:string" />
+    <wsdl:part name="tasaDesde" type="s:string" />
+    <wsdl:part name="tasaHasta" type="s:string" />
+    <wsdl:part name="cuotaDesde" type="s:string" />
+    <wsdl:part name="cuotaHasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadas_TxTop20HttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTasa" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasParaGestionUCATxTop50HttpGetIn">
+    <wsdl:part name="codigoSistema" type="s:string" />
+    <wsdl:part name="razonSocial" type="s:string" />
+    <wsdl:part name="fechaDesde" type="s:string" />
+    <wsdl:part name="fechaHasta" type="s:string" />
+    <wsdl:part name="habilita" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasParaGestionUCATxTop50HttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTasa" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadoresAdmHttpPostIn">
+    <wsdl:part name="CodigoSistema" type="s:string" />
+    <wsdl:part name="CodConcLiq" type="s:string" />
+    <wsdl:part name="RazonSocial" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadoresAdmHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="ContactosTraerHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idDomicilio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ContactosTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="DomiciliosTraerHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DomiciliosTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDomicilio" />
+  </wsdl:message>
+  <wsdl:message name="ConveniosTraerHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConveniosTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodSistemaHttpPostIn">
+    <wsdl:part name="codSistema" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodSistemaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodConceptoHttpPostIn">
+    <wsdl:part name="codConcepto" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosPorCodConceptoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadorHttpPostIn">
+    <wsdl:part name="orden" type="s:string" />
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestador_x_CUITHttpPostIn">
+    <wsdl:part name="CUIT" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestador_x_CUITHttpPostOut">
+    <wsdl:part name="Body" element="tns:Prestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosTodoHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConceptosTodoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoConcepto" />
+  </wsdl:message>
+  <wsdl:message name="Traer_Prestadores_Entrega_FGSHttpPostIn" />
+  <wsdl:message name="Traer_Prestadores_Entrega_FGSHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerTasas_xidPrestadorIdComercializadorHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializadora" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerTasas_xidPrestadorIdComercializadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTasa" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadas_TxTop20HttpPostIn">
+    <wsdl:part name="tipoTasa" type="s:string" />
+    <wsdl:part name="tasaDesde" type="s:string" />
+    <wsdl:part name="tasaHasta" type="s:string" />
+    <wsdl:part name="cuotaDesde" type="s:string" />
+    <wsdl:part name="cuotaHasta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadas_TxTop20HttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTasa" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasParaGestionUCATxTop50HttpPostIn">
+    <wsdl:part name="codigoSistema" type="s:string" />
+    <wsdl:part name="razonSocial" type="s:string" />
+    <wsdl:part name="fechaDesde" type="s:string" />
+    <wsdl:part name="fechaHasta" type="s:string" />
+    <wsdl:part name="habilita" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TasasAplicadasParaGestionUCATxTop50HttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTasa" />
+  </wsdl:message>
+  <wsdl:portType name="PrestadorWSSoap">
+    <wsdl:operation name="TraerPrestadoresAdm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraePrestadoresXParametros</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestadoresAdmSoapIn" />
+      <wsdl:output message="tns:TraerPrestadoresAdmSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Contactos</wsdl:documentation>
+      <wsdl:input message="tns:ContactosTraerSoapIn" />
+      <wsdl:output message="tns:ContactosTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomiciliosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Domicilios</wsdl:documentation>
+      <wsdl:input message="tns:DomiciliosTraerSoapIn" />
+      <wsdl:output message="tns:DomiciliosTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConveniosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Convenios</wsdl:documentation>
+      <wsdl:input message="tns:ConveniosTraerSoapIn" />
+      <wsdl:output message="tns:ConveniosTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodSistema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Conceptos por Codigo de Sistema</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosPorCodSistemaSoapIn" />
+      <wsdl:output message="tns:TraerConceptosPorCodSistemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodConcepto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Conceptos por Codigo de Concepto</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosPorCodConceptoSoapIn" />
+      <wsdl:output message="tns:TraerConceptosPorCodConceptoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae prestadores</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestadorSoapIn" />
+      <wsdl:output message="tns:TraerPrestadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador_x_CUIT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae prestador x CUIT</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestador_x_CUITSoapIn" />
+      <wsdl:output message="tns:TraerPrestador_x_CUITSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosTodo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Todos los Conceptos</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosTodoSoapIn" />
+      <wsdl:output message="tns:TraerConceptosTodoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer_Prestadores_Entrega_FGS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Prestadores_Entrega_FGS</wsdl:documentation>
+      <wsdl:input message="tns:Traer_Prestadores_Entrega_FGSSoapIn" />
+      <wsdl:output message="tns:Traer_Prestadores_Entrega_FGSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTasas_xidPrestadorIdComercializador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Tasas por idPrestador y idComercializador</wsdl:documentation>
+      <wsdl:input message="tns:TraerTasas_xidPrestadorIdComercializadorSoapIn" />
+      <wsdl:output message="tns:TraerTasas_xidPrestadorIdComercializadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadas_TxTop20">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el top 20 de Tasas con su prestador y comercializador</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadas_TxTop20SoapIn" />
+      <wsdl:output message="tns:TasasAplicadas_TxTop20SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasParaGestionUCATxTop50">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tasas asociadas a un Prestador por RazonSocial o fecha inicio fecha fin.</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadasParaGestionUCATxTop50SoapIn" />
+      <wsdl:output message="tns:TasasAplicadasParaGestionUCATxTop50SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasMB">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Alta/Modificación de Tasa Aplicada</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadasMBSoapIn" />
+      <wsdl:output message="tns:TasasAplicadasMBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasA">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Alta/Modificación de Tasa Aplicada</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadasASoapIn" />
+      <wsdl:output message="tns:TasasAplicadasASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasHabilitaDeshabilita">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Aprobacion de Tasa Aplicada</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadasHabilitaDeshabilitaSoapIn" />
+      <wsdl:output message="tns:TasasAplicadasHabilitaDeshabilitaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PrestadorWSHttpGet">
+    <wsdl:operation name="TraerPrestadoresAdm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraePrestadoresXParametros</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestadoresAdmHttpGetIn" />
+      <wsdl:output message="tns:TraerPrestadoresAdmHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Contactos</wsdl:documentation>
+      <wsdl:input message="tns:ContactosTraerHttpGetIn" />
+      <wsdl:output message="tns:ContactosTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomiciliosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Domicilios</wsdl:documentation>
+      <wsdl:input message="tns:DomiciliosTraerHttpGetIn" />
+      <wsdl:output message="tns:DomiciliosTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConveniosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Convenios</wsdl:documentation>
+      <wsdl:input message="tns:ConveniosTraerHttpGetIn" />
+      <wsdl:output message="tns:ConveniosTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodSistema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Conceptos por Codigo de Sistema</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosPorCodSistemaHttpGetIn" />
+      <wsdl:output message="tns:TraerConceptosPorCodSistemaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodConcepto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Conceptos por Codigo de Concepto</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosPorCodConceptoHttpGetIn" />
+      <wsdl:output message="tns:TraerConceptosPorCodConceptoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae prestadores</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestadorHttpGetIn" />
+      <wsdl:output message="tns:TraerPrestadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador_x_CUIT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae prestador x CUIT</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestador_x_CUITHttpGetIn" />
+      <wsdl:output message="tns:TraerPrestador_x_CUITHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosTodo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Todos los Conceptos</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosTodoHttpGetIn" />
+      <wsdl:output message="tns:TraerConceptosTodoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer_Prestadores_Entrega_FGS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Prestadores_Entrega_FGS</wsdl:documentation>
+      <wsdl:input message="tns:Traer_Prestadores_Entrega_FGSHttpGetIn" />
+      <wsdl:output message="tns:Traer_Prestadores_Entrega_FGSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTasas_xidPrestadorIdComercializador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Tasas por idPrestador y idComercializador</wsdl:documentation>
+      <wsdl:input message="tns:TraerTasas_xidPrestadorIdComercializadorHttpGetIn" />
+      <wsdl:output message="tns:TraerTasas_xidPrestadorIdComercializadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadas_TxTop20">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el top 20 de Tasas con su prestador y comercializador</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadas_TxTop20HttpGetIn" />
+      <wsdl:output message="tns:TasasAplicadas_TxTop20HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasParaGestionUCATxTop50">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tasas asociadas a un Prestador por RazonSocial o fecha inicio fecha fin.</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadasParaGestionUCATxTop50HttpGetIn" />
+      <wsdl:output message="tns:TasasAplicadasParaGestionUCATxTop50HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PrestadorWSHttpPost">
+    <wsdl:operation name="TraerPrestadoresAdm">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraePrestadoresXParametros</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestadoresAdmHttpPostIn" />
+      <wsdl:output message="tns:TraerPrestadoresAdmHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ContactosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Contactos</wsdl:documentation>
+      <wsdl:input message="tns:ContactosTraerHttpPostIn" />
+      <wsdl:output message="tns:ContactosTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomiciliosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Domicilios</wsdl:documentation>
+      <wsdl:input message="tns:DomiciliosTraerHttpPostIn" />
+      <wsdl:output message="tns:DomiciliosTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConveniosTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Convenios</wsdl:documentation>
+      <wsdl:input message="tns:ConveniosTraerHttpPostIn" />
+      <wsdl:output message="tns:ConveniosTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodSistema">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Conceptos por Codigo de Sistema</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosPorCodSistemaHttpPostIn" />
+      <wsdl:output message="tns:TraerConceptosPorCodSistemaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodConcepto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer Conceptos por Codigo de Concepto</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosPorCodConceptoHttpPostIn" />
+      <wsdl:output message="tns:TraerConceptosPorCodConceptoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae prestadores</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestadorHttpPostIn" />
+      <wsdl:output message="tns:TraerPrestadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador_x_CUIT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae prestador x CUIT</wsdl:documentation>
+      <wsdl:input message="tns:TraerPrestador_x_CUITHttpPostIn" />
+      <wsdl:output message="tns:TraerPrestador_x_CUITHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosTodo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Todos los Conceptos</wsdl:documentation>
+      <wsdl:input message="tns:TraerConceptosTodoHttpPostIn" />
+      <wsdl:output message="tns:TraerConceptosTodoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer_Prestadores_Entrega_FGS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae_Prestadores_Entrega_FGS</wsdl:documentation>
+      <wsdl:input message="tns:Traer_Prestadores_Entrega_FGSHttpPostIn" />
+      <wsdl:output message="tns:Traer_Prestadores_Entrega_FGSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTasas_xidPrestadorIdComercializador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Tasas por idPrestador y idComercializador</wsdl:documentation>
+      <wsdl:input message="tns:TraerTasas_xidPrestadorIdComercializadorHttpPostIn" />
+      <wsdl:output message="tns:TraerTasas_xidPrestadorIdComercializadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadas_TxTop20">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna el top 20 de Tasas con su prestador y comercializador</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadas_TxTop20HttpPostIn" />
+      <wsdl:output message="tns:TasasAplicadas_TxTop20HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasParaGestionUCATxTop50">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tasas asociadas a un Prestador por RazonSocial o fecha inicio fecha fin.</wsdl:documentation>
+      <wsdl:input message="tns:TasasAplicadasParaGestionUCATxTop50HttpPostIn" />
+      <wsdl:output message="tns:TasasAplicadasParaGestionUCATxTop50HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PrestadorWSSoap" type="tns:PrestadorWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerPrestadoresAdm">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerPrestadoresAdm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactosTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ContactosTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomiciliosTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/DomiciliosTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConveniosTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ConveniosTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodSistema">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerConceptosPorCodSistema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodConcepto">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerConceptosPorCodConcepto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerPrestador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador_x_CUIT">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerPrestador_x_CUIT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosTodo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerConceptosTodo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_Prestadores_Entrega_FGS">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_Prestadores_Entrega_FGS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTasas_xidPrestadorIdComercializador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerTasas_xidPrestadorIdComercializador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadas_TxTop20">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TasasAplicadas_TxTop20" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasParaGestionUCATxTop50">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasParaGestionUCATxTop50" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasMB">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasMB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasA">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasHabilitaDeshabilita">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasHabilitaDeshabilita" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PrestadorWSSoap12" type="tns:PrestadorWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerPrestadoresAdm">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerPrestadoresAdm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactosTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ContactosTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomiciliosTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/DomiciliosTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConveniosTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ConveniosTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodSistema">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerConceptosPorCodSistema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodConcepto">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerConceptosPorCodConcepto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerPrestador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador_x_CUIT">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerPrestador_x_CUIT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosTodo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerConceptosTodo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_Prestadores_Entrega_FGS">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_Prestadores_Entrega_FGS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTasas_xidPrestadorIdComercializador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerTasas_xidPrestadorIdComercializador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadas_TxTop20">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TasasAplicadas_TxTop20" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasParaGestionUCATxTop50">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasParaGestionUCATxTop50" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasMB">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasMB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasA">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasHabilitaDeshabilita">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TasasAplicadasHabilitaDeshabilita" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PrestadorWSHttpGet" type="tns:PrestadorWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerPrestadoresAdm">
+      <http:operation location="/TraerPrestadoresAdm" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactosTraer">
+      <http:operation location="/ContactosTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomiciliosTraer">
+      <http:operation location="/DomiciliosTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConveniosTraer">
+      <http:operation location="/ConveniosTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodSistema">
+      <http:operation location="/TraerConceptosPorCodSistema" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodConcepto">
+      <http:operation location="/TraerConceptosPorCodConcepto" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador">
+      <http:operation location="/TraerPrestador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador_x_CUIT">
+      <http:operation location="/TraerPrestador_x_CUIT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosTodo">
+      <http:operation location="/TraerConceptosTodo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_Prestadores_Entrega_FGS">
+      <http:operation location="/Traer_Prestadores_Entrega_FGS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTasas_xidPrestadorIdComercializador">
+      <http:operation location="/TraerTasas_xidPrestadorIdComercializador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadas_TxTop20">
+      <http:operation location="/TasasAplicadas_TxTop20" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasParaGestionUCATxTop50">
+      <http:operation location="/TasasAplicadasParaGestionUCATxTop50" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PrestadorWSHttpPost" type="tns:PrestadorWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerPrestadoresAdm">
+      <http:operation location="/TraerPrestadoresAdm" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ContactosTraer">
+      <http:operation location="/ContactosTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomiciliosTraer">
+      <http:operation location="/DomiciliosTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConveniosTraer">
+      <http:operation location="/ConveniosTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodSistema">
+      <http:operation location="/TraerConceptosPorCodSistema" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosPorCodConcepto">
+      <http:operation location="/TraerConceptosPorCodConcepto" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador">
+      <http:operation location="/TraerPrestador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestador_x_CUIT">
+      <http:operation location="/TraerPrestador_x_CUIT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConceptosTodo">
+      <http:operation location="/TraerConceptosTodo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_Prestadores_Entrega_FGS">
+      <http:operation location="/Traer_Prestadores_Entrega_FGS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTasas_xidPrestadorIdComercializador">
+      <http:operation location="/TraerTasas_xidPrestadorIdComercializador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadas_TxTop20">
+      <http:operation location="/TasasAplicadas_TxTop20" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TasasAplicadasParaGestionUCATxTop50">
+      <http:operation location="/TasasAplicadasParaGestionUCATxTop50" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PrestadorWS">
+    <wsdl:port name="PrestadorWSSoap" binding="tns:PrestadorWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/PrestadorWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PrestadorWSSoap12" binding="tns:PrestadorWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/PrestadorWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PrestadorWSHttpGet" binding="tns:PrestadorWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/PrestadorWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PrestadorWSHttpPost" binding="tns:PrestadorWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/PrestadorWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

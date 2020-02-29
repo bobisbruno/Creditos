@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TraerProvincias">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraerProvinciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerProvinciasResult" type="tns:ArrayOfProvincia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProvincia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Provincia" nillable="true" type="tns:Provincia" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionProvincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerProvincia_xID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPcia" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerProvincia_xIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerProvincia_xIDResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfProvincia" nillable="true" type="tns:ArrayOfProvincia" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerProvinciasSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerProvincias" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvinciasSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerProvinciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvincia_xIDSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerProvincia_xID" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvincia_xIDSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerProvincia_xIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvinciasHttpGetIn" />
+  <wsdl:message name="TraerProvinciasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProvincia" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvincia_xIDHttpGetIn">
+    <wsdl:part name="idPcia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvincia_xIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvinciasHttpPostIn" />
+  <wsdl:message name="TraerProvinciasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProvincia" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvincia_xIDHttpPostIn">
+    <wsdl:part name="idPcia" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvincia_xIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ProvinciaWSSoap">
+    <wsdl:operation name="TraerProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraeProvincias</wsdl:documentation>
+      <wsdl:input message="tns:TraerProvinciasSoapIn" />
+      <wsdl:output message="tns:TraerProvinciasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincia_xID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerProvincia_xID</wsdl:documentation>
+      <wsdl:input message="tns:TraerProvincia_xIDSoapIn" />
+      <wsdl:output message="tns:TraerProvincia_xIDSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProvinciaWSHttpGet">
+    <wsdl:operation name="TraerProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraeProvincias</wsdl:documentation>
+      <wsdl:input message="tns:TraerProvinciasHttpGetIn" />
+      <wsdl:output message="tns:TraerProvinciasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincia_xID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerProvincia_xID</wsdl:documentation>
+      <wsdl:input message="tns:TraerProvincia_xIDHttpGetIn" />
+      <wsdl:output message="tns:TraerProvincia_xIDHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ProvinciaWSHttpPost">
+    <wsdl:operation name="TraerProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraeProvincias</wsdl:documentation>
+      <wsdl:input message="tns:TraerProvinciasHttpPostIn" />
+      <wsdl:output message="tns:TraerProvinciasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincia_xID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TraerProvincia_xID</wsdl:documentation>
+      <wsdl:input message="tns:TraerProvincia_xIDHttpPostIn" />
+      <wsdl:output message="tns:TraerProvincia_xIDHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProvinciaWSSoap" type="tns:ProvinciaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerProvincias">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerProvincias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincia_xID">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerProvincia_xID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProvinciaWSSoap12" type="tns:ProvinciaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerProvincias">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerProvincias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincia_xID">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerProvincia_xID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProvinciaWSHttpGet" type="tns:ProvinciaWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerProvincias">
+      <http:operation location="/TraerProvincias" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincia_xID">
+      <http:operation location="/TraerProvincia_xID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ProvinciaWSHttpPost" type="tns:ProvinciaWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerProvincias">
+      <http:operation location="/TraerProvincias" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincia_xID">
+      <http:operation location="/TraerProvincia_xID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProvinciaWS">
+    <wsdl:port name="ProvinciaWSSoap" binding="tns:ProvinciaWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/ProvinciaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProvinciaWSSoap12" binding="tns:ProvinciaWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/ProvinciaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProvinciaWSHttpGet" binding="tns:ProvinciaWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/ProvinciaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ProvinciaWSHttpPost" binding="tns:ProvinciaWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/ProvinciaWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

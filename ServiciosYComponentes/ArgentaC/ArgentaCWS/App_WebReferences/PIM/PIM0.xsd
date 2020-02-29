@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ansesnegodesapp/NacionServicios_WCF/PIM.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Anses.NacionServicios.Contrato" />
+  <xs:element name="PIM_Consulta">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cuil" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PIM_ConsultaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Anses.NacionServicios.Contrato" minOccurs="0" name="PIM_ConsultaResult" nillable="true" type="q1:resultadoConsultaCBU" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

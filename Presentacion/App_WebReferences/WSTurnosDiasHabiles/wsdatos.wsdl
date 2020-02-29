@@ -1,0 +1,2939 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="ANSES.Microinformatica.TurnosWEBws" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="ANSES.Microinformatica.TurnosWEBws" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="ANSES.Microinformatica.TurnosWEBws">
+      <s:element name="TraerCausante">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUIL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerCausanteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerCausanteResult" type="tns:Causante" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Causante">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Persona">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Beneficios" type="tns:ArrayOfAnyType" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Persona">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="tns:Nacionalidad" />
+          <s:element minOccurs="1" maxOccurs="1" name="Acreditado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fallecido" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFallecido" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sexo" type="tns:Sexo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Documento" type="tns:Documento" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domicilio" type="tns:Domicilio" />
+          <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentoRobado" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Nacionalidad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Denominacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Sexo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Denominacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Documento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDocumento" type="tns:TipoDocumento" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDocumento">
+        <s:attribute name="Codigo" type="s:string" />
+        <s:attribute name="Nombre" type="s:string" />
+      </s:complexType>
+      <s:complexType name="Domicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PaisCod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaisNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="tns:Provincia" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TelefonoTelediscado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:attribute name="CodigoPC" type="s:string" />
+        <s:attribute name="Codigo" type="s:string" />
+        <s:attribute name="Nombre" type="s:string" />
+        <s:attribute name="Abreviatura" type="s:string" />
+      </s:complexType>
+      <s:complexType name="Representante">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Persona" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Titular">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Persona">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AptoJARD" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Beneficios" type="tns:ArrayOfAnyType" />
+              <s:element minOccurs="1" maxOccurs="1" name="PermiteSolicitarApoderado" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="TitularLibretaAUH" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Apoderado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaVigenciaHastaDeCredencial" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumeroUnicoDeCredencial" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SecuenciaDeCredencial" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Documento" type="tns:Documento" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domicilio" type="tns:Domicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaInhabilitado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerTitular">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUIL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerTitularResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerTitularResult" type="tns:Titular" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPersona">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUIL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPersonaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPersonaResult" type="tns:Persona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerApoderado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUIL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerApoderadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerApoderadoResult" type="tns:Apoderado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerApoderados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUIL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfApoderado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Apoderado" nillable="true" type="tns:Apoderado" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerApoderadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerApoderadosResult" type="tns:ArrayOfApoderado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPrestaciones">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="Prestacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarPoder" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteComprobanteEnConsulta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteTurnarEnConsulta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteCancelarSolicitud" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrupoDePrestaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentacionNecesaria" type="tns:ArrayOfAnyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notificaciones" type="tns:ArrayOfNotificacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="TiposPrestacion" type="tns:ArrayOfTipoPrestacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaActividades" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaBeneficio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaCausante" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaFamiliar" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaExpediente" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarApto" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarRub" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leyenda" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeyendaURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeyendaModo" type="tns:ModalidadLeyenda" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarEdadF" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarEdadM" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarRubCausante" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoloTitular" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarAcreditadoAPD" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerificarTitularLibretaAUH" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonaAsociadaCantMaxima" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonaAsociadaDebeEstarAcreditada" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonaAsociadaMostrarEstadoAcreditada" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonaAsociadaTituloUI" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonaAsociadaPermiteFallecido" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonaAsociadaCantMin" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiasTope" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeleccionaUDAI" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitCausanteOpcional" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaRepresentante" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNotificacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Notificacion" nillable="true" type="tns:Notificacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Notificacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IncrementoSI" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncrementoNO" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URLTexto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Modo" type="tns:Modalidad" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Modalidad">
+        <s:restriction base="s:string">
+          <s:enumeration value="Invisible" />
+          <s:enumeration value="MostrarComoTexto" />
+          <s:enumeration value="MostrarComoLink" />
+          <s:enumeration value="RedirigirAutomaticamente" />
+          <s:enumeration value="MostrarComoLinkRedirigirAutomaticamente" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfTipoPrestacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoPrestacion" nillable="true" type="tns:TipoPrestacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoPrestacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ModalidadLeyenda">
+        <s:restriction base="s:string">
+          <s:enumeration value="Invisible" />
+          <s:enumeration value="Texto" />
+          <s:enumeration value="Link" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfPrestacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Prestacion" nillable="true" type="tns:Prestacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerPrestacionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPrestacionesResult" type="tns:ArrayOfPrestacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPrestacionesHabilitadas">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraerPrestacionesHabilitadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPrestacionesHabilitadasResult" type="tns:ArrayOfPrestacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TitularVerificarAptoPrestacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CuilTitular" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodPrestacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TitularVerificarAptoPrestacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TitularVerificarAptoPrestacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerActividades">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="Actividad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Documentales" type="tns:ArrayOfDocumentalActividad" />
+          <s:element minOccurs="0" maxOccurs="1" name="Documental" type="tns:DocumentalActividad" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Desde" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Hasta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Visualiza" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empleador" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaLiqSICA" type="s:unsignedByte" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentalActividad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentalActividad" nillable="true" type="tns:DocumentalActividad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentalActividad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MensajeNoContinua" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Visualiza" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfActividad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Actividad" nillable="true" type="tns:Actividad" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerActividadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerActividadesResult" type="tns:ArrayOfActividad" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarSolicitud">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Solicitud">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="_HorasEntreRechazos" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="tns:EstadoSolicitud" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPSolicitud" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPCancelacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Origen" type="tns:OrigenSolicitud" />
+          <s:element minOccurs="0" maxOccurs="1" name="CelularSolicitudNro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CelularSolicitudEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaSolicitud" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonasAsociadas" type="tns:ArrayOfPersona" />
+          <s:element minOccurs="0" maxOccurs="1" name="Turno" type="tns:Turno" />
+          <s:element minOccurs="0" maxOccurs="1" name="Beneficio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Expediente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prestacion" type="tns:Prestacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoPrestacion" type="tns:TipoPrestacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="Actividades" type="tns:ArrayOfActividad" />
+          <s:element minOccurs="0" maxOccurs="1" name="Representante" type="tns:Persona" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domicilio" type="tns:Domicilio" />
+          <s:element minOccurs="0" maxOccurs="1" name="MedioDeComunicacion" type="tns:MedioComunicacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="DependenciasSel" type="tns:ArrayOfDependencia" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titular" type="tns:Titular" />
+          <s:element minOccurs="0" maxOccurs="1" name="Causante" type="tns:Causante" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apoderado" type="tns:Apoderado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apoderados" type="tns:ArrayOfApoderado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Familiar" type="tns:Persona" />
+          <s:element minOccurs="0" maxOccurs="1" name="LiqSicaNro1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LiqSicaFecha1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LiqSicaNro2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LiqSicaFecha2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaConfirmacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaUltimoRechazo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorasEntreRechazos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rechazos" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoSolicitud">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OrigenSolicitud">
+        <s:restriction base="s:string">
+          <s:enumeration value="Indeterminado" />
+          <s:enumeration value="WEB" />
+          <s:enumeration value="TAE" />
+          <s:enumeration value="SMS" />
+          <s:enumeration value="ANSESMOVIL" />
+          <s:enumeration value="AUTOMATICO" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfPersona">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Persona" nillable="true" type="tns:Persona" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Turno">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FueAtendido" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Duracion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaOtorgadoDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCanceladoDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaOtorgado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaCancelado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Destino" type="tns:Dependencia" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dependencia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CantDiasConTurnoParaSeleccionar" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TurnaApoderados" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre_Direccion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="preferencia" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MedioComunicacion">
+        <s:attribute name="Codigo" type="s:string" />
+        <s:attribute name="Nombre" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfDependencia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Dependencia" nillable="true" type="tns:Dependencia" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GrabarSolicitudResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GrabarSolicitudResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarSolicitudConIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarSolicitudConIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GrabarSolicitudConIPResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerMediossComunicacion">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfMedioComunicacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MedioComunicacion" nillable="true" type="tns:MedioComunicacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerMediossComunicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerMediossComunicacionResult" type="tns:ArrayOfMedioComunicacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerSolicitud">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CuilTitular" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NroSolicitud" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSolicitud">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Solicitud" nillable="true" type="tns:Solicitud" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerSolicitudResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerSolicitudResult" type="tns:ArrayOfSolicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarSolicitud">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NroSolicitud" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarSolicitudResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConfirmarSolicitudOL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarSolicitudOLResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CancelarSolicitudXNroRegistro">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NroSolicitud" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarSolicitudXNroRegistroResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CancelarSolicitud">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarSolicitudResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="CancelarSolicitudConIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelarSolicitudConIPResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="OtorgarReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sector">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Udai" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HorizonteDesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DiasHasta" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraDesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraHasta" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="InhabilitadoDesde" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Horarios" type="tns:ArrayOfHorarioSector" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfHorarioSector">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="HorarioSector" nillable="true" type="tns:HorarioSector" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HorarioSector">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHasta" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraDesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraHasta" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReserva">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Reserva" nillable="true" type="tns:Reserva" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Reserva">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Turno">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Resultado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Operacion" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Titular" type="tns:Titular" />
+              <s:element minOccurs="0" maxOccurs="1" name="Apoderado" type="tns:Apoderado" />
+              <s:element minOccurs="0" maxOccurs="1" name="Causante" type="tns:Causante" />
+              <s:element minOccurs="0" maxOccurs="1" name="Sector" type="tns:Sector" />
+              <s:element minOccurs="0" maxOccurs="1" name="Prestacion" type="tns:Prestacion" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="OtorgarReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OtorgarReservaResult" type="tns:ArrayOfReserva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Confirmar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Reserva" type="tns:Reserva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="RechazarReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Reserva" type="tns:Reserva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RechazarReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RechazarReservaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerSector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="C_UDAI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="C_SECTOR" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerSectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerSectorResult" type="tns:Sector" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaApoderadoConPoder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClaveTitular" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClaveAbogado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TramiteCod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaApoderadoConPoderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificaApoderadoConPoderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerarSolicitud">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SolicitudNueva">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errores" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="Correcta" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GenerarSolicitudResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerarSolicitudResult" type="tns:SolicitudNueva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaCuilRelacionado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pCuilTitular" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCuilRelacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodPrestacion" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificaCuilRelacionadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VerificaCuilRelacionadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerSolicitudes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pTipoCuil" type="tns:TipoCuil" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCUIL" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pSoloConTurnoAsignado" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="pIncluirCancelados" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="TipoCuil">
+        <s:restriction base="s:string">
+          <s:enumeration value="TITULAR" />
+          <s:enumeration value="CAUSANTE" />
+          <s:enumeration value="FAMILIAR" />
+          <s:enumeration value="APODERADO" />
+          <s:enumeration value="RELACIONADO" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="TraerSolicitudesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerSolicitudesResult" type="tns:ArrayOfSolicitud" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPersonasAsociadas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pPersonasAsociadas" type="tns:ArrayOfPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPersonasAsociadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPersonasAsociadasResult" type="tns:ArrayOfPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerFechaUltimoTurnoXCuilRelacionado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pCUIL" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCodUDAI" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCodPrestacion" type="s:unsignedByte" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerFechaUltimoTurnoXCuilRelacionadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TraerFechaUltimoTurnoXCuilRelacionadoResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SumaDiasHabilesParaUdaiSector">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pCodUDAI" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCodSector" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFechaDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCantDias" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SumaDiasHabilesParaUdaiSectorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SumaDiasHabilesParaUdaiSectorResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerProvincias">
+        <s:complexType />
+      </s:element>
+      <s:complexType name="ArrayOfProvincia">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Provincia" nillable="true" type="tns:Provincia" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerProvinciasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerProvinciasResult" type="tns:ArrayOfProvincia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDependenciasXProv">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CodProvincia" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pEsApoderado" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCodPrestacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pCP" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDependenciasXProvResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerDependenciasXProvResult" type="tns:ArrayOfDependencia" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeDiasConTurnosDisponibles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pDependenciaCod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTramiteCod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCuilTitular" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCuilApoderado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Fecha">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Valor" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextoFecha" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextoHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextoFechaHora" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DependenciaCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SectorCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextoHoraUdaiSector" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFecha">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Fecha" nillable="true" type="tns:Fecha" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraeDiasConTurnosDisponiblesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeDiasConTurnosDisponiblesResult" type="tns:ArrayOfFecha" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeHorasTurnosDisponibles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pDependenciaCod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pTramiteCod" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="pFecha" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCuilTitular" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pCuilApoderado" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraeHorasTurnosDisponiblesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraeHorasTurnosDisponiblesResult" type="tns:ArrayOfFecha" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarTurno">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Solicitud" type="tns:Solicitud" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reserva" type="tns:Reserva" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GrabarTurnoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GrabarTurnoResult" type="tns:Reserva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTurnoAutomatico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parametros" type="tns:ArrayOfParametro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfParametro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Parametro" nillable="true" type="tns:Parametro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Parametro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Clave" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Valor" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerTurnoAutomaticoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTurnoAutomaticoResult" type="tns:SolicitudNueva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestMoratoriaMoratoriaAut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUIL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TramiteID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestMoratoriaMoratoriaAutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestMoratoriaMoratoriaAutResult" type="tns:SolicitudNueva" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Causante" nillable="true" type="tns:Causante" />
+      <s:element name="Titular" nillable="true" type="tns:Titular" />
+      <s:element name="Persona" nillable="true" type="tns:Persona" />
+      <s:element name="Apoderado" nillable="true" type="tns:Apoderado" />
+      <s:element name="ArrayOfApoderado" nillable="true" type="tns:ArrayOfApoderado" />
+      <s:element name="ArrayOfPrestacion" nillable="true" type="tns:ArrayOfPrestacion" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="ArrayOfActividad" nillable="true" type="tns:ArrayOfActividad" />
+      <s:element name="ArrayOfMedioComunicacion" nillable="true" type="tns:ArrayOfMedioComunicacion" />
+      <s:element name="ArrayOfSolicitud" nillable="true" type="tns:ArrayOfSolicitud" />
+      <s:element name="Sector" nillable="true" type="tns:Sector" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="dateTime" type="s:dateTime" />
+      <s:element name="ArrayOfProvincia" nillable="true" type="tns:ArrayOfProvincia" />
+      <s:element name="ArrayOfDependencia" nillable="true" type="tns:ArrayOfDependencia" />
+      <s:element name="ArrayOfFecha" nillable="true" type="tns:ArrayOfFecha" />
+      <s:element name="SolicitudNueva" nillable="true" type="tns:SolicitudNueva" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerCausanteSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerCausante" />
+  </wsdl:message>
+  <wsdl:message name="TraerCausanteSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerCausanteResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerTitularSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerTitular" />
+  </wsdl:message>
+  <wsdl:message name="TraerTitularSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerTitularResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonaSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPersona" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonaSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPersonaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerApoderado" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerApoderadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadosSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerApoderados" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadosSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerApoderadosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPrestaciones" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPrestacionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesHabilitadasSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPrestacionesHabilitadas" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesHabilitadasSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPrestacionesHabilitadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="TitularVerificarAptoPrestacionSoapIn">
+    <wsdl:part name="parameters" element="tns:TitularVerificarAptoPrestacion" />
+  </wsdl:message>
+  <wsdl:message name="TitularVerificarAptoPrestacionSoapOut">
+    <wsdl:part name="parameters" element="tns:TitularVerificarAptoPrestacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerActividadesSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerActividades" />
+  </wsdl:message>
+  <wsdl:message name="TraerActividadesSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerActividadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrabarSolicitudSoapIn">
+    <wsdl:part name="parameters" element="tns:GrabarSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="GrabarSolicitudSoapOut">
+    <wsdl:part name="parameters" element="tns:GrabarSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrabarSolicitudConIPSoapIn">
+    <wsdl:part name="parameters" element="tns:GrabarSolicitudConIP" />
+  </wsdl:message>
+  <wsdl:message name="GrabarSolicitudConIPSoapOut">
+    <wsdl:part name="parameters" element="tns:GrabarSolicitudConIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerMediossComunicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerMediossComunicacion" />
+  </wsdl:message>
+  <wsdl:message name="TraerMediossComunicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerMediossComunicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudOLSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmarSolicitudOL" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudOLSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarSolicitudOLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudXNroRegistroSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarSolicitudXNroRegistro" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudXNroRegistroSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarSolicitudXNroRegistroResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudConIPSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelarSolicitudConIP" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudConIPSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelarSolicitudConIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="OtorgarReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:OtorgarReserva" />
+  </wsdl:message>
+  <wsdl:message name="OtorgarReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:OtorgarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSoapIn">
+    <wsdl:part name="parameters" element="tns:Confirmar" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmarResponse" />
+  </wsdl:message>
+  <wsdl:message name="RechazarReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:RechazarReserva" />
+  </wsdl:message>
+  <wsdl:message name="RechazarReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:RechazarReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerSectorSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerSector" />
+  </wsdl:message>
+  <wsdl:message name="TraerSectorSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerSectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaApoderadoConPoderSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificaApoderadoConPoder" />
+  </wsdl:message>
+  <wsdl:message name="VerificaApoderadoConPoderSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificaApoderadoConPoderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerarSolicitudSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerarSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="GenerarSolicitudSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerarSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCuilRelacionadoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificaCuilRelacionado" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCuilRelacionadoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificaCuilRelacionadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudesSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerSolicitudes" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudesSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerSolicitudesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonasAsociadasSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPersonasAsociadas" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonasAsociadasSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPersonasAsociadasResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaUltimoTurnoXCuilRelacionadoSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerFechaUltimoTurnoXCuilRelacionado" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaUltimoTurnoXCuilRelacionadoSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerFechaUltimoTurnoXCuilRelacionadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SumaDiasHabilesParaUdaiSectorSoapIn">
+    <wsdl:part name="parameters" element="tns:SumaDiasHabilesParaUdaiSector" />
+  </wsdl:message>
+  <wsdl:message name="SumaDiasHabilesParaUdaiSectorSoapOut">
+    <wsdl:part name="parameters" element="tns:SumaDiasHabilesParaUdaiSectorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvinciasSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerProvincias" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvinciasSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerProvinciasResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerDependenciasXProvSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerDependenciasXProv" />
+  </wsdl:message>
+  <wsdl:message name="TraerDependenciasXProvSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerDependenciasXProvResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeDiasConTurnosDisponiblesSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeDiasConTurnosDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="TraeDiasConTurnosDisponiblesSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeDiasConTurnosDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraeHorasTurnosDisponiblesSoapIn">
+    <wsdl:part name="parameters" element="tns:TraeHorasTurnosDisponibles" />
+  </wsdl:message>
+  <wsdl:message name="TraeHorasTurnosDisponiblesSoapOut">
+    <wsdl:part name="parameters" element="tns:TraeHorasTurnosDisponiblesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrabarTurnoSoapIn">
+    <wsdl:part name="parameters" element="tns:GrabarTurno" />
+  </wsdl:message>
+  <wsdl:message name="GrabarTurnoSoapOut">
+    <wsdl:part name="parameters" element="tns:GrabarTurnoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTurnoAutomaticoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTurnoAutomatico" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTurnoAutomaticoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTurnoAutomaticoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestMoratoriaMoratoriaAutSoapIn">
+    <wsdl:part name="parameters" element="tns:TestMoratoriaMoratoriaAut" />
+  </wsdl:message>
+  <wsdl:message name="TestMoratoriaMoratoriaAutSoapOut">
+    <wsdl:part name="parameters" element="tns:TestMoratoriaMoratoriaAutResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerCausanteHttpGetIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerCausanteHttpGetOut">
+    <wsdl:part name="Body" element="tns:Causante" />
+  </wsdl:message>
+  <wsdl:message name="TraerTitularHttpGetIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerTitularHttpGetOut">
+    <wsdl:part name="Body" element="tns:Titular" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonaHttpGetIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonaHttpGetOut">
+    <wsdl:part name="Body" element="tns:Persona" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadoHttpGetIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:Apoderado" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadosHttpGetIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfApoderado" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesHttpGetIn" />
+  <wsdl:message name="TraerPrestacionesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestacion" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesHabilitadasHttpGetIn" />
+  <wsdl:message name="TraerPrestacionesHabilitadasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestacion" />
+  </wsdl:message>
+  <wsdl:message name="TitularVerificarAptoPrestacionHttpGetIn">
+    <wsdl:part name="CuilTitular" type="s:string" />
+    <wsdl:part name="CodPrestacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TitularVerificarAptoPrestacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TraerActividadesHttpGetIn" />
+  <wsdl:message name="TraerActividadesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfActividad" />
+  </wsdl:message>
+  <wsdl:message name="TraerMediossComunicacionHttpGetIn" />
+  <wsdl:message name="TraerMediossComunicacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMedioComunicacion" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudHttpGetIn">
+    <wsdl:part name="CuilTitular" type="s:string" />
+    <wsdl:part name="NroSolicitud" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudHttpGetIn">
+    <wsdl:part name="NroSolicitud" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudHttpGetOut" />
+  <wsdl:message name="CancelarSolicitudXNroRegistroHttpGetIn">
+    <wsdl:part name="NroSolicitud" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudXNroRegistroHttpGetOut" />
+  <wsdl:message name="TraerSectorHttpGetIn">
+    <wsdl:part name="C_UDAI" type="s:string" />
+    <wsdl:part name="C_SECTOR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerSectorHttpGetOut">
+    <wsdl:part name="Body" element="tns:Sector" />
+  </wsdl:message>
+  <wsdl:message name="VerificaApoderadoConPoderHttpGetIn">
+    <wsdl:part name="ClaveTitular" type="s:string" />
+    <wsdl:part name="ClaveAbogado" type="s:string" />
+    <wsdl:part name="TramiteCod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificaApoderadoConPoderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCuilRelacionadoHttpGetIn">
+    <wsdl:part name="pCuilTitular" type="s:string" />
+    <wsdl:part name="pCuilRelacion" type="s:string" />
+    <wsdl:part name="pCodPrestacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCuilRelacionadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudesHttpGetIn">
+    <wsdl:part name="pTipoCuil" type="s:string" />
+    <wsdl:part name="pCUIL" type="s:string" />
+    <wsdl:part name="pSoloConTurnoAsignado" type="s:string" />
+    <wsdl:part name="pIncluirCancelados" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaUltimoTurnoXCuilRelacionadoHttpGetIn">
+    <wsdl:part name="pCUIL" type="s:string" />
+    <wsdl:part name="pCodUDAI" type="s:string" />
+    <wsdl:part name="pCodPrestacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaUltimoTurnoXCuilRelacionadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="SumaDiasHabilesParaUdaiSectorHttpGetIn">
+    <wsdl:part name="pCodUDAI" type="s:string" />
+    <wsdl:part name="pCodSector" type="s:string" />
+    <wsdl:part name="pFechaDesde" type="s:string" />
+    <wsdl:part name="pCantDias" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SumaDiasHabilesParaUdaiSectorHttpGetOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvinciasHttpGetIn" />
+  <wsdl:message name="TraerProvinciasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProvincia" />
+  </wsdl:message>
+  <wsdl:message name="TraerDependenciasXProvHttpGetIn">
+    <wsdl:part name="CodProvincia" type="s:string" />
+    <wsdl:part name="pEsApoderado" type="s:string" />
+    <wsdl:part name="pCodPrestacion" type="s:string" />
+    <wsdl:part name="pCP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDependenciasXProvHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDependencia" />
+  </wsdl:message>
+  <wsdl:message name="TraeDiasConTurnosDisponiblesHttpGetIn">
+    <wsdl:part name="pDependenciaCod" type="s:string" />
+    <wsdl:part name="pTramiteCod" type="s:string" />
+    <wsdl:part name="pCuilTitular" type="s:string" />
+    <wsdl:part name="pCuilApoderado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraeDiasConTurnosDisponiblesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFecha" />
+  </wsdl:message>
+  <wsdl:message name="TraeHorasTurnosDisponiblesHttpGetIn">
+    <wsdl:part name="pDependenciaCod" type="s:string" />
+    <wsdl:part name="pTramiteCod" type="s:string" />
+    <wsdl:part name="pFecha" type="s:string" />
+    <wsdl:part name="pCuilTitular" type="s:string" />
+    <wsdl:part name="pCuilApoderado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraeHorasTurnosDisponiblesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFecha" />
+  </wsdl:message>
+  <wsdl:message name="TestMoratoriaMoratoriaAutHttpGetIn">
+    <wsdl:part name="CUIL" type="s:string" />
+    <wsdl:part name="TramiteID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestMoratoriaMoratoriaAutHttpGetOut">
+    <wsdl:part name="Body" element="tns:SolicitudNueva" />
+  </wsdl:message>
+  <wsdl:message name="TraerCausanteHttpPostIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerCausanteHttpPostOut">
+    <wsdl:part name="Body" element="tns:Causante" />
+  </wsdl:message>
+  <wsdl:message name="TraerTitularHttpPostIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerTitularHttpPostOut">
+    <wsdl:part name="Body" element="tns:Titular" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonaHttpPostIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPersonaHttpPostOut">
+    <wsdl:part name="Body" element="tns:Persona" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadoHttpPostIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:Apoderado" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadosHttpPostIn">
+    <wsdl:part name="CUIL" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerApoderadosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfApoderado" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesHttpPostIn" />
+  <wsdl:message name="TraerPrestacionesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestacion" />
+  </wsdl:message>
+  <wsdl:message name="TraerPrestacionesHabilitadasHttpPostIn" />
+  <wsdl:message name="TraerPrestacionesHabilitadasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPrestacion" />
+  </wsdl:message>
+  <wsdl:message name="TitularVerificarAptoPrestacionHttpPostIn">
+    <wsdl:part name="CuilTitular" type="s:string" />
+    <wsdl:part name="CodPrestacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TitularVerificarAptoPrestacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TraerActividadesHttpPostIn" />
+  <wsdl:message name="TraerActividadesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfActividad" />
+  </wsdl:message>
+  <wsdl:message name="TraerMediossComunicacionHttpPostIn" />
+  <wsdl:message name="TraerMediossComunicacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfMedioComunicacion" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudHttpPostIn">
+    <wsdl:part name="CuilTitular" type="s:string" />
+    <wsdl:part name="NroSolicitud" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudHttpPostIn">
+    <wsdl:part name="NroSolicitud" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmarSolicitudHttpPostOut" />
+  <wsdl:message name="CancelarSolicitudXNroRegistroHttpPostIn">
+    <wsdl:part name="NroSolicitud" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CancelarSolicitudXNroRegistroHttpPostOut" />
+  <wsdl:message name="TraerSectorHttpPostIn">
+    <wsdl:part name="C_UDAI" type="s:string" />
+    <wsdl:part name="C_SECTOR" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerSectorHttpPostOut">
+    <wsdl:part name="Body" element="tns:Sector" />
+  </wsdl:message>
+  <wsdl:message name="VerificaApoderadoConPoderHttpPostIn">
+    <wsdl:part name="ClaveTitular" type="s:string" />
+    <wsdl:part name="ClaveAbogado" type="s:string" />
+    <wsdl:part name="TramiteCod" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificaApoderadoConPoderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCuilRelacionadoHttpPostIn">
+    <wsdl:part name="pCuilTitular" type="s:string" />
+    <wsdl:part name="pCuilRelacion" type="s:string" />
+    <wsdl:part name="pCodPrestacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificaCuilRelacionadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudesHttpPostIn">
+    <wsdl:part name="pTipoCuil" type="s:string" />
+    <wsdl:part name="pCUIL" type="s:string" />
+    <wsdl:part name="pSoloConTurnoAsignado" type="s:string" />
+    <wsdl:part name="pIncluirCancelados" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerSolicitudesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaUltimoTurnoXCuilRelacionadoHttpPostIn">
+    <wsdl:part name="pCUIL" type="s:string" />
+    <wsdl:part name="pCodUDAI" type="s:string" />
+    <wsdl:part name="pCodPrestacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerFechaUltimoTurnoXCuilRelacionadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="SumaDiasHabilesParaUdaiSectorHttpPostIn">
+    <wsdl:part name="pCodUDAI" type="s:string" />
+    <wsdl:part name="pCodSector" type="s:string" />
+    <wsdl:part name="pFechaDesde" type="s:string" />
+    <wsdl:part name="pCantDias" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SumaDiasHabilesParaUdaiSectorHttpPostOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="TraerProvinciasHttpPostIn" />
+  <wsdl:message name="TraerProvinciasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfProvincia" />
+  </wsdl:message>
+  <wsdl:message name="TraerDependenciasXProvHttpPostIn">
+    <wsdl:part name="CodProvincia" type="s:string" />
+    <wsdl:part name="pEsApoderado" type="s:string" />
+    <wsdl:part name="pCodPrestacion" type="s:string" />
+    <wsdl:part name="pCP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDependenciasXProvHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDependencia" />
+  </wsdl:message>
+  <wsdl:message name="TraeDiasConTurnosDisponiblesHttpPostIn">
+    <wsdl:part name="pDependenciaCod" type="s:string" />
+    <wsdl:part name="pTramiteCod" type="s:string" />
+    <wsdl:part name="pCuilTitular" type="s:string" />
+    <wsdl:part name="pCuilApoderado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraeDiasConTurnosDisponiblesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFecha" />
+  </wsdl:message>
+  <wsdl:message name="TraeHorasTurnosDisponiblesHttpPostIn">
+    <wsdl:part name="pDependenciaCod" type="s:string" />
+    <wsdl:part name="pTramiteCod" type="s:string" />
+    <wsdl:part name="pFecha" type="s:string" />
+    <wsdl:part name="pCuilTitular" type="s:string" />
+    <wsdl:part name="pCuilApoderado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraeHorasTurnosDisponiblesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFecha" />
+  </wsdl:message>
+  <wsdl:message name="TestMoratoriaMoratoriaAutHttpPostIn">
+    <wsdl:part name="CUIL" type="s:string" />
+    <wsdl:part name="TramiteID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestMoratoriaMoratoriaAutHttpPostOut">
+    <wsdl:part name="Body" element="tns:SolicitudNueva" />
+  </wsdl:message>
+  <wsdl:portType name="wsDatosSoap">
+    <wsdl:operation name="TraerCausante">
+      <wsdl:input message="tns:TraerCausanteSoapIn" />
+      <wsdl:output message="tns:TraerCausanteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTitular">
+      <wsdl:input message="tns:TraerTitularSoapIn" />
+      <wsdl:output message="tns:TraerTitularSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersona">
+      <wsdl:input message="tns:TraerPersonaSoapIn" />
+      <wsdl:output message="tns:TraerPersonaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderado">
+      <wsdl:input message="tns:TraerApoderadoSoapIn" />
+      <wsdl:output message="tns:TraerApoderadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderados">
+      <wsdl:input message="tns:TraerApoderadosSoapIn" />
+      <wsdl:output message="tns:TraerApoderadosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestaciones">
+      <wsdl:input message="tns:TraerPrestacionesSoapIn" />
+      <wsdl:output message="tns:TraerPrestacionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestacionesHabilitadas">
+      <wsdl:input message="tns:TraerPrestacionesHabilitadasSoapIn" />
+      <wsdl:output message="tns:TraerPrestacionesHabilitadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TitularVerificarAptoPrestacion">
+      <wsdl:input message="tns:TitularVerificarAptoPrestacionSoapIn" />
+      <wsdl:output message="tns:TitularVerificarAptoPrestacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerActividades">
+      <wsdl:input message="tns:TraerActividadesSoapIn" />
+      <wsdl:output message="tns:TraerActividadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrabarSolicitud">
+      <wsdl:input message="tns:GrabarSolicitudSoapIn" />
+      <wsdl:output message="tns:GrabarSolicitudSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrabarSolicitudConIP">
+      <wsdl:input message="tns:GrabarSolicitudConIPSoapIn" />
+      <wsdl:output message="tns:GrabarSolicitudConIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerMediossComunicacion">
+      <wsdl:input message="tns:TraerMediossComunicacionSoapIn" />
+      <wsdl:output message="tns:TraerMediossComunicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitud">
+      <wsdl:input message="tns:TraerSolicitudSoapIn" />
+      <wsdl:output message="tns:TraerSolicitudSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitud">
+      <wsdl:input message="tns:ConfirmarSolicitudSoapIn" />
+      <wsdl:output message="tns:ConfirmarSolicitudSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitudOL">
+      <wsdl:input message="tns:ConfirmarSolicitudOLSoapIn" />
+      <wsdl:output message="tns:ConfirmarSolicitudOLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudXNroRegistro">
+      <wsdl:input message="tns:CancelarSolicitudXNroRegistroSoapIn" />
+      <wsdl:output message="tns:CancelarSolicitudXNroRegistroSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitud">
+      <wsdl:input message="tns:CancelarSolicitudSoapIn" />
+      <wsdl:output message="tns:CancelarSolicitudSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudConIP">
+      <wsdl:input message="tns:CancelarSolicitudConIPSoapIn" />
+      <wsdl:output message="tns:CancelarSolicitudConIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OtorgarReserva">
+      <wsdl:input message="tns:OtorgarReservaSoapIn" />
+      <wsdl:output message="tns:OtorgarReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar">
+      <wsdl:input message="tns:ConfirmarSoapIn" />
+      <wsdl:output message="tns:ConfirmarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RechazarReserva">
+      <wsdl:input message="tns:RechazarReservaSoapIn" />
+      <wsdl:output message="tns:RechazarReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSector">
+      <wsdl:input message="tns:TraerSectorSoapIn" />
+      <wsdl:output message="tns:TraerSectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaApoderadoConPoder">
+      <wsdl:input message="tns:VerificaApoderadoConPoderSoapIn" />
+      <wsdl:output message="tns:VerificaApoderadoConPoderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerarSolicitud">
+      <wsdl:input message="tns:GenerarSolicitudSoapIn" />
+      <wsdl:output message="tns:GenerarSolicitudSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCuilRelacionado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica una relación correcta entre el Cuil Titular y el del Cusante/Familiar, según la prestación de la solicitud.</wsdl:documentation>
+      <wsdl:input message="tns:VerificaCuilRelacionadoSoapIn" />
+      <wsdl:output message="tns:VerificaCuilRelacionadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitudes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de solicitudes.</wsdl:documentation>
+      <wsdl:input message="tns:TraerSolicitudesSoapIn" />
+      <wsdl:output message="tns:TraerSolicitudesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersonasAsociadas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Personas según los cuiles asociados ingresados en UI.</wsdl:documentation>
+      <wsdl:input message="tns:TraerPersonasAsociadasSoapIn" />
+      <wsdl:output message="tns:TraerPersonasAsociadasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaUltimoTurnoXCuilRelacionado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la fecha del último turno otorgado en una UDAI para el cuil ingresado que corresponde a un cuil relacionado al del titular</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaUltimoTurnoXCuilRelacionadoSoapIn" />
+      <wsdl:output message="tns:TraerFechaUltimoTurnoXCuilRelacionadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SumaDiasHabilesParaUdaiSector">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la fecha calculada en base a cantidad de días hábiles (desde una fecha deseada) para una UDAI y Sector</wsdl:documentation>
+      <wsdl:input message="tns:SumaDiasHabilesParaUdaiSectorSoapIn" />
+      <wsdl:output message="tns:SumaDiasHabilesParaUdaiSectorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Provincias para llenar el combo desde el cual seleccionan la provincia para filtrar las udais. Para seleccionar la udai manualmente. </wsdl:documentation>
+      <wsdl:input message="tns:TraerProvinciasSoapIn" />
+      <wsdl:output message="tns:TraerProvinciasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDependenciasXProv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Dependencias de una Provincia seleccionar la udai manualmente.</wsdl:documentation>
+      <wsdl:input message="tns:TraerDependenciasXProvSoapIn" />
+      <wsdl:output message="tns:TraerDependenciasXProvSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeDiasConTurnosDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de fechas en las que existen turnos disponibles.</wsdl:documentation>
+      <wsdl:input message="tns:TraeDiasConTurnosDisponiblesSoapIn" />
+      <wsdl:output message="tns:TraeDiasConTurnosDisponiblesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeHorasTurnosDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de horas en las que existen turnos disponibles para un día UDAI y sector.</wsdl:documentation>
+      <wsdl:input message="tns:TraeHorasTurnosDisponiblesSoapIn" />
+      <wsdl:output message="tns:TraeHorasTurnosDisponiblesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GrabarTurno">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Graba el turno seleccionado.</wsdl:documentation>
+      <wsdl:input message="tns:GrabarTurnoSoapIn" />
+      <wsdl:output message="tns:GrabarTurnoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTurnoAutomatico">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Otorga un turno invocando desde una aplicación externa a turnos.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerTurnoAutomaticoSoapIn" />
+      <wsdl:output message="tns:ObtenerTurnoAutomaticoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestMoratoriaMoratoriaAut">
+      <wsdl:input message="tns:TestMoratoriaMoratoriaAutSoapIn" />
+      <wsdl:output message="tns:TestMoratoriaMoratoriaAutSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsDatosHttpGet">
+    <wsdl:operation name="TraerCausante">
+      <wsdl:input message="tns:TraerCausanteHttpGetIn" />
+      <wsdl:output message="tns:TraerCausanteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTitular">
+      <wsdl:input message="tns:TraerTitularHttpGetIn" />
+      <wsdl:output message="tns:TraerTitularHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersona">
+      <wsdl:input message="tns:TraerPersonaHttpGetIn" />
+      <wsdl:output message="tns:TraerPersonaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderado">
+      <wsdl:input message="tns:TraerApoderadoHttpGetIn" />
+      <wsdl:output message="tns:TraerApoderadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderados">
+      <wsdl:input message="tns:TraerApoderadosHttpGetIn" />
+      <wsdl:output message="tns:TraerApoderadosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestaciones">
+      <wsdl:input message="tns:TraerPrestacionesHttpGetIn" />
+      <wsdl:output message="tns:TraerPrestacionesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestacionesHabilitadas">
+      <wsdl:input message="tns:TraerPrestacionesHabilitadasHttpGetIn" />
+      <wsdl:output message="tns:TraerPrestacionesHabilitadasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TitularVerificarAptoPrestacion">
+      <wsdl:input message="tns:TitularVerificarAptoPrestacionHttpGetIn" />
+      <wsdl:output message="tns:TitularVerificarAptoPrestacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerActividades">
+      <wsdl:input message="tns:TraerActividadesHttpGetIn" />
+      <wsdl:output message="tns:TraerActividadesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerMediossComunicacion">
+      <wsdl:input message="tns:TraerMediossComunicacionHttpGetIn" />
+      <wsdl:output message="tns:TraerMediossComunicacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitud">
+      <wsdl:input message="tns:TraerSolicitudHttpGetIn" />
+      <wsdl:output message="tns:TraerSolicitudHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitud">
+      <wsdl:input message="tns:ConfirmarSolicitudHttpGetIn" />
+      <wsdl:output message="tns:ConfirmarSolicitudHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudXNroRegistro">
+      <wsdl:input message="tns:CancelarSolicitudXNroRegistroHttpGetIn" />
+      <wsdl:output message="tns:CancelarSolicitudXNroRegistroHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSector">
+      <wsdl:input message="tns:TraerSectorHttpGetIn" />
+      <wsdl:output message="tns:TraerSectorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaApoderadoConPoder">
+      <wsdl:input message="tns:VerificaApoderadoConPoderHttpGetIn" />
+      <wsdl:output message="tns:VerificaApoderadoConPoderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCuilRelacionado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica una relación correcta entre el Cuil Titular y el del Cusante/Familiar, según la prestación de la solicitud.</wsdl:documentation>
+      <wsdl:input message="tns:VerificaCuilRelacionadoHttpGetIn" />
+      <wsdl:output message="tns:VerificaCuilRelacionadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitudes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de solicitudes.</wsdl:documentation>
+      <wsdl:input message="tns:TraerSolicitudesHttpGetIn" />
+      <wsdl:output message="tns:TraerSolicitudesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaUltimoTurnoXCuilRelacionado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la fecha del último turno otorgado en una UDAI para el cuil ingresado que corresponde a un cuil relacionado al del titular</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaUltimoTurnoXCuilRelacionadoHttpGetIn" />
+      <wsdl:output message="tns:TraerFechaUltimoTurnoXCuilRelacionadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SumaDiasHabilesParaUdaiSector">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la fecha calculada en base a cantidad de días hábiles (desde una fecha deseada) para una UDAI y Sector</wsdl:documentation>
+      <wsdl:input message="tns:SumaDiasHabilesParaUdaiSectorHttpGetIn" />
+      <wsdl:output message="tns:SumaDiasHabilesParaUdaiSectorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Provincias para llenar el combo desde el cual seleccionan la provincia para filtrar las udais. Para seleccionar la udai manualmente. </wsdl:documentation>
+      <wsdl:input message="tns:TraerProvinciasHttpGetIn" />
+      <wsdl:output message="tns:TraerProvinciasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDependenciasXProv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Dependencias de una Provincia seleccionar la udai manualmente.</wsdl:documentation>
+      <wsdl:input message="tns:TraerDependenciasXProvHttpGetIn" />
+      <wsdl:output message="tns:TraerDependenciasXProvHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeDiasConTurnosDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de fechas en las que existen turnos disponibles.</wsdl:documentation>
+      <wsdl:input message="tns:TraeDiasConTurnosDisponiblesHttpGetIn" />
+      <wsdl:output message="tns:TraeDiasConTurnosDisponiblesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeHorasTurnosDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de horas en las que existen turnos disponibles para un día UDAI y sector.</wsdl:documentation>
+      <wsdl:input message="tns:TraeHorasTurnosDisponiblesHttpGetIn" />
+      <wsdl:output message="tns:TraeHorasTurnosDisponiblesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestMoratoriaMoratoriaAut">
+      <wsdl:input message="tns:TestMoratoriaMoratoriaAutHttpGetIn" />
+      <wsdl:output message="tns:TestMoratoriaMoratoriaAutHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="wsDatosHttpPost">
+    <wsdl:operation name="TraerCausante">
+      <wsdl:input message="tns:TraerCausanteHttpPostIn" />
+      <wsdl:output message="tns:TraerCausanteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTitular">
+      <wsdl:input message="tns:TraerTitularHttpPostIn" />
+      <wsdl:output message="tns:TraerTitularHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersona">
+      <wsdl:input message="tns:TraerPersonaHttpPostIn" />
+      <wsdl:output message="tns:TraerPersonaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderado">
+      <wsdl:input message="tns:TraerApoderadoHttpPostIn" />
+      <wsdl:output message="tns:TraerApoderadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderados">
+      <wsdl:input message="tns:TraerApoderadosHttpPostIn" />
+      <wsdl:output message="tns:TraerApoderadosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestaciones">
+      <wsdl:input message="tns:TraerPrestacionesHttpPostIn" />
+      <wsdl:output message="tns:TraerPrestacionesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestacionesHabilitadas">
+      <wsdl:input message="tns:TraerPrestacionesHabilitadasHttpPostIn" />
+      <wsdl:output message="tns:TraerPrestacionesHabilitadasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TitularVerificarAptoPrestacion">
+      <wsdl:input message="tns:TitularVerificarAptoPrestacionHttpPostIn" />
+      <wsdl:output message="tns:TitularVerificarAptoPrestacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerActividades">
+      <wsdl:input message="tns:TraerActividadesHttpPostIn" />
+      <wsdl:output message="tns:TraerActividadesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerMediossComunicacion">
+      <wsdl:input message="tns:TraerMediossComunicacionHttpPostIn" />
+      <wsdl:output message="tns:TraerMediossComunicacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitud">
+      <wsdl:input message="tns:TraerSolicitudHttpPostIn" />
+      <wsdl:output message="tns:TraerSolicitudHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitud">
+      <wsdl:input message="tns:ConfirmarSolicitudHttpPostIn" />
+      <wsdl:output message="tns:ConfirmarSolicitudHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudXNroRegistro">
+      <wsdl:input message="tns:CancelarSolicitudXNroRegistroHttpPostIn" />
+      <wsdl:output message="tns:CancelarSolicitudXNroRegistroHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSector">
+      <wsdl:input message="tns:TraerSectorHttpPostIn" />
+      <wsdl:output message="tns:TraerSectorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaApoderadoConPoder">
+      <wsdl:input message="tns:VerificaApoderadoConPoderHttpPostIn" />
+      <wsdl:output message="tns:VerificaApoderadoConPoderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCuilRelacionado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifica una relación correcta entre el Cuil Titular y el del Cusante/Familiar, según la prestación de la solicitud.</wsdl:documentation>
+      <wsdl:input message="tns:VerificaCuilRelacionadoHttpPostIn" />
+      <wsdl:output message="tns:VerificaCuilRelacionadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitudes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de solicitudes.</wsdl:documentation>
+      <wsdl:input message="tns:TraerSolicitudesHttpPostIn" />
+      <wsdl:output message="tns:TraerSolicitudesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaUltimoTurnoXCuilRelacionado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la fecha del último turno otorgado en una UDAI para el cuil ingresado que corresponde a un cuil relacionado al del titular</wsdl:documentation>
+      <wsdl:input message="tns:TraerFechaUltimoTurnoXCuilRelacionadoHttpPostIn" />
+      <wsdl:output message="tns:TraerFechaUltimoTurnoXCuilRelacionadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SumaDiasHabilesParaUdaiSector">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna la fecha calculada en base a cantidad de días hábiles (desde una fecha deseada) para una UDAI y Sector</wsdl:documentation>
+      <wsdl:input message="tns:SumaDiasHabilesParaUdaiSectorHttpPostIn" />
+      <wsdl:output message="tns:SumaDiasHabilesParaUdaiSectorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincias">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Provincias para llenar el combo desde el cual seleccionan la provincia para filtrar las udais. Para seleccionar la udai manualmente. </wsdl:documentation>
+      <wsdl:input message="tns:TraerProvinciasHttpPostIn" />
+      <wsdl:output message="tns:TraerProvinciasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDependenciasXProv">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de Dependencias de una Provincia seleccionar la udai manualmente.</wsdl:documentation>
+      <wsdl:input message="tns:TraerDependenciasXProvHttpPostIn" />
+      <wsdl:output message="tns:TraerDependenciasXProvHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeDiasConTurnosDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de fechas en las que existen turnos disponibles.</wsdl:documentation>
+      <wsdl:input message="tns:TraeDiasConTurnosDisponiblesHttpPostIn" />
+      <wsdl:output message="tns:TraeDiasConTurnosDisponiblesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraeHorasTurnosDisponibles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna una lista de horas en las que existen turnos disponibles para un día UDAI y sector.</wsdl:documentation>
+      <wsdl:input message="tns:TraeHorasTurnosDisponiblesHttpPostIn" />
+      <wsdl:output message="tns:TraeHorasTurnosDisponiblesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestMoratoriaMoratoriaAut">
+      <wsdl:input message="tns:TestMoratoriaMoratoriaAutHttpPostIn" />
+      <wsdl:output message="tns:TestMoratoriaMoratoriaAutHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsDatosSoap" type="tns:wsDatosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerCausante">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerCausante" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTitular">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerTitular" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersona">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPersona" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderado">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerApoderado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderados">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerApoderados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestaciones">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPrestaciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestacionesHabilitadas">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPrestacionesHabilitadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TitularVerificarAptoPrestacion">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TitularVerificarAptoPrestacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerActividades">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerActividades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarSolicitud">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GrabarSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarSolicitudConIP">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GrabarSolicitudConIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerMediossComunicacion">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerMediossComunicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitud">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitud">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/ConfirmarSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitudOL">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/ConfirmarSolicitudOL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudXNroRegistro">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/CancelarSolicitudXNroRegistro" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitud">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/CancelarSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudConIP">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/CancelarSolicitudConIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtorgarReserva">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/OtorgarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/Confirmar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechazarReserva">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/RechazarReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSector">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerSector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaApoderadoConPoder">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/VerificaApoderadoConPoder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarSolicitud">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GenerarSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCuilRelacionado">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/VerificaCuilRelacionado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitudes">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerSolicitudes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersonasAsociadas">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPersonasAsociadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaUltimoTurnoXCuilRelacionado">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerFechaUltimoTurnoXCuilRelacionado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SumaDiasHabilesParaUdaiSector">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/SumaDiasHabilesParaUdaiSector" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincias">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerProvincias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDependenciasXProv">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerDependenciasXProv" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeDiasConTurnosDisponibles">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraeDiasConTurnosDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeHorasTurnosDisponibles">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraeHorasTurnosDisponibles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarTurno">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GrabarTurno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTurnoAutomatico">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/ObtenerTurnoAutomatico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMoratoriaMoratoriaAut">
+      <soap:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TestMoratoriaMoratoriaAut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsDatosSoap12" type="tns:wsDatosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerCausante">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerCausante" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTitular">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerTitular" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersona">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPersona" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderado">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerApoderado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderados">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerApoderados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestaciones">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPrestaciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestacionesHabilitadas">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPrestacionesHabilitadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TitularVerificarAptoPrestacion">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TitularVerificarAptoPrestacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerActividades">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerActividades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarSolicitud">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GrabarSolicitud" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarSolicitudConIP">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GrabarSolicitudConIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerMediossComunicacion">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerMediossComunicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitud">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerSolicitud" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitud">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/ConfirmarSolicitud" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitudOL">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/ConfirmarSolicitudOL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudXNroRegistro">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/CancelarSolicitudXNroRegistro" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitud">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/CancelarSolicitud" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudConIP">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/CancelarSolicitudConIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtorgarReserva">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/OtorgarReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Confirmar">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/Confirmar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RechazarReserva">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/RechazarReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSector">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerSector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaApoderadoConPoder">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/VerificaApoderadoConPoder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerarSolicitud">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GenerarSolicitud" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCuilRelacionado">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/VerificaCuilRelacionado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitudes">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerSolicitudes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersonasAsociadas">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerPersonasAsociadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaUltimoTurnoXCuilRelacionado">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerFechaUltimoTurnoXCuilRelacionado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SumaDiasHabilesParaUdaiSector">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/SumaDiasHabilesParaUdaiSector" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincias">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerProvincias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDependenciasXProv">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraerDependenciasXProv" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeDiasConTurnosDisponibles">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraeDiasConTurnosDisponibles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeHorasTurnosDisponibles">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TraeHorasTurnosDisponibles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GrabarTurno">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/GrabarTurno" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTurnoAutomatico">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/ObtenerTurnoAutomatico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMoratoriaMoratoriaAut">
+      <soap12:operation soapAction="ANSES.Microinformatica.TurnosWEBws/TestMoratoriaMoratoriaAut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsDatosHttpGet" type="tns:wsDatosHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerCausante">
+      <http:operation location="/TraerCausante" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTitular">
+      <http:operation location="/TraerTitular" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersona">
+      <http:operation location="/TraerPersona" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderado">
+      <http:operation location="/TraerApoderado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderados">
+      <http:operation location="/TraerApoderados" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestaciones">
+      <http:operation location="/TraerPrestaciones" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestacionesHabilitadas">
+      <http:operation location="/TraerPrestacionesHabilitadas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TitularVerificarAptoPrestacion">
+      <http:operation location="/TitularVerificarAptoPrestacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerActividades">
+      <http:operation location="/TraerActividades" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerMediossComunicacion">
+      <http:operation location="/TraerMediossComunicacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitud">
+      <http:operation location="/TraerSolicitud" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitud">
+      <http:operation location="/ConfirmarSolicitud" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudXNroRegistro">
+      <http:operation location="/CancelarSolicitudXNroRegistro" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSector">
+      <http:operation location="/TraerSector" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaApoderadoConPoder">
+      <http:operation location="/VerificaApoderadoConPoder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCuilRelacionado">
+      <http:operation location="/VerificaCuilRelacionado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitudes">
+      <http:operation location="/TraerSolicitudes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaUltimoTurnoXCuilRelacionado">
+      <http:operation location="/TraerFechaUltimoTurnoXCuilRelacionado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SumaDiasHabilesParaUdaiSector">
+      <http:operation location="/SumaDiasHabilesParaUdaiSector" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincias">
+      <http:operation location="/TraerProvincias" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDependenciasXProv">
+      <http:operation location="/TraerDependenciasXProv" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeDiasConTurnosDisponibles">
+      <http:operation location="/TraeDiasConTurnosDisponibles" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeHorasTurnosDisponibles">
+      <http:operation location="/TraeHorasTurnosDisponibles" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMoratoriaMoratoriaAut">
+      <http:operation location="/TestMoratoriaMoratoriaAut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsDatosHttpPost" type="tns:wsDatosHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerCausante">
+      <http:operation location="/TraerCausante" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTitular">
+      <http:operation location="/TraerTitular" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPersona">
+      <http:operation location="/TraerPersona" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderado">
+      <http:operation location="/TraerApoderado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerApoderados">
+      <http:operation location="/TraerApoderados" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestaciones">
+      <http:operation location="/TraerPrestaciones" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPrestacionesHabilitadas">
+      <http:operation location="/TraerPrestacionesHabilitadas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TitularVerificarAptoPrestacion">
+      <http:operation location="/TitularVerificarAptoPrestacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerActividades">
+      <http:operation location="/TraerActividades" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerMediossComunicacion">
+      <http:operation location="/TraerMediossComunicacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitud">
+      <http:operation location="/TraerSolicitud" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmarSolicitud">
+      <http:operation location="/ConfirmarSolicitud" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarSolicitudXNroRegistro">
+      <http:operation location="/CancelarSolicitudXNroRegistro" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="TraerSector">
+      <http:operation location="/TraerSector" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaApoderadoConPoder">
+      <http:operation location="/VerificaApoderadoConPoder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaCuilRelacionado">
+      <http:operation location="/VerificaCuilRelacionado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerSolicitudes">
+      <http:operation location="/TraerSolicitudes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerFechaUltimoTurnoXCuilRelacionado">
+      <http:operation location="/TraerFechaUltimoTurnoXCuilRelacionado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SumaDiasHabilesParaUdaiSector">
+      <http:operation location="/SumaDiasHabilesParaUdaiSector" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerProvincias">
+      <http:operation location="/TraerProvincias" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDependenciasXProv">
+      <http:operation location="/TraerDependenciasXProv" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeDiasConTurnosDisponibles">
+      <http:operation location="/TraeDiasConTurnosDisponibles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraeHorasTurnosDisponibles">
+      <http:operation location="/TraeHorasTurnosDisponibles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMoratoriaMoratoriaAut">
+      <http:operation location="/TestMoratoriaMoratoriaAut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsDatos">
+    <wsdl:port name="wsDatosSoap" binding="tns:wsDatosSoap">
+      <soap:address location="http://ansesdesapp/turnosws/wsdatos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsDatosSoap12" binding="tns:wsDatosSoap12">
+      <soap12:address location="http://ansesdesapp/turnosws/wsdatos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsDatosHttpGet" binding="tns:wsDatosHttpGet">
+      <http:address location="http://ansesdesapp/turnosws/wsdatos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsDatosHttpPost" binding="tns:wsDatosHttpPost">
+      <http:address location="http://ansesdesapp/turnosws/wsdatos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

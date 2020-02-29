@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://ansesnegodesapp/uvLibretaWs/uvLibretaWS.asmx?disco" filename="uvLibretaWS.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://ansesnegodesapp/uvLibretaWs/uvLibretaWS.asmx?wsdl" filename="uvLibretaWS.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

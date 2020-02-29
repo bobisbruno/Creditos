@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TraerComercializadoras_xidPrestador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerComercializadoras_xidPrestadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerComercializadoras_xidPrestadorResult" type="tns:ArrayOfComercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfComercializador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comercializador" nillable="true" type="tns:Comercializador" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comercializador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Entidad_Prest_Comer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfEntidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreFantasia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+              <s:element minOccurs="1" maxOccurs="1" name="IDEstado" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tasas" type="tns:ArrayOfTasa" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnDomicilio" type="tns:Domicilio" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfEntidad_Prest_Comer" />
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tasa" nillable="true" type="tns:Tasa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAudAprobacion" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicioVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFinVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GastoAdministrativo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasHasta" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineaCredito" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Plazo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FAprobacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prestador" type="tns:Prestador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comercializador" type="tns:Comercializador" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aprobada" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prestador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodoFicinaANME" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArrayComercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsNominada" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsAnses" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EntregaDocumentacionEnFGS" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsEntidadOficial" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsComercio" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioridad" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodSidif" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obligatorio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAfiliacion" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoOnLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoConcepto" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoLiquidacion" nillable="true" type="tns:ConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Domicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsSucursal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilio" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaProvincia" type="tns:Provincia" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoDomicilio" type="tns:TipoDomicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nacionalidad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionProvincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDomicilio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoDomicilio" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoDomicilio" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerComercializadoras_xCuit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuit" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerComercializadoras_xCuitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerComercializadoras_xCuitResult" type="tns:Comercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idComercializador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDomiciliosComercializador_T_PrestadorComercializadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerDomiciliosComercializador_T_PrestadorComercializadorResult" type="tns:ArrayOfComercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idComercializador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorResult" type="tns:ArrayOfComercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializador_BuscarIgual">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="calle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="piso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dPto" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codPostal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializador_BuscarIgualResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DomicilioComercializador_BuscarIgualResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDomicilioComercializador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorAPrestador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unComercializador" type="tns:Comercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorAPrestadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Relacion_ComercializadorAPrestadorResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorPrestadorMB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unComercializador" type="tns:Comercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorPrestadorMBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Relacion_ComercializadorPrestadorMBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializador_RelacionDC_A">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unComercializador" type="tns:Comercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializador_RelacionDC_AResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DomicilioComercializador_RelacionDC_AResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializadorA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unComercializador" type="tns:Comercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DomicilioComercializadorAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DomicilioComercializadorAResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_DomicilioComercializadorPrestadorA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unComercializador" type="tns:Comercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_DomicilioComercializadorPrestadorAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Relacion_DomicilioComercializadorPrestadorAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorPrestadorDomicilioMB">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDomicilioComercializador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="unComercializador" type="tns:Comercializador" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorPrestadorDomicilioMBResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Relacion_ComercializadorPrestadorDomicilioMBResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idComercializador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="FFin_Baja" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfComercializador" nillable="true" type="tns:ArrayOfComercializador" />
+      <s:element name="Comercializador" nillable="true" type="tns:Comercializador" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerComercializadoras_xidPrestadorSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerComercializadoras_xidPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xidPrestadorSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerComercializadoras_xidPrestadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xCuitSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerComercializadoras_xCuit" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xCuitSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerComercializadoras_xCuitResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomiciliosComercializador_T_PrestadorComercializadorSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerDomiciliosComercializador_T_PrestadorComercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomiciliosComercializador_T_PrestadorComercializadorSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerDomiciliosComercializador_T_PrestadorComercializadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarIgualSoapIn">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializador_BuscarIgual" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarIgualSoapOut">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializador_BuscarIgualResponse" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorSoapIn">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestador" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorSoapOut">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorAPrestadorSoapIn">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorAPrestador" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorAPrestadorSoapOut">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorAPrestadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestadorMBSoapIn">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorPrestadorMB" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestadorMBSoapOut">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorPrestadorMBResponse" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_RelacionDC_ASoapIn">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializador_RelacionDC_A" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_RelacionDC_ASoapOut">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializador_RelacionDC_AResponse" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializadorASoapIn">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializadorA" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializadorASoapOut">
+    <wsdl:part name="parameters" element="tns:DomicilioComercializadorAResponse" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_DomicilioComercializadorPrestadorASoapIn">
+    <wsdl:part name="parameters" element="tns:Relacion_DomicilioComercializadorPrestadorA" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_DomicilioComercializadorPrestadorASoapOut">
+    <wsdl:part name="parameters" element="tns:Relacion_DomicilioComercializadorPrestadorAResponse" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestadorDomicilioMBSoapIn">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorPrestadorDomicilioMB" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestadorDomicilioMBSoapOut">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorPrestadorDomicilioMBResponse" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BSoapIn">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_B" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BSoapOut">
+    <wsdl:part name="parameters" element="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_BResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xidPrestadorHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xidPrestadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfComercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xCuitHttpGetIn">
+    <wsdl:part name="cuit" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xCuitHttpGetOut">
+    <wsdl:part name="Body" element="tns:Comercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomiciliosComercializador_T_PrestadorComercializadorHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomiciliosComercializador_T_PrestadorComercializadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfComercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfComercializador" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarIgualHttpGetIn">
+    <wsdl:part name="calle" type="s:string" />
+    <wsdl:part name="nro" type="s:string" />
+    <wsdl:part name="piso" type="s:string" />
+    <wsdl:part name="dPto" type="s:string" />
+    <wsdl:part name="codPostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarIgualHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idDomicilioComercializador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializador" type="s:string" />
+    <wsdl:part name="FechaInicio" type="s:string" />
+    <wsdl:part name="FFin_Baja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xidPrestadorHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xidPrestadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfComercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xCuitHttpPostIn">
+    <wsdl:part name="cuit" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerComercializadoras_xCuitHttpPostOut">
+    <wsdl:part name="Body" element="tns:Comercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomiciliosComercializador_T_PrestadorComercializadorHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomiciliosComercializador_T_PrestadorComercializadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfComercializador" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfComercializador" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarIgualHttpPostIn">
+    <wsdl:part name="calle" type="s:string" />
+    <wsdl:part name="nro" type="s:string" />
+    <wsdl:part name="piso" type="s:string" />
+    <wsdl:part name="dPto" type="s:string" />
+    <wsdl:part name="codPostal" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarIgualHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idDomicilioComercializador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idComercializador" type="s:string" />
+    <wsdl:part name="FechaInicio" type="s:string" />
+    <wsdl:part name="FFin_Baja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ComercializadorWSSoap">
+    <wsdl:operation name="TraerComercializadoras_xidPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un Comercializador por ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerComercializadoras_xidPrestadorSoapIn" />
+      <wsdl:output message="tns:TraerComercializadoras_xidPrestadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerComercializadoras_xCuit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un Comercializador por Cuit</wsdl:documentation>
+      <wsdl:input message="tns:TraerComercializadoras_xCuitSoapIn" />
+      <wsdl:output message="tns:TraerComercializadoras_xCuitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Comercializadores con su domicilio por ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerDomiciliosComercializador_T_PrestadorComercializadorSoapIn" />
+      <wsdl:output message="tns:TraerDomiciliosComercializador_T_PrestadorComercializadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Comercializadores con sus domicilios por distinto ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorSoapIn" />
+      <wsdl:output message="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarIgual">
+      <wsdl:input message="tns:DomicilioComercializador_BuscarIgualSoapIn" />
+      <wsdl:output message="tns:DomicilioComercializador_BuscarIgualSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+      <wsdl:input message="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorSoapIn" />
+      <wsdl:output message="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorAPrestador">
+      <wsdl:input message="tns:Relacion_ComercializadorAPrestadorSoapIn" />
+      <wsdl:output message="tns:Relacion_ComercializadorAPrestadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestadorMB">
+      <wsdl:input message="tns:Relacion_ComercializadorPrestadorMBSoapIn" />
+      <wsdl:output message="tns:Relacion_ComercializadorPrestadorMBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_RelacionDC_A">
+      <wsdl:input message="tns:DomicilioComercializador_RelacionDC_ASoapIn" />
+      <wsdl:output message="tns:DomicilioComercializador_RelacionDC_ASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializadorA">
+      <wsdl:input message="tns:DomicilioComercializadorASoapIn" />
+      <wsdl:output message="tns:DomicilioComercializadorASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_DomicilioComercializadorPrestadorA">
+      <wsdl:input message="tns:Relacion_DomicilioComercializadorPrestadorASoapIn" />
+      <wsdl:output message="tns:Relacion_DomicilioComercializadorPrestadorASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestadorDomicilioMB">
+      <wsdl:input message="tns:Relacion_ComercializadorPrestadorDomicilioMBSoapIn" />
+      <wsdl:output message="tns:Relacion_ComercializadorPrestadorDomicilioMBSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+      <wsdl:input message="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_BSoapIn" />
+      <wsdl:output message="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_BSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ComercializadorWSHttpGet">
+    <wsdl:operation name="TraerComercializadoras_xidPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un Comercializador por ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerComercializadoras_xidPrestadorHttpGetIn" />
+      <wsdl:output message="tns:TraerComercializadoras_xidPrestadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerComercializadoras_xCuit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un Comercializador por Cuit</wsdl:documentation>
+      <wsdl:input message="tns:TraerComercializadoras_xCuitHttpGetIn" />
+      <wsdl:output message="tns:TraerComercializadoras_xCuitHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Comercializadores con su domicilio por ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerDomiciliosComercializador_T_PrestadorComercializadorHttpGetIn" />
+      <wsdl:output message="tns:TraerDomiciliosComercializador_T_PrestadorComercializadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Comercializadores con sus domicilios por distinto ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpGetIn" />
+      <wsdl:output message="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarIgual">
+      <wsdl:input message="tns:DomicilioComercializador_BuscarIgualHttpGetIn" />
+      <wsdl:output message="tns:DomicilioComercializador_BuscarIgualHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+      <wsdl:input message="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpGetIn" />
+      <wsdl:output message="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+      <wsdl:input message="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpGetIn" />
+      <wsdl:output message="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ComercializadorWSHttpPost">
+    <wsdl:operation name="TraerComercializadoras_xidPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un Comercializador por ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerComercializadoras_xidPrestadorHttpPostIn" />
+      <wsdl:output message="tns:TraerComercializadoras_xidPrestadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerComercializadoras_xCuit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un Comercializador por Cuit</wsdl:documentation>
+      <wsdl:input message="tns:TraerComercializadoras_xCuitHttpPostIn" />
+      <wsdl:output message="tns:TraerComercializadoras_xCuitHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Comercializadores con su domicilio por ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerDomiciliosComercializador_T_PrestadorComercializadorHttpPostIn" />
+      <wsdl:output message="tns:TraerDomiciliosComercializador_T_PrestadorComercializadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Comercializadores con sus domicilios por distinto ID Presatador</wsdl:documentation>
+      <wsdl:input message="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpPostIn" />
+      <wsdl:output message="tns:TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarIgual">
+      <wsdl:input message="tns:DomicilioComercializador_BuscarIgualHttpPostIn" />
+      <wsdl:output message="tns:DomicilioComercializador_BuscarIgualHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+      <wsdl:input message="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpPostIn" />
+      <wsdl:output message="tns:DomicilioComercializador_BuscarComercializadorDistintoIDPrestadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+      <wsdl:input message="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpPostIn" />
+      <wsdl:output message="tns:Relacion_ComercializadorPrestador_Domicilio_Tasas_BHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComercializadorWSSoap" type="tns:ComercializadorWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerComercializadoras_xidPrestador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerComercializadoras_xidPrestador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerComercializadoras_xCuit">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerComercializadoras_xCuit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerDomiciliosComercializador_T_PrestadorComercializador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarIgual">
+      <soap:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializador_BuscarIgual" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializador_BuscarComercializadorDistintoIDPrestador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorAPrestador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorAPrestador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestadorMB">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorPrestadorMB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_RelacionDC_A">
+      <soap:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializador_RelacionDC_A" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializadorA">
+      <soap:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializadorA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_DomicilioComercializadorPrestadorA">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Relacion_DomicilioComercializadorPrestadorA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestadorDomicilioMB">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorPrestadorDomicilioMB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorPrestador_Domicilio_Tasas_B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ComercializadorWSSoap12" type="tns:ComercializadorWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerComercializadoras_xidPrestador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerComercializadoras_xidPrestador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerComercializadoras_xCuit">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerComercializadoras_xCuit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerDomiciliosComercializador_T_PrestadorComercializador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarIgual">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializador_BuscarIgual" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializador_BuscarComercializadorDistintoIDPrestador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorAPrestador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorAPrestador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestadorMB">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorPrestadorMB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_RelacionDC_A">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializador_RelacionDC_A" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializadorA">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/DomicilioComercializadorA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_DomicilioComercializadorPrestadorA">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Relacion_DomicilioComercializadorPrestadorA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestadorDomicilioMB">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorPrestadorDomicilioMB" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Relacion_ComercializadorPrestador_Domicilio_Tasas_B" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ComercializadorWSHttpGet" type="tns:ComercializadorWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerComercializadoras_xidPrestador">
+      <http:operation location="/TraerComercializadoras_xidPrestador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerComercializadoras_xCuit">
+      <http:operation location="/TraerComercializadoras_xCuit" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+      <http:operation location="/TraerDomiciliosComercializador_T_PrestadorComercializador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+      <http:operation location="/TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarIgual">
+      <http:operation location="/DomicilioComercializador_BuscarIgual" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+      <http:operation location="/DomicilioComercializador_BuscarComercializadorDistintoIDPrestador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+      <http:operation location="/Relacion_ComercializadorPrestador_Domicilio_Tasas_B" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ComercializadorWSHttpPost" type="tns:ComercializadorWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerComercializadoras_xidPrestador">
+      <http:operation location="/TraerComercializadoras_xidPrestador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerComercializadoras_xCuit">
+      <http:operation location="/TraerComercializadoras_xCuit" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomiciliosComercializador_T_PrestadorComercializador">
+      <http:operation location="/TraerDomiciliosComercializador_T_PrestadorComercializador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador">
+      <http:operation location="/TraerDomicilioComercializador_T_ComercializadorDistintoIDPrestador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarIgual">
+      <http:operation location="/DomicilioComercializador_BuscarIgual" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DomicilioComercializador_BuscarComercializadorDistintoIDPrestador">
+      <http:operation location="/DomicilioComercializador_BuscarComercializadorDistintoIDPrestador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Relacion_ComercializadorPrestador_Domicilio_Tasas_B">
+      <http:operation location="/Relacion_ComercializadorPrestador_Domicilio_Tasas_B" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComercializadorWS">
+    <wsdl:port name="ComercializadorWSSoap" binding="tns:ComercializadorWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/ComercializadorWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ComercializadorWSSoap12" binding="tns:ComercializadorWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/ComercializadorWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ComercializadorWSHttpGet" binding="tns:ComercializadorWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/ComercializadorWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ComercializadorWSHttpPost" binding="tns:ComercializadorWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/ComercializadorWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

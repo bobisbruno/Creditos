@@ -1,0 +1,3127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Traer_Reposicion_X_Beneficiario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blancaPorNominada" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Traer_Reposicion_X_BeneficiarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_Reposicion_X_BeneficiarioResult" type="tns:ArrayOfNovedad_Tarjeta_Reponer" />
+            <s:element minOccurs="1" maxOccurs="1" name="codMotivoReponer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedad_Tarjeta_Reponer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Novedad_Tarjeta_Reponer" nillable="true" type="tns:Novedad_Tarjeta_Reponer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Novedad_Tarjeta_Reponer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Novedad">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MovimientoTarjeta" nillable="true" type="tns:enum_TipoMovimientoTarShop" />
+              <s:element minOccurs="1" maxOccurs="1" name="MotivoReemplazo" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Error_Reposicion" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Novedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEM" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Otorgamiento" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm_Mensual" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuota_Social" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTNAReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEAReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_AdmM_ensual_Real" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TIRReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoReg" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilioBeneficiario" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Otro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Tarjeta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaBaja" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Sucursal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Ticket" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FReposicion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoCredito" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmortizado" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="idItem" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodMotivoAlta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodOperacion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="unContacto" type="tns:Contacto" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasSinLiquidar" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProximoMensualAliq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoEstado_SC" type="tns:TipoEstado_SC" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadosNovedad" type="tns:ArrayOfEstadoNovedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelacionAnticipada" type="tns:ArrayOfCancelacionAnticipada" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiniestroCobrado" type="tns:ArrayOfSiniestroCobrado" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioSuperv" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaSuperv" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreArchivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoPolizaSeguro" type="tns:TipoPolizaSeguro" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnBeneficiario" type="tns:Beneficiario" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnPrestador" type="tns:Prestador" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInforme" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstadoReg" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstadoNovedad" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnCodMovimiento" type="tns:CodigoMovimiento" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteCuota" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteALiquidar" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteLiquidado" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotas" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Porcentaje" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comprobante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaImportacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerMensual" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualCarga" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimaMensualCuota" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualCuota" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stock" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MensualReenvio" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnModeloPC" type="tns:ModeloPC" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotasRestantes" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasLiquidadas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuotaLiquidada" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaBaja" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnTipoTarjeta" nillable="true" type="tns:enum_TipoTarjeta" />
+          <s:element minOccurs="0" maxOccurs="1" name="GeneraNominada" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FEstimadaEntrega" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescOficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unaLista_Cuotas" type="tns:ArrayOfCuota" />
+          <s:element minOccurs="0" maxOccurs="1" name="unaLista_Adhetentes" type="tns:ArrayOfAdherente" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeneraCompImpedimentoFirma" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentacionScaneada" type="tns:ArrayOfDocumentacionScaneada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contacto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Telediscado1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono1" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular1" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telediscado2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstado_SC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="novedadEstaVigente" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstadoNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstadoNovedad" nillable="true" type="tns:EstadoNovedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoNovedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacionTotal" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCancelacionAnticipada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CancelacionAnticipada" nillable="true" type="tns:CancelacionAnticipada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CancelacionAnticipada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobroFGS" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiniestroCobrado" nillable="true" type="tns:SiniestroCobrado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobroFGS" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="idSiniestro" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idLote" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fSolicitudCobro" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoPolizaSeguro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPolizaSeguro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionPolizaSeguro" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Beneficiario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="unDomicilio" type="tns:Domicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDoc" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTipoDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoBruto" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoParaOblig" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfectacionDisponible" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotObligatoria" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotNovedad" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantOcurrenciasDisp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExAFJP" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista_Reclamos" type="tns:ArrayOfReclamo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista_Novedades" type="tns:ArrayOfNovedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="es_CBUSocial" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoSolicitarTarjeta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FVencimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codAgencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="JubiladoPensionado" nillable="true" type="s1:char" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeyAplicada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoOrigenBeneficiario" type="tns:TipoOrigenBeneficiario" />
+          <s:element minOccurs="1" maxOccurs="1" name="FFallecimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoEvaluacionRiesgo" type="tns:TipoEvaluacionRiesgo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Domicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsSucursal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilio" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaProvincia" type="tns:Provincia" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoDomicilio" type="tns:TipoDomicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nacionalidad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionProvincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDomicilio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoDomicilio" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoDomicilio" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoReclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Estado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FecCambio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="observacion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TieneObservacion" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PaseAutomatico" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsFinal" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="FecManual" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MensajeInfo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Control" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ControlTexto" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ControlIdModelo" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EstadoAnme" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfReclamo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Reclamo" nillable="true" type="tns:Reclamo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Reclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfReclamo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdReclamo" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="SolicitaReintegro" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaNovedad" type="tns:Novedad" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaAltaReclamo" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescripcionReclamo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Expediente" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnTipoReclamo" type="tns:TipoReclamo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnContactoReclamo" type="tns:ContactoReclamo" />
+              <s:element minOccurs="1" maxOccurs="1" name="PresentoDoc" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstadoReclamo" type="tns:EstadoReclamo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoriaRespuesta" type="tns:Auditoria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfReclamo" />
+      <s:complexType name="TipoReclamo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoReclamo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leyenda" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContactoReclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfContactoReclamo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telediscado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Celular" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfContactoReclamo" />
+      <s:complexType name="ArrayOfNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Novedad" nillable="true" type="tns:Novedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoOrigenBeneficiario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrigenBeneficiario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsPNC" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEvaluacionRiesgo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodEvaluacionRiesgo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FDesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FHasta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaCargaCredito" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensajeMostrar" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prestador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodoFicinaANME" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArrayComercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsNominada" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsAnses" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EntregaDocumentacionEnFGS" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsEntidadOficial" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsComercio" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Entidad_Prest_Comer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfEntidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreFantasia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+              <s:element minOccurs="1" maxOccurs="1" name="IDEstado" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tasas" type="tns:ArrayOfTasa" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnDomicilio" type="tns:Domicilio" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfEntidad_Prest_Comer" />
+      <s:complexType name="ArrayOfTasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tasa" nillable="true" type="tns:Tasa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAudAprobacion" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicioVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFinVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GastoAdministrativo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasHasta" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineaCredito" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Plazo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FAprobacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prestador" type="tns:Prestador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comercializador" type="tns:Comercializador" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aprobada" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comercializador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioridad" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodSidif" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obligatorio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAfiliacion" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoOnLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxADescontar" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoOrigenBeneficiario" type="tns:TipoOrigenBeneficiario" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPrestacionTurno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsInundado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsConceptoAjuste" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AjustaSobreConcepto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoAjusteResta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsConceptoRecupero" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecuperaSobreConcepto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoPNC" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiereCBU" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hab_Online" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoConcepto" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoLiquidacion" nillable="true" type="tns:ConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfComercializador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comercializador" nillable="true" type="tns:Comercializador" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CodigoMovimiento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodMovimiento" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModeloPC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdModeloPC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaMarcaPC" type="tns:MarcaPC" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarcaPC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdMarca" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoTarjeta">
+        <s:restriction base="s:string">
+          <s:enumeration value="Blanca" />
+          <s:enumeration value="Nominada" />
+          <s:enumeration value="Carnet" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCuota">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cuota" nillable="true" type="tns:Cuota" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cuota">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe_Cuota" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensual_Cuota" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Intereses" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amortizacion" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm_Tarjeta" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Seguro_Vida" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnviadoALiquidar" nillable="true" type="tns:enum_enviadoLiquidar" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdMensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MensualEmision" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacion" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteCuotaLiq" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesEstado_E" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdentPago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descEstadoRub" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="daEstadoRub" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoRub" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmortizacionDescontadaCuota" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecCierreCuota" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecCierreUltEmision" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_enviadoLiquidar">
+        <s:restriction base="s:string">
+          <s:enumeration value="P" />
+          <s:enumeration value="S" />
+          <s:enumeration value="N" />
+          <s:enumeration value="B" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfAdherente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Adherente" nillable="true" type="tns:Adherente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Adherente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CUIL" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido_Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaUltModificacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentacionScaneada" nillable="true" type="tns:DocumentacionScaneada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Idnovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Imagen" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdGralImagen" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdImagen" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoImagen" type="tns:TipoImagen" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCreacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoImagen">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoImagenDW" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAbrev" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoMovimientoTarShop">
+        <s:restriction base="s:string">
+          <s:enumeration value="ALTA" />
+          <s:enumeration value="BAJA" />
+          <s:enumeration value="REEMPLAZO" />
+          <s:enumeration value="RECHAZO" />
+          <s:enumeration value="OTRO" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Reposicion_ImputarCostoTarjeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nroTarjeta" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="codMotivoReponer" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Reposicion_ImputarCostoTarjetaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Novedades_ReposicionTarjeta_Alta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tarjetasAReponer" type="tns:ArrayOfNovedad_Tarjeta_Reponer" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="nuevoNroTarjeta" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="esNominada" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_ReposicionTarjeta_AltaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_ReposicionTarjeta_AltaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TipoMotivoReemplazo_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoMotivoReemplazo_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoMotivoReemplazo_TraerResult" type="tns:ArrayOfCodDescripcion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCodDescripcion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CodDescripcion" nillable="true" type="tns:CodDescripcion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CodDescripcion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjetas_Valido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nroTarjeta" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idbeneficiario" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="codConcepto" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="esNominada" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoMovimientoTarjeta" type="tns:enum_TipoMovimientoTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enum_TipoMovimientoTarjeta">
+        <s:restriction base="s:string">
+          <s:enumeration value="ALTA" />
+          <s:enumeration value="BAJA" />
+          <s:enumeration value="REEMPLAZO" />
+          <s:enumeration value="SOLICITUD" />
+          <s:enumeration value="RECEPCION" />
+          <s:enumeration value="ENTREGA" />
+          <s:enumeration value="ENTREGA_ACTO" />
+          <s:enumeration value="SOLICITUD_EXPRESS" />
+          <s:enumeration value="BAJA_EXPRESS" />
+          <s:enumeration value="REINGRESO_FP" />
+          <s:enumeration value="RECEPCION_ARCHIVO" />
+          <s:enumeration value="SINIESTRADA_ARCHIVO" />
+          <s:enumeration value="SOLICITUD_REINGRESOFP" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Tarjetas_ValidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_ValidoResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="repone" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoTarjeta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="debeSolicitarNominada" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="blancaPorNominada" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="habilitaAltaNovedad" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nroTarjeta" nillable="true" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_TraerResult" type="tns:ArrayOfTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarjeta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tarjeta" nillable="true" type="tns:Tarjeta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tarjeta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroTarjeta" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAlta" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoEstadoTarjeta" type="tns:TipoEstadoTarjeta" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilio" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDestinoTarjeta" nillable="true" type="tns:enum_TipoDestinoTarjeta" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescOficinaDestino" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoMotivoReemplazo" nillable="true" type="tns:enum_TipoMotivoReemplazo" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoTarjeta" type="tns:TipoTarjeta" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaEstimadaEntrega" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPrestadorOpera" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoEstadoPack" type="tns:TipoEstadoPack" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoOrigenTarjeta" type="tns:TipoOrigenTarjeta" />
+          <s:element minOccurs="1" maxOccurs="1" name="BlancaPorNominada" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="unTipoMovimientoTarjeta" nillable="true" type="tns:enum_TipoMovimientoTarjeta" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackTrace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecepcionadoPor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoDestinoTarjeta" type="tns:TipoDestinoTarjeta" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroBeneficioPpal" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCajaArchivo" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCajaCorreo" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="PosCajaArchivo" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstadoTarjeta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitante" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitada" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsBaja" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsSolicitud" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsSolicitudNuevaAutomatica" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsReingresoFlujoPostal" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstadoAplicacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoDestinoTarjeta">
+        <s:restriction base="s:string">
+          <s:enumeration value="DomicilioCliente" />
+          <s:enumeration value="OficinaCorreo" />
+          <s:enumeration value="UDAI" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="enum_TipoMotivoReemplazo">
+        <s:restriction base="s:string">
+          <s:enumeration value="EmbosoErroneo" />
+          <s:enumeration value="Rotura" />
+          <s:enumeration value="Perdida" />
+          <s:enumeration value="Robo" />
+          <s:enumeration value="Desmagnetizacion" />
+          <s:enumeration value="Otro" />
+          <s:enumeration value="Unificacion" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TipoTarjeta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoTarjeta" nillable="true" type="tns:enum_TipoTarjeta" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionTipoT" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoT" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsNominada" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteHabilitarPin" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermiteSolitarEspontanea" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstadoPack">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoPack" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionEstadoPack" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoOrigenTarjeta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrigen" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionOrigen" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDestinoTarjeta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdDestino" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionDestino" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjetas_Guardar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaTarjetas" type="tns:ArrayOfTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_GuardarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_GuardarResult" type="tns:ArrayOfTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_GuardarEstadoSolicitud">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tarjeta" type="tns:Tarjeta" />
+            <s:element minOccurs="0" maxOccurs="1" name="domicilio" type="tns:Domicilio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_GuardarEstadoSolicitudResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_GuardarEstadoSolicitudResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_TXSucursalEstado_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstadoEntrega" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="fDesde" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fHasta" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOrigen" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstadoPack" nillable="true" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_TXSucursalEstado_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_TXSucursalEstado_TraerResult" type="tns:ArrayOfTarjeta" />
+            <s:element minOccurs="1" maxOccurs="1" name="total" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TarjetaNominadaValidacionTurnos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TarjetaNominadaValidacionTurnosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="codRetorno" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_ValidoPorCuil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoMovimientoTarjeta" type="tns:enum_TipoMovimientoTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_ValidoPorCuilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_ValidoPorCuilResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tieneNominada" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="habilitaAltaExpress" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_TraerxEstadoFecha">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" nillable="true" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="oficina" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstadoReg" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaD" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fechaH" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="idOrigen" nillable="true" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstadoPack" nillable="true" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_TraerxEstadoFechaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_TraerxEstadoFechaResult" type="tns:ArrayOfTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TarjetasTransicionEstados_T">
+        <s:complexType />
+      </s:element>
+      <s:element name="TarjetasTransicionEstados_TResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TarjetasTransicionEstados_TResult" type="tns:ArrayOfTarjetasTransicionEstados" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarjetasTransicionEstados">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TarjetasTransicionEstados" nillable="true" type="tns:TarjetasTransicionEstados" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TarjetasTransicionEstados">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDestino" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoNuevo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstadoNuevo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Novedades_TarjetaHistorica_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nroTarjetaNuevo" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_TarjetaHistorica_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_TarjetaHistorica_TraerResult" type="tns:ArrayOfNovedades_TarjetaHistorica" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedades_TarjetaHistorica">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Novedades_TarjetaHistorica" nillable="true" type="tns:Novedades_TarjetaHistorica" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Novedades_TarjetaHistorica">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroTarjetaAnterior" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroTarjetaNuevo" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FReposicion" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoMovimientoTarjeta" type="tns:enum_TipoMovimientoTarShop" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdprestadorRepone" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaRepone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fultmodificacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TarjetaHistorica_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nroTarjeta" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TarjetaHistorica_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TarjetaHistorica_TraerResult" type="tns:ArrayOfTarjetaHistorica" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarjetaHistorica">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TarjetaHistorica" nillable="true" type="tns:TarjetaHistorica" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TarjetaHistorica">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdEstadoTarjeta" type="tns:TipoEstadoTarjeta" />
+          <s:element minOccurs="1" maxOccurs="1" name="FNovedad" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDestinoTarjeta" nillable="true" type="tns:enum_TipoDestinoTarjeta" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackTrace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecepcionadoPor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lote" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjeta_TraerXIDBeneficiario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TraerXIDBeneficiarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Tarjeta_TraerXIDBeneficiarioResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PinLink_Trae">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="nroTarjeta" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PinLink_TraeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PinLink_TraeResult" type="tns:ArrayOfPinLink" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPinLink">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PinLink" nillable="true" type="tns:PinLink" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PinLink">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NroTarjeta" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoEstadoPin" type="tns:TipoEstadoPin" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaProceso" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreArchivo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultadoProcesoTS" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensajeResultadoProceso" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="enum_TipoEstadoPin" nillable="true" type="tns:enum_TipoEstadoPin" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnPrestador" type="tns:Entidad_Prest_Comer" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDocPresentado" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnCodigoPreAprobado" type="tns:CodigoPreAprobado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstadoPin">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoPin" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoEstadoPin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionEstadoPin" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SeEnviaATS" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoEstadoPin">
+        <s:restriction base="s:string">
+          <s:enumeration value="NoTienePedidosPin" />
+          <s:enumeration value="AltaPin" />
+          <s:enumeration value="BlanqueoPin" />
+          <s:enumeration value="BajaPin" />
+          <s:enumeration value="DesisteOperacion" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CodigoPreAprobado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAValidar" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="unTipoUso" type="tns:TipoUsoCodPreAprobado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoUsoCodPreAprobado">
+        <s:restriction base="s:string">
+          <s:enumeration value="Alta" />
+          <s:enumeration value="Reposicion" />
+          <s:enumeration value="Blanqueo" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="PinLink_Alta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unPinLink" type="tns:PinLink" />
+            <s:element minOccurs="0" maxOccurs="1" name="unCodigoPreAprobado" type="tns:CodigoPreAprobado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PinLink_AltaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PinLink_AltaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TipoCarnet_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TipoCarnet_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjeta_TipoCarnet_TraerResult" type="tns:TarjetaConsulta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TarjetaConsulta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NombyAp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjeta_TipoCarnet_TraerParaTurnos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TipoCarnet_TraerParaTurnosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjeta_TipoCarnet_TraerParaTurnosResult" type="tns:TarjetaTurnos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TarjetaTurnos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BeneficioHabilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TipoCarnet_TraerParaTurnosArgResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjeta_TipoCarnet_TraerParaTurnosArgResult" type="tns:TarjetaTurnosArg" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TarjetaTurnosArg">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroTarjeta" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitarturno" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaNvoDomicilio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitaCarnet" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntregadaXEntregar" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConfirmarNroTarjeta" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoOrigenTarjeta" type="tns:TipoOrigenTarjeta" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoEstadoTarjeta_TraerXEstadosAplicacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoEstadoTarjeta_TraerXEstadosAplicacionResult" type="tns:ArrayOfTipoEstadoTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoEstadoTarjeta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoEstadoTarjeta" nillable="true" type="tns:TipoEstadoTarjeta" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjetas_TraerLotes">
+        <s:complexType />
+      </s:element>
+      <s:element name="Tarjetas_TraerLotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_TraerLotesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjetas_TraerTotalesXTipoEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="descEstadoAplicacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idprovincia" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="codpostal" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="oficinas" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="fAltaDesde" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fAltaHasta" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="lote" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_TraerTotalesXTipoEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_TraerTotalesXTipoEstadoResult" type="tns:ArrayOfTarjetaTotalesXEst" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarjetaTotalesXEst">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TarjetaTotalesXEst" nillable="true" type="tns:TarjetaTotalesXEst" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TarjetaTotalesXEst">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstadoAplicacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cantidad" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TipoTarjeta_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoTarjeta_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoTarjeta_TraerResult" type="tns:ArrayOfTipoTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoTarjeta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoTarjeta" nillable="true" type="tns:TipoTarjeta" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjeta_TraerPorSucEstado_TipoTarjeta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoTarjeta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstadoAplicacion" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="descEstadoAplicacion" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idProvincia" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="codPostal" type="s:short" />
+            <s:element minOccurs="0" maxOccurs="1" name="oficinas" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="fAltaDesde" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fAltaHasta" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="lote" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="generaArchivo" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="generaAdmin" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="soloArgenta" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="soloEntidades" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="regional" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TraerPorSucEstado_TipoTarjetaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjeta_TraerPorSucEstado_TipoTarjetaResult" type="tns:ArrayOfTarjetasXSucursalEstadoXTipoTarjeta" />
+            <s:element minOccurs="1" maxOccurs="1" name="topeRegistros" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="total" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="rutaArchivoSal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarjetasXSucursalEstadoXTipoTarjeta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TarjetasXSucursalEstadoXTipoTarjeta" nillable="true" type="tns:TarjetasXSucursalEstadoXTipoTarjeta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TarjetasXSucursalEstadoXTipoTarjeta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroTarjeta" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstadoAplicacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoOrigenTarjeta" type="tns:TipoOrigenTarjeta" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAlta" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unDomicilio" type="tns:Domicilio" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescOficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regional" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmbozadoAnses_Guardar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tarjeta" type="tns:TarjetaEmbozado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TarjetaEmbozado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroTarjeta" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeneficioPrincipal" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAltaTarjeta" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaAltaEmbozado" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoEmbozado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmbozadoAnses_GuardarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="EmbozadoAnses_GeneraPendientesEmbozado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="auditoria" type="tns:Auditoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmbozadoAnses_GeneraPendientesEmbozadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmbozadoAnses_GeneraPendientesEmbozadoResult" type="tns:ArrayOfTarjetaEmbozado" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantTotal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantMostrar" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarjetaEmbozado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TarjetaEmbozado" nillable="true" type="tns:TarjetaEmbozado" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EmbozadoAnses_TraerXEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEstado" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmbozadoAnses_TraerXEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmbozadoAnses_TraerXEstadoResult" type="tns:ArrayOfTarjetaEmbozado" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantTotal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantMostrar" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmbozadoAnses_TraerXCuilEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmbozadoAnses_TraerXCuilEstadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmbozadoAnses_TraerXCuilEstadoResult" type="tns:Tarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmbozadoAnses_ValidoEscaneo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="nroTarjeta" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EmbozadoAnses_ValidoEscaneoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EmbozadoAnses_ValidoEscaneoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TAlerta_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oficinaDestino" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="solReenvioFlujoPostal" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="solDestruccion" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjeta_TAlerta_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjeta_TAlerta_TraerResult" type="tns:ArrayOfTarjeta_TAlerta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTarjeta_TAlerta">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tarjeta_TAlerta" nillable="true" type="tns:Tarjeta_TAlerta" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tarjeta_TAlerta">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Recibida" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cantidad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tarjetas_TReingresoFlujoPostal_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oficinaDestino" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Tarjetas_TReingresoFlujoPostal_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tarjetas_TReingresoFlujoPostal_TraerResult" type="tns:ArrayOfTarjeta" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfCodDescripcion" nillable="true" type="tns:ArrayOfCodDescripcion" />
+      <s:element name="ArrayOfTarjetasTransicionEstados" nillable="true" type="tns:ArrayOfTarjetasTransicionEstados" />
+      <s:element name="ArrayOfNovedades_TarjetaHistorica" nillable="true" type="tns:ArrayOfNovedades_TarjetaHistorica" />
+      <s:element name="ArrayOfTarjetaHistorica" nillable="true" type="tns:ArrayOfTarjetaHistorica" />
+      <s:element name="long" type="s:long" />
+      <s:element name="ArrayOfPinLink" nillable="true" type="tns:ArrayOfPinLink" />
+      <s:element name="TarjetaConsulta" nillable="true" type="tns:TarjetaConsulta" />
+      <s:element name="TarjetaTurnos" nillable="true" type="tns:TarjetaTurnos" />
+      <s:element name="TarjetaTurnosArg" nillable="true" type="tns:TarjetaTurnosArg" />
+      <s:element name="ArrayOfTipoEstadoTarjeta" nillable="true" type="tns:ArrayOfTipoEstadoTarjeta" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="ArrayOfTipoTarjeta" nillable="true" type="tns:ArrayOfTipoTarjeta" />
+      <s:element name="Tarjeta" nillable="true" type="tns:Tarjeta" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfTarjeta_TAlerta" nillable="true" type="tns:ArrayOfTarjeta_TAlerta" />
+      <s:element name="ArrayOfTarjeta" nillable="true" type="tns:ArrayOfTarjeta" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Traer_Reposicion_X_BeneficiarioSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_Reposicion_X_Beneficiario" />
+  </wsdl:message>
+  <wsdl:message name="Traer_Reposicion_X_BeneficiarioSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_Reposicion_X_BeneficiarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="Reposicion_ImputarCostoTarjetaSoapIn">
+    <wsdl:part name="parameters" element="tns:Reposicion_ImputarCostoTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="Reposicion_ImputarCostoTarjetaSoapOut">
+    <wsdl:part name="parameters" element="tns:Reposicion_ImputarCostoTarjetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_ReposicionTarjeta_AltaSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_ReposicionTarjeta_Alta" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_ReposicionTarjeta_AltaSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_ReposicionTarjeta_AltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoMotivoReemplazo_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoMotivoReemplazo_Traer" />
+  </wsdl:message>
+  <wsdl:message name="TipoMotivoReemplazo_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoMotivoReemplazo_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_ValidoSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_Valido" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_ValidoSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_ValidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_GuardarSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_Guardar" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_GuardarSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_GuardarResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_GuardarEstadoSolicitudSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_GuardarEstadoSolicitud" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_GuardarEstadoSolicitudSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_GuardarEstadoSolicitudResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TXSucursalEstado_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TXSucursalEstado_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TXSucursalEstado_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TXSucursalEstado_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaNominadaValidacionTurnosSoapIn">
+    <wsdl:part name="parameters" element="tns:TarjetaNominadaValidacionTurnos" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaNominadaValidacionTurnosSoapOut">
+    <wsdl:part name="parameters" element="tns:TarjetaNominadaValidacionTurnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_ValidoPorCuilSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_ValidoPorCuil" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_ValidoPorCuilSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_ValidoPorCuilResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerxEstadoFechaSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TraerxEstadoFecha" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerxEstadoFechaSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TraerxEstadoFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TarjetasTransicionEstados_TSoapIn">
+    <wsdl:part name="parameters" element="tns:TarjetasTransicionEstados_T" />
+  </wsdl:message>
+  <wsdl:message name="TarjetasTransicionEstados_TSoapOut">
+    <wsdl:part name="parameters" element="tns:TarjetasTransicionEstados_TResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_TarjetaHistorica_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_TarjetaHistorica_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_TarjetaHistorica_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_TarjetaHistorica_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaHistorica_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:TarjetaHistorica_Traer" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaHistorica_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TarjetaHistorica_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerXIDBeneficiarioSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TraerXIDBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerXIDBeneficiarioSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TraerXIDBeneficiarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_TraeSoapIn">
+    <wsdl:part name="parameters" element="tns:PinLink_Trae" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_TraeSoapOut">
+    <wsdl:part name="parameters" element="tns:PinLink_TraeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_AltaSoapIn">
+    <wsdl:part name="parameters" element="tns:PinLink_Alta" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_AltaSoapOut">
+    <wsdl:part name="parameters" element="tns:PinLink_AltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TipoCarnet_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TipoCarnet_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TipoCarnet_TraerParaTurnos" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TipoCarnet_TraerParaTurnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosArgSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TipoCarnet_TraerParaTurnosArg" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosArgSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TipoCarnet_TraerParaTurnosArgResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoEstadoTarjeta_TraerXEstadosAplicacionSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoEstadoTarjeta_TraerXEstadosAplicacion" />
+  </wsdl:message>
+  <wsdl:message name="TipoEstadoTarjeta_TraerXEstadosAplicacionSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoEstadoTarjeta_TraerXEstadosAplicacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerLotesSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TraerLotes" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerLotesSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TraerLotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerTotalesXTipoEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TraerTotalesXTipoEstado" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerTotalesXTipoEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TraerTotalesXTipoEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoTarjeta_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoTarjeta_Traer" />
+  </wsdl:message>
+  <wsdl:message name="TipoTarjeta_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoTarjeta_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerPorSucEstado_TipoTarjetaSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TraerPorSucEstado_TipoTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerPorSucEstado_TipoTarjetaSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TraerPorSucEstado_TipoTarjetaResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_GuardarSoapIn">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_Guardar" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_GuardarSoapOut">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_GuardarResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_GeneraPendientesEmbozadoSoapIn">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_GeneraPendientesEmbozado" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_GeneraPendientesEmbozadoSoapOut">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_GeneraPendientesEmbozadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_TraerXEstado" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_TraerXEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXCuilEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_TraerXCuilEstado" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXCuilEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_TraerXCuilEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_ValidoEscaneoSoapIn">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_ValidoEscaneo" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_ValidoEscaneoSoapOut">
+    <wsdl:part name="parameters" element="tns:EmbozadoAnses_ValidoEscaneoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TAlerta_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TAlerta_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TAlerta_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjeta_TAlerta_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TReingresoFlujoPostal_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TReingresoFlujoPostal_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TReingresoFlujoPostal_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Tarjetas_TReingresoFlujoPostal_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Reposicion_ImputarCostoTarjetaHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="nroTarjeta" type="s:string" />
+    <wsdl:part name="codMotivoReponer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Reposicion_ImputarCostoTarjetaHttpGetOut" />
+  <wsdl:message name="TipoMotivoReemplazo_TraerHttpGetIn" />
+  <wsdl:message name="TipoMotivoReemplazo_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCodDescripcion" />
+  </wsdl:message>
+  <wsdl:message name="TarjetasTransicionEstados_THttpGetIn" />
+  <wsdl:message name="TarjetasTransicionEstados_THttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjetasTransicionEstados" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_TarjetaHistorica_TraerHttpGetIn">
+    <wsdl:part name="nroTarjetaNuevo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_TarjetaHistorica_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedades_TarjetaHistorica" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaHistorica_TraerHttpGetIn">
+    <wsdl:part name="nroTarjeta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaHistorica_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjetaHistorica" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerXIDBeneficiarioHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerXIDBeneficiarioHttpGetOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_TraeHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="nroTarjeta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_TraeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPinLink" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:TarjetaConsulta" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosHttpGetOut">
+    <wsdl:part name="Body" element="tns:TarjetaTurnos" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosArgHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosArgHttpGetOut">
+    <wsdl:part name="Body" element="tns:TarjetaTurnosArg" />
+  </wsdl:message>
+  <wsdl:message name="TipoEstadoTarjeta_TraerXEstadosAplicacionHttpGetIn" />
+  <wsdl:message name="TipoEstadoTarjeta_TraerXEstadosAplicacionHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoEstadoTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerLotesHttpGetIn" />
+  <wsdl:message name="Tarjetas_TraerLotesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="TipoTarjeta_TraerHttpGetIn" />
+  <wsdl:message name="TipoTarjeta_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXCuilEstadoHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXCuilEstadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:Tarjeta" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_ValidoEscaneoHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="nroTarjeta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_ValidoEscaneoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TAlerta_TraerHttpGetIn">
+    <wsdl:part name="oficinaDestino" type="s:string" />
+    <wsdl:part name="solReenvioFlujoPostal" type="s:string" />
+    <wsdl:part name="solDestruccion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TAlerta_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjeta_TAlerta" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TReingresoFlujoPostal_TraerHttpGetIn">
+    <wsdl:part name="oficinaDestino" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TReingresoFlujoPostal_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="Reposicion_ImputarCostoTarjetaHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="nroTarjeta" type="s:string" />
+    <wsdl:part name="codMotivoReponer" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Reposicion_ImputarCostoTarjetaHttpPostOut" />
+  <wsdl:message name="TipoMotivoReemplazo_TraerHttpPostIn" />
+  <wsdl:message name="TipoMotivoReemplazo_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCodDescripcion" />
+  </wsdl:message>
+  <wsdl:message name="TarjetasTransicionEstados_THttpPostIn" />
+  <wsdl:message name="TarjetasTransicionEstados_THttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjetasTransicionEstados" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_TarjetaHistorica_TraerHttpPostIn">
+    <wsdl:part name="nroTarjetaNuevo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_TarjetaHistorica_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedades_TarjetaHistorica" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaHistorica_TraerHttpPostIn">
+    <wsdl:part name="nroTarjeta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TarjetaHistorica_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjetaHistorica" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerXIDBeneficiarioHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TraerXIDBeneficiarioHttpPostOut">
+    <wsdl:part name="Body" element="tns:long" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_TraeHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="nroTarjeta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PinLink_TraeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfPinLink" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:TarjetaConsulta" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosHttpPostOut">
+    <wsdl:part name="Body" element="tns:TarjetaTurnos" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosArgHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TipoCarnet_TraerParaTurnosArgHttpPostOut">
+    <wsdl:part name="Body" element="tns:TarjetaTurnosArg" />
+  </wsdl:message>
+  <wsdl:message name="TipoEstadoTarjeta_TraerXEstadosAplicacionHttpPostIn" />
+  <wsdl:message name="TipoEstadoTarjeta_TraerXEstadosAplicacionHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoEstadoTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TraerLotesHttpPostIn" />
+  <wsdl:message name="Tarjetas_TraerLotesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="TipoTarjeta_TraerHttpPostIn" />
+  <wsdl:message name="TipoTarjeta_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoTarjeta" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXCuilEstadoHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_TraerXCuilEstadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:Tarjeta" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_ValidoEscaneoHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="nroTarjeta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EmbozadoAnses_ValidoEscaneoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TAlerta_TraerHttpPostIn">
+    <wsdl:part name="oficinaDestino" type="s:string" />
+    <wsdl:part name="solReenvioFlujoPostal" type="s:string" />
+    <wsdl:part name="solDestruccion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjeta_TAlerta_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjeta_TAlerta" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TReingresoFlujoPostal_TraerHttpPostIn">
+    <wsdl:part name="oficinaDestino" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Tarjetas_TReingresoFlujoPostal_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTarjeta" />
+  </wsdl:message>
+  <wsdl:portType name="TarjetaWSSoap">
+    <wsdl:operation name="Traer_Reposicion_X_Beneficiario">
+      <wsdl:input message="tns:Traer_Reposicion_X_BeneficiarioSoapIn" />
+      <wsdl:output message="tns:Traer_Reposicion_X_BeneficiarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Reposicion_ImputarCostoTarjeta">
+      <wsdl:input message="tns:Reposicion_ImputarCostoTarjetaSoapIn" />
+      <wsdl:output message="tns:Reposicion_ImputarCostoTarjetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_ReposicionTarjeta_Alta">
+      <wsdl:input message="tns:Novedades_ReposicionTarjeta_AltaSoapIn" />
+      <wsdl:output message="tns:Novedades_ReposicionTarjeta_AltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoMotivoReemplazo_Traer">
+      <wsdl:input message="tns:TipoMotivoReemplazo_TraerSoapIn" />
+      <wsdl:output message="tns:TipoMotivoReemplazo_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Valido">
+      <wsdl:input message="tns:Tarjetas_ValidoSoapIn" />
+      <wsdl:output message="tns:Tarjetas_ValidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Traer">
+      <wsdl:input message="tns:Tarjetas_TraerSoapIn" />
+      <wsdl:output message="tns:Tarjetas_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Guardar">
+      <wsdl:input message="tns:Tarjetas_GuardarSoapIn" />
+      <wsdl:output message="tns:Tarjetas_GuardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_GuardarEstadoSolicitud">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda Tarjeta y Domicilio cuando EsSolicitud == true</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_GuardarEstadoSolicitudSoapIn" />
+      <wsdl:output message="tns:Tarjetas_GuardarEstadoSolicitudSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TXSucursalEstado_Traer">
+      <wsdl:input message="tns:Tarjetas_TXSucursalEstado_TraerSoapIn" />
+      <wsdl:output message="tns:Tarjetas_TXSucursalEstado_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaNominadaValidacionTurnos">
+      <wsdl:input message="tns:TarjetaNominadaValidacionTurnosSoapIn" />
+      <wsdl:output message="tns:TarjetaNominadaValidacionTurnosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_ValidoPorCuil">
+      <wsdl:input message="tns:Tarjetas_ValidoPorCuilSoapIn" />
+      <wsdl:output message="tns:Tarjetas_ValidoPorCuilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerxEstadoFecha">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tarjetas por estado - fecha</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TraerxEstadoFechaSoapIn" />
+      <wsdl:output message="tns:Tarjetas_TraerxEstadoFechaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TarjetasTransicionEstados_T">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer de la tabla TarjetasTransicionEstados los datos de los estados validos</wsdl:documentation>
+      <wsdl:input message="tns:TarjetasTransicionEstados_TSoapIn" />
+      <wsdl:output message="tns:TarjetasTransicionEstados_TSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_TarjetaHistorica_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">trae Novedades_TarjetaHistorica_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_TarjetaHistorica_TraerSoapIn" />
+      <wsdl:output message="tns:Novedades_TarjetaHistorica_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaHistorica_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los Estados Historios del Nro de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:TarjetaHistorica_TraerSoapIn" />
+      <wsdl:output message="tns:TarjetaHistorica_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerXIDBeneficiario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Nro de Tarjeta Por IdBeneficiario</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TraerXIDBeneficiarioSoapIn" />
+      <wsdl:output message="tns:Tarjeta_TraerXIDBeneficiarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el Estado de PinLink por cuil, Nro de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:PinLink_TraeSoapIn" />
+      <wsdl:output message="tns:PinLink_TraeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se realiza el alta de tarjetas en PinLink</wsdl:documentation>
+      <wsdl:input message="tns:PinLink_AltaSoapIn" />
+      <wsdl:output message="tns:PinLink_AltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se realiza consulta de tarjeta tipo carnet por Cuil</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerSoapIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta tarjeta tipo carnet por Cuil, para turnos para Créditos ARGENTA</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerParaTurnosSoapIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerParaTurnosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta tarjeta tipo carnet por Cuil, para turnos para Créditos ARGENTA</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerParaTurnosArgSoapIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerParaTurnosArgSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipo de estado de Aplicación desde TipoEstadoTarjeta</wsdl:documentation>
+      <wsdl:input message="tns:TipoEstadoTarjeta_TraerXEstadosAplicacionSoapIn" />
+      <wsdl:output message="tns:TipoEstadoTarjeta_TraerXEstadosAplicacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerLotes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lote desde Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TraerLotesSoapIn" />
+      <wsdl:output message="tns:Tarjetas_TraerLotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerTotalesXTipoEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los Totales por tipo de Estado de Tarjeta.</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TraerTotalesXTipoEstadoSoapIn" />
+      <wsdl:output message="tns:Tarjetas_TraerTotalesXTipoEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoTarjeta_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista con los Tipo Tarjeta.</wsdl:documentation>
+      <wsdl:input message="tns:TipoTarjeta_TraerSoapIn" />
+      <wsdl:output message="tns:TipoTarjeta_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerPorSucEstado_TipoTarjeta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"> Trae un listado de tarjetas filtrado segun los valores de los parametros, Total de registros y Tope de Registro.</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TraerPorSucEstado_TipoTarjetaSoapIn" />
+      <wsdl:output message="tns:Tarjeta_TraerPorSucEstado_TipoTarjetaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_Guardar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Realiza ABM en EmbozadoAnses.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_GuardarSoapIn" />
+      <wsdl:output message="tns:EmbozadoAnses_GuardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_GeneraPendientesEmbozado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Genera y trae la lista de Tarjeta pendiente de Embozado</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_GeneraPendientesEmbozadoSoapIn" />
+      <wsdl:output message="tns:EmbozadoAnses_GeneraPendientesEmbozadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tarjeta en EmbozadoAnses según el estado.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_TraerXEstadoSoapIn" />
+      <wsdl:output message="tns:EmbozadoAnses_TraerXEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXCuilEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tarjeta en EmbozadoAnses según el estado.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_TraerXCuilEstadoSoapIn" />
+      <wsdl:output message="tns:EmbozadoAnses_TraerXCuilEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_ValidoEscaneo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tarjeta en EmbozadoAnses según el estado.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_ValidoEscaneoSoapIn" />
+      <wsdl:output message="tns:EmbozadoAnses_ValidoEscaneoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TAlerta_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae la cantidad de tarjetas según oficina.</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TAlerta_TraerSoapIn" />
+      <wsdl:output message="tns:Tarjeta_TAlerta_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TReingresoFlujoPostal_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reingreso Flujo Postal de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TReingresoFlujoPostal_TraerSoapIn" />
+      <wsdl:output message="tns:Tarjetas_TReingresoFlujoPostal_TraerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TarjetaWSHttpGet">
+    <wsdl:operation name="Reposicion_ImputarCostoTarjeta">
+      <wsdl:input message="tns:Reposicion_ImputarCostoTarjetaHttpGetIn" />
+      <wsdl:output message="tns:Reposicion_ImputarCostoTarjetaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoMotivoReemplazo_Traer">
+      <wsdl:input message="tns:TipoMotivoReemplazo_TraerHttpGetIn" />
+      <wsdl:output message="tns:TipoMotivoReemplazo_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TarjetasTransicionEstados_T">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer de la tabla TarjetasTransicionEstados los datos de los estados validos</wsdl:documentation>
+      <wsdl:input message="tns:TarjetasTransicionEstados_THttpGetIn" />
+      <wsdl:output message="tns:TarjetasTransicionEstados_THttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_TarjetaHistorica_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">trae Novedades_TarjetaHistorica_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_TarjetaHistorica_TraerHttpGetIn" />
+      <wsdl:output message="tns:Novedades_TarjetaHistorica_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaHistorica_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los Estados Historios del Nro de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:TarjetaHistorica_TraerHttpGetIn" />
+      <wsdl:output message="tns:TarjetaHistorica_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerXIDBeneficiario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Nro de Tarjeta Por IdBeneficiario</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TraerXIDBeneficiarioHttpGetIn" />
+      <wsdl:output message="tns:Tarjeta_TraerXIDBeneficiarioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el Estado de PinLink por cuil, Nro de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:PinLink_TraeHttpGetIn" />
+      <wsdl:output message="tns:PinLink_TraeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se realiza consulta de tarjeta tipo carnet por Cuil</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerHttpGetIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta tarjeta tipo carnet por Cuil, para turnos para Créditos ARGENTA</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerParaTurnosHttpGetIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerParaTurnosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta tarjeta tipo carnet por Cuil, para turnos para Créditos ARGENTA</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerParaTurnosArgHttpGetIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerParaTurnosArgHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipo de estado de Aplicación desde TipoEstadoTarjeta</wsdl:documentation>
+      <wsdl:input message="tns:TipoEstadoTarjeta_TraerXEstadosAplicacionHttpGetIn" />
+      <wsdl:output message="tns:TipoEstadoTarjeta_TraerXEstadosAplicacionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerLotes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lote desde Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TraerLotesHttpGetIn" />
+      <wsdl:output message="tns:Tarjetas_TraerLotesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoTarjeta_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista con los Tipo Tarjeta.</wsdl:documentation>
+      <wsdl:input message="tns:TipoTarjeta_TraerHttpGetIn" />
+      <wsdl:output message="tns:TipoTarjeta_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXCuilEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tarjeta en EmbozadoAnses según el estado.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_TraerXCuilEstadoHttpGetIn" />
+      <wsdl:output message="tns:EmbozadoAnses_TraerXCuilEstadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_ValidoEscaneo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tarjeta en EmbozadoAnses según el estado.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_ValidoEscaneoHttpGetIn" />
+      <wsdl:output message="tns:EmbozadoAnses_ValidoEscaneoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TAlerta_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae la cantidad de tarjetas según oficina.</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TAlerta_TraerHttpGetIn" />
+      <wsdl:output message="tns:Tarjeta_TAlerta_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TReingresoFlujoPostal_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reingreso Flujo Postal de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TReingresoFlujoPostal_TraerHttpGetIn" />
+      <wsdl:output message="tns:Tarjetas_TReingresoFlujoPostal_TraerHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TarjetaWSHttpPost">
+    <wsdl:operation name="Reposicion_ImputarCostoTarjeta">
+      <wsdl:input message="tns:Reposicion_ImputarCostoTarjetaHttpPostIn" />
+      <wsdl:output message="tns:Reposicion_ImputarCostoTarjetaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoMotivoReemplazo_Traer">
+      <wsdl:input message="tns:TipoMotivoReemplazo_TraerHttpPostIn" />
+      <wsdl:output message="tns:TipoMotivoReemplazo_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TarjetasTransicionEstados_T">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Traer de la tabla TarjetasTransicionEstados los datos de los estados validos</wsdl:documentation>
+      <wsdl:input message="tns:TarjetasTransicionEstados_THttpPostIn" />
+      <wsdl:output message="tns:TarjetasTransicionEstados_THttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_TarjetaHistorica_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">trae Novedades_TarjetaHistorica_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_TarjetaHistorica_TraerHttpPostIn" />
+      <wsdl:output message="tns:Novedades_TarjetaHistorica_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaHistorica_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los Estados Historios del Nro de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:TarjetaHistorica_TraerHttpPostIn" />
+      <wsdl:output message="tns:TarjetaHistorica_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerXIDBeneficiario">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Nro de Tarjeta Por IdBeneficiario</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TraerXIDBeneficiarioHttpPostIn" />
+      <wsdl:output message="tns:Tarjeta_TraerXIDBeneficiarioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el Estado de PinLink por cuil, Nro de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:PinLink_TraeHttpPostIn" />
+      <wsdl:output message="tns:PinLink_TraeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Se realiza consulta de tarjeta tipo carnet por Cuil</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerHttpPostIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta tarjeta tipo carnet por Cuil, para turnos para Créditos ARGENTA</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerParaTurnosHttpPostIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerParaTurnosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consulta tarjeta tipo carnet por Cuil, para turnos para Créditos ARGENTA</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TipoCarnet_TraerParaTurnosArgHttpPostIn" />
+      <wsdl:output message="tns:Tarjeta_TipoCarnet_TraerParaTurnosArgHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipo de estado de Aplicación desde TipoEstadoTarjeta</wsdl:documentation>
+      <wsdl:input message="tns:TipoEstadoTarjeta_TraerXEstadosAplicacionHttpPostIn" />
+      <wsdl:output message="tns:TipoEstadoTarjeta_TraerXEstadosAplicacionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerLotes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lote desde Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TraerLotesHttpPostIn" />
+      <wsdl:output message="tns:Tarjetas_TraerLotesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoTarjeta_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista con los Tipo Tarjeta.</wsdl:documentation>
+      <wsdl:input message="tns:TipoTarjeta_TraerHttpPostIn" />
+      <wsdl:output message="tns:TipoTarjeta_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXCuilEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tarjeta en EmbozadoAnses según el estado.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_TraerXCuilEstadoHttpPostIn" />
+      <wsdl:output message="tns:EmbozadoAnses_TraerXCuilEstadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_ValidoEscaneo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae una lista de Tarjeta en EmbozadoAnses según el estado.</wsdl:documentation>
+      <wsdl:input message="tns:EmbozadoAnses_ValidoEscaneoHttpPostIn" />
+      <wsdl:output message="tns:EmbozadoAnses_ValidoEscaneoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TAlerta_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae la cantidad de tarjetas según oficina.</wsdl:documentation>
+      <wsdl:input message="tns:Tarjeta_TAlerta_TraerHttpPostIn" />
+      <wsdl:output message="tns:Tarjeta_TAlerta_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TReingresoFlujoPostal_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Reingreso Flujo Postal de Tarjeta</wsdl:documentation>
+      <wsdl:input message="tns:Tarjetas_TReingresoFlujoPostal_TraerHttpPostIn" />
+      <wsdl:output message="tns:Tarjetas_TReingresoFlujoPostal_TraerHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TarjetaWSSoap" type="tns:TarjetaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_Reposicion_X_Beneficiario">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_Reposicion_X_Beneficiario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reposicion_ImputarCostoTarjeta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Reposicion_ImputarCostoTarjeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_ReposicionTarjeta_Alta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_ReposicionTarjeta_Alta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoMotivoReemplazo_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TipoMotivoReemplazo_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Valido">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_Valido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Guardar">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_Guardar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_GuardarEstadoSolicitud">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_GuardarEstadoSolicitud" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TXSucursalEstado_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TXSucursalEstado_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaNominadaValidacionTurnos">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TarjetaNominadaValidacionTurnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_ValidoPorCuil">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_ValidoPorCuil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerxEstadoFecha">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TraerxEstadoFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetasTransicionEstados_T">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TarjetasTransicionEstados_T" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_TarjetaHistorica_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_TarjetaHistorica_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaHistorica_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TarjetaHistorica_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerXIDBeneficiario">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TraerXIDBeneficiario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Trae">
+      <soap:operation soapAction="http://dat.anses.gov.ar/PinLink_Trae" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Alta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/PinLink_Alta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TipoCarnet_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnos">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TipoCarnet_TraerParaTurnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TipoCarnet_TraerParaTurnosArg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TipoEstadoTarjeta_TraerXEstadosAplicacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerLotes">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TraerLotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerTotalesXTipoEstado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TraerTotalesXTipoEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoTarjeta_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TipoTarjeta_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerPorSucEstado_TipoTarjeta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TraerPorSucEstado_TipoTarjeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_Guardar">
+      <soap:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_Guardar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_GeneraPendientesEmbozado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_GeneraPendientesEmbozado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXEstado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_TraerXEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXCuilEstado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_TraerXCuilEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_ValidoEscaneo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_ValidoEscaneo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TAlerta_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TAlerta_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TReingresoFlujoPostal_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TReingresoFlujoPostal_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TarjetaWSSoap12" type="tns:TarjetaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_Reposicion_X_Beneficiario">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_Reposicion_X_Beneficiario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reposicion_ImputarCostoTarjeta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Reposicion_ImputarCostoTarjeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_ReposicionTarjeta_Alta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_ReposicionTarjeta_Alta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoMotivoReemplazo_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TipoMotivoReemplazo_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Valido">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_Valido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_Guardar">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_Guardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_GuardarEstadoSolicitud">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_GuardarEstadoSolicitud" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TXSucursalEstado_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TXSucursalEstado_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaNominadaValidacionTurnos">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TarjetaNominadaValidacionTurnos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_ValidoPorCuil">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_ValidoPorCuil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerxEstadoFecha">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TraerxEstadoFecha" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetasTransicionEstados_T">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TarjetasTransicionEstados_T" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_TarjetaHistorica_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_TarjetaHistorica_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaHistorica_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TarjetaHistorica_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerXIDBeneficiario">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TraerXIDBeneficiario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Trae">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/PinLink_Trae" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Alta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/PinLink_Alta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TipoCarnet_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnos">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TipoCarnet_TraerParaTurnos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TipoCarnet_TraerParaTurnosArg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TipoEstadoTarjeta_TraerXEstadosAplicacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerLotes">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TraerLotes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerTotalesXTipoEstado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TraerTotalesXTipoEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoTarjeta_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TipoTarjeta_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerPorSucEstado_TipoTarjeta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TraerPorSucEstado_TipoTarjeta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_Guardar">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_Guardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_GeneraPendientesEmbozado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_GeneraPendientesEmbozado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXEstado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_TraerXEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXCuilEstado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_TraerXCuilEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_ValidoEscaneo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/EmbozadoAnses_ValidoEscaneo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TAlerta_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjeta_TAlerta_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TReingresoFlujoPostal_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tarjetas_TReingresoFlujoPostal_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TarjetaWSHttpGet" type="tns:TarjetaWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Reposicion_ImputarCostoTarjeta">
+      <http:operation location="/Reposicion_ImputarCostoTarjeta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="TipoMotivoReemplazo_Traer">
+      <http:operation location="/TipoMotivoReemplazo_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetasTransicionEstados_T">
+      <http:operation location="/TarjetasTransicionEstados_T" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_TarjetaHistorica_Traer">
+      <http:operation location="/Novedades_TarjetaHistorica_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaHistorica_Traer">
+      <http:operation location="/TarjetaHistorica_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerXIDBeneficiario">
+      <http:operation location="/Tarjeta_TraerXIDBeneficiario" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Trae">
+      <http:operation location="/PinLink_Trae" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_Traer">
+      <http:operation location="/Tarjeta_TipoCarnet_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnos">
+      <http:operation location="/Tarjeta_TipoCarnet_TraerParaTurnos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+      <http:operation location="/Tarjeta_TipoCarnet_TraerParaTurnosArg" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+      <http:operation location="/TipoEstadoTarjeta_TraerXEstadosAplicacion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerLotes">
+      <http:operation location="/Tarjetas_TraerLotes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoTarjeta_Traer">
+      <http:operation location="/TipoTarjeta_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXCuilEstado">
+      <http:operation location="/EmbozadoAnses_TraerXCuilEstado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_ValidoEscaneo">
+      <http:operation location="/EmbozadoAnses_ValidoEscaneo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TAlerta_Traer">
+      <http:operation location="/Tarjeta_TAlerta_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TReingresoFlujoPostal_Traer">
+      <http:operation location="/Tarjetas_TReingresoFlujoPostal_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TarjetaWSHttpPost" type="tns:TarjetaWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Reposicion_ImputarCostoTarjeta">
+      <http:operation location="/Reposicion_ImputarCostoTarjeta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="TipoMotivoReemplazo_Traer">
+      <http:operation location="/TipoMotivoReemplazo_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetasTransicionEstados_T">
+      <http:operation location="/TarjetasTransicionEstados_T" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_TarjetaHistorica_Traer">
+      <http:operation location="/Novedades_TarjetaHistorica_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TarjetaHistorica_Traer">
+      <http:operation location="/TarjetaHistorica_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TraerXIDBeneficiario">
+      <http:operation location="/Tarjeta_TraerXIDBeneficiario" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PinLink_Trae">
+      <http:operation location="/PinLink_Trae" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_Traer">
+      <http:operation location="/Tarjeta_TipoCarnet_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnos">
+      <http:operation location="/Tarjeta_TipoCarnet_TraerParaTurnos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TipoCarnet_TraerParaTurnosArg">
+      <http:operation location="/Tarjeta_TipoCarnet_TraerParaTurnosArg" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoEstadoTarjeta_TraerXEstadosAplicacion">
+      <http:operation location="/TipoEstadoTarjeta_TraerXEstadosAplicacion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TraerLotes">
+      <http:operation location="/Tarjetas_TraerLotes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoTarjeta_Traer">
+      <http:operation location="/TipoTarjeta_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_TraerXCuilEstado">
+      <http:operation location="/EmbozadoAnses_TraerXCuilEstado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmbozadoAnses_ValidoEscaneo">
+      <http:operation location="/EmbozadoAnses_ValidoEscaneo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjeta_TAlerta_Traer">
+      <http:operation location="/Tarjeta_TAlerta_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tarjetas_TReingresoFlujoPostal_Traer">
+      <http:operation location="/Tarjetas_TReingresoFlujoPostal_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TarjetaWS">
+    <wsdl:port name="TarjetaWSSoap" binding="tns:TarjetaWSSoap">
+      <soap:address location="http://localhost/datserviciov2/TarjetaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TarjetaWSSoap12" binding="tns:TarjetaWSSoap12">
+      <soap12:address location="http://localhost/datserviciov2/TarjetaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TarjetaWSHttpGet" binding="tns:TarjetaWSHttpGet">
+      <http:address location="http://localhost/datserviciov2/TarjetaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TarjetaWSHttpPost" binding="tns:TarjetaWSHttpPost">
+      <http:address location="http://localhost/datserviciov2/TarjetaWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

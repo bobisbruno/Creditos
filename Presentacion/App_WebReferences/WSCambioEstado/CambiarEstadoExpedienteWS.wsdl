@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://anme.micro.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://anses.gov.ar/anme/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://anme.micro.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://anme.micro.anses.gov.ar/">
+      <s:import namespace="http://anses.gov.ar/anme/" />
+      <s:element name="CambiarEstadoExpediente">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="expedienteId" type="s1:ExpedienteIdDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actuacionMedica" type="s1:ExpedienteIdDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="sesion" type="tns:TipoSesion" />
+            <s:element minOccurs="1" maxOccurs="1" name="codigoSistema" type="s:short" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TipoSesion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioRed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Legajo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodAplicacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CasoDeUso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuilOrganismo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Aplicacion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CambiarEstadoExpedienteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CambiarEstadoExpedienteResult" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TipoError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://anses.gov.ar/anme/">
+      <s:complexType name="ExpedienteIdDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="cuil" nillable="true" type="s1:CuilDTO" />
+          <s:element minOccurs="1" maxOccurs="1" name="organismo" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="secuencia" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipoTramite" nillable="true" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="CuilDTO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="digCuil" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="docCuil" nillable="true" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="preCuil" nillable="true" type="s:string" />
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CambiarEstadoExpedienteSoapIn">
+    <wsdl:part name="parameters" element="tns:CambiarEstadoExpediente" />
+  </wsdl:message>
+  <wsdl:message name="CambiarEstadoExpedienteSoapOut">
+    <wsdl:part name="parameters" element="tns:CambiarEstadoExpedienteResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CambiarEstadoExpedienteWSSoap">
+    <wsdl:operation name="CambiarEstadoExpediente">
+      <wsdl:input message="tns:CambiarEstadoExpedienteSoapIn" />
+      <wsdl:output message="tns:CambiarEstadoExpedienteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CambiarEstadoExpedienteWSHttpGet" />
+  <wsdl:portType name="CambiarEstadoExpedienteWSHttpPost" />
+  <wsdl:binding name="CambiarEstadoExpedienteWSSoap" type="tns:CambiarEstadoExpedienteWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CambiarEstadoExpediente">
+      <soap:operation soapAction="http://anme.micro.anses.gov.ar/CambiarEstadoExpediente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CambiarEstadoExpedienteWSSoap12" type="tns:CambiarEstadoExpedienteWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CambiarEstadoExpediente">
+      <soap12:operation soapAction="http://anme.micro.anses.gov.ar/CambiarEstadoExpediente" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CambiarEstadoExpedienteWSHttpGet" type="tns:CambiarEstadoExpedienteWSHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="CambiarEstadoExpedienteWSHttpPost" type="tns:CambiarEstadoExpedienteWSHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="CambiarEstadoExpedienteWS">
+    <wsdl:port name="CambiarEstadoExpedienteWSSoap" binding="tns:CambiarEstadoExpedienteWSSoap">
+      <soap:address location="http://ansesdesapp/ANMEServicio/CambiarEstadoExpedienteWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CambiarEstadoExpedienteWSSoap12" binding="tns:CambiarEstadoExpedienteWSSoap12">
+      <soap12:address location="http://ansesdesapp/ANMEServicio/CambiarEstadoExpedienteWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CambiarEstadoExpedienteWSHttpGet" binding="tns:CambiarEstadoExpedienteWSHttpGet">
+      <http:address location="http://ansesdesapp/ANMEServicio/CambiarEstadoExpedienteWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CambiarEstadoExpedienteWSHttpPost" binding="tns:CambiarEstadoExpedienteWSHttpPost">
+      <http:address location="http://ansesdesapp/ANMEServicio/CambiarEstadoExpedienteWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

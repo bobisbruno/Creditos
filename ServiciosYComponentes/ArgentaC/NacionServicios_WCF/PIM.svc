@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NacionServicios_WCF.PIM" CodeBehind="PIM.svc.cs" %>

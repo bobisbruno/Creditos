@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+***********************************************************************************************
+website.publishproj
+
+ADVERTENCIA: NO MODIFIQUE el archivo, se usa para el proceso de publicación web.
+
+Copyright (C) Microsoft Corporation. Todos los derechos reservados.
+
+***********************************************************************************************
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.30319</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8ffbb167-aa0f-4c5a-ac51-16b07842ee1a}</ProjectGuid>
+    <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
+    <SourceWebVirtualPath>/ArgentaCWS</SourceWebVirtualPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SourceWebProject>http://localhost/ArgentaCWS</SourceWebProject>
+    <SourceWebMetabasePath>/LM/W3SVC/1/ROOT/ArgentaCWS</SourceWebMetabasePath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- for VS2010 we need to use 10.5 but for VS2012+ we should use VisualStudioVersion -->
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)' =='' and '$(VisualStudioVersion)' == 10.0 ">10.5</WebPublishTargetsVersion>
+    <WebPublishTargetsVersion Condition=" '$(WebPublishTargetsVersion)'=='' ">$(VisualStudioVersion)</WebPublishTargetsVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(WebPublishTargetsVersion)</VSToolsPath>
+    <_WebPublishTargetsPath Condition=" '$(_WebPublishTargetsPath)'=='' ">$(VSToolsPath)</_WebPublishTargetsPath>
+    <AssemblyFileVersion Condition="'$(AssemblyFileVersion)' == ''">1.0.0.0</AssemblyFileVersion>
+    <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttributes Include="AssemblyFileVersion">
+      <Value>$(AssemblyFileVersion)</Value>
+    </AssemblyAttributes>
+    <AssemblyAttributes Include="AssemblyVersion">
+      <Value>$(AssemblyVersion)</Value>
+    </AssemblyAttributes>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\YH-DATV2\TableroCobranzas\ServiciosYComponentes\Anses.ArgentaC.Comun\Anses.ArgentaC.Comun.csproj">
+      <Project>{F309E6F1-2E5C-4CBE-80A9-2644A2F5C743}</Project>
+      <Name>Anses.ArgentaC.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\YH-DATV2\TableroCobranzas\ServiciosYComponentes\Anses.ArgentaC.Contrato\Anses.ArgentaC.Contrato.csproj">
+      <Project>{71257AC2-AC62-45AB-8BD0-A394BA536AF4}</Project>
+      <Name>Anses.ArgentaC.Contrato</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\YH-DATV2\TableroCobranzas\ServiciosYComponentes\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato\Anses.ArgentaC.Dato.csproj">
+      <Project>{8D187EA5-4471-4408-ABF9-4D8C3F1A980A}</Project>
+      <Name>Anses.ArgentaC.Dato</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\YH-DATV2\TableroCobranzas\ServiciosYComponentes\Anses.ArgentaC.Negocio\Anses.ArgentaC.Negocio.csproj">
+      <Project>{D27E5B54-78E0-4DB2-9A0A-88E0F869734E}</Project>
+      <Name>Anses.ArgentaC.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
+</Project>

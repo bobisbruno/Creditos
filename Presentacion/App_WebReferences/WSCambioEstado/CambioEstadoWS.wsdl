@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.anses.gov.ar/GT.ANME.ServicioWeb.CambioEstado" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.anses.gov.ar/GT.ANME.ServicioWeb.CambioEstado" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.anses.gov.ar/GT.ANME.ServicioWeb.CambioEstado">
+      <s:element name="cambiarEstadoExpteWS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="p_cOrg_e" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_preCuil_e" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_docCuil_e" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_digCuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_cTipo_e" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_cSeq_e" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Estado_e" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Oficina" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_Usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_IP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="p_CUIT_Organismo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cambiarEstadoExpteWSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cambiarEstadoExpteWSResult" type="tns:CambioDeEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CambioDeEstado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="mensajeInformativo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="cambiarEstadoExpteWSSoapIn">
+    <wsdl:part name="parameters" element="tns:cambiarEstadoExpteWS" />
+  </wsdl:message>
+  <wsdl:message name="cambiarEstadoExpteWSSoapOut">
+    <wsdl:part name="parameters" element="tns:cambiarEstadoExpteWSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CambioEstadoWSSoap">
+    <wsdl:operation name="cambiarEstadoExpteWS">
+      <wsdl:input message="tns:cambiarEstadoExpteWSSoapIn" />
+      <wsdl:output message="tns:cambiarEstadoExpteWSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CambioEstadoWSSoap" type="tns:CambioEstadoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="cambiarEstadoExpteWS">
+      <soap:operation soapAction="http://www.anses.gov.ar/GT.ANME.ServicioWeb.CambioEstado/cambiarEstadoExpteWS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CambioEstadoWSSoap12" type="tns:CambioEstadoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="cambiarEstadoExpteWS">
+      <soap12:operation soapAction="http://www.anses.gov.ar/GT.ANME.ServicioWeb.CambioEstado/cambiarEstadoExpteWS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CambioEstadoWS">
+    <wsdl:port name="CambioEstadoWSSoap" binding="tns:CambioEstadoWSSoap">
+      <soap:address location="http://ansesdesapp/GT.ANME.ServicioCambioEstadosWS/CambioEstadoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CambioEstadoWSSoap12" binding="tns:CambioEstadoWSSoap12">
+      <soap12:address location="http://ansesdesapp/GT.ANME.ServicioCambioEstadosWS/CambioEstadoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

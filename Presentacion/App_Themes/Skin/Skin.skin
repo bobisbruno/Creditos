@@ -1,0 +1,56 @@
+<%--
+ANTERIORES
+<asp:TextBox CssClass="CajaTexto" runat="server"></asp:TextBox>
+--%>
+<asp:TextBox CssClass="CajaTexto" runat="server" ></asp:TextBox>
+<asp:TextBox CssClass="" runat="server" SkinID="CajaTextoError" ></asp:TextBox>
+<asp:DropDownList CssClass="CajaTexto"  runat="server" ></asp:DropDownList>
+
+
+<asp:GridView runat="server" AutoGenerateColumns="False"  CellPadding="3" GridLines="Vertical"
+     CssClass="Grilla">    
+    <AlternatingRowStyle CssClass="GrillaAternateItem" />
+    <RowStyle CssClass="GrillaBody" />
+    <HeaderStyle CssClass="GrillaHead" />
+    <PagerStyle HorizontalAlign="Right" CssClass="GrillaPiePagina"></PagerStyle>
+    <FooterStyle CssClass="GrillaAternateItem" />
+</asp:GridView>
+
+<asp:DataGrid runat="server" AutoGenerateColumns="False"  CellPadding="3" GridLines="Vertical"
+     CssClass="Grilla">
+    <AlternatingItemStyle CssClass="GrillaAternateItem" />
+    <ItemStyle CssClass="GrillaBody" />
+    <HeaderStyle CssClass="GrillaHead" />
+    <PagerStyle CssClass="GrillaPiePagina" />
+    <FooterStyle CssClass="GrillaAternateItem" />
+</asp:DataGrid>
+
+<asp:DataGrid runat="server" CssClass="Grilla" SkinID="GrillaPrint" AutoGenerateColumns="False" CellPadding="4" CellSpacing="1" GridLines="None">
+    <AlternatingItemStyle CssClass="GrillaAternateItem" />
+    <PagerStyle CssClass="GrillaBody" HorizontalAlign="Left" Mode="NumericPages" />
+    <ItemStyle CssClass="GrillaBody"  />
+    <HeaderStyle CssClass="GrillaHeadPanel" />
+   <FooterStyle CssClass="GrillaHeadPanel" />
+</asp:DataGrid>
+
+<asp:DataGrid runat="server" SkinID="GrillaPanel" AutoGenerateColumns="False"  CellPadding="3" GridLines="Vertical"
+     CssClass="Grilla">
+    <AlternatingItemStyle CssClass="GrillaAternateItem" />
+    <ItemStyle CssClass="GrillaBody" />
+    <HeaderStyle CssClass="GrillaHeadPanel" />
+    <FooterStyle CssClass="GrillaAternateItem" />
+</asp:DataGrid>
+
+
+<%-- Botones --%>
+<asp:Button runat="server" CssClass="Botones"/>
+<asp:Button runat="server" CssClass="Botones" SkinID="BotonImpresion"   
+Style="width: 90px; 
+       background-image: url(../App_Themes/Imagenes/ico_imprimir.gif) ;
+       background-repeat: no-repeat; 
+       background-position: left;" />
+<asp:Button runat="server" SkinID="BotonRojo" CssClass="BotonRojo" />
+<asp:Button runat="server" SkinID="BotonGrilla" CssClass="BotonGrilla" />
+<asp:Button runat="server" SkinID="BotonPaginadorSiguiente" CssClass="botonPaginadorSiguiente"/>
+<asp:Button runat="server" SkinID="BotonPaginadorAnterior" CssClass="botonPaginadorAnterior"/>
+<asp:Button runat="server" SkinID="BotonBuscadorGrilla" CssClass="botonGrilla"/>

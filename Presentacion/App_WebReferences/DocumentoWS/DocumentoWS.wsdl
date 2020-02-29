@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="ListarTiposDeDocumentos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idDocumento" nillable="true" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarTiposDeDocumentosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarTiposDeDocumentosResult" type="tns:ArrayOfDocumento" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDocumento">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Documento" nillable="true" type="tns:Documento" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Documento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAbreviada" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListarTiposDeDocumentosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarTiposDeDocumentos" />
+  </wsdl:message>
+  <wsdl:message name="ListarTiposDeDocumentosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarTiposDeDocumentosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DocumentoWSSoap">
+    <wsdl:operation name="ListarTiposDeDocumentos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado de tipos de documento representado en el objeto documento.</wsdl:documentation>
+      <wsdl:input message="tns:ListarTiposDeDocumentosSoapIn" />
+      <wsdl:output message="tns:ListarTiposDeDocumentosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DocumentoWSHttpGet" />
+  <wsdl:portType name="DocumentoWSHttpPost" />
+  <wsdl:binding name="DocumentoWSSoap" type="tns:DocumentoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarTiposDeDocumentos">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ListarTiposDeDocumentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocumentoWSSoap12" type="tns:DocumentoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarTiposDeDocumentos">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ListarTiposDeDocumentos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DocumentoWSHttpGet" type="tns:DocumentoWSHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="DocumentoWSHttpPost" type="tns:DocumentoWSHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="DocumentoWS">
+    <wsdl:port name="DocumentoWSSoap" binding="tns:DocumentoWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/DocumentoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DocumentoWSSoap12" binding="tns:DocumentoWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/DocumentoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DocumentoWSHttpGet" binding="tns:DocumentoWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/DocumentoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DocumentoWSHttpPost" binding="tns:DocumentoWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/DocumentoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

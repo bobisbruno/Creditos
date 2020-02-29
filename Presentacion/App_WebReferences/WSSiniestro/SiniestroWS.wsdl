@@ -1,0 +1,835 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TipoEstadoSiniestro_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoEstadoSiniestro_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoEstadoSiniestro_TraerResult" type="tns:ArrayOfTipoEstadoSiniestro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoEstadoSiniestro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoEstadoSiniestro" nillable="true" type="tns:TipoEstadoSiniestro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstadoSiniestro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoSiniestro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionEstadoSiniestro" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoWeb" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitoAsignacion" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitoImpresion" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SolicitoResumen" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FueImpreso" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FuePresentado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FueCobrado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsBaja" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FiltraPorOperador" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DebeTenerIdResumen" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Usuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Legajo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDescripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Grupo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TipoPolizaSeguro_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoPolizaSeguro_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoPolizaSeguro_TraerResult" type="tns:ArrayOfTipoPolizaSeguro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoPolizaSeguro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoPolizaSeguro" nillable="true" type="tns:TipoPolizaSeguro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoPolizaSeguro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPolizaSeguro" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionPolizaSeguro" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OperadorSiniestro_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idOperador" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OperadorSiniestro_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OperadorSiniestro_TraerResult" type="tns:ArrayOfUsuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsuario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Usuario" nillable="true" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadSiniestrosCobrado_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEstado" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPolizaSeguro" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="esGraciable" nillable="true" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="operador" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idResumen" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fFallecimientoDesde" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fFallecimientoHasta" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="nroPagina" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSiniestrosCobrado_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadSiniestrosCobrado_TraerResult" type="tns:ArrayOfNovedadSiniestro" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantTotal" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idUltimoResumen" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantUltimoResumen" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantPaginas" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedadSiniestro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NovedadSiniestro" nillable="true" type="tns:NovedadSiniestro" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NovedadSiniestro">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSiniestro" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFallecimiento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsGraciable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteSolicitado" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="tns:TipoEstadoSiniestro" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdLote" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaSolicitudCobro" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteCobrado" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobroFGS" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdOperadorAsignado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+          <s:element minOccurs="0" maxOccurs="1" name="Resumen" type="tns:NovedadSiniestroResumen" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NovedadSiniestroResumen">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdResumen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrden" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdSiniestro" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaResumen" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadSiniestros" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFallecimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteSolicitado" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoPolizaSeguro" type="tns:TipoPolizaSeguro" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadSiniestrosCobrado_CambioEstado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="novAsignar" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstado" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="idOperadorAsignado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSiniestrosCobrado_CambioEstadoResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="NovedadSiniestrosResumen_Alta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="novedades" type="tns:ArrayOfNovedadSiniestro" />
+            <s:element minOccurs="0" maxOccurs="1" name="idOperador" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="tns:Usuario" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPolizaSeguro" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="esGraciable" nillable="true" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="idResumenAgregar" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSiniestrosResumen_AltaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idResumen" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSiniestrosResumen_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idResumen" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSiniestrosResumen_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadSiniestrosResumen_TraerResult" type="tns:ArrayOfNovedadSiniestroResumen" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfNovedadSiniestroResumen">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NovedadSiniestroResumen" nillable="true" type="tns:NovedadSiniestroResumen" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadSiniestroResumen_TraerTXT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idResumen" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadSiniestroResumen_TraerTXTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadSiniestroResumen_TraerTXTResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TipoCuentaBancariaSiniestro_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="TipoCuentaBancariaSiniestro_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TipoCuentaBancariaSiniestro_TraerResult" type="tns:TipoCuentaBancariaSiniestro" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TipoCuentaBancariaSiniestro">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TipoCuenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCuenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FDesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FHasta" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadSiniestroImpresion_Alta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="novedad" type="tns:NovedadSiniestroImpresion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="NovedadSiniestroImpresion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdSiniestro" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdResumen" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDocumentoImpreso" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="tns:Usuario" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="NovedadSiniestroImpresion_AltaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ArrayOfTipoEstadoSiniestro" nillable="true" type="tns:ArrayOfTipoEstadoSiniestro" />
+      <s:element name="ArrayOfTipoPolizaSeguro" nillable="true" type="tns:ArrayOfTipoPolizaSeguro" />
+      <s:element name="ArrayOfUsuario" nillable="true" type="tns:ArrayOfUsuario" />
+      <s:element name="ArrayOfNovedadSiniestroResumen" nillable="true" type="tns:ArrayOfNovedadSiniestroResumen" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="TipoCuentaBancariaSiniestro" nillable="true" type="tns:TipoCuentaBancariaSiniestro" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TipoEstadoSiniestro_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoEstadoSiniestro_Traer" />
+  </wsdl:message>
+  <wsdl:message name="TipoEstadoSiniestro_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoEstadoSiniestro_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoPolizaSeguro_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoPolizaSeguro_Traer" />
+  </wsdl:message>
+  <wsdl:message name="TipoPolizaSeguro_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoPolizaSeguro_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="OperadorSiniestro_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:OperadorSiniestro_Traer" />
+  </wsdl:message>
+  <wsdl:message name="OperadorSiniestro_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:OperadorSiniestro_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosCobrado_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosCobrado_Traer" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosCobrado_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosCobrado_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosCobrado_CambioEstadoSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosCobrado_CambioEstado" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosCobrado_CambioEstadoSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosCobrado_CambioEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_AltaSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosResumen_Alta" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_AltaSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosResumen_AltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosResumen_Traer" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestrosResumen_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroResumen_TraerTXTSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestroResumen_TraerTXT" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroResumen_TraerTXTSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestroResumen_TraerTXTResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoCuentaBancariaSiniestro_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:TipoCuentaBancariaSiniestro_Traer" />
+  </wsdl:message>
+  <wsdl:message name="TipoCuentaBancariaSiniestro_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TipoCuentaBancariaSiniestro_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroImpresion_AltaSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestroImpresion_Alta" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroImpresion_AltaSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadSiniestroImpresion_AltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TipoEstadoSiniestro_TraerHttpGetIn" />
+  <wsdl:message name="TipoEstadoSiniestro_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoEstadoSiniestro" />
+  </wsdl:message>
+  <wsdl:message name="TipoPolizaSeguro_TraerHttpGetIn" />
+  <wsdl:message name="TipoPolizaSeguro_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoPolizaSeguro" />
+  </wsdl:message>
+  <wsdl:message name="OperadorSiniestro_TraerHttpGetIn">
+    <wsdl:part name="idOperador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OperadorSiniestro_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUsuario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_TraerHttpGetIn">
+    <wsdl:part name="idResumen" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadSiniestroResumen" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroResumen_TraerTXTHttpGetIn">
+    <wsdl:part name="idResumen" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroResumen_TraerTXTHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="TipoCuentaBancariaSiniestro_TraerHttpGetIn" />
+  <wsdl:message name="TipoCuentaBancariaSiniestro_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:TipoCuentaBancariaSiniestro" />
+  </wsdl:message>
+  <wsdl:message name="TipoEstadoSiniestro_TraerHttpPostIn" />
+  <wsdl:message name="TipoEstadoSiniestro_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoEstadoSiniestro" />
+  </wsdl:message>
+  <wsdl:message name="TipoPolizaSeguro_TraerHttpPostIn" />
+  <wsdl:message name="TipoPolizaSeguro_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoPolizaSeguro" />
+  </wsdl:message>
+  <wsdl:message name="OperadorSiniestro_TraerHttpPostIn">
+    <wsdl:part name="idOperador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OperadorSiniestro_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUsuario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_TraerHttpPostIn">
+    <wsdl:part name="idResumen" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestrosResumen_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfNovedadSiniestroResumen" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroResumen_TraerTXTHttpPostIn">
+    <wsdl:part name="idResumen" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadSiniestroResumen_TraerTXTHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="TipoCuentaBancariaSiniestro_TraerHttpPostIn" />
+  <wsdl:message name="TipoCuentaBancariaSiniestro_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:TipoCuentaBancariaSiniestro" />
+  </wsdl:message>
+  <wsdl:portType name="SiniestroWSSoap">
+    <wsdl:operation name="TipoEstadoSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoSiniestro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoEstadoSiniestro_TraerSoapIn" />
+      <wsdl:output message="tns:TipoEstadoSiniestro_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoPolizaSeguro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoPolizaSeguro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoPolizaSeguro_TraerSoapIn" />
+      <wsdl:output message="tns:TipoPolizaSeguro_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperadorSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto Usuario.</wsdl:documentation>
+      <wsdl:input message="tns:OperadorSiniestro_TraerSoapIn" />
+      <wsdl:output message="tns:OperadorSiniestro_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosCobrado_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto NovedadSiniestro.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestrosCobrado_TraerSoapIn" />
+      <wsdl:output message="tns:NovedadSiniestrosCobrado_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosCobrado_CambioEstado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite cambiar el estado de NovedadSiniestrosCobrado</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestrosCobrado_CambioEstadoSoapIn" />
+      <wsdl:output message="tns:NovedadSiniestrosCobrado_CambioEstadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite el alta de NovedadSiniestrosResumen.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestrosResumen_AltaSoapIn" />
+      <wsdl:output message="tns:NovedadSiniestrosResumen_AltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto NovedadSiniestroResumen.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestrosResumen_TraerSoapIn" />
+      <wsdl:output message="tns:NovedadSiniestrosResumen_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroResumen_TraerTXT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite obtener NovedadSiniestroResumen para Archivo.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestroResumen_TraerTXTSoapIn" />
+      <wsdl:output message="tns:NovedadSiniestroResumen_TraerTXTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoCuentaBancariaSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna TipoCuentaBancariaSiniestro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoCuentaBancariaSiniestro_TraerSoapIn" />
+      <wsdl:output message="tns:TipoCuentaBancariaSiniestro_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroImpresion_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite el alta de NovedadSiniestroImpresion.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestroImpresion_AltaSoapIn" />
+      <wsdl:output message="tns:NovedadSiniestroImpresion_AltaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SiniestroWSHttpGet">
+    <wsdl:operation name="TipoEstadoSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoSiniestro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoEstadoSiniestro_TraerHttpGetIn" />
+      <wsdl:output message="tns:TipoEstadoSiniestro_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoPolizaSeguro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoPolizaSeguro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoPolizaSeguro_TraerHttpGetIn" />
+      <wsdl:output message="tns:TipoPolizaSeguro_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperadorSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto Usuario.</wsdl:documentation>
+      <wsdl:input message="tns:OperadorSiniestro_TraerHttpGetIn" />
+      <wsdl:output message="tns:OperadorSiniestro_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto NovedadSiniestroResumen.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestrosResumen_TraerHttpGetIn" />
+      <wsdl:output message="tns:NovedadSiniestrosResumen_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroResumen_TraerTXT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite obtener NovedadSiniestroResumen para Archivo.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestroResumen_TraerTXTHttpGetIn" />
+      <wsdl:output message="tns:NovedadSiniestroResumen_TraerTXTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoCuentaBancariaSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna TipoCuentaBancariaSiniestro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoCuentaBancariaSiniestro_TraerHttpGetIn" />
+      <wsdl:output message="tns:TipoCuentaBancariaSiniestro_TraerHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SiniestroWSHttpPost">
+    <wsdl:operation name="TipoEstadoSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoSiniestro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoEstadoSiniestro_TraerHttpPostIn" />
+      <wsdl:output message="tns:TipoEstadoSiniestro_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoPolizaSeguro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoPolizaSeguro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoPolizaSeguro_TraerHttpPostIn" />
+      <wsdl:output message="tns:TipoPolizaSeguro_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperadorSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto Usuario.</wsdl:documentation>
+      <wsdl:input message="tns:OperadorSiniestro_TraerHttpPostIn" />
+      <wsdl:output message="tns:OperadorSiniestro_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto NovedadSiniestroResumen.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestrosResumen_TraerHttpPostIn" />
+      <wsdl:output message="tns:NovedadSiniestrosResumen_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroResumen_TraerTXT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Permite obtener NovedadSiniestroResumen para Archivo.</wsdl:documentation>
+      <wsdl:input message="tns:NovedadSiniestroResumen_TraerTXTHttpPostIn" />
+      <wsdl:output message="tns:NovedadSiniestroResumen_TraerTXTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TipoCuentaBancariaSiniestro_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna TipoCuentaBancariaSiniestro.</wsdl:documentation>
+      <wsdl:input message="tns:TipoCuentaBancariaSiniestro_TraerHttpPostIn" />
+      <wsdl:output message="tns:TipoCuentaBancariaSiniestro_TraerHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SiniestroWSSoap" type="tns:SiniestroWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TipoEstadoSiniestro_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TipoEstadoSiniestro_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoPolizaSeguro_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TipoPolizaSeguro_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperadorSiniestro_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/OperadorSiniestro_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosCobrado_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosCobrado_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosCobrado_CambioEstado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosCobrado_CambioEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Alta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosResumen_Alta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosResumen_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroResumen_TraerTXT">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestroResumen_TraerTXT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoCuentaBancariaSiniestro_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TipoCuentaBancariaSiniestro_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroImpresion_Alta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestroImpresion_Alta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SiniestroWSSoap12" type="tns:SiniestroWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TipoEstadoSiniestro_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TipoEstadoSiniestro_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoPolizaSeguro_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TipoPolizaSeguro_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperadorSiniestro_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/OperadorSiniestro_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosCobrado_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosCobrado_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosCobrado_CambioEstado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosCobrado_CambioEstado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Alta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosResumen_Alta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestrosResumen_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroResumen_TraerTXT">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestroResumen_TraerTXT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoCuentaBancariaSiniestro_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TipoCuentaBancariaSiniestro_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroImpresion_Alta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadSiniestroImpresion_Alta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SiniestroWSHttpGet" type="tns:SiniestroWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TipoEstadoSiniestro_Traer">
+      <http:operation location="/TipoEstadoSiniestro_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoPolizaSeguro_Traer">
+      <http:operation location="/TipoPolizaSeguro_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperadorSiniestro_Traer">
+      <http:operation location="/OperadorSiniestro_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Traer">
+      <http:operation location="/NovedadSiniestrosResumen_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroResumen_TraerTXT">
+      <http:operation location="/NovedadSiniestroResumen_TraerTXT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoCuentaBancariaSiniestro_Traer">
+      <http:operation location="/TipoCuentaBancariaSiniestro_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SiniestroWSHttpPost" type="tns:SiniestroWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TipoEstadoSiniestro_Traer">
+      <http:operation location="/TipoEstadoSiniestro_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoPolizaSeguro_Traer">
+      <http:operation location="/TipoPolizaSeguro_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperadorSiniestro_Traer">
+      <http:operation location="/OperadorSiniestro_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestrosResumen_Traer">
+      <http:operation location="/NovedadSiniestrosResumen_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadSiniestroResumen_TraerTXT">
+      <http:operation location="/NovedadSiniestroResumen_TraerTXT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TipoCuentaBancariaSiniestro_Traer">
+      <http:operation location="/TipoCuentaBancariaSiniestro_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SiniestroWS">
+    <wsdl:port name="SiniestroWSSoap" binding="tns:SiniestroWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/SiniestroWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SiniestroWSSoap12" binding="tns:SiniestroWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/SiniestroWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SiniestroWSHttpGet" binding="tns:SiniestroWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/SiniestroWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SiniestroWSHttpPost" binding="tns:SiniestroWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/SiniestroWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

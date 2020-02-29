@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://anses.gov.ar/anme/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://anses.gov.ar/anme/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://anses.gov.ar/anme/">
+      <s:element name="BuscarDependenciaPorPK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datosAuditoria" type="tns:TipoAuditoria" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TipoAuditoria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="aplicacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="casoDeUso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ipOrigen" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarDependenciaPorPKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarDependenciaPorPKResult" type="tns:OficinaDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OficinaDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ofrevi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="denominacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cExt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cRec" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nremito" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="iremito" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cOficRegion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscarDependenciaPorPKSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarDependenciaPorPK" />
+  </wsdl:message>
+  <wsdl:message name="BuscarDependenciaPorPKSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarDependenciaPorPKResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BuscarDependenciaPorPKWSSoap">
+    <wsdl:operation name="BuscarDependenciaPorPK">
+      <wsdl:input message="tns:BuscarDependenciaPorPKSoapIn" />
+      <wsdl:output message="tns:BuscarDependenciaPorPKSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BuscarDependenciaPorPKWSSoap" type="tns:BuscarDependenciaPorPKWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarDependenciaPorPK">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarDependenciaPorPK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BuscarDependenciaPorPKWSSoap12" type="tns:BuscarDependenciaPorPKWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarDependenciaPorPK">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarDependenciaPorPK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BuscarDependenciaPorPKWS">
+    <wsdl:port name="BuscarDependenciaPorPKWSSoap" binding="tns:BuscarDependenciaPorPKWSSoap">
+      <soap:address location="http://ansesdesapp/ANME/ANMEAdmOfic/Sitios/BuscarDependenciaPorPKWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BuscarDependenciaPorPKWSSoap12" binding="tns:BuscarDependenciaPorPKWSSoap12">
+      <soap12:address location="http://ansesdesapp/ANME/ANMEAdmOfic/Sitios/BuscarDependenciaPorPKWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

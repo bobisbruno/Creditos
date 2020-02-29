@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://anses.gov.ar/anme/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://anses.gov.ar/anme/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodos de Consulta de la tabla EXPEDIENTEDT</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://anses.gov.ar/anme/">
+      <s:element name="BuscarExpedientesPorCuil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuilDTO" type="tns:CuilDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CuilDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="preCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuil" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarExpedientesPorCuilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarExpedientesPorCuilResult" type="tns:ArrayOfExpedienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfExpedienteDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExpedienteDTO" nillable="true" type="tns:ExpedienteDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExpedienteDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="preCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipoTramite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secuencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipoDocumento" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="numeroDocumento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docAdicionalDocumento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="caratula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="beneficioFacu" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioExCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioTipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioNumero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioCoparticipe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usrAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ultimaOficina" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaVencimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="estadoSentencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaAltaAFJP" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaProceso" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoOficinaAlta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaAlta" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarExpedientesPorCuilYTiposDeTramites">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuilDTO" type="tns:CuilDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="TiposDeTramites" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorCuilYTiposDeTramitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarExpedientesPorCuilYTiposDeTramitesResult" type="tns:ArrayOfExpedienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramites">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cuilDTO" type="tns:CuilDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="TiposDeTramites" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramitesResult" type="tns:ArrayOfExpedienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorTipoyNumeroDeDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tipoDocumento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numeroDocumento" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorTipoyNumeroDeDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarExpedientesPorTipoyNumeroDeDocumentoResult" type="tns:ArrayOfExpedienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumento">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuilDTO" type="tns:CuilDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumentoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumentoResult" type="tns:ArrayOfExpedienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedienteDetalladoPorPK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="expediente" type="tns:ExpedienteIdDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExpedienteIdDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="preCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipoTramite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secuencia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarExpedienteDetalladoPorPKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarExpedienteDetalladoPorPKResult" type="tns:ExpedienteDetalladoDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExpedienteDetalladoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionOrganismo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="preCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipoTramite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionTipoTramite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secuencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cExpe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipoDocumento" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionTipoDocumento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="numeroDocumento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docAdicionalDocumento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="caratula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="afjp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="beneficioFacu" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioExCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioTipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioNumero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioCoparticipe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuarioAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ultimaOficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionUltimaOficina" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaVencimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="cInic" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInicioAFJP" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaActualizacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoOficinaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionOficinaAlta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaAlta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="nroRemitoPase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeSalidaPase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuarioSalidaPase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codOficinaSalida" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descOficinaSalida" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codSistemaSalida" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descSistemaSalida" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeEntradaPase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuarioEntradaPase" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codOficinaEntrada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descOficinaEntrada" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codSistemaEntrada" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descSistemaEntrada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="orgCabecera" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cuilPreCabecera" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cuilDocCabecera" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cuilDigCabecera" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipoTramiteCabecera" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="secuenciaCabecera" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="codAgregacion" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="descAgregacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fiagCoDi" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fvdi" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaAltaRelacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeActualizacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codSistemaCabecera" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descSistemaCabecera" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codEstadoHist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descEstadoHist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeAltaHist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codOficinaHist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descOficinaHist" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codSistemaHist" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descSistemaHist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuarioHist" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cuilApoderado" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="matricula" type="tns:MatriculaAbogadoDTO" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeAltaApoderado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuarioAltaApoderado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cOficinaAltaApoderado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descOficinaAltaApoderado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cOrgActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="preCuilActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuilActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuilActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cTipoActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cSeqActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cOficinaActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descOficinaActuMedica" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaUltGiroActuMedica" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeAltaActuMedica" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codSistemaActuMedica" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descSistemaActuMedica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estadoExpedienteResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descEstadoResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeEstadoResolucion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codSistemaResolucion" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descSistemaResolucion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="numeroResolucion" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="codOficinaUsuarioResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codOperadorResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionOperadorResolucion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaResolucionManual" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="numeroResolucionManual" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeActualizResolucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descOficinaUsuarioResolucion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codProvinciaExpedienteProvincial" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descAbreviadaProvinciaExpedienteProvincial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="expedienteProvincial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="timeActualizaExpedienteProvincial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codSistemaExpedienteProvincial" nillable="true" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descSistemaExpedienteProvincial" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MatriculaAbogadoDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="colegio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="folio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tomo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarExpedientesPorBeneficioParaRH">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="exCajaBeneficio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoBeneficio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="beneficioNro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="coparticipeBeneficio" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarExpedientesPorBeneficioParaRHResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarExpedientesPorBeneficioParaRHResult" type="tns:ArrayOfExpedientePorBeneficioRHDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfExpedientePorBeneficioRHDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ExpedientePorBeneficioRHDTO" nillable="true" type="tns:ExpedientePorBeneficioRHDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExpedientePorBeneficioRHDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="preCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipoTramite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secuencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="caratula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="beneficioFacu" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioExCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioTipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioNumero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioCoparticipe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuarioAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ultimaOficina" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaInicioAFJP" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaActualizacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoOficinaAlta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaAlta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaEstado" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ConsultaExpedientesPorCuilListaGrupEstadistico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuilDTO" type="tns:CuilDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="cGgrupoEstad" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaExpedientesPorCuilListaGrupEstadisticoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaExpedientesPorCuilListaGrupEstadisticoResult" type="tns:ArrayOfExpedienteDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscarExpedientesPorCuilSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorCuil" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorCuilSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorCuilResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorCuilYTiposDeTramitesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorCuilYTiposDeTramites" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorCuilYTiposDeTramitesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorCuilYTiposDeTramitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramitesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorOrganismoYCuilYTiposDeTramites" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramitesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorOrganismoYCuilYTiposDeTramitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorTipoyNumeroDeDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorTipoyNumeroDeDocumento" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorTipoyNumeroDeDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorTipoyNumeroDeDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumentoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorCuilYTipoyNumeroDeDocumento" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumentoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorCuilYTipoyNumeroDeDocumentoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedienteDetalladoPorPKSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarExpedienteDetalladoPorPK" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedienteDetalladoPorPKSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarExpedienteDetalladoPorPKResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorBeneficioParaRHSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorBeneficioParaRH" />
+  </wsdl:message>
+  <wsdl:message name="BuscarExpedientesPorBeneficioParaRHSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarExpedientesPorBeneficioParaRHResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaExpedientesPorCuilListaGrupEstadisticoSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaExpedientesPorCuilListaGrupEstadistico" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaExpedientesPorCuilListaGrupEstadisticoSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaExpedientesPorCuilListaGrupEstadisticoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExpedienteWSSoap">
+    <wsdl:operation name="BuscarExpedientesPorCuil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un CUIL.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarExpedientesPorCuilSoapIn" />
+      <wsdl:output message="tns:BuscarExpedientesPorCuilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorCuilYTiposDeTramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un CUIL que sean de determinados Tipos de Tramites.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarExpedientesPorCuilYTiposDeTramitesSoapIn" />
+      <wsdl:output message="tns:BuscarExpedientesPorCuilYTiposDeTramitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un Organismo y CUIL que sean de determinados Tipos de Tramites.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarExpedientesPorOrganismoYCuilYTiposDeTramitesSoapIn" />
+      <wsdl:output message="tns:BuscarExpedientesPorOrganismoYCuilYTiposDeTramitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorTipoyNumeroDeDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de Tipo y Numero de Documento.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarExpedientesPorTipoyNumeroDeDocumentoSoapIn" />
+      <wsdl:output message="tns:BuscarExpedientesPorTipoyNumeroDeDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumento">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los expediente buscando por CUIL y luego , con el Tipo y Numero de Documento de todos los expedientes obtenidos , busca todos los expedientes para esos Tipos y Numeros de Documento.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarExpedientesPorCuilYTipoyNumeroDeDocumentoSoapIn" />
+      <wsdl:output message="tns:BuscarExpedientesPorCuilYTipoyNumeroDeDocumentoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedienteDetalladoPorPK">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene la informacion completa del Expediente incluyendo las ppales tablas relacionadas con la de dicho Expediente</wsdl:documentation>
+      <wsdl:input message="tns:BuscarExpedienteDetalladoPorPKSoapIn" />
+      <wsdl:output message="tns:BuscarExpedienteDetalladoPorPKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorBeneficioParaRH">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de Ciertos Tipos de Tramite de un Beneficio Dado para Reparacion Historica.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarExpedientesPorBeneficioParaRHSoapIn" />
+      <wsdl:output message="tns:BuscarExpedientesPorBeneficioParaRHSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaExpedientesPorCuilListaGrupEstadistico">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de uno o varios Grupos Estadisticos.</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaExpedientesPorCuilListaGrupEstadisticoSoapIn" />
+      <wsdl:output message="tns:ConsultaExpedientesPorCuilListaGrupEstadisticoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExpedienteWSSoap" type="tns:ExpedienteWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarExpedientesPorCuil">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorCuil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorCuilYTiposDeTramites">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorCuilYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramites">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorOrganismoYCuilYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorTipoyNumeroDeDocumento">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorTipoyNumeroDeDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumento">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorCuilYTipoyNumeroDeDocumento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedienteDetalladoPorPK">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarExpedienteDetalladoPorPK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorBeneficioParaRH">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorBeneficioParaRH" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaExpedientesPorCuilListaGrupEstadistico">
+      <soap:operation soapAction="http://anses.gov.ar/anme/ConsultaExpedientesPorCuilListaGrupEstadistico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExpedienteWSSoap12" type="tns:ExpedienteWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarExpedientesPorCuil">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorCuil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorCuilYTiposDeTramites">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorCuilYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorOrganismoYCuilYTiposDeTramites">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorOrganismoYCuilYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorTipoyNumeroDeDocumento">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorTipoyNumeroDeDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorCuilYTipoyNumeroDeDocumento">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorCuilYTipoyNumeroDeDocumento" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedienteDetalladoPorPK">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarExpedienteDetalladoPorPK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarExpedientesPorBeneficioParaRH">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarExpedientesPorBeneficioParaRH" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaExpedientesPorCuilListaGrupEstadistico">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/ConsultaExpedientesPorCuilListaGrupEstadistico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExpedienteWS">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Metodos de Consulta de la tabla EXPEDIENTEDT</wsdl:documentation>
+    <wsdl:port name="ExpedienteWSSoap" binding="tns:ExpedienteWSSoap">
+      <soap:address location="http://ansesnegodesapp/ANME/ANMEGestionTramites/ExpedienteWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExpedienteWSSoap12" binding="tns:ExpedienteWSSoap12">
+      <soap12:address location="http://ansesnegodesapp/ANME/ANMEGestionTramites/ExpedienteWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

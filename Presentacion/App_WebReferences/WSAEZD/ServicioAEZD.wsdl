@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ade.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ade.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ade.anses.gov.ar/">
+      <s:element name="TraerDatosBasicosDeEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idEmpresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipoIdEmpresa" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDatosBasicosDeEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerDatosBasicosDeEmpresaResult" type="tns:ResultadoOfDatoBasicoEmpresa" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoOfDatoBasicoEmpresa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:Error" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="tns:ArrayOfDatoBasicoEmpresa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Error">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoHost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionHost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionPc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDeError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Transaccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rutina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Accion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SqlCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDatoBasicoEmpresa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatoBasicoEmpresa" nillable="true" type="tns:DatoBasicoEmpresa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatoBasicoEmpresa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoIdEmpresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MEmpleador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEmpleador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIniActividad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MFeciniInvalida" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarcaBaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FBaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CActividad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DActividad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CActividad2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DActividad2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPersJuridica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DPersJuridica" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CSistemaOrigen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSistemaOrigen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomNro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomPiso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomDpto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomLocalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomCPcia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomDPcia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomCPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomCSubPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cbu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCuenta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoRazonSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoEmpresaObservada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoProcedencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoNumeroGenerado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoExCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoInscripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoAstins" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCasfec" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCasfpi" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCasfpe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoDomCalleNro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoDomCodigoPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoDomLocalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoDomProvincia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoActividad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoZona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoSubZona" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoSituacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCodSitOtros" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoFechaInicioAct" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoFechaCeseAct" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoFechaReinicioAct" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoUltActRazonSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoMarcaRazonSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoUltActDomicilio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoUltActSitOtros" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoSitDrpFcesel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoSitDrpFcesed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCodRegAgrop" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCodEmision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoTotalEmpleados" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoFechaUltNovedad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCantEmpDifer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoFechaUltRemun" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoTotalUltRemDecl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoUltNroActa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoCarpetaFolio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmcoMicrofilmacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2RazonSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2Gen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2Cta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2OC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2ObraSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2DomCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2DomNro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2DomPiso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2DomLocal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2DomPcia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2DomCodPro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2OCCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Emco2OCNro" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ResultadoOfDatoBasicoEmpresa" nillable="true" type="tns:ResultadoOfDatoBasicoEmpresa" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerDatosBasicosDeEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerDatosBasicosDeEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="TraerDatosBasicosDeEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerDatosBasicosDeEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerDatosBasicosDeEmpresaHttpGetIn">
+    <wsdl:part name="idEmpresa" type="s:string" />
+    <wsdl:part name="tipoIdEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDatosBasicosDeEmpresaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultadoOfDatoBasicoEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="TraerDatosBasicosDeEmpresaHttpPostIn">
+    <wsdl:part name="idEmpresa" type="s:string" />
+    <wsdl:part name="tipoIdEmpresa" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerDatosBasicosDeEmpresaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultadoOfDatoBasicoEmpresa" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioAEZDSoap">
+    <wsdl:operation name="TraerDatosBasicosDeEmpresa">
+      <wsdl:input message="tns:TraerDatosBasicosDeEmpresaSoapIn" />
+      <wsdl:output message="tns:TraerDatosBasicosDeEmpresaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServicioAEZDHttpGet">
+    <wsdl:operation name="TraerDatosBasicosDeEmpresa">
+      <wsdl:input message="tns:TraerDatosBasicosDeEmpresaHttpGetIn" />
+      <wsdl:output message="tns:TraerDatosBasicosDeEmpresaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServicioAEZDHttpPost">
+    <wsdl:operation name="TraerDatosBasicosDeEmpresa">
+      <wsdl:input message="tns:TraerDatosBasicosDeEmpresaHttpPostIn" />
+      <wsdl:output message="tns:TraerDatosBasicosDeEmpresaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioAEZDSoap" type="tns:ServicioAEZDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerDatosBasicosDeEmpresa">
+      <soap:operation soapAction="http://ade.anses.gov.ar/TraerDatosBasicosDeEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioAEZDSoap12" type="tns:ServicioAEZDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerDatosBasicosDeEmpresa">
+      <soap12:operation soapAction="http://ade.anses.gov.ar/TraerDatosBasicosDeEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioAEZDHttpGet" type="tns:ServicioAEZDHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerDatosBasicosDeEmpresa">
+      <http:operation location="/TraerDatosBasicosDeEmpresa" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioAEZDHttpPost" type="tns:ServicioAEZDHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerDatosBasicosDeEmpresa">
+      <http:operation location="/TraerDatosBasicosDeEmpresa" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioAEZD">
+    <wsdl:port name="ServicioAEZDSoap" binding="tns:ServicioAEZDSoap">
+      <soap:address location="http://ansesdesapp/ADE.Servicios/ServicioAEZD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioAEZDSoap12" binding="tns:ServicioAEZDSoap12">
+      <soap12:address location="http://ansesdesapp/ADE.Servicios/ServicioAEZD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioAEZDHttpGet" binding="tns:ServicioAEZDHttpGet">
+      <http:address location="http://ansesdesapp/ADE.Servicios/ServicioAEZD.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioAEZDHttpPost" binding="tns:ServicioAEZDHttpPost">
+      <http:address location="http://ansesdesapp/ADE.Servicios/ServicioAEZD.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

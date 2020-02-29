@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://ansesnegodesapp/uvLibretaWs/uvLibretaWS.asmx?wsdl" docRef="http://ansesnegodesapp/uvLibretaWs/uvLibretaWS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://ansesnegodesapp/uvLibretaWs/uvLibretaWS.asmx" xmlns:q1="http://anses.libreta.servicio/" binding="q1:uvLibretaWSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://ansesnegodesapp/uvLibretaWs/uvLibretaWS.asmx" xmlns:q2="http://anses.libreta.servicio/" binding="q2:uvLibretaWSSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

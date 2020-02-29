@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="Traer_Sucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idSucursal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="codConceptoLiq" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Traer_SucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_SucursalResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suc" type="tns:Sucursal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Sucursal">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdPrestador" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdSucursal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Denominacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fdesde" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fhasta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantDiasHasta" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SucursalCorreo_TXPrestador">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SucursalCorreo_TXPrestadorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SucursalCorreo_TXPrestadorResult" type="tns:ArrayOfSucursal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSucursal">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Sucursal" nillable="true" type="tns:Sucursal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SucursalCorreo_Traer">
+        <s:complexType />
+      </s:element>
+      <s:element name="SucursalCorreo_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SucursalCorreo_TraerResult" type="tns:ArrayOfSucursal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SucursalCorreo_Grabar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sucursal" type="tns:Sucursal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SucursalCorreo_GrabarResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Traer_UdaiExterno_TXProvincia_CodPostal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idProvincia" type="s:short" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPostal" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Traer_UdaiExterno_TXProvincia_CodPostalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_UdaiExterno_TXProvincia_CodPostalResult" type="tns:ArrayOfUDAI" />
+            <s:element minOccurs="1" maxOccurs="1" name="UdaiCercanaDomicilio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUDAI">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UDAI" nillable="true" type="tns:UDAI" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UDAI">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdUDAI" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="UdaiDescripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Domicilio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdRegional" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regional" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DomicilioRegional" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostalRegional" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProvinciaRegional" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegionalUdaiExternoTraer">
+        <s:complexType />
+      </s:element>
+      <s:element name="RegionalUdaiExternoTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegionalUdaiExternoTraerResult" type="tns:ArrayOfRegional" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRegional">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Regional" nillable="true" type="tns:Regional" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Regional">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdRegional" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Udais" type="tns:ArrayOfUDAI" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OficinaEmbozadaExpressTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="oficina" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OficinaEmbozadaExpressTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OficinaEmbozadaExpressTraerResult" type="tns:OficinaEmbozadaExpress" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OficinaEmbozadaExpress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IdOficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdOficinaEntrega" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoraCorte" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoEmbozado" type="tns:TipoEmbozado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEmbozado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoEmbozado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantDiasEntrega" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoEmbozado" type="tns:enum_TipoEmbozado" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoEmbozado">
+        <s:restriction base="s:string">
+          <s:enumeration value="EXPRESS" />
+          <s:enumeration value="SEMIEXPRESS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ArrayOfSucursal" nillable="true" type="tns:ArrayOfSucursal" />
+      <s:element name="ArrayOfRegional" nillable="true" type="tns:ArrayOfRegional" />
+      <s:element name="OficinaEmbozadaExpress" nillable="true" type="tns:OficinaEmbozadaExpress" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Traer_SucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_Sucursal" />
+  </wsdl:message>
+  <wsdl:message name="Traer_SucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_SucursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TXPrestadorSoapIn">
+    <wsdl:part name="parameters" element="tns:SucursalCorreo_TXPrestador" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TXPrestadorSoapOut">
+    <wsdl:part name="parameters" element="tns:SucursalCorreo_TXPrestadorResponse" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:SucursalCorreo_Traer" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:SucursalCorreo_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_GrabarSoapIn">
+    <wsdl:part name="parameters" element="tns:SucursalCorreo_Grabar" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_GrabarSoapOut">
+    <wsdl:part name="parameters" element="tns:SucursalCorreo_GrabarResponse" />
+  </wsdl:message>
+  <wsdl:message name="Traer_UdaiExterno_TXProvincia_CodPostalSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_UdaiExterno_TXProvincia_CodPostal" />
+  </wsdl:message>
+  <wsdl:message name="Traer_UdaiExterno_TXProvincia_CodPostalSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_UdaiExterno_TXProvincia_CodPostalResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegionalUdaiExternoTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:RegionalUdaiExternoTraer" />
+  </wsdl:message>
+  <wsdl:message name="RegionalUdaiExternoTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:RegionalUdaiExternoTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="OficinaEmbozadaExpressTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:OficinaEmbozadaExpressTraer" />
+  </wsdl:message>
+  <wsdl:message name="OficinaEmbozadaExpressTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:OficinaEmbozadaExpressTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TXPrestadorHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TXPrestadorHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSucursal" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TraerHttpGetIn" />
+  <wsdl:message name="SucursalCorreo_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSucursal" />
+  </wsdl:message>
+  <wsdl:message name="RegionalUdaiExternoTraerHttpGetIn" />
+  <wsdl:message name="RegionalUdaiExternoTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRegional" />
+  </wsdl:message>
+  <wsdl:message name="OficinaEmbozadaExpressTraerHttpGetIn">
+    <wsdl:part name="oficina" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OficinaEmbozadaExpressTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:OficinaEmbozadaExpress" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TXPrestadorHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TXPrestadorHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSucursal" />
+  </wsdl:message>
+  <wsdl:message name="SucursalCorreo_TraerHttpPostIn" />
+  <wsdl:message name="SucursalCorreo_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfSucursal" />
+  </wsdl:message>
+  <wsdl:message name="RegionalUdaiExternoTraerHttpPostIn" />
+  <wsdl:message name="RegionalUdaiExternoTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRegional" />
+  </wsdl:message>
+  <wsdl:message name="OficinaEmbozadaExpressTraerHttpPostIn">
+    <wsdl:part name="oficina" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="OficinaEmbozadaExpressTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:OficinaEmbozadaExpress" />
+  </wsdl:message>
+  <wsdl:portType name="SucursalesWSSoap">
+    <wsdl:operation name="Traer_Sucursal">
+      <wsdl:input message="tns:Traer_SucursalSoapIn" />
+      <wsdl:output message="tns:Traer_SucursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_TXPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae las denominacion por idPrestador</wsdl:documentation>
+      <wsdl:input message="tns:SucursalCorreo_TXPrestadorSoapIn" />
+      <wsdl:output message="tns:SucursalCorreo_TXPrestadorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todas las denominaciones</wsdl:documentation>
+      <wsdl:input message="tns:SucursalCorreo_TraerSoapIn" />
+      <wsdl:output message="tns:SucursalCorreo_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Grabar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Graba la oficina si no existe</wsdl:documentation>
+      <wsdl:input message="tns:SucursalCorreo_GrabarSoapIn" />
+      <wsdl:output message="tns:SucursalCorreo_GrabarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer_UdaiExterno_TXProvincia_CodPostal">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae UDAI relacionadas a Codigo de Provincia</wsdl:documentation>
+      <wsdl:input message="tns:Traer_UdaiExterno_TXProvincia_CodPostalSoapIn" />
+      <wsdl:output message="tns:Traer_UdaiExterno_TXProvincia_CodPostalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegionalUdaiExternoTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lsita de UDAI por Regionales</wsdl:documentation>
+      <wsdl:input message="tns:RegionalUdaiExternoTraerSoapIn" />
+      <wsdl:output message="tns:RegionalUdaiExternoTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OficinaEmbozadaExpressTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">OficnaEmbozadaAnses valida si esta habilitada </wsdl:documentation>
+      <wsdl:input message="tns:OficinaEmbozadaExpressTraerSoapIn" />
+      <wsdl:output message="tns:OficinaEmbozadaExpressTraerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SucursalesWSHttpGet">
+    <wsdl:operation name="SucursalCorreo_TXPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae las denominacion por idPrestador</wsdl:documentation>
+      <wsdl:input message="tns:SucursalCorreo_TXPrestadorHttpGetIn" />
+      <wsdl:output message="tns:SucursalCorreo_TXPrestadorHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todas las denominaciones</wsdl:documentation>
+      <wsdl:input message="tns:SucursalCorreo_TraerHttpGetIn" />
+      <wsdl:output message="tns:SucursalCorreo_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegionalUdaiExternoTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lsita de UDAI por Regionales</wsdl:documentation>
+      <wsdl:input message="tns:RegionalUdaiExternoTraerHttpGetIn" />
+      <wsdl:output message="tns:RegionalUdaiExternoTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OficinaEmbozadaExpressTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">OficnaEmbozadaAnses valida si esta habilitada </wsdl:documentation>
+      <wsdl:input message="tns:OficinaEmbozadaExpressTraerHttpGetIn" />
+      <wsdl:output message="tns:OficinaEmbozadaExpressTraerHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SucursalesWSHttpPost">
+    <wsdl:operation name="SucursalCorreo_TXPrestador">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae las denominacion por idPrestador</wsdl:documentation>
+      <wsdl:input message="tns:SucursalCorreo_TXPrestadorHttpPostIn" />
+      <wsdl:output message="tns:SucursalCorreo_TXPrestadorHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todas las denominaciones</wsdl:documentation>
+      <wsdl:input message="tns:SucursalCorreo_TraerHttpPostIn" />
+      <wsdl:output message="tns:SucursalCorreo_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegionalUdaiExternoTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae lsita de UDAI por Regionales</wsdl:documentation>
+      <wsdl:input message="tns:RegionalUdaiExternoTraerHttpPostIn" />
+      <wsdl:output message="tns:RegionalUdaiExternoTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OficinaEmbozadaExpressTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">OficnaEmbozadaAnses valida si esta habilitada </wsdl:documentation>
+      <wsdl:input message="tns:OficinaEmbozadaExpressTraerHttpPostIn" />
+      <wsdl:output message="tns:OficinaEmbozadaExpressTraerHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SucursalesWSSoap" type="tns:SucursalesWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_Sucursal">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_Sucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_TXPrestador">
+      <soap:operation soapAction="http://dat.anses.gov.ar/SucursalCorreo_TXPrestador" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/SucursalCorreo_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Grabar">
+      <soap:operation soapAction="http://dat.anses.gov.ar/SucursalCorreo_Grabar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_UdaiExterno_TXProvincia_CodPostal">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_UdaiExterno_TXProvincia_CodPostal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegionalUdaiExternoTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/RegionalUdaiExternoTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OficinaEmbozadaExpressTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/OficinaEmbozadaExpressTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SucursalesWSSoap12" type="tns:SucursalesWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_Sucursal">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_Sucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_TXPrestador">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/SucursalCorreo_TXPrestador" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/SucursalCorreo_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Grabar">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/SucursalCorreo_Grabar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_UdaiExterno_TXProvincia_CodPostal">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_UdaiExterno_TXProvincia_CodPostal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegionalUdaiExternoTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/RegionalUdaiExternoTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OficinaEmbozadaExpressTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/OficinaEmbozadaExpressTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SucursalesWSHttpGet" type="tns:SucursalesWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SucursalCorreo_TXPrestador">
+      <http:operation location="/SucursalCorreo_TXPrestador" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Traer">
+      <http:operation location="/SucursalCorreo_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegionalUdaiExternoTraer">
+      <http:operation location="/RegionalUdaiExternoTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OficinaEmbozadaExpressTraer">
+      <http:operation location="/OficinaEmbozadaExpressTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SucursalesWSHttpPost" type="tns:SucursalesWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SucursalCorreo_TXPrestador">
+      <http:operation location="/SucursalCorreo_TXPrestador" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SucursalCorreo_Traer">
+      <http:operation location="/SucursalCorreo_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegionalUdaiExternoTraer">
+      <http:operation location="/RegionalUdaiExternoTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OficinaEmbozadaExpressTraer">
+      <http:operation location="/OficinaEmbozadaExpressTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SucursalesWS">
+    <wsdl:port name="SucursalesWSSoap" binding="tns:SucursalesWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/SucursalesWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SucursalesWSSoap12" binding="tns:SucursalesWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/SucursalesWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SucursalesWSHttpGet" binding="tns:SucursalesWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/SucursalesWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SucursalesWSHttpPost" binding="tns:SucursalesWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/SucursalesWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

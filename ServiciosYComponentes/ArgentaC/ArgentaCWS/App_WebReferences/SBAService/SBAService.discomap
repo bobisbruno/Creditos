@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?wsdl=wsdl0" filename="SBAService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd3" filename="SBAService.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?disco" filename="SBAService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd2" filename="SBAService0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd1" filename="SBAService1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?wsdl" filename="SBAService0.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd0" filename="SBAService2.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

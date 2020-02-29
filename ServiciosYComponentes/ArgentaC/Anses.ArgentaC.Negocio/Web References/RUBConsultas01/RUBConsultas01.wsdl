@@ -1,0 +1,1491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://WebRUBCorp.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://WebRUBCorp.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://WebRUBCorp.anses.gov.ar/">
+      <s:element name="ObtenerBenefXDoc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nroDoc" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerBenefXDocResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerBenefXDocResult" type="tns:ArrayOfBenefXDoc" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBenefXDoc">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BenefXDoc" nillable="true" type="tns:BenefXDoc" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BenefXDoc">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="nBenef" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:Error" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Error">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codError" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="mensajeError" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="obtenerMovimientosBeneficios">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fDesde" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fHasta" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="exCaja" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerMovimientosBeneficiosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerMovimientosBeneficiosResult" type="tns:ResultadoListaOfBajasBeneficiosRub" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoListaOfBajasBeneficiosRub">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:Retorno" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalOcurrencias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadParcial" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista" type="tns:ArrayOfBajasBeneficiosRub" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Retorno">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionMensaje" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoError" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DB2NativeError" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBajasBeneficiosRub">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BajasBeneficiosRub" nillable="true" type="tns:BajasBeneficiosRub" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BajasBeneficiosRub">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="fCarga" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="nroBenef" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="codigoBaja" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaBaja" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cEstMov" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerConceptosxBeneficio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerConceptosxBeneficioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerConceptosxBeneficioResult" type="tns:ResultadoListaOfConceptosXBeneficio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoListaOfConceptosXBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:Retorno" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalOcurrencias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadParcial" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista" type="tns:ArrayOfConceptosXBeneficio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptosXBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptosXBeneficio" nillable="true" type="tns:ConceptosXBeneficio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConceptosXBeneficio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="fLiquidacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="concepto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="empresa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionConcepto" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="obtenerRubxBeneficio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerRubxBeneficioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerRubxBeneficioResult" type="tns:ResultadoListaOfRubXBeneficio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoListaOfRubXBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:Retorno" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalOcurrencias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadParcial" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista" type="tns:ArrayOfRubXBeneficio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRubXBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RubXBeneficio" nillable="true" type="tns:RubXBeneficio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RubXBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BENEFICIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NOMBRE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOCTIPO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOCUMENTO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEXO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NACIONALIDAD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESTADOCIVIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CALLE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NUMERO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PISO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DEPTO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CODIGOPOSTAL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PROVINCIA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAIS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REGIMEN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BANCO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AGENCIA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CANT_JUB_MIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AFJP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FE_IN_PAGO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FE_ALTA_LIQ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LEYAPLIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DESC_LEY_APLIC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAUSAVTOBENEF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FECHVENCBENEFICIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CONVENIOINTERNAC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FECHBAJABENEF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CAUSABAJA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MODALIDADPAGO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CODIGOBANCO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CODIGOAGENCIA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BANCODOM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BANCODOMNRO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BANCODOMPISO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BANCOLOCALIDAD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CODIGOPROV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CODIGOLOCALIDAD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BANCOCPOSTAL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="COD_TOPE_BEN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CLASEBENEFICIO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FECHAPROPIACION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUILCAUSANTE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="obtenerDatosCuilTipo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obtenerDatosCuilTipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obtenerDatosCuilTipoResult" type="tns:ResultadoListaOfDatoCuilTipo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ResultadoListaOfDatoCuilTipo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:Retorno" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalOcurrencias" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadParcial" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista" type="tns:ArrayOfDatoCuilTipo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDatoCuilTipo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatoCuilTipo" nillable="true" type="tns:DatoCuilTipo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatoCuilTipo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerDatosBeneficio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosBeneficioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosBeneficioResult" type="tns:RUBBeneficio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RUBBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AFJP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Banco" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BancoCPostal" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="BancoDom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BancoDomNro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BancoDomPiso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BancoLocalidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Beneficio" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CausaBaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CausaVencBene" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoAgencia" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoBanco" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoLocalidad" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoProv" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConvenioInter" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CUIL" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecAltaLiq" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecBajaBene" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecInilPago" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecVencBenef" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeyAplicada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModalidadPago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regimen" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaApropiacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerDatosBeneficioConFechaAproCUIL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosBeneficioConFechaAproCUILResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosBeneficioConFechaAproCUILResult" type="tns:RUBBeneficio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosApoderado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosApoderadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosApoderadoResult" type="tns:RUBApoderado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RUBApoderado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Beneficio" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDocumento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Documento" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Depto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoPostal" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TiposApoderados" type="tns:ArrayOfRUBApoderadoTipos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRUBApoderadoTipos">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RUBApoderadoTipos" nillable="true" type="tns:RUBApoderadoTipos" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RUBApoderadoTipos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TipoApoderado" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionTipoApo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Abreviatura" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerBeneficiosPorCUIP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CUIP" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerBeneficiosPorCUIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerBeneficiosPorCUIPResult" type="tns:ArrayOfRUBBeneficiosXCUIP" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRUBBeneficiosXCUIP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RUBBeneficiosXCUIP" nillable="true" type="tns:RUBBeneficiosXCUIP" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RUBBeneficiosXCUIP">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CUIP" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Beneficio" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerConceptos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="Fechaliquidacion" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerConceptosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerConceptosResult" type="tns:ArrayOfRUBConcepto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRUBConcepto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RUBConcepto" nillable="true" type="tns:RUBConcepto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RUBConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Beneficio" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaEmision" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaLiquidacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Concepto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empresa" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteLiquidado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteDeudaTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotas" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionConcepto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarcaDebCred" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoCausaSuspen" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionEstado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerDatosPersona">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuip" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosPersonaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosPersonaResult" type="tns:RUBPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RUBPersona">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="apellidoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipoDocumento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="documento" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="nacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="depto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codigoPostal" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="localidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codigoProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="provincia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pais" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerTipoApoderado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="beneficio" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerTipoApoderadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTipoApoderadoResult" type="tns:RUBApoderadoTipo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RUBApoderadoTipo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Beneficio" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDocumento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Documento" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nacionalidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadoCivil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Depto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoPostal" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoApoderado" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionTipoApo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerExCajasTipo">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerExCajasTipoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerExCajasTipoResult" type="tns:ArrayOfRUBExCajasTipo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRUBExCajasTipo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RUBExCajasTipo" nillable="true" type="tns:RUBExCajasTipo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RUBExCajasTipo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ExCaja" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescrAbreviada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerTodosTipoApoderado">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerTodosTipoApoderadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTodosTipoApoderadoResult" type="tns:ArrayOfRUBApoderadoTipos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfBenefXDoc" nillable="true" type="tns:ArrayOfBenefXDoc" />
+      <s:element name="ResultadoListaOfBajasBeneficiosRub" nillable="true" type="tns:ResultadoListaOfBajasBeneficiosRub" />
+      <s:element name="ResultadoListaOfConceptosXBeneficio" nillable="true" type="tns:ResultadoListaOfConceptosXBeneficio" />
+      <s:element name="ResultadoListaOfRubXBeneficio" nillable="true" type="tns:ResultadoListaOfRubXBeneficio" />
+      <s:element name="ResultadoListaOfDatoCuilTipo" nillable="true" type="tns:ResultadoListaOfDatoCuilTipo" />
+      <s:element name="RUBBeneficio" nillable="true" type="tns:RUBBeneficio" />
+      <s:element name="RUBApoderado" nillable="true" type="tns:RUBApoderado" />
+      <s:element name="ArrayOfRUBBeneficiosXCUIP" nillable="true" type="tns:ArrayOfRUBBeneficiosXCUIP" />
+      <s:element name="ArrayOfRUBConcepto" nillable="true" type="tns:ArrayOfRUBConcepto" />
+      <s:element name="RUBPersona" nillable="true" type="tns:RUBPersona" />
+      <s:element name="RUBApoderadoTipo" nillable="true" type="tns:RUBApoderadoTipo" />
+      <s:element name="ArrayOfRUBExCajasTipo" nillable="true" type="tns:ArrayOfRUBExCajasTipo" />
+      <s:element name="ArrayOfRUBApoderadoTipos" nillable="true" type="tns:ArrayOfRUBApoderadoTipos" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerBenefXDocSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerBenefXDoc" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBenefXDocSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerBenefXDocResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerMovimientosBeneficiosSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerMovimientosBeneficios" />
+  </wsdl:message>
+  <wsdl:message name="obtenerMovimientosBeneficiosSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerMovimientosBeneficiosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosxBeneficioSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerConceptosxBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosxBeneficioSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerConceptosxBeneficioResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRubxBeneficioSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerRubxBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRubxBeneficioSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerRubxBeneficioResponse" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosCuilTipoSoapIn">
+    <wsdl:part name="parameters" element="tns:obtenerDatosCuilTipo" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosCuilTipoSoapOut">
+    <wsdl:part name="parameters" element="tns:obtenerDatosCuilTipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosBeneficioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioConFechaAproCUILSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosBeneficioConFechaAproCUIL" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioConFechaAproCUILSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosBeneficioConFechaAproCUILResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosApoderadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosApoderado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosApoderadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosApoderadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosPorCUIPSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerBeneficiosPorCUIP" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosPorCUIPSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerBeneficiosPorCUIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerConceptos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerConceptosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosPersonaSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosPersona" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosPersonaSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosPersonaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoApoderadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoApoderado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoApoderadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoApoderadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasTipoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerExCajasTipo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasTipoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerExCajasTipoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosTipoApoderadoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTodosTipoApoderado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosTipoApoderadoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTodosTipoApoderadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBenefXDocHttpGetIn">
+    <wsdl:part name="nroDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBenefXDocHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBenefXDoc" />
+  </wsdl:message>
+  <wsdl:message name="obtenerMovimientosBeneficiosHttpGetIn">
+    <wsdl:part name="fDesde" type="s:string" />
+    <wsdl:part name="fHasta" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="exCaja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerMovimientosBeneficiosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfBajasBeneficiosRub" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosxBeneficioHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosxBeneficioHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfConceptosXBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRubxBeneficioHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRubxBeneficioHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfRubXBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosCuilTipoHttpGetIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="tipo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosCuilTipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfDatoCuilTipo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioHttpGetOut">
+    <wsdl:part name="Body" element="tns:RUBBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioConFechaAproCUILHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioConFechaAproCUILHttpGetOut">
+    <wsdl:part name="Body" element="tns:RUBBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosApoderadoHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosApoderadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:RUBApoderado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosPorCUIPHttpGetIn">
+    <wsdl:part name="CUIP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosPorCUIPHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBBeneficiosXCUIP" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="Fechaliquidacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBConcepto" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosPersonaHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosPersonaHttpGetOut">
+    <wsdl:part name="Body" element="tns:RUBPersona" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoApoderadoHttpGetIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoApoderadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:RUBApoderadoTipo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasTipoHttpGetIn" />
+  <wsdl:message name="ObtenerExCajasTipoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBExCajasTipo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosTipoApoderadoHttpGetIn" />
+  <wsdl:message name="ObtenerTodosTipoApoderadoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBApoderadoTipos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBenefXDocHttpPostIn">
+    <wsdl:part name="nroDoc" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBenefXDocHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBenefXDoc" />
+  </wsdl:message>
+  <wsdl:message name="obtenerMovimientosBeneficiosHttpPostIn">
+    <wsdl:part name="fDesde" type="s:string" />
+    <wsdl:part name="fHasta" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="exCaja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerMovimientosBeneficiosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfBajasBeneficiosRub" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosxBeneficioHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosxBeneficioHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfConceptosXBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRubxBeneficioHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerRubxBeneficioHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfRubXBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosCuilTipoHttpPostIn">
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="tipo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="obtenerDatosCuilTipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ResultadoListaOfDatoCuilTipo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioHttpPostOut">
+    <wsdl:part name="Body" element="tns:RUBBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioConFechaAproCUILHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosBeneficioConFechaAproCUILHttpPostOut">
+    <wsdl:part name="Body" element="tns:RUBBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosApoderadoHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosApoderadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:RUBApoderado" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosPorCUIPHttpPostIn">
+    <wsdl:part name="CUIP" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerBeneficiosPorCUIPHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBBeneficiosXCUIP" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="Fechaliquidacion" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerConceptosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBConcepto" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosPersonaHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+    <wsdl:part name="cuip" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosPersonaHttpPostOut">
+    <wsdl:part name="Body" element="tns:RUBPersona" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoApoderadoHttpPostIn">
+    <wsdl:part name="beneficio" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoApoderadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:RUBApoderadoTipo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerExCajasTipoHttpPostIn" />
+  <wsdl:message name="ObtenerExCajasTipoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBExCajasTipo" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTodosTipoApoderadoHttpPostIn" />
+  <wsdl:message name="ObtenerTodosTipoApoderadoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfRUBApoderadoTipos" />
+  </wsdl:message>
+  <wsdl:portType name="RUBConsultas01Soap">
+    <wsdl:operation name="ObtenerBenefXDoc">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener Beneficios por numero de Documento </wsdl:documentation>
+      <wsdl:input message="tns:ObtenerBenefXDocSoapIn" />
+      <wsdl:output message="tns:ObtenerBenefXDocSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerMovimientosBeneficios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos de Beneficios dados de baja </wsdl:documentation>
+      <wsdl:input message="tns:obtenerMovimientosBeneficiosSoapIn" />
+      <wsdl:output message="tns:obtenerMovimientosBeneficiosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptosxBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener Codigos de Conceptos de ultima liquidacion x Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerConceptosxBeneficioSoapIn" />
+      <wsdl:output message="tns:ObtenerConceptosxBeneficioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRubxBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos del Beneficio y la Persona x Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:obtenerRubxBeneficioSoapIn" />
+      <wsdl:output message="tns:obtenerRubxBeneficioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuilTipo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos CUIL tipo Titular o Apoderado</wsdl:documentation>
+      <wsdl:input message="tns:obtenerDatosCuilTipoSoapIn" />
+      <wsdl:output message="tns:obtenerDatosCuilTipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficio">
+      <wsdl:input message="tns:ObtenerDatosBeneficioSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosBeneficioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficioConFechaAproCUIL">
+      <wsdl:input message="tns:ObtenerDatosBeneficioConFechaAproCUILSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosBeneficioConFechaAproCUILSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosApoderado">
+      <wsdl:input message="tns:ObtenerDatosApoderadoSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosApoderadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBeneficiosPorCUIP">
+      <wsdl:input message="tns:ObtenerBeneficiosPorCUIPSoapIn" />
+      <wsdl:output message="tns:ObtenerBeneficiosPorCUIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptos">
+      <wsdl:input message="tns:ObtenerConceptosSoapIn" />
+      <wsdl:output message="tns:ObtenerConceptosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosPersona">
+      <wsdl:input message="tns:ObtenerDatosPersonaSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosPersonaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoApoderado">
+      <wsdl:input message="tns:ObtenerTipoApoderadoSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoApoderadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajasTipo">
+      <wsdl:input message="tns:ObtenerExCajasTipoSoapIn" />
+      <wsdl:output message="tns:ObtenerExCajasTipoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosTipoApoderado">
+      <wsdl:input message="tns:ObtenerTodosTipoApoderadoSoapIn" />
+      <wsdl:output message="tns:ObtenerTodosTipoApoderadoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RUBConsultas01HttpGet">
+    <wsdl:operation name="ObtenerBenefXDoc">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener Beneficios por numero de Documento </wsdl:documentation>
+      <wsdl:input message="tns:ObtenerBenefXDocHttpGetIn" />
+      <wsdl:output message="tns:ObtenerBenefXDocHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerMovimientosBeneficios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos de Beneficios dados de baja </wsdl:documentation>
+      <wsdl:input message="tns:obtenerMovimientosBeneficiosHttpGetIn" />
+      <wsdl:output message="tns:obtenerMovimientosBeneficiosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptosxBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener Codigos de Conceptos de ultima liquidacion x Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerConceptosxBeneficioHttpGetIn" />
+      <wsdl:output message="tns:ObtenerConceptosxBeneficioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRubxBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos del Beneficio y la Persona x Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:obtenerRubxBeneficioHttpGetIn" />
+      <wsdl:output message="tns:obtenerRubxBeneficioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuilTipo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos CUIL tipo Titular o Apoderado</wsdl:documentation>
+      <wsdl:input message="tns:obtenerDatosCuilTipoHttpGetIn" />
+      <wsdl:output message="tns:obtenerDatosCuilTipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficio">
+      <wsdl:input message="tns:ObtenerDatosBeneficioHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosBeneficioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficioConFechaAproCUIL">
+      <wsdl:input message="tns:ObtenerDatosBeneficioConFechaAproCUILHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosBeneficioConFechaAproCUILHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosApoderado">
+      <wsdl:input message="tns:ObtenerDatosApoderadoHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosApoderadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBeneficiosPorCUIP">
+      <wsdl:input message="tns:ObtenerBeneficiosPorCUIPHttpGetIn" />
+      <wsdl:output message="tns:ObtenerBeneficiosPorCUIPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptos">
+      <wsdl:input message="tns:ObtenerConceptosHttpGetIn" />
+      <wsdl:output message="tns:ObtenerConceptosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosPersona">
+      <wsdl:input message="tns:ObtenerDatosPersonaHttpGetIn" />
+      <wsdl:output message="tns:ObtenerDatosPersonaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoApoderado">
+      <wsdl:input message="tns:ObtenerTipoApoderadoHttpGetIn" />
+      <wsdl:output message="tns:ObtenerTipoApoderadoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajasTipo">
+      <wsdl:input message="tns:ObtenerExCajasTipoHttpGetIn" />
+      <wsdl:output message="tns:ObtenerExCajasTipoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosTipoApoderado">
+      <wsdl:input message="tns:ObtenerTodosTipoApoderadoHttpGetIn" />
+      <wsdl:output message="tns:ObtenerTodosTipoApoderadoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RUBConsultas01HttpPost">
+    <wsdl:operation name="ObtenerBenefXDoc">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener Beneficios por numero de Documento </wsdl:documentation>
+      <wsdl:input message="tns:ObtenerBenefXDocHttpPostIn" />
+      <wsdl:output message="tns:ObtenerBenefXDocHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerMovimientosBeneficios">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos de Beneficios dados de baja </wsdl:documentation>
+      <wsdl:input message="tns:obtenerMovimientosBeneficiosHttpPostIn" />
+      <wsdl:output message="tns:obtenerMovimientosBeneficiosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptosxBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener Codigos de Conceptos de ultima liquidacion x Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerConceptosxBeneficioHttpPostIn" />
+      <wsdl:output message="tns:ObtenerConceptosxBeneficioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRubxBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos del Beneficio y la Persona x Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:obtenerRubxBeneficioHttpPostIn" />
+      <wsdl:output message="tns:obtenerRubxBeneficioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuilTipo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtener datos CUIL tipo Titular o Apoderado</wsdl:documentation>
+      <wsdl:input message="tns:obtenerDatosCuilTipoHttpPostIn" />
+      <wsdl:output message="tns:obtenerDatosCuilTipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficio">
+      <wsdl:input message="tns:ObtenerDatosBeneficioHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosBeneficioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficioConFechaAproCUIL">
+      <wsdl:input message="tns:ObtenerDatosBeneficioConFechaAproCUILHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosBeneficioConFechaAproCUILHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosApoderado">
+      <wsdl:input message="tns:ObtenerDatosApoderadoHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosApoderadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBeneficiosPorCUIP">
+      <wsdl:input message="tns:ObtenerBeneficiosPorCUIPHttpPostIn" />
+      <wsdl:output message="tns:ObtenerBeneficiosPorCUIPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptos">
+      <wsdl:input message="tns:ObtenerConceptosHttpPostIn" />
+      <wsdl:output message="tns:ObtenerConceptosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosPersona">
+      <wsdl:input message="tns:ObtenerDatosPersonaHttpPostIn" />
+      <wsdl:output message="tns:ObtenerDatosPersonaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoApoderado">
+      <wsdl:input message="tns:ObtenerTipoApoderadoHttpPostIn" />
+      <wsdl:output message="tns:ObtenerTipoApoderadoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajasTipo">
+      <wsdl:input message="tns:ObtenerExCajasTipoHttpPostIn" />
+      <wsdl:output message="tns:ObtenerExCajasTipoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosTipoApoderado">
+      <wsdl:input message="tns:ObtenerTodosTipoApoderadoHttpPostIn" />
+      <wsdl:output message="tns:ObtenerTodosTipoApoderadoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RUBConsultas01Soap" type="tns:RUBConsultas01Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerBenefXDoc">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerBenefXDoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerMovimientosBeneficios">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/obtenerMovimientosBeneficios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptosxBeneficio">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerConceptosxBeneficio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRubxBeneficio">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/obtenerRubxBeneficio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuilTipo">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/obtenerDatosCuilTipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficio">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosBeneficio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficioConFechaAproCUIL">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosBeneficioConFechaAproCUIL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosApoderado">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosApoderado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBeneficiosPorCUIP">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerBeneficiosPorCUIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptos">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerConceptos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosPersona">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosPersona" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoApoderado">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerTipoApoderado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajasTipo">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerExCajasTipo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosTipoApoderado">
+      <soap:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerTodosTipoApoderado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RUBConsultas01Soap12" type="tns:RUBConsultas01Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerBenefXDoc">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerBenefXDoc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerMovimientosBeneficios">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/obtenerMovimientosBeneficios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptosxBeneficio">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerConceptosxBeneficio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRubxBeneficio">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/obtenerRubxBeneficio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuilTipo">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/obtenerDatosCuilTipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficio">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosBeneficio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficioConFechaAproCUIL">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosBeneficioConFechaAproCUIL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosApoderado">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosApoderado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBeneficiosPorCUIP">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerBeneficiosPorCUIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptos">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerConceptos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosPersona">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerDatosPersona" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoApoderado">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerTipoApoderado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajasTipo">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerExCajasTipo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosTipoApoderado">
+      <soap12:operation soapAction="http://WebRUBCorp.anses.gov.ar/ObtenerTodosTipoApoderado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RUBConsultas01HttpGet" type="tns:RUBConsultas01HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ObtenerBenefXDoc">
+      <http:operation location="/ObtenerBenefXDoc" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerMovimientosBeneficios">
+      <http:operation location="/obtenerMovimientosBeneficios" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptosxBeneficio">
+      <http:operation location="/ObtenerConceptosxBeneficio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRubxBeneficio">
+      <http:operation location="/obtenerRubxBeneficio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuilTipo">
+      <http:operation location="/obtenerDatosCuilTipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficio">
+      <http:operation location="/ObtenerDatosBeneficio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficioConFechaAproCUIL">
+      <http:operation location="/ObtenerDatosBeneficioConFechaAproCUIL" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosApoderado">
+      <http:operation location="/ObtenerDatosApoderado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBeneficiosPorCUIP">
+      <http:operation location="/ObtenerBeneficiosPorCUIP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptos">
+      <http:operation location="/ObtenerConceptos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosPersona">
+      <http:operation location="/ObtenerDatosPersona" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoApoderado">
+      <http:operation location="/ObtenerTipoApoderado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajasTipo">
+      <http:operation location="/ObtenerExCajasTipo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosTipoApoderado">
+      <http:operation location="/ObtenerTodosTipoApoderado" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RUBConsultas01HttpPost" type="tns:RUBConsultas01HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ObtenerBenefXDoc">
+      <http:operation location="/ObtenerBenefXDoc" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerMovimientosBeneficios">
+      <http:operation location="/obtenerMovimientosBeneficios" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptosxBeneficio">
+      <http:operation location="/ObtenerConceptosxBeneficio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerRubxBeneficio">
+      <http:operation location="/obtenerRubxBeneficio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obtenerDatosCuilTipo">
+      <http:operation location="/obtenerDatosCuilTipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficio">
+      <http:operation location="/ObtenerDatosBeneficio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosBeneficioConFechaAproCUIL">
+      <http:operation location="/ObtenerDatosBeneficioConFechaAproCUIL" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosApoderado">
+      <http:operation location="/ObtenerDatosApoderado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerBeneficiosPorCUIP">
+      <http:operation location="/ObtenerBeneficiosPorCUIP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConceptos">
+      <http:operation location="/ObtenerConceptos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosPersona">
+      <http:operation location="/ObtenerDatosPersona" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoApoderado">
+      <http:operation location="/ObtenerTipoApoderado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerExCajasTipo">
+      <http:operation location="/ObtenerExCajasTipo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTodosTipoApoderado">
+      <http:operation location="/ObtenerTodosTipoApoderado" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RUBConsultas01">
+    <wsdl:port name="RUBConsultas01Soap" binding="tns:RUBConsultas01Soap">
+      <soap:address location="http://ansesnegodesapp/WebRUBWS/RUBConsultas01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RUBConsultas01Soap12" binding="tns:RUBConsultas01Soap12">
+      <soap12:address location="http://ansesnegodesapp/WebRUBWS/RUBConsultas01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RUBConsultas01HttpGet" binding="tns:RUBConsultas01HttpGet">
+      <http:address location="http://ansesnegodesapp/WebRUBWS/RUBConsultas01.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RUBConsultas01HttpPost" binding="tns:RUBConsultas01HttpPost">
+      <http:address location="http://ansesnegodesapp/WebRUBWS/RUBConsultas01.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

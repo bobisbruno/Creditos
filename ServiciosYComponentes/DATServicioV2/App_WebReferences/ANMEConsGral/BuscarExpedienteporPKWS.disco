@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://ansesdesapp/ANMEConsGral/BuscarExpedienteporPKWS.asmx?wsdl" docRef="http://ansesdesapp/ANMEConsGral/BuscarExpedienteporPKWS.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://ansesdesapp/ANMEConsGral/BuscarExpedienteporPKWS.asmx" xmlns:q1="http://anses.gov.ar/anme/" binding="q1:BuscarExpedientePorPkWSSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://ansesdesapp/ANMEConsGral/BuscarExpedienteporPKWS.asmx" xmlns:q2="http://anses.gov.ar/anme/" binding="q2:BuscarExpedientePorPkWSSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,7 @@
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Comun\bin\Anses.ArgentaC.Comun.dll.config
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Comun\bin\Anses.ArgentaC.Comun.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Comun\bin\Anses.ArgentaC.Comun.pdb
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Comun\bin\UsuarioDirector.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Comun\obj\Release\Anses.ArgentaC.Comun.csprojResolveAssemblyReference.cache
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Comun\obj\Release\Anses.ArgentaC.Comun.dll
+C:\Desarrollos\Argenta\BajasySuspensionesAUH\ServiciosYComponentes\ArgentaC\Anses.ArgentaC.Comun\obj\Release\Anses.ArgentaC.Comun.pdb

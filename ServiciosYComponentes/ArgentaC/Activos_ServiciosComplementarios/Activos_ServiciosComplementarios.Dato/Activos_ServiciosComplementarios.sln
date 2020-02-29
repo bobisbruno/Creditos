@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activos_ServiciosComplementarios.Dato", "Activos_ServiciosComplementarios.Dato.csproj", "{01EA7997-1183-4F20-9878-FECD0309076C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activos_ServiciosComplementarios.Negocio", "..\Activos_ServiciosComplementarios.Negocio\Activos_ServiciosComplementarios.Negocio.csproj", "{C98E2AEE-00B2-4645-B5D0-228429EC212B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Activos_ServiciosComplementarios.Entidades", "..\Activos_ServiciosComplementarios.Entidades\Activos_ServiciosComplementarios.Entidades.csproj", "{7DC33EF0-4284-45BA-999E-A03CB25E6FEB}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Activos_ServiciosComplementarios(1)", "http://localhost:28174", "{8B89F2DB-AC1D-4B99-B711-2E344C08BF1D}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{7dc33ef0-4284-45ba-999e-a03cb25e6feb}|Activos_ServiciosComplementarios.Entidades.dll;{c98e2aee-00b2-4645-b5d0-228429ec212b}|Activos_ServiciosComplementarios.Negocio.dll;{01EA7997-1183-4F20-9878-FECD0309076C}|Activos_ServiciosComplementarios.Dato.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_28174"
+		Debug.AspNetCompiler.PhysicalPath = "..\Activos_ServiciosComplementarios\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28174\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_28174"
+		Release.AspNetCompiler.PhysicalPath = "..\Activos_ServiciosComplementarios\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_28174\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\Activos_ServiciosComplementarios\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{01EA7997-1183-4F20-9878-FECD0309076C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01EA7997-1183-4F20-9878-FECD0309076C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01EA7997-1183-4F20-9878-FECD0309076C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01EA7997-1183-4F20-9878-FECD0309076C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C98E2AEE-00B2-4645-B5D0-228429EC212B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C98E2AEE-00B2-4645-B5D0-228429EC212B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C98E2AEE-00B2-4645-B5D0-228429EC212B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C98E2AEE-00B2-4645-B5D0-228429EC212B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DC33EF0-4284-45BA-999E-A03CB25E6FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DC33EF0-4284-45BA-999E-A03CB25E6FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DC33EF0-4284-45BA-999E-A03CB25E6FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DC33EF0-4284-45BA-999E-A03CB25E6FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B89F2DB-AC1D-4B99-B711-2E344C08BF1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B89F2DB-AC1D-4B99-B711-2E344C08BF1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B89F2DB-AC1D-4B99-B711-2E344C08BF1D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B89F2DB-AC1D-4B99-B711-2E344C08BF1D}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="Novedades_CodigoPreAprobacion_Alta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_CodigoPreAprobacion_AltaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_CodigoPreAprobacion_AltaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_CodigoPreAprobacion_Modificacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unCodigoPreAprobado" type="tns:CodigoPreAprobado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CodigoPreAprobado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAValidar" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="unTipoUso" type="tns:TipoUsoCodPreAprobado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoUsoCodPreAprobado">
+        <s:restriction base="s:string">
+          <s:enumeration value="Alta" />
+          <s:enumeration value="Reposicion" />
+          <s:enumeration value="Blanqueo" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Novedades_CodigoPreAprobacion_ModificacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_CodigoPreAprobacion_ModificacionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_CodigoPreAprobacion_Valida">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unCodigoPreAprobado" type="tns:CodigoPreAprobado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Novedades_CodigoPreAprobacion_ValidaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_CodigoPreAprobacion_ValidaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_AltaSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_CodigoPreAprobacion_Alta" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_AltaSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_CodigoPreAprobacion_AltaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_ModificacionSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_CodigoPreAprobacion_Modificacion" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_ModificacionSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_CodigoPreAprobacion_ModificacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_ValidaSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_CodigoPreAprobacion_Valida" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_ValidaSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_CodigoPreAprobacion_ValidaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_AltaHttpGetIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="Ip" type="s:string" />
+    <wsdl:part name="Usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_AltaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_AltaHttpPostIn">
+    <wsdl:part name="Cuil" type="s:string" />
+    <wsdl:part name="Ip" type="s:string" />
+    <wsdl:part name="Usuario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_CodigoPreAprobacion_AltaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="CodigoPreAprobacionWSSoap">
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Genera Codigo Pre Aprobacion, y se  registrado en tabla Novedades_CodigoPreAprobacion</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_CodigoPreAprobacion_AltaSoapIn" />
+      <wsdl:output message="tns:Novedades_CodigoPreAprobacion_AltaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Modificacion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Actualiza Tabla Novedades_CodigoPreAprobacion  si es valido cuil, CodigoAValidar</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_CodigoPreAprobacion_ModificacionSoapIn" />
+      <wsdl:output message="tns:Novedades_CodigoPreAprobacion_ModificacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Valida">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Valida el cuil y  CodigoAValidar en tabla Novedades_CodigoPreAprobacion</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_CodigoPreAprobacion_ValidaSoapIn" />
+      <wsdl:output message="tns:Novedades_CodigoPreAprobacion_ValidaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CodigoPreAprobacionWSHttpGet">
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Genera Codigo Pre Aprobacion, y se  registrado en tabla Novedades_CodigoPreAprobacion</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_CodigoPreAprobacion_AltaHttpGetIn" />
+      <wsdl:output message="tns:Novedades_CodigoPreAprobacion_AltaHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CodigoPreAprobacionWSHttpPost">
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Alta">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Genera Codigo Pre Aprobacion, y se  registrado en tabla Novedades_CodigoPreAprobacion</wsdl:documentation>
+      <wsdl:input message="tns:Novedades_CodigoPreAprobacion_AltaHttpPostIn" />
+      <wsdl:output message="tns:Novedades_CodigoPreAprobacion_AltaHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CodigoPreAprobacionWSSoap" type="tns:CodigoPreAprobacionWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Alta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_CodigoPreAprobacion_Alta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Modificacion">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_CodigoPreAprobacion_Modificacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Valida">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_CodigoPreAprobacion_Valida" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CodigoPreAprobacionWSSoap12" type="tns:CodigoPreAprobacionWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Alta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_CodigoPreAprobacion_Alta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Modificacion">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_CodigoPreAprobacion_Modificacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Valida">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_CodigoPreAprobacion_Valida" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CodigoPreAprobacionWSHttpGet" type="tns:CodigoPreAprobacionWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Alta">
+      <http:operation location="/Novedades_CodigoPreAprobacion_Alta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CodigoPreAprobacionWSHttpPost" type="tns:CodigoPreAprobacionWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Novedades_CodigoPreAprobacion_Alta">
+      <http:operation location="/Novedades_CodigoPreAprobacion_Alta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CodigoPreAprobacionWS">
+    <wsdl:port name="CodigoPreAprobacionWSSoap" binding="tns:CodigoPreAprobacionWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/CodigoPreAprobacionWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CodigoPreAprobacionWSSoap12" binding="tns:CodigoPreAprobacionWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/CodigoPreAprobacionWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CodigoPreAprobacionWSHttpGet" binding="tns:CodigoPreAprobacionWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/CodigoPreAprobacionWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CodigoPreAprobacionWSHttpPost" binding="tns:CodigoPreAprobacionWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/CodigoPreAprobacionWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

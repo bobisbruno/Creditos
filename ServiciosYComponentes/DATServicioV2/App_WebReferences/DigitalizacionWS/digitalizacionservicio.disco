@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://ansesarq01:1993/DigitalizacionWS/digitalizacionservicio.asmx?wsdl" docRef="http://ansesarq01:1993/DigitalizacionWS/digitalizacionservicio.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://ansesarq01:1993/DigitalizacionWS/digitalizacionservicio.asmx" xmlns:q1="http://Anses.gov.ar/DigitalizacionServicios/" binding="q1:DigitalizacionServicioSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://ansesarq01:1993/DigitalizacionWS/digitalizacionservicio.asmx" xmlns:q2="http://Anses.gov.ar/DigitalizacionServicios/" binding="q2:DigitalizacionServicioSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

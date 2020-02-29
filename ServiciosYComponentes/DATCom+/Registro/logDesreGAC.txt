@@ -1,0 +1,9 @@
+
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 1.1.4318.0
+Copyright (C) Microsoft Corporation 1998-2002. All rights reserved.
+
+No assemblies found that match: DATCom+.dll
+
+Number of items uninstalled = 0
+Number of failures = 0
+

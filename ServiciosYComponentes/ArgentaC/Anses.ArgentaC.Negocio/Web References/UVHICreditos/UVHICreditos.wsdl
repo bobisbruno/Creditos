@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://yh.anses.gov.ar/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://yh.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://yh.anses.gov.ar/">
+      <s:element name="DeudaTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pCuil" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeudaTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeudaTraerResult" type="tns:ArrayOfDeuda" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDeuda">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Deuda" nillable="true" type="tns:Deuda" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Deuda">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NroBeneficio" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SistemaCodigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Saldo" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CuilInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pCuil" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CuilInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CuilInfoResult" type="tns:ArrayOfCCInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCCInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CCInfo" nillable="true" type="tns:CCInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CCInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApeNom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CBU1" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CBU2" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Banco" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Agencia" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroBeneficio" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocTipo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocNumero" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nacimiento" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fallecimimento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorBruto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prestacion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RELCuil" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="sEsDiscapacitado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfectacionDisponible" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeriodoAlta" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CuilInfoSUAF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pCuil" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CuilInfoSUAFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CuilInfoSUAFResult" type="tns:ArrayOfCCInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarDNI">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Dni" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IdTramitedni" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarDNIResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidarDNIResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfDeuda" nillable="true" type="tns:ArrayOfDeuda" />
+      <s:element name="ArrayOfCCInfo" nillable="true" type="tns:ArrayOfCCInfo" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DeudaTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:DeudaTraer" />
+  </wsdl:message>
+  <wsdl:message name="DeudaTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:DeudaTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:CuilInfo" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:CuilInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSUAFSoapIn">
+    <wsdl:part name="parameters" element="tns:CuilInfoSUAF" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSUAFSoapOut">
+    <wsdl:part name="parameters" element="tns:CuilInfoSUAFResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNISoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarDNI" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNISoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarDNIResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeudaTraerHttpGetIn">
+    <wsdl:part name="pCuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeudaTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDeuda" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoHttpGetIn">
+    <wsdl:part name="pCuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCCInfo" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSUAFHttpGetIn">
+    <wsdl:part name="pCuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSUAFHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCCInfo" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpGetIn">
+    <wsdl:part name="Dni" type="s:string" />
+    <wsdl:part name="Sexo" type="s:string" />
+    <wsdl:part name="IdTramitedni" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="DeudaTraerHttpPostIn">
+    <wsdl:part name="pCuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeudaTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfDeuda" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoHttpPostIn">
+    <wsdl:part name="pCuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCCInfo" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSUAFHttpPostIn">
+    <wsdl:part name="pCuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CuilInfoSUAFHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCCInfo" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpPostIn">
+    <wsdl:part name="Dni" type="s:string" />
+    <wsdl:part name="Sexo" type="s:string" />
+    <wsdl:part name="IdTramitedni" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarDNIHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="UVHICreditosSoap">
+    <wsdl:operation name="DeudaTraer">
+      <wsdl:input message="tns:DeudaTraerSoapIn" />
+      <wsdl:output message="tns:DeudaTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfo">
+      <wsdl:input message="tns:CuilInfoSoapIn" />
+      <wsdl:output message="tns:CuilInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfoSUAF">
+      <wsdl:input message="tns:CuilInfoSUAFSoapIn" />
+      <wsdl:output message="tns:CuilInfoSUAFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <wsdl:input message="tns:ValidarDNISoapIn" />
+      <wsdl:output message="tns:ValidarDNISoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UVHICreditosHttpGet">
+    <wsdl:operation name="DeudaTraer">
+      <wsdl:input message="tns:DeudaTraerHttpGetIn" />
+      <wsdl:output message="tns:DeudaTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfo">
+      <wsdl:input message="tns:CuilInfoHttpGetIn" />
+      <wsdl:output message="tns:CuilInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfoSUAF">
+      <wsdl:input message="tns:CuilInfoSUAFHttpGetIn" />
+      <wsdl:output message="tns:CuilInfoSUAFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <wsdl:input message="tns:ValidarDNIHttpGetIn" />
+      <wsdl:output message="tns:ValidarDNIHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UVHICreditosHttpPost">
+    <wsdl:operation name="DeudaTraer">
+      <wsdl:input message="tns:DeudaTraerHttpPostIn" />
+      <wsdl:output message="tns:DeudaTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfo">
+      <wsdl:input message="tns:CuilInfoHttpPostIn" />
+      <wsdl:output message="tns:CuilInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfoSUAF">
+      <wsdl:input message="tns:CuilInfoSUAFHttpPostIn" />
+      <wsdl:output message="tns:CuilInfoSUAFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <wsdl:input message="tns:ValidarDNIHttpPostIn" />
+      <wsdl:output message="tns:ValidarDNIHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UVHICreditosSoap" type="tns:UVHICreditosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeudaTraer">
+      <soap:operation soapAction="http://yh.anses.gov.ar/DeudaTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfo">
+      <soap:operation soapAction="http://yh.anses.gov.ar/CuilInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfoSUAF">
+      <soap:operation soapAction="http://yh.anses.gov.ar/CuilInfoSUAF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <soap:operation soapAction="http://yh.anses.gov.ar/ValidarDNI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UVHICreditosSoap12" type="tns:UVHICreditosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeudaTraer">
+      <soap12:operation soapAction="http://yh.anses.gov.ar/DeudaTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfo">
+      <soap12:operation soapAction="http://yh.anses.gov.ar/CuilInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfoSUAF">
+      <soap12:operation soapAction="http://yh.anses.gov.ar/CuilInfoSUAF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <soap12:operation soapAction="http://yh.anses.gov.ar/ValidarDNI" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UVHICreditosHttpGet" type="tns:UVHICreditosHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DeudaTraer">
+      <http:operation location="/DeudaTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfo">
+      <http:operation location="/CuilInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfoSUAF">
+      <http:operation location="/CuilInfoSUAF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <http:operation location="/ValidarDNI" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UVHICreditosHttpPost" type="tns:UVHICreditosHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DeudaTraer">
+      <http:operation location="/DeudaTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfo">
+      <http:operation location="/CuilInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CuilInfoSUAF">
+      <http:operation location="/CuilInfoSUAF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarDNI">
+      <http:operation location="/ValidarDNI" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UVHICreditos">
+    <wsdl:port name="UVHICreditosSoap" binding="tns:UVHICreditosSoap">
+      <soap:address location="http://presdesabper/ArgentaWS/UVHICreditos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UVHICreditosSoap12" binding="tns:UVHICreditosSoap12">
+      <soap12:address location="http://presdesabper/ArgentaWS/UVHICreditos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UVHICreditosHttpGet" binding="tns:UVHICreditosHttpGet">
+      <http:address location="http://presdesabper/ArgentaWS/UVHICreditos.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UVHICreditosHttpPost" binding="tns:UVHICreditosHttpPost">
+      <http:address location="http://presdesabper/ArgentaWS/UVHICreditos.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

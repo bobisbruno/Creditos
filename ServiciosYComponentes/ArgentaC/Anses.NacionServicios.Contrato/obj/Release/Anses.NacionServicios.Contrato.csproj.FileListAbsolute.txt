@@ -1,0 +1,4 @@
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\Anses.NacionServicios.Contrato\bin\Release\Anses.NacionServicios.Contrato.dll
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\Anses.NacionServicios.Contrato\bin\Release\Anses.NacionServicios.Contrato.pdb
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\Anses.NacionServicios.Contrato\obj\Release\Anses.NacionServicios.Contrato.dll
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\Anses.NacionServicios.Contrato\obj\Release\Anses.NacionServicios.Contrato.pdb

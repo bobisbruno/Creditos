@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="Traer_XidPrestador_NomConsulta">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreConsulta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Traer_XidPrestador_NomConsultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_XidPrestador_NomConsultaResult" type="tns:ArrayOfConsultaBatch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConsultaBatch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConsultaBatch" nillable="true" type="tns:ConsultaBatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConsultaBatch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NroReporte" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_Presentacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Sucursal" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tipo_Pago" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tipo_Pago_Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUIL_Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado_Documentacion" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdEstado_Documentacion_Desc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario_Logeado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Perfil" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDConsulta" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDPrestador" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="NombreConsulta" type="tns:enum_ConsultaBatch_NombreConsulta" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaPedido" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpcionBusqueda" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CriterioBusqueda" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="PeriodoCons" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroBeneficio" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHasta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RutaArchGenerado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomArchGenerado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArchivoGenerado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Vigente" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaGenera" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeneraBatch" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeneraArchivo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeneradoAdmin" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Razonprestador" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Idnovedad" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoloArgenta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoloEntidades" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provincia" type="tns:Provincia" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodPostal" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oficinas" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Regional" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCambioEstadoDesde" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCambioEstadoHasta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacionDesde" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacionHasta" nillable="true" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_ConsultaBatch_NombreConsulta">
+        <s:restriction base="s:string">
+          <s:enumeration value="NOVEDADES_DOCUMENTACION" />
+          <s:enumeration value="NOVEDADES_DOCUMENTACION_V3" />
+          <s:enumeration value="NOVEDADES_CANCELADAS" />
+          <s:enumeration value="NOVEDADES_CARATULADAS" />
+          <s:enumeration value="NOVEDADES_INGRESADAS" />
+          <s:enumeration value="NOVEDADES_INGRESADAS_FGS" />
+          <s:enumeration value="NOVEDADES_INGRESADAS_FGS_OPERADOR" />
+          <s:enumeration value="NOVEDADESLIQUIDADAS" />
+          <s:enumeration value="NOVEDADES_NOAPLICADAS" />
+          <s:enumeration value="NOVEDADES_CANCELADASV2" />
+          <s:enumeration value="NOVEDADES_TARJETATIPO3" />
+          <s:enumeration value="NOVEDADES_CTACTE_INVENTARIO" />
+          <s:enumeration value="NOVEDADES_BAJAT_AGRUPADAS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioridad" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodSidif" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obligatorio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAfiliacion" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoOnLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxADescontar" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoOrigenBeneficiario" type="tns:TipoOrigenBeneficiario" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPrestacionTurno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsInundado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsConceptoAjuste" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AjustaSobreConcepto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoAjusteResta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsConceptoRecupero" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecuperaSobreConcepto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoPNC" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiereCBU" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Hab_Online" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoConcepto" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoLiquidacion" nillable="true" type="tns:ConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoOrigenBeneficiario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrigenBeneficiario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsPNC" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionProvincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Traer_ConsultaBatch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuarioLogueado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nombreConsulta" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Traer_ConsultaBatchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_ConsultaBatchResult" type="tns:ArrayOfConsultaBatch" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfConsultaBatch" nillable="true" type="tns:ArrayOfConsultaBatch" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Traer_XidPrestador_NomConsultaSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_XidPrestador_NomConsulta" />
+  </wsdl:message>
+  <wsdl:message name="Traer_XidPrestador_NomConsultaSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_XidPrestador_NomConsultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Traer_ConsultaBatchSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_ConsultaBatch" />
+  </wsdl:message>
+  <wsdl:message name="Traer_ConsultaBatchSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_ConsultaBatchResponse" />
+  </wsdl:message>
+  <wsdl:message name="Traer_XidPrestador_NomConsultaHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="nombreConsulta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Traer_XidPrestador_NomConsultaHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConsultaBatch" />
+  </wsdl:message>
+  <wsdl:message name="Traer_ConsultaBatchHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="usuarioLogueado" type="s:string" />
+    <wsdl:part name="nombreConsulta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Traer_ConsultaBatchHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConsultaBatch" />
+  </wsdl:message>
+  <wsdl:message name="Traer_XidPrestador_NomConsultaHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="nombreConsulta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Traer_XidPrestador_NomConsultaHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConsultaBatch" />
+  </wsdl:message>
+  <wsdl:message name="Traer_ConsultaBatchHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="usuarioLogueado" type="s:string" />
+    <wsdl:part name="nombreConsulta" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Traer_ConsultaBatchHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfConsultaBatch" />
+  </wsdl:message>
+  <wsdl:portType name="ConsultaBatchWSSoap">
+    <wsdl:operation name="Traer_XidPrestador_NomConsulta">
+      <wsdl:input message="tns:Traer_XidPrestador_NomConsultaSoapIn" />
+      <wsdl:output message="tns:Traer_XidPrestador_NomConsultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer_ConsultaBatch">
+      <wsdl:input message="tns:Traer_ConsultaBatchSoapIn" />
+      <wsdl:output message="tns:Traer_ConsultaBatchSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ConsultaBatchWSHttpGet">
+    <wsdl:operation name="Traer_XidPrestador_NomConsulta">
+      <wsdl:input message="tns:Traer_XidPrestador_NomConsultaHttpGetIn" />
+      <wsdl:output message="tns:Traer_XidPrestador_NomConsultaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer_ConsultaBatch">
+      <wsdl:input message="tns:Traer_ConsultaBatchHttpGetIn" />
+      <wsdl:output message="tns:Traer_ConsultaBatchHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ConsultaBatchWSHttpPost">
+    <wsdl:operation name="Traer_XidPrestador_NomConsulta">
+      <wsdl:input message="tns:Traer_XidPrestador_NomConsultaHttpPostIn" />
+      <wsdl:output message="tns:Traer_XidPrestador_NomConsultaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer_ConsultaBatch">
+      <wsdl:input message="tns:Traer_ConsultaBatchHttpPostIn" />
+      <wsdl:output message="tns:Traer_ConsultaBatchHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultaBatchWSSoap" type="tns:ConsultaBatchWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_XidPrestador_NomConsulta">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_XidPrestador_NomConsulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_ConsultaBatch">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_ConsultaBatch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConsultaBatchWSSoap12" type="tns:ConsultaBatchWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_XidPrestador_NomConsulta">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_XidPrestador_NomConsulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_ConsultaBatch">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_ConsultaBatch" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConsultaBatchWSHttpGet" type="tns:ConsultaBatchWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Traer_XidPrestador_NomConsulta">
+      <http:operation location="/Traer_XidPrestador_NomConsulta" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_ConsultaBatch">
+      <http:operation location="/Traer_ConsultaBatch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConsultaBatchWSHttpPost" type="tns:ConsultaBatchWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Traer_XidPrestador_NomConsulta">
+      <http:operation location="/Traer_XidPrestador_NomConsulta" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer_ConsultaBatch">
+      <http:operation location="/Traer_ConsultaBatch" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultaBatchWS">
+    <wsdl:port name="ConsultaBatchWSSoap" binding="tns:ConsultaBatchWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/ConsultaBatchWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConsultaBatchWSSoap12" binding="tns:ConsultaBatchWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/ConsultaBatchWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConsultaBatchWSHttpGet" binding="tns:ConsultaBatchWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/ConsultaBatchWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConsultaBatchWSHttpPost" binding="tns:ConsultaBatchWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/ConsultaBatchWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

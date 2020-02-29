@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://anses.gov.ar/anme/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://anses.gov.ar/anme/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consultas Relacionadas con Beneficios</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://anses.gov.ar/anme/">
+      <s:element name="BuscarPorBeneficio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="beneficioNumeroDTO" type="tns:BeneficioNumeroDTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BeneficioNumeroDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="exCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="coparticipe" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarPorBeneficioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPorBeneficioResult" type="tns:ArrayOfConsultasPorBeneficioDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfConsultasPorBeneficioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConsultasPorBeneficioDTO" nillable="true" type="tns:ConsultasPorBeneficioDTO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConsultasPorBeneficioDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="preCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipoTramite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secuencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="caratula" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="tipoDocumento" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="numeroDocumento" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaAlta" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="beneficioFacu" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioExCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioTipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioNumero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="beneficioCoparticipe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ultimaOficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usrAlta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="fechaAltaAFJP" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoOficinaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="estado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="timeAltaEstado" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codigoOficinaEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="codigoSistemaEstado" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionAbreviadaSistemaEstado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="usuarioEstado" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="codigo" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramites">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="beneficioNumeroDTO" type="tns:BeneficioNumeroDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="organismo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cuilDTO" type="tns:CuilDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="tiposDeTramites" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoEstado" type="tns:TipoEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CuilDTO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="preCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="docCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="digCuil" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="TipoEstado">
+        <s:restriction base="s:string">
+          <s:enumeration value="Todos" />
+          <s:enumeration value="Terminal" />
+          <s:enumeration value="NoTerminal" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramitesResult" type="tns:ArrayOfConsultasPorBeneficioDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPorBeneficioYTiposDeTramites">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="beneficioNumeroDTO" type="tns:BeneficioNumeroDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="tiposDeTramites" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPorBeneficioYTiposDeTramitesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPorBeneficioYTiposDeTramitesResult" type="tns:ArrayOfConsultasPorBeneficioDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPorBeneficioYCodigoTipoDeTramite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="beneficioNumeroDTO" type="tns:BeneficioNumeroDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoTipoDeTramite" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPorBeneficioYCodigoTipoDeTramiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPorBeneficioYCodigoTipoDeTramiteResult" type="tns:ArrayOfConsultasPorBeneficioDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPorBeneficioYCodigoGrupoEstadistico">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="beneficioNumeroDTO" type="tns:BeneficioNumeroDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoGrupoEstadistico" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarPorBeneficioYCodigoGrupoEstadisticoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarPorBeneficioYCodigoGrupoEstadisticoResult" type="tns:ArrayOfConsultasPorBeneficioDTO" />
+            <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:TipoError" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BuscarPorBeneficioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramitesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYOrganismoYCuilYTiposDeTramites" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramitesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYOrganismoYCuilYTiposDeTramitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYTiposDeTramitesSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYTiposDeTramites" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYTiposDeTramitesSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYTiposDeTramitesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYCodigoTipoDeTramiteSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYCodigoTipoDeTramite" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYCodigoTipoDeTramiteSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYCodigoTipoDeTramiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYCodigoGrupoEstadisticoSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYCodigoGrupoEstadistico" />
+  </wsdl:message>
+  <wsdl:message name="BuscarPorBeneficioYCodigoGrupoEstadisticoSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarPorBeneficioYCodigoGrupoEstadisticoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ConsultasPorBeneficioWSSoap">
+    <wsdl:operation name="BuscarPorBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un Beneficio.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarPorBeneficioSoapIn" />
+      <wsdl:output message="tns:BuscarPorBeneficioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un Beneficio , un Organismo y un CUIL que sean de determinados Tipos de Tramites considerando o no si estan o no en estado Terminal.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarPorBeneficioYOrganismoYCuilYTiposDeTramitesSoapIn" />
+      <wsdl:output message="tns:BuscarPorBeneficioYOrganismoYCuilYTiposDeTramitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYTiposDeTramites">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un Beneficio que sean de determinados Tipos de Tramites.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarPorBeneficioYTiposDeTramitesSoapIn" />
+      <wsdl:output message="tns:BuscarPorBeneficioYTiposDeTramitesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYCodigoTipoDeTramite">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un Beneficio que sean Tipos de Tramites de un determinado Código de Tipo de Trámite.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarPorBeneficioYCodigoTipoDeTramiteSoapIn" />
+      <wsdl:output message="tns:BuscarPorBeneficioYCodigoTipoDeTramiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYCodigoGrupoEstadistico">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obtiene los Expedientes de un Beneficio que sean Tipos de Tramites de un determinado Código de Grupo Estadístico.</wsdl:documentation>
+      <wsdl:input message="tns:BuscarPorBeneficioYCodigoGrupoEstadisticoSoapIn" />
+      <wsdl:output message="tns:BuscarPorBeneficioYCodigoGrupoEstadisticoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConsultasPorBeneficioWSSoap" type="tns:ConsultasPorBeneficioWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarPorBeneficio">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramites">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYOrganismoYCuilYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYTiposDeTramites">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYCodigoTipoDeTramite">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYCodigoTipoDeTramite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYCodigoGrupoEstadistico">
+      <soap:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYCodigoGrupoEstadistico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ConsultasPorBeneficioWSSoap12" type="tns:ConsultasPorBeneficioWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BuscarPorBeneficio">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYOrganismoYCuilYTiposDeTramites">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYOrganismoYCuilYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYTiposDeTramites">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYTiposDeTramites" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYCodigoTipoDeTramite">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYCodigoTipoDeTramite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarPorBeneficioYCodigoGrupoEstadistico">
+      <soap12:operation soapAction="http://anses.gov.ar/anme/BuscarPorBeneficioYCodigoGrupoEstadistico" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConsultasPorBeneficioWS">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Consultas Relacionadas con Beneficios</wsdl:documentation>
+    <wsdl:port name="ConsultasPorBeneficioWSSoap" binding="tns:ConsultasPorBeneficioWSSoap">
+      <soap:address location="http://ansesnegodesapp/ANME/ANMEConsultaGeneral/ConsultasPorBeneficioWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ConsultasPorBeneficioWSSoap12" binding="tns:ConsultasPorBeneficioWSSoap12">
+      <soap12:address location="http://ansesnegodesapp/ANME/ANMEConsultaGeneral/ConsultasPorBeneficioWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

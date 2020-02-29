@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode roles="*">
+    <siteMapNode url="~/DAIndex.aspx" title="Prestador" resourceKey="OpDAMenuGrupPrestador">
+      <siteMapNode url="~/DAIndex.aspx" title="Gestión" resourceKey="OpDAMenuGrupPrestadorGestion">
+        <siteMapNode url="~/Paginas/Comercializador/DAComercializadora.aspx" title="Comercializador" resourceKey="OpDAPrestadorGestionComercializador" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/DAIndex.aspx" title="Tasa" resourceKey="OpDAMenuGrupTasa">
+      <siteMapNode url="~/DAIndex.aspx" title="Gestión" resourceKey="OpDAMenuGrupTasaGestion">
+        <siteMapNode url="~/Paginas/Tasa/DAAprobacionTasa.aspx" title="Aprobación" resourceKey="OpDATasaGestionAprobacion" />
+      </siteMapNode>
+      <siteMapNode url="~/DAIndex.aspx" title="Consulta" resourceKey="OpDAMenuGrupTasaConsulta">
+        <siteMapNode url="~/Paginas/Consultas/DATasasConsulta.aspx" title="Aplicada" resourceKey="OpDATasaConsAplicada" />
+        <siteMapNode url="~/Paginas/Consultas/DAConsultaTasaBNA.aspx" title="Vigente BNA" resourceKey="OpDATasaConsVigenteBNA" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/DAIndex.aspx" title="Tarjeta" resourceKey="OpDAMenuGrupTarjeta">
+      <siteMapNode url="~/DAIndex.aspx" title="Consulta" resourceKey="OpDAMenuGrupTarjetaConsulta">
+        <siteMapNode url="~/Paginas/Tarjeta/DATarjetaCarnet.aspx" title="Tablero Carnet" resourceKey="OpDATarjConsTablero" />
+        <siteMapNode url="~/Paginas/Tarjeta/DATarjetaPorSucursalConsulta.aspx" title="Por Sucursal-UDAI" resourceKey="OpDATarjConsXSucursal" />
+        <siteMapNode url="~/Paginas/Tarjeta/DATarjetaConsultaGeneral.aspx" title="Detalle de Tablero" resourceKey="OpDATarjConsTableroDetalle" />
+        <!--<siteMapNode url="~/Paginas/Tarjeta/DATarjetasConsulta.aspx" title="Por Cuil-Beneficio" resourceKey="OpDATarjConsulta" />-->
+        <siteMapNode url="~/Paginas/Tarjeta/DATarjetasNominadas.aspx" title="Tarjetas" resourceKey="OpDATarjConsulta" />
+
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/DAIndex.aspx" title="Beneficio" resourceKey="OpDAMenuGrupBeneficio">
+      <siteMapNode url="~/DAIndex.aspx" title="Gestión" resourceKey="OpDAMenuGrupBeneficioGestion">
+        <siteMapNode url="~/Paginas/GestionBeneficio/BeneficioBloqueado.aspx" title="Bloqueo" resourceKey="OpDABenefGestionBloqueo" />
+        <siteMapNode url="~/Paginas/GestionBeneficio/BeneficioInhibiciones.aspx" title="Inhibicion" resourceKey="OpDABenefoGestionInhibicion" />
+      </siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/DAIndex.aspx" title="Novedad" resourceKey="OpDAMenuGrupNovedad">
+      <!-- Novedad -->
+      <siteMapNode url="~/DAIndex.aspx" title="Gestión" resourceKey="OpDAMenuGrupNovedadGestion">
+        <siteMapNode url="~/Paginas/Novedad/Caratulacion.aspx" title="Caratular" resourceKey="OpDANovGestionCaratular" />
+       
+         <siteMapNode url="~/DAIndex.aspx" title="Baja" resourceKey="OpDAMenuGrupNovedadGestionBaja">
+          <siteMapNode url="~/Paginas/Novedad/DABajaNovedadesGral.aspx" title="Jubilados y Pensionados" resourceKey="OpDANovGestionBaja" />
+          <siteMapNode url="~/Paginas/Novedad/DABajaNovedadesGralAUH.aspx" title="Asignaciones Familiares" resourceKey="OpDANovGestionBajaAUH" />
+         </siteMapNode>      
+        <siteMapNode url="~/DAIndex.aspx" title="Suspensión" resourceKey="OpDAMenuGrupNovedadGestionSuspension">
+        <siteMapNode url="~/Paginas/Novedad/DABajaNovedadesSuspension.aspx" title="Jubilados y Pensionados" resourceKey="OpDANovSuspension" />          
+        <siteMapNode url="~/Paginas/Novedad/DABajaNovedadesSuspensionAUH.aspx" title="Asignaciones Familiares" resourceKey="OpDANovSuspensionAUH" />
+        </siteMapNode>              
+        <siteMapNode url="~/Paginas/Documentacion/FGSEntregaDocumentacion.aspx" title="Entrega Documentación" resourceKey="OpDANovGestionEntragDocu" />
+         </siteMapNode>
+      <siteMapNode url="~/DAIndex.aspx" title="Consulta" resourceKey="OpDAMenuGrupNovedadConsulta">
+        <siteMapNode url="~/DAIndex.aspx" title="Flujo de Fondo" resourceKey="OpDAMenuGrupNovedadConsultaFlujoFondo">
+          <siteMapNode url="~/Paginas/Consultas/DAConsultaFlujoFondo.aspx" title="Jubilados y Pensionados" resourceKey="OpNovConsFlujoFondo" />
+          <siteMapNode url="~/Paginas/Consultas/DAConsultaFlujoFondoAUH.aspx" title="Asignaciones Familiares" resourceKey="OpNovConsFlujoFondoAUH" />
+        </siteMapNode>
+        <siteMapNode url="~/DAIndex.aspx" title="Tablero de Cobranzas" resourceKey="OpDAMenuGrupNovedadConsultaCobranza">
+          <siteMapNode url="~/Paginas/Consultas/DAConsultaTableroCobranza.aspx" title="Jubilados y Pensionados" resourceKey="OpNovConsTableroCobranza" />
+          <siteMapNode url="~/Paginas/Consultas/DATableroCobranzaAUH.aspx" title="Asignaciones Familiares" resourceKey="OpNovConsTableroCobranzaAUH" />          
+        </siteMapNode>
+        <siteMapNode url="~/Paginas/Consultas/DABajaNovedadesTraerAUH.aspx" title="Bajas de Novedades AUH" resourceKey="OpDANovConsBajasAUH" />
+        <siteMapNode url="~/Paginas/Consultas/DAConsultaNovedadesPorMonto.aspx" title="Por Monto" resourceKey="OpDANovConsPorMonto" />
+        <siteMapNode url="~/Paginas/Consultas/DANovedadesNoAprobadas.aspx" title="Pendiente Aprobación" resourceKey="OpDANovConsPendienteAprobacion" />
+        <siteMapNode url="~/Paginas/Consultas/DANovedadReImpresion.aspx" title="Reimpresion Comprobante" resourceKey="OpDANovConsReimpresionComprobante" />
+        <siteMapNode url="~/Paginas/Consultas/DaConsultaCuentaCorriente.aspx" title="Cuenta Corriente" resourceKey="OpDANovConsCuentaCorriente" />
+        <siteMapNode url="~/Paginas/Consultas/DaConsultaCuentaCorriente_Reporte.aspx" title="Cuenta Corriente-Reporte" resourceKey="OpDANovConsCuentaCorrienteReporte" />
+        <siteMapNode url="~/Paginas/Consultas/DAConsultasNovedadesCaratuladas.aspx" title="Caratulada" resourceKey="OpDANovConsCaratulada" />
+        <siteMapNode url="~/Paginas/Consultas/DAConsultaNovedadesCaratuladasDifEstado.aspx" title="Caratulada Difiere Estado" resourceKey="OpDANovConsCaratuladaDifEstado" />
+        <siteMapNode url="~/Paginas/Consultas/DAConsultaNovedadesCaratuladasXEstado.aspx" title="Caratulada Por Estado" resourceKey="OpDANovConsCaratuladaXEstado" />
+        <siteMapNode url="~/Paginas/Consultas/DATConsultaNovedadesBaja.aspx" title="Canceladas" resourceKey="OpDANovConsCanceladas" />
+        <siteMapNode url="~/Paginas/Consultas/DANovedadesIngresadas.aspx" title="Ingresadas" resourceKey="OpDANovConsIngresadas" />
+        <siteMapNode url="~/Paginas/Consultas/DANovedadesNoAplicadas.aspx" title="En Proceso de Liquidación" resourceKey="OpDANovConsEnProcesoLiq" />
+        <siteMapNode url="~/Paginas/Consultas/DANovedadesLiquidadas.aspx" title="Liquidadas" resourceKey="OpDANovConsLiquidadas" />
+        <siteMapNode url="~/Paginas/Consultas/DAConsultaNovPorBenef.aspx" title="Por Beneficiario" resourceKey="OpDANovConsXBeneficio" />
+        <siteMapNode url="~/Paginas/Documentacion/DAConsultaDocumentacionEntregada.aspx" title="Documentación Entregada" resourceKey="OpDANovConsDocEntregada" />
+        <siteMapNode url="~/Paginas/Documentacion/PrestamoLiquidar.aspx" title="Prestamos A Liquidar" resourceKey="OpDANovConsPrestamosALiq" />
+      <!--FIN Consulta -->
+      </siteMapNode>
+      <!-- FIN Novedad -->
+    </siteMapNode>
+    <siteMapNode url="~/DAIndex.aspx" title="Recupero" resourceKey="OpDAMenuGrupRecupero">
+      <siteMapNode url="~/Paginas/Recupero/RecuperoGestion.aspx" title="Gestión" resourceKey="OpDAGestionRecuperos" />
+    </siteMapNode>
+    <siteMapNode url="~/DAIndex.aspx" title="Feriado" resourceKey="OpDAMenuGrupFeriado">
+      <siteMapNode url="~/Paginas/Feriado/FeriadoGestion.aspx" title="Gestión" resourceKey="OpDAGestionFeriados" />
+    </siteMapNode>
+    <siteMapNode url="~/DAIndex.aspx" title="Siniestro" resourceKey="OpDAMenuGrupSiniestro">
+      <siteMapNode url="~/Paginas/Siniestro/SiniestroGestion.aspx" title="Gestión" resourceKey="OpDASiniestroGestion"/>
+      <siteMapNode url="~/Paginas/Siniestro/SiniestroGestion.aspx?esReporte=true" title="Consulta" resourceKey="OpDASiniestroReportes"/>
+    </siteMapNode> 
+   
+  </siteMapNode>
+</siteMap>
+
+

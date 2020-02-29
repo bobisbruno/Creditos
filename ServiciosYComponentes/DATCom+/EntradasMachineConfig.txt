@@ -1,0 +1,12 @@
+        <add key="DAT_ConnString" value="data source=anses_micro2;initial catalog=DAT_V01;integrated security=SSPI;persist security info=False;packet size=4096;pooling=false" />
+        <add key="DAT_ClaveMAC" value="YHgkk354uft89CVX" />
+        <add key="DAT_MaxIntentos" value ="3"></add>
+        <add key="DAT_LDAP_ID" value ="name"></add>
+        <add key="DAT_LDAP_Nombre" value ="givenname"></add>
+        <add key="DAT_LDAP_Prestador" value ="description"></add>
+        <add key="DAT_LDAP_Mail" value ="mail"></add>
+        <add key="DAT_LDAP_Dominio" value ="LDAP://externos.anses.gov.ar"></add>
+
+           <add key="DAT_RutaArchivo" value ="\\ansesmicrosql.externos.anses.gov.ar\e$\batch\dat\archivos\"></add>
+           <add key="DAT_MaxCantidadRegistros" value ="5000"></add>
+           <add key="DAT_DelimitadorCampo" value ="|"></add>

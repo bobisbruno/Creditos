@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="BeneficiarioDeuda_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BeneficiarioDeuda_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tieneDeuda" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="montoDeuda" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BeneficiarioDeuda_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:BeneficiarioDeuda_Traer" />
+  </wsdl:message>
+  <wsdl:message name="BeneficiarioDeuda_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:BeneficiarioDeuda_TraerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DeudaArgentaWSSoap">
+    <wsdl:operation name="BeneficiarioDeuda_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna Deuda de beneficiario en ARGENTA.</wsdl:documentation>
+      <wsdl:input message="tns:BeneficiarioDeuda_TraerSoapIn" />
+      <wsdl:output message="tns:BeneficiarioDeuda_TraerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="DeudaArgentaWSHttpGet" />
+  <wsdl:portType name="DeudaArgentaWSHttpPost" />
+  <wsdl:binding name="DeudaArgentaWSSoap" type="tns:DeudaArgentaWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BeneficiarioDeuda_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/BeneficiarioDeuda_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DeudaArgentaWSSoap12" type="tns:DeudaArgentaWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BeneficiarioDeuda_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/BeneficiarioDeuda_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DeudaArgentaWSHttpGet" type="tns:DeudaArgentaWSHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="DeudaArgentaWSHttpPost" type="tns:DeudaArgentaWSHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="DeudaArgentaWS">
+    <wsdl:port name="DeudaArgentaWSSoap" binding="tns:DeudaArgentaWSSoap">
+      <soap:address location="http://ansesnegodesapp/datServicioV2/DeudaArgentaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DeudaArgentaWSSoap12" binding="tns:DeudaArgentaWSSoap12">
+      <soap12:address location="http://ansesnegodesapp/datServicioV2/DeudaArgentaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DeudaArgentaWSHttpGet" binding="tns:DeudaArgentaWSHttpGet">
+      <http:address location="http://ansesnegodesapp/datServicioV2/DeudaArgentaWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DeudaArgentaWSHttpPost" binding="tns:DeudaArgentaWSHttpPost">
+      <http:address location="http://ansesnegodesapp/datServicioV2/DeudaArgentaWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

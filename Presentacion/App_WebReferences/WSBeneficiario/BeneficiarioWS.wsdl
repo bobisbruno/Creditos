@@ -1,0 +1,1990 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="TraerApellNom">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerApellNomResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerApellNomResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPorIdBenefCuil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idBeneficiario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerPorIdBenefCuilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerPorIdBenefCuilResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBeneficiario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Beneficiario" nillable="true" type="tns:Beneficiario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Beneficiario">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="unDomicilio" type="tns:Domicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoDoc" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTipoDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoBruto" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SueldoParaOblig" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfectacionDisponible" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotObligatoria" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotNovedad" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantOcurrenciasDisp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExAFJP" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista_Reclamos" type="tns:ArrayOfReclamo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista_Novedades" type="tns:ArrayOfNovedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="es_CBUSocial" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoSolicitarTarjeta" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FVencimiento" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="codBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="codAgencia" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="JubiladoPensionado" nillable="true" type="s1:char" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodEvaluacionRiesgo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeyAplicada" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExCaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoOrigenBeneficiario" type="tns:TipoOrigenBeneficiario" />
+          <s:element minOccurs="1" maxOccurs="1" name="FFallecimiento" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Domicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsSucursal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilio" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroCalle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Piso" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Departamento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoPostal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrefijoTel2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroTel2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Localidad" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaProvincia" type="tns:Provincia" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoDomicilio" type="tns:TipoDomicilio" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNacimiento" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sexo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nacionalidad" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Provincia">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodProvincia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionProvincia" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDomicilio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoDomicilio" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoDomicilio" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoReclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Estado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FecCambio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="observacion" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="TieneObservacion" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="PaseAutomatico" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsFinal" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="FecManual" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="MensajeInfo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Control" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ControlTexto" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ControlIdModelo" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EstadoAnme" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfReclamo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Reclamo" nillable="true" type="tns:Reclamo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Reclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfReclamo">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IdReclamo" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="SolicitaReintegro" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaNovedad" type="tns:Novedad" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaAltaReclamo" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="DescripcionReclamo" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Expediente" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnTipoReclamo" type="tns:TipoReclamo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnContactoReclamo" type="tns:ContactoReclamo" />
+              <s:element minOccurs="1" maxOccurs="1" name="PresentoDoc" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstadoReclamo" type="tns:EstadoReclamo" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoriaRespuesta" type="tns:Auditoria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfReclamo" />
+      <s:complexType name="Novedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEM" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Otorgamiento" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm_Mensual" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuota_Social" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTNAReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CFTEAReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_AdmM_ensual_Real" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TIRReal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoReg" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDomicilioBeneficiario" nillable="true" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Otro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Tarjeta" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitaBaja" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Sucursal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nro_Ticket" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FReposicion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoCredito" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmortizado" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="idItem" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodMotivoAlta" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodOperacion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="unContacto" type="tns:Contacto" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasSinLiquidar" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProximoMensualAliq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoEstado_SC" type="tns:TipoEstado_SC" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacion" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="EstadosNovedad" type="tns:ArrayOfEstadoNovedad" />
+          <s:element minOccurs="0" maxOccurs="1" name="CancelacionAnticipada" type="tns:ArrayOfCancelacionAnticipada" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiniestroCobrado" type="tns:ArrayOfSiniestroCobrado" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionBanco" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAgencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioSuperv" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaSuperv" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreArchivo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmortizacionDescontadaCuota" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecCierreCuota" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecCierreUltEmision" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnBeneficiario" type="tns:Beneficiario" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnPrestador" type="tns:Prestador" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaNovedad" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInforme" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstadoReg" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnEstadoNovedad" type="tns:Estado" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnCodMovimiento" type="tns:CodigoMovimiento" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteCuota" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteALiquidar" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteLiquidado" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotas" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="Porcentaje" type="s:float" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comprobante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaImportacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimerMensual" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualCarga" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UltimaMensualCuota" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MensualCuota" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stock" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MensualReenvio" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnModeloPC" type="tns:ModeloPC" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadCuotasRestantes" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuotasLiquidadas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuotaLiquidada" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaBaja" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnTipoTarjeta" nillable="true" type="tns:enum_TipoTarjeta" />
+          <s:element minOccurs="0" maxOccurs="1" name="GeneraNominada" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FEstimadaEntrega" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescOficinaDestino" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="unaLista_Cuotas" type="tns:ArrayOfCuota" />
+          <s:element minOccurs="0" maxOccurs="1" name="unaLista_Adhetentes" type="tns:ArrayOfAdherente" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GeneraCompImpedimentoFirma" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentacionScaneada" type="tns:ArrayOfDocumentacionScaneada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contacto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Telediscado1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono1" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular1" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telediscado2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsCelular2" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstado_SC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="novedadEstaVigente" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEstadoNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstadoNovedad" nillable="true" type="tns:EstadoNovedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoNovedad">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoSC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacionTotal" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCancelacionAnticipada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CancelacionAnticipada" nillable="true" type="tns:CancelacionAnticipada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CancelacionAnticipada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobroFGS" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiniestroCobrado" nillable="true" type="tns:SiniestroCobrado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiniestroCobrado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCobroFGS" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="idSiniestro" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="idLote" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="fSolicitudCobro" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Prestador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CodoFicinaANME" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CBU" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnConceptoLiquidacion" type="tns:ConceptoLiquidacion" />
+              <s:element minOccurs="0" maxOccurs="1" name="Comercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArrayComercializadoras" type="tns:ArrayOfComercializador" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsNominada" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsAnses" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EntregaDocumentacionEnFGS" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsEntidadOficial" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="EsComercio" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Entidad_Prest_Comer">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfEntidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="NombreFantasia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnEstado" type="tns:Estado" />
+              <s:element minOccurs="1" maxOccurs="1" name="IDEstado" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+              <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Tasas" type="tns:ArrayOfTasa" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnDomicilio" type="tns:Domicilio" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfEntidad_Prest_Comer" />
+      <s:complexType name="ArrayOfTasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Tasa" nillable="true" type="tns:Tasa" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Tasa">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAudAprobacion" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicioVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFinVigencia" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TEA" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="GastoAdministrativo" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotasHasta" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineaCredito" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Plazo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FAprobacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prestador" type="tns:Prestador" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comercializador" type="tns:Comercializador" />
+          <s:element minOccurs="1" maxOccurs="1" name="Aprobada" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comercializador">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Entidad_Prest_Comer">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioridad" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodSidif" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obligatorio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAfiliacion" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoOnLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxADescontar" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoOrigenBeneficiario" type="tns:TipoOrigenBeneficiario" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoConcepto" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoLiquidacion" nillable="true" type="tns:ConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoOrigenBeneficiario">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdOrigenBeneficiario" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsPNC" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfComercializador">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comercializador" nillable="true" type="tns:Comercializador" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CodigoMovimiento">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodMovimiento" type="s:unsignedByte" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModeloPC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdModeloPC" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaMarcaPC" type="tns:MarcaPC" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MarcaPC">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdMarca" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_TipoTarjeta">
+        <s:restriction base="s:string">
+          <s:enumeration value="Blanca" />
+          <s:enumeration value="Nominada" />
+          <s:enumeration value="Carnet" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCuota">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Cuota" nillable="true" type="tns:Cuota" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cuota">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NroCuota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Importe_Cuota" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensual_Cuota" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Intereses" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amortizacion" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gasto_Adm_Tarjeta" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Seguro_Vida" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnviadoALiquidar" nillable="true" type="tns:enum_enviadoLiquidar" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdMensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MensualEmision" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SaldoAmortizacion" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteCuotaLiq" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesEstado_E" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdentPago" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="descEstadoRub" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="daEstadoRub" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadoRub" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="enum_enviadoLiquidar">
+        <s:restriction base="s:string">
+          <s:enumeration value="P" />
+          <s:enumeration value="S" />
+          <s:enumeration value="N" />
+          <s:enumeration value="B" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfAdherente">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Adherente" nillable="true" type="tns:Adherente" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Adherente">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CUIL" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Apellido_Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaUltModificacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentacionScaneada" nillable="true" type="tns:DocumentacionScaneada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Idnovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Imagen" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdGralImagen" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdImagen" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoImagen" type="tns:TipoImagen" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCreacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoImagen">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoImagenDW" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAbrev" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoReclamo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoReclamo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leyenda" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContactoReclamo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ValidaEntidadOfContactoReclamo">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telediscado" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Celular" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Mail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="UnaAuditoria" type="tns:Auditoria" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ValidaEntidadOfContactoReclamo" />
+      <s:complexType name="ArrayOfNovedad">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Novedad" nillable="true" type="tns:Novedad" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerConReclamosNovedades">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="reclamos" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="novedades" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerConReclamosNovedadesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerConReclamosNovedadesResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadesTraerResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesTraerTodas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesTraerTodasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadesTraerTodasResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesRechazadasTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NovedadesRechazadasTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NovedadesRechazadasTraerResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerTodoDelBeneficio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idBeneficiario" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerTodoDelBeneficioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerTodoDelBeneficioResult" type="tns:TodoDelBeneficio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TodoDelBeneficio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="unBeneficiario" type="tns:Beneficiario" />
+          <s:element minOccurs="0" maxOccurs="1" name="inhibiciones" type="tns:ArrayOfInhibiciones" />
+          <s:element minOccurs="0" maxOccurs="1" name="conceptoAplicados" type="tns:ArrayOfConceptoAplicado" />
+          <s:element minOccurs="0" maxOccurs="1" name="unBeneficioBloqueado" type="tns:BeneficioBloqueado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInhibiciones">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Inhibiciones" nillable="true" type="tns:Inhibiciones" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Inhibiciones">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPrestador" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="C_Pcia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescPcia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Origen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Juez" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secretaria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Actuacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecNotificacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntradaCAP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroNota" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firmante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Causa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltModificacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroNotaBajaIn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioBajaIn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaBajaIn" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FProcesoBajaIn" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IpcierreBajaIn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroExpedienteBajaIn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoAplicado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoAplicado" nillable="true" type="tns:ConceptoAplicado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConceptoAplicado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuit" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImporteTotal" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantCuotas" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="Porcentaje" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoPrestamo" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="unTipoConcepto" type="tns:TipoConcepto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficioBloqueado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecInicio" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecFin" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Origen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltModificacion" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntradaCAP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="C_Pcia" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="D_Pcia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Causa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Juez" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secretaria" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Actuacion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecNotificacion" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroNota" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firmante" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observaciones" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Oficina" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroNotaBajaBloqueo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsuarioBajaBloqueo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaBajaBloqueo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FProcesoBajaBloqueo" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IpcierreBajaBloqueo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NroExpedienteBajaBloqueo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficio" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerBeneficiarios_XA_Reclamos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficio" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerBeneficiarios_XA_ReclamosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerBeneficiarios_XA_ReclamosResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDomicilio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDomicilio" nillable="true" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerDomicilioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerDomicilioResult" type="tns:Domicilio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarDomicilio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domicilio" type="tns:Domicilio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarDomicilioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarDomicilioResult" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarBeneficioBloqueado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unBeneficioBloqueado" type="tns:BeneficioBloqueado" />
+            <s:element minOccurs="1" maxOccurs="1" name="accion" type="tns:enum_TipoOperacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="enum_TipoOperacion">
+        <s:restriction base="s:string">
+          <s:enumeration value="nuevo" />
+          <s:enumeration value="modificacion" />
+          <s:enumeration value="cierre" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GuardarBeneficioBloqueadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GuardarBeneficioBloqueadoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BeneficioBloqueado_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BeneficioBloqueado_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BeneficioBloqueado_TraerResult" type="tns:ArrayOfBeneficioBloqueado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBeneficioBloqueado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BeneficioBloqueado" nillable="true" type="tns:BeneficioBloqueado" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Inhibiciones_Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Inhibiciones_TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Inhibiciones_TraerResult" type="tns:ArrayOfInhibiciones" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaInhibiciones">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listaInhibiciones" type="tns:ArrayOfInhibiciones" />
+            <s:element minOccurs="1" maxOccurs="1" name="accion" type="tns:enum_TipoOperacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AltaInhibicionesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AltaInhibicionesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerBeneficiario_HabXaTarjetas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Cuil" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerBeneficiario_HabXaTarjetasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerBeneficiario_HabXaTarjetasResult" type="tns:ArrayOfBeneficiario" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Benefeciarios_CBU_XCuil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Benefeciarios_CBU_XCuilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Benefeciarios_CBU_XCuilResult" type="tns:ArrayOfBeneficiarioCBU" />
+            <s:element minOccurs="0" maxOccurs="1" name="mensaje" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBeneficiarioCBU">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BeneficiarioCBU" nillable="true" type="tns:BeneficiarioCBU" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficiarioCBU">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Beneficiario">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="denominacionBanco" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="denominacionAgencia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="calle" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="nro" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="localidad" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="codpostal" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="idprovincia" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="descripcionProvincia" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="codigoDeBanco" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="codigoDeSucursal" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfBeneficiario" nillable="true" type="tns:ArrayOfBeneficiario" />
+      <s:element name="TodoDelBeneficio" nillable="true" type="tns:TodoDelBeneficio" />
+      <s:element name="ArrayOfBeneficioBloqueado" nillable="true" type="tns:ArrayOfBeneficioBloqueado" />
+      <s:element name="ArrayOfInhibiciones" nillable="true" type="tns:ArrayOfInhibiciones" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="char">
+        <s:restriction base="s:unsignedShort" />
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerApellNomSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerApellNom" />
+  </wsdl:message>
+  <wsdl:message name="TraerApellNomSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerApellNomResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerPorIdBenefCuilSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerPorIdBenefCuil" />
+  </wsdl:message>
+  <wsdl:message name="TraerPorIdBenefCuilSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerPorIdBenefCuilResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerConReclamosNovedadesSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerConReclamosNovedades" />
+  </wsdl:message>
+  <wsdl:message name="TraerConReclamosNovedadesSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerConReclamosNovedadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadesTraer" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadesTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerTodasSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadesTraerTodas" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerTodasSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadesTraerTodasResponse" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesRechazadasTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:NovedadesRechazadasTraer" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesRechazadasTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:NovedadesRechazadasTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerTodoDelBeneficioSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerTodoDelBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="TraerTodoDelBeneficioSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerTodoDelBeneficioResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer" />
+  </wsdl:message>
+  <wsdl:message name="TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiarios_XA_ReclamosSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerBeneficiarios_XA_Reclamos" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiarios_XA_ReclamosSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerBeneficiarios_XA_ReclamosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerDomicilio" />
+  </wsdl:message>
+  <wsdl:message name="TraerDomicilioSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerDomicilioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarDomicilioSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarDomicilio" />
+  </wsdl:message>
+  <wsdl:message name="GuardarDomicilioSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarDomicilioResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarBeneficioBloqueadoSoapIn">
+    <wsdl:part name="parameters" element="tns:GuardarBeneficioBloqueado" />
+  </wsdl:message>
+  <wsdl:message name="GuardarBeneficioBloqueadoSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarBeneficioBloqueadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="BeneficioBloqueado_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:BeneficioBloqueado_Traer" />
+  </wsdl:message>
+  <wsdl:message name="BeneficioBloqueado_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:BeneficioBloqueado_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Inhibiciones_TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Inhibiciones_Traer" />
+  </wsdl:message>
+  <wsdl:message name="Inhibiciones_TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:Inhibiciones_TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AltaInhibicionesSoapIn">
+    <wsdl:part name="parameters" element="tns:AltaInhibiciones" />
+  </wsdl:message>
+  <wsdl:message name="AltaInhibicionesSoapOut">
+    <wsdl:part name="parameters" element="tns:AltaInhibicionesResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiario_HabXaTarjetasSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerBeneficiario_HabXaTarjetas" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiario_HabXaTarjetasSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerBeneficiario_HabXaTarjetasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Benefeciarios_CBU_XCuilSoapIn">
+    <wsdl:part name="parameters" element="tns:Benefeciarios_CBU_XCuil" />
+  </wsdl:message>
+  <wsdl:message name="Benefeciarios_CBU_XCuilSoapOut">
+    <wsdl:part name="parameters" element="tns:Benefeciarios_CBU_XCuilResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerApellNomHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerApellNomHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPorIdBenefCuilHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPorIdBenefCuilHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="TraerConReclamosNovedadesHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="reclamos" type="s:string" />
+    <wsdl:part name="novedades" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConReclamosNovedadesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerTodasHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerTodasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesRechazadasTraerHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesRechazadasTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="TraerTodoDelBeneficioHttpGetIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerTodoDelBeneficioHttpGetOut">
+    <wsdl:part name="Body" element="tns:TodoDelBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpGetIn">
+    <wsdl:part name="idBeneficio" type="s:string" />
+    <wsdl:part name="Cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiarios_XA_ReclamosHttpGetIn">
+    <wsdl:part name="idBeneficio" type="s:string" />
+    <wsdl:part name="Cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiarios_XA_ReclamosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="BeneficioBloqueado_TraerHttpGetIn">
+    <wsdl:part name="IdBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BeneficioBloqueado_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficioBloqueado" />
+  </wsdl:message>
+  <wsdl:message name="Inhibiciones_TraerHttpGetIn">
+    <wsdl:part name="IdBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Inhibiciones_TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInhibiciones" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiario_HabXaTarjetasHttpGetIn">
+    <wsdl:part name="Cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiario_HabXaTarjetasHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="TraerApellNomHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerApellNomHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPorIdBenefCuilHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+    <wsdl:part name="cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerPorIdBenefCuilHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="TraerConReclamosNovedadesHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+    <wsdl:part name="cuil" type="s:string" />
+    <wsdl:part name="reclamos" type="s:string" />
+    <wsdl:part name="novedades" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerConReclamosNovedadesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerTodasHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesTraerTodasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesRechazadasTraerHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NovedadesRechazadasTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="TraerTodoDelBeneficioHttpPostIn">
+    <wsdl:part name="idBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerTodoDelBeneficioHttpPostOut">
+    <wsdl:part name="Body" element="tns:TodoDelBeneficio" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpPostIn">
+    <wsdl:part name="idBeneficio" type="s:string" />
+    <wsdl:part name="Cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiarios_XA_ReclamosHttpPostIn">
+    <wsdl:part name="idBeneficio" type="s:string" />
+    <wsdl:part name="Cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiarios_XA_ReclamosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="BeneficioBloqueado_TraerHttpPostIn">
+    <wsdl:part name="IdBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="BeneficioBloqueado_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficioBloqueado" />
+  </wsdl:message>
+  <wsdl:message name="Inhibiciones_TraerHttpPostIn">
+    <wsdl:part name="IdBeneficiario" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Inhibiciones_TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfInhibiciones" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiario_HabXaTarjetasHttpPostIn">
+    <wsdl:part name="Cuil" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerBeneficiario_HabXaTarjetasHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBeneficiario" />
+  </wsdl:message>
+  <wsdl:portType name="BeneficiarioWSSoap">
+    <wsdl:operation name="TraerApellNom">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Apellido y Nombre</wsdl:documentation>
+      <wsdl:input message="tns:TraerApellNomSoapIn" />
+      <wsdl:output message="tns:TraerApellNomSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPorIdBenefCuil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficiarios</wsdl:documentation>
+      <wsdl:input message="tns:TraerPorIdBenefCuilSoapIn" />
+      <wsdl:output message="tns:TraerPorIdBenefCuilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConReclamosNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficiarios con reclamos y/o novedades</wsdl:documentation>
+      <wsdl:input message="tns:TraerConReclamosNovedadesSoapIn" />
+      <wsdl:output message="tns:TraerConReclamosNovedadesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Novedades ingresadas del Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesTraerSoapIn" />
+      <wsdl:output message="tns:NovedadesTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraerTodas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todas las Novedades del Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesTraerTodasSoapIn" />
+      <wsdl:output message="tns:NovedadesTraerTodasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesRechazadasTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Novedades Rechazadas por Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesRechazadasTraerSoapIn" />
+      <wsdl:output message="tns:NovedadesRechazadasTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTodoDelBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Datos Completos del Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:TraerTodoDelBeneficioSoapIn" />
+      <wsdl:output message="tns:TraerTodoDelBeneficioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficios de un Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:TraerSoapIn" />
+      <wsdl:output message="tns:TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiarios_XA_Reclamos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Beneficiarios Trae XA Reclamos</wsdl:documentation>
+      <wsdl:input message="tns:TraerBeneficiarios_XA_ReclamosSoapIn" />
+      <wsdl:output message="tns:TraerBeneficiarios_XA_ReclamosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el domicilio registrado de un Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:TraerDomicilioSoapIn" />
+      <wsdl:output message="tns:TraerDomicilioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDomicilio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Guarda el domicilio del beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:GuardarDomicilioSoapIn" />
+      <wsdl:output message="tns:GuardarDomicilioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GuardarBeneficioBloqueado">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gurarda BloqueoBeneficio</wsdl:documentation>
+      <wsdl:input message="tns:GuardarBeneficioBloqueadoSoapIn" />
+      <wsdl:output message="tns:GuardarBeneficioBloqueadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BeneficioBloqueado_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BeneficioBloqueado_Traer</wsdl:documentation>
+      <wsdl:input message="tns:BeneficioBloqueado_TraerSoapIn" />
+      <wsdl:output message="tns:BeneficioBloqueado_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Inhibiciones_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inhibiciones_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Inhibiciones_TraerSoapIn" />
+      <wsdl:output message="tns:Inhibiciones_TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AltaInhibiciones">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">AltaInhibiciones</wsdl:documentation>
+      <wsdl:input message="tns:AltaInhibicionesSoapIn" />
+      <wsdl:output message="tns:AltaInhibicionesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiario_HabXaTarjetas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los Beneficiarios habilitados para solicitar tarjetas</wsdl:documentation>
+      <wsdl:input message="tns:TraerBeneficiario_HabXaTarjetasSoapIn" />
+      <wsdl:output message="tns:TraerBeneficiario_HabXaTarjetasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Benefeciarios_CBU_XCuil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los CBU de los Beneficiarios por Cuil</wsdl:documentation>
+      <wsdl:input message="tns:Benefeciarios_CBU_XCuilSoapIn" />
+      <wsdl:output message="tns:Benefeciarios_CBU_XCuilSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BeneficiarioWSHttpGet">
+    <wsdl:operation name="TraerApellNom">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Apellido y Nombre</wsdl:documentation>
+      <wsdl:input message="tns:TraerApellNomHttpGetIn" />
+      <wsdl:output message="tns:TraerApellNomHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPorIdBenefCuil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficiarios</wsdl:documentation>
+      <wsdl:input message="tns:TraerPorIdBenefCuilHttpGetIn" />
+      <wsdl:output message="tns:TraerPorIdBenefCuilHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConReclamosNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficiarios con reclamos y/o novedades</wsdl:documentation>
+      <wsdl:input message="tns:TraerConReclamosNovedadesHttpGetIn" />
+      <wsdl:output message="tns:TraerConReclamosNovedadesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Novedades ingresadas del Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesTraerHttpGetIn" />
+      <wsdl:output message="tns:NovedadesTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraerTodas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todas las Novedades del Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesTraerTodasHttpGetIn" />
+      <wsdl:output message="tns:NovedadesTraerTodasHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesRechazadasTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Novedades Rechazadas por Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesRechazadasTraerHttpGetIn" />
+      <wsdl:output message="tns:NovedadesRechazadasTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTodoDelBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Datos Completos del Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:TraerTodoDelBeneficioHttpGetIn" />
+      <wsdl:output message="tns:TraerTodoDelBeneficioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficios de un Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:TraerHttpGetIn" />
+      <wsdl:output message="tns:TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiarios_XA_Reclamos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Beneficiarios Trae XA Reclamos</wsdl:documentation>
+      <wsdl:input message="tns:TraerBeneficiarios_XA_ReclamosHttpGetIn" />
+      <wsdl:output message="tns:TraerBeneficiarios_XA_ReclamosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BeneficioBloqueado_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BeneficioBloqueado_Traer</wsdl:documentation>
+      <wsdl:input message="tns:BeneficioBloqueado_TraerHttpGetIn" />
+      <wsdl:output message="tns:BeneficioBloqueado_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Inhibiciones_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inhibiciones_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Inhibiciones_TraerHttpGetIn" />
+      <wsdl:output message="tns:Inhibiciones_TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiario_HabXaTarjetas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los Beneficiarios habilitados para solicitar tarjetas</wsdl:documentation>
+      <wsdl:input message="tns:TraerBeneficiario_HabXaTarjetasHttpGetIn" />
+      <wsdl:output message="tns:TraerBeneficiario_HabXaTarjetasHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="BeneficiarioWSHttpPost">
+    <wsdl:operation name="TraerApellNom">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Apellido y Nombre</wsdl:documentation>
+      <wsdl:input message="tns:TraerApellNomHttpPostIn" />
+      <wsdl:output message="tns:TraerApellNomHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerPorIdBenefCuil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficiarios</wsdl:documentation>
+      <wsdl:input message="tns:TraerPorIdBenefCuilHttpPostIn" />
+      <wsdl:output message="tns:TraerPorIdBenefCuilHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerConReclamosNovedades">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficiarios con reclamos y/o novedades</wsdl:documentation>
+      <wsdl:input message="tns:TraerConReclamosNovedadesHttpPostIn" />
+      <wsdl:output message="tns:TraerConReclamosNovedadesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Novedades ingresadas del Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesTraerHttpPostIn" />
+      <wsdl:output message="tns:NovedadesTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraerTodas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todas las Novedades del Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesTraerTodasHttpPostIn" />
+      <wsdl:output message="tns:NovedadesTraerTodasHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesRechazadasTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Novedades Rechazadas por Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:NovedadesRechazadasTraerHttpPostIn" />
+      <wsdl:output message="tns:NovedadesRechazadasTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTodoDelBeneficio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Datos Completos del Beneficio</wsdl:documentation>
+      <wsdl:input message="tns:TraerTodoDelBeneficioHttpPostIn" />
+      <wsdl:output message="tns:TraerTodoDelBeneficioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Beneficios de un Beneficiario</wsdl:documentation>
+      <wsdl:input message="tns:TraerHttpPostIn" />
+      <wsdl:output message="tns:TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiarios_XA_Reclamos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Beneficiarios Trae XA Reclamos</wsdl:documentation>
+      <wsdl:input message="tns:TraerBeneficiarios_XA_ReclamosHttpPostIn" />
+      <wsdl:output message="tns:TraerBeneficiarios_XA_ReclamosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BeneficioBloqueado_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BeneficioBloqueado_Traer</wsdl:documentation>
+      <wsdl:input message="tns:BeneficioBloqueado_TraerHttpPostIn" />
+      <wsdl:output message="tns:BeneficioBloqueado_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Inhibiciones_Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inhibiciones_Traer</wsdl:documentation>
+      <wsdl:input message="tns:Inhibiciones_TraerHttpPostIn" />
+      <wsdl:output message="tns:Inhibiciones_TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiario_HabXaTarjetas">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae los Beneficiarios habilitados para solicitar tarjetas</wsdl:documentation>
+      <wsdl:input message="tns:TraerBeneficiario_HabXaTarjetasHttpPostIn" />
+      <wsdl:output message="tns:TraerBeneficiario_HabXaTarjetasHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BeneficiarioWSSoap" type="tns:BeneficiarioWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerApellNom">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerApellNom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPorIdBenefCuil">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerPorIdBenefCuil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConReclamosNovedades">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerConReclamosNovedades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadesTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraerTodas">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadesTraerTodas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesRechazadasTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/NovedadesRechazadasTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTodoDelBeneficio">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerTodoDelBeneficio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiarios_XA_Reclamos">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerBeneficiarios_XA_Reclamos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilio">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerDomicilio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDomicilio">
+      <soap:operation soapAction="http://dat.anses.gov.ar/GuardarDomicilio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarBeneficioBloqueado">
+      <soap:operation soapAction="http://dat.anses.gov.ar/GuardarBeneficioBloqueado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeneficioBloqueado_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/BeneficioBloqueado_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inhibiciones_Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Inhibiciones_Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaInhibiciones">
+      <soap:operation soapAction="http://dat.anses.gov.ar/AltaInhibiciones" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiario_HabXaTarjetas">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerBeneficiario_HabXaTarjetas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Benefeciarios_CBU_XCuil">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Benefeciarios_CBU_XCuil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BeneficiarioWSSoap12" type="tns:BeneficiarioWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerApellNom">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerApellNom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPorIdBenefCuil">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerPorIdBenefCuil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConReclamosNovedades">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerConReclamosNovedades" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadesTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraerTodas">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadesTraerTodas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesRechazadasTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/NovedadesRechazadasTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTodoDelBeneficio">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerTodoDelBeneficio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiarios_XA_Reclamos">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerBeneficiarios_XA_Reclamos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerDomicilio">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerDomicilio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarDomicilio">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/GuardarDomicilio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GuardarBeneficioBloqueado">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/GuardarBeneficioBloqueado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeneficioBloqueado_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/BeneficioBloqueado_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inhibiciones_Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Inhibiciones_Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AltaInhibiciones">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/AltaInhibiciones" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiario_HabXaTarjetas">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerBeneficiario_HabXaTarjetas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Benefeciarios_CBU_XCuil">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Benefeciarios_CBU_XCuil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BeneficiarioWSHttpGet" type="tns:BeneficiarioWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerApellNom">
+      <http:operation location="/TraerApellNom" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPorIdBenefCuil">
+      <http:operation location="/TraerPorIdBenefCuil" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConReclamosNovedades">
+      <http:operation location="/TraerConReclamosNovedades" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraer">
+      <http:operation location="/NovedadesTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraerTodas">
+      <http:operation location="/NovedadesTraerTodas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesRechazadasTraer">
+      <http:operation location="/NovedadesRechazadasTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTodoDelBeneficio">
+      <http:operation location="/TraerTodoDelBeneficio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <http:operation location="/Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiarios_XA_Reclamos">
+      <http:operation location="/TraerBeneficiarios_XA_Reclamos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeneficioBloqueado_Traer">
+      <http:operation location="/BeneficioBloqueado_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inhibiciones_Traer">
+      <http:operation location="/Inhibiciones_Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiario_HabXaTarjetas">
+      <http:operation location="/TraerBeneficiario_HabXaTarjetas" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BeneficiarioWSHttpPost" type="tns:BeneficiarioWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerApellNom">
+      <http:operation location="/TraerApellNom" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerPorIdBenefCuil">
+      <http:operation location="/TraerPorIdBenefCuil" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerConReclamosNovedades">
+      <http:operation location="/TraerConReclamosNovedades" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraer">
+      <http:operation location="/NovedadesTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesTraerTodas">
+      <http:operation location="/NovedadesTraerTodas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NovedadesRechazadasTraer">
+      <http:operation location="/NovedadesRechazadasTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTodoDelBeneficio">
+      <http:operation location="/TraerTodoDelBeneficio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <http:operation location="/Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiarios_XA_Reclamos">
+      <http:operation location="/TraerBeneficiarios_XA_Reclamos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BeneficioBloqueado_Traer">
+      <http:operation location="/BeneficioBloqueado_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Inhibiciones_Traer">
+      <http:operation location="/Inhibiciones_Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerBeneficiario_HabXaTarjetas">
+      <http:operation location="/TraerBeneficiario_HabXaTarjetas" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BeneficiarioWS">
+    <wsdl:port name="BeneficiarioWSSoap" binding="tns:BeneficiarioWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/BeneficiarioWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BeneficiarioWSSoap12" binding="tns:BeneficiarioWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/BeneficiarioWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BeneficiarioWSHttpGet" binding="tns:BeneficiarioWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/BeneficiarioWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BeneficiarioWSHttpPost" binding="tns:BeneficiarioWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/BeneficiarioWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

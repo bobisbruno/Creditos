@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TraerEstadosRegBajaPorPerfil">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="perfil" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="esBaja" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerEstadosRegBajaPorPerfilResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerEstadosRegBajaPorPerfilResult" type="tns:ArrayOfEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEstado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Estado" nillable="true" type="tns:Estado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerEstadosReg">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bajas" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerEstadosRegResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerEstadosRegResult" type="tns:ArrayOfEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerTiposDomicio">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraerTiposDomicioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerTiposDomicioResult" type="tns:ArrayOfTipoDomicilio" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoDomicilio">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoDomicilio" nillable="true" type="tns:TipoDomicilio" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoDomicilio">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoDomicilio" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoDomicilio" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TraerTiposConceptos">
+        <s:complexType />
+      </s:element>
+      <s:element name="TraerTiposConceptosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerTiposConceptosResult" type="tns:ArrayOfTipoConcepto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoConcepto" nillable="true" type="tns:TipoConcepto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoConcepto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoConcepto" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescTipoConcepto" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnaListaConceptoLiquidacion" type="tns:ArrayOfConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ConceptoLiquidacion" nillable="true" type="tns:ConceptoLiquidacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConceptoLiquidacion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CodConceptoLiq" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescConceptoLiq" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Prioridad" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodSidif" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Obligatorio" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EsAfiliacion" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSistema" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoOnLine" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnTipoConcepto" type="tns:TipoConcepto" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Convertir_Numero_a_Texto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Valor" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="incluir_centavos" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Convertir_Numero_a_TextoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Convertir_Numero_a_TextoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfEstado" nillable="true" type="tns:ArrayOfEstado" />
+      <s:element name="ArrayOfTipoDomicilio" nillable="true" type="tns:ArrayOfTipoDomicilio" />
+      <s:element name="ArrayOfTipoConcepto" nillable="true" type="tns:ArrayOfTipoConcepto" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TraerEstadosRegBajaPorPerfilSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerEstadosRegBajaPorPerfil" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegBajaPorPerfilSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerEstadosRegBajaPorPerfilResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerEstadosReg" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerEstadosRegResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposDomicioSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerTiposDomicio" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposDomicioSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerTiposDomicioResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposConceptosSoapIn">
+    <wsdl:part name="parameters" element="tns:TraerTiposConceptos" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposConceptosSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerTiposConceptosResponse" />
+  </wsdl:message>
+  <wsdl:message name="Convertir_Numero_a_TextoSoapIn">
+    <wsdl:part name="parameters" element="tns:Convertir_Numero_a_Texto" />
+  </wsdl:message>
+  <wsdl:message name="Convertir_Numero_a_TextoSoapOut">
+    <wsdl:part name="parameters" element="tns:Convertir_Numero_a_TextoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegBajaPorPerfilHttpGetIn">
+    <wsdl:part name="perfil" type="s:string" />
+    <wsdl:part name="esBaja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegBajaPorPerfilHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstado" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegHttpGetIn">
+    <wsdl:part name="bajas" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstado" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposDomicioHttpGetIn" />
+  <wsdl:message name="TraerTiposDomicioHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoDomicilio" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposConceptosHttpGetIn" />
+  <wsdl:message name="TraerTiposConceptosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoConcepto" />
+  </wsdl:message>
+  <wsdl:message name="Convertir_Numero_a_TextoHttpGetIn">
+    <wsdl:part name="Valor" type="s:string" />
+    <wsdl:part name="incluir_centavos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Convertir_Numero_a_TextoHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegBajaPorPerfilHttpPostIn">
+    <wsdl:part name="perfil" type="s:string" />
+    <wsdl:part name="esBaja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegBajaPorPerfilHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstado" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegHttpPostIn">
+    <wsdl:part name="bajas" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerEstadosRegHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstado" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposDomicioHttpPostIn" />
+  <wsdl:message name="TraerTiposDomicioHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoDomicilio" />
+  </wsdl:message>
+  <wsdl:message name="TraerTiposConceptosHttpPostIn" />
+  <wsdl:message name="TraerTiposConceptosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoConcepto" />
+  </wsdl:message>
+  <wsdl:message name="Convertir_Numero_a_TextoHttpPostIn">
+    <wsdl:part name="Valor" type="s:string" />
+    <wsdl:part name="incluir_centavos" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Convertir_Numero_a_TextoHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="AuxiliarWSSoap">
+    <wsdl:operation name="TraerEstadosRegBajaPorPerfil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Estados de Registro por Perfil</wsdl:documentation>
+      <wsdl:input message="tns:TraerEstadosRegBajaPorPerfilSoapIn" />
+      <wsdl:output message="tns:TraerEstadosRegBajaPorPerfilSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerEstadosReg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Estados de Registro</wsdl:documentation>
+      <wsdl:input message="tns:TraerEstadosRegSoapIn" />
+      <wsdl:output message="tns:TraerEstadosRegSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposDomicio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Domicio</wsdl:documentation>
+      <wsdl:input message="tns:TraerTiposDomicioSoapIn" />
+      <wsdl:output message="tns:TraerTiposDomicioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposConceptos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Concepto</wsdl:documentation>
+      <wsdl:input message="tns:TraerTiposConceptosSoapIn" />
+      <wsdl:output message="tns:TraerTiposConceptosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Convertir_Numero_a_Texto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convierte un número a texto TOPE:999.999.999</wsdl:documentation>
+      <wsdl:input message="tns:Convertir_Numero_a_TextoSoapIn" />
+      <wsdl:output message="tns:Convertir_Numero_a_TextoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AuxiliarWSHttpGet">
+    <wsdl:operation name="TraerEstadosRegBajaPorPerfil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Estados de Registro por Perfil</wsdl:documentation>
+      <wsdl:input message="tns:TraerEstadosRegBajaPorPerfilHttpGetIn" />
+      <wsdl:output message="tns:TraerEstadosRegBajaPorPerfilHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerEstadosReg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Estados de Registro</wsdl:documentation>
+      <wsdl:input message="tns:TraerEstadosRegHttpGetIn" />
+      <wsdl:output message="tns:TraerEstadosRegHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposDomicio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Domicio</wsdl:documentation>
+      <wsdl:input message="tns:TraerTiposDomicioHttpGetIn" />
+      <wsdl:output message="tns:TraerTiposDomicioHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposConceptos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Concepto</wsdl:documentation>
+      <wsdl:input message="tns:TraerTiposConceptosHttpGetIn" />
+      <wsdl:output message="tns:TraerTiposConceptosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Convertir_Numero_a_Texto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convierte un número a texto TOPE:999.999.999</wsdl:documentation>
+      <wsdl:input message="tns:Convertir_Numero_a_TextoHttpGetIn" />
+      <wsdl:output message="tns:Convertir_Numero_a_TextoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AuxiliarWSHttpPost">
+    <wsdl:operation name="TraerEstadosRegBajaPorPerfil">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Estados de Registro por Perfil</wsdl:documentation>
+      <wsdl:input message="tns:TraerEstadosRegBajaPorPerfilHttpPostIn" />
+      <wsdl:output message="tns:TraerEstadosRegBajaPorPerfilHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerEstadosReg">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Estados de Registro</wsdl:documentation>
+      <wsdl:input message="tns:TraerEstadosRegHttpPostIn" />
+      <wsdl:output message="tns:TraerEstadosRegHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposDomicio">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Domicio</wsdl:documentation>
+      <wsdl:input message="tns:TraerTiposDomicioHttpPostIn" />
+      <wsdl:output message="tns:TraerTiposDomicioHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposConceptos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Concepto</wsdl:documentation>
+      <wsdl:input message="tns:TraerTiposConceptosHttpPostIn" />
+      <wsdl:output message="tns:TraerTiposConceptosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Convertir_Numero_a_Texto">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convierte un número a texto TOPE:999.999.999</wsdl:documentation>
+      <wsdl:input message="tns:Convertir_Numero_a_TextoHttpPostIn" />
+      <wsdl:output message="tns:Convertir_Numero_a_TextoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuxiliarWSSoap" type="tns:AuxiliarWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerEstadosRegBajaPorPerfil">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerEstadosRegBajaPorPerfil" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerEstadosReg">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerEstadosReg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposDomicio">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerTiposDomicio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposConceptos">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TraerTiposConceptos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Convertir_Numero_a_Texto">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Convertir_Numero_a_Texto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuxiliarWSSoap12" type="tns:AuxiliarWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TraerEstadosRegBajaPorPerfil">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerEstadosRegBajaPorPerfil" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerEstadosReg">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerEstadosReg" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposDomicio">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerTiposDomicio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposConceptos">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TraerTiposConceptos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Convertir_Numero_a_Texto">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Convertir_Numero_a_Texto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuxiliarWSHttpGet" type="tns:AuxiliarWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TraerEstadosRegBajaPorPerfil">
+      <http:operation location="/TraerEstadosRegBajaPorPerfil" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerEstadosReg">
+      <http:operation location="/TraerEstadosReg" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposDomicio">
+      <http:operation location="/TraerTiposDomicio" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposConceptos">
+      <http:operation location="/TraerTiposConceptos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Convertir_Numero_a_Texto">
+      <http:operation location="/Convertir_Numero_a_Texto" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuxiliarWSHttpPost" type="tns:AuxiliarWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TraerEstadosRegBajaPorPerfil">
+      <http:operation location="/TraerEstadosRegBajaPorPerfil" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerEstadosReg">
+      <http:operation location="/TraerEstadosReg" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposDomicio">
+      <http:operation location="/TraerTiposDomicio" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TraerTiposConceptos">
+      <http:operation location="/TraerTiposConceptos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Convertir_Numero_a_Texto">
+      <http:operation location="/Convertir_Numero_a_Texto" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuxiliarWS">
+    <wsdl:port name="AuxiliarWSSoap" binding="tns:AuxiliarWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/AuxiliarWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuxiliarWSSoap12" binding="tns:AuxiliarWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/AuxiliarWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuxiliarWSHttpGet" binding="tns:AuxiliarWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/AuxiliarWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuxiliarWSHttpPost" binding="tns:AuxiliarWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/AuxiliarWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

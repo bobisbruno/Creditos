@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="Traer_Todos">
+        <s:complexType />
+      </s:element>
+      <s:element name="Traer_TodosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Traer_TodosResult" type="tns:ArrayOfEstado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEstado">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Estado" nillable="true" type="tns:Estado" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Estado">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstado" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescEstado" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Auditoria">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IDOficina" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoSistema" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuitOrganismo" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DependenciaOficina" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CuitAutenticador" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Autenticacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoUsuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tabla" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoAccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntornoEjecucion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreServicio" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NombreMetodo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Datos" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_Database" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cfg_StoreProc" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FecUltimaModificacion" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Traer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEstado" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TraerResult" type="tns:Estado" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModeloImpresionTraer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idEstado" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModeloImpresionTraerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModeloImpresionTraerResult" type="tns:ArrayOfModeloImpresion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModeloImpresion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ModeloImpresion" nillable="true" type="tns:ModeloImpresion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModeloImpresion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdModelo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdReclamo" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="Imprime" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="unaAuditoria" type="tns:Auditoria" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Tipos_EstadosDocumentacion_Trae">
+        <s:complexType />
+      </s:element>
+      <s:element name="Tipos_EstadosDocumentacion_TraeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipos_EstadosDocumentacion_TraeResult" type="tns:ArrayOfEstadoDocumentacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEstadoDocumentacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstadoDocumentacion" nillable="true" type="tns:EstadoDocumentacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoDocumentacion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Estado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="VerOnlineCarga" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="DebeIngresarCaja" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="ApruebaNovedad" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="Tipos_EstadosCaratulacion_Trae">
+        <s:complexType />
+      </s:element>
+      <s:element name="Tipos_EstadosCaratulacion_TraeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Tipos_EstadosCaratulacion_TraeResult" type="tns:ArrayOfEstadoCaratulacion" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEstadoCaratulacion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EstadoCaratulacion" nillable="true" type="tns:EstadoCaratulacion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EstadoCaratulacion">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Estado">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="idEstadoExpediente" type="s:short" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ArrayOfEstado" nillable="true" type="tns:ArrayOfEstado" />
+      <s:element name="Estado" nillable="true" type="tns:Estado" />
+      <s:element name="ArrayOfModeloImpresion" nillable="true" type="tns:ArrayOfModeloImpresion" />
+      <s:element name="ArrayOfEstadoDocumentacion" nillable="true" type="tns:ArrayOfEstadoDocumentacion" />
+      <s:element name="ArrayOfEstadoCaratulacion" nillable="true" type="tns:ArrayOfEstadoCaratulacion" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Traer_TodosSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer_Todos" />
+  </wsdl:message>
+  <wsdl:message name="Traer_TodosSoapOut">
+    <wsdl:part name="parameters" element="tns:Traer_TodosResponse" />
+  </wsdl:message>
+  <wsdl:message name="TraerSoapIn">
+    <wsdl:part name="parameters" element="tns:Traer" />
+  </wsdl:message>
+  <wsdl:message name="TraerSoapOut">
+    <wsdl:part name="parameters" element="tns:TraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModeloImpresionTraerSoapIn">
+    <wsdl:part name="parameters" element="tns:ModeloImpresionTraer" />
+  </wsdl:message>
+  <wsdl:message name="ModeloImpresionTraerSoapOut">
+    <wsdl:part name="parameters" element="tns:ModeloImpresionTraerResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosDocumentacion_TraeSoapIn">
+    <wsdl:part name="parameters" element="tns:Tipos_EstadosDocumentacion_Trae" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosDocumentacion_TraeSoapOut">
+    <wsdl:part name="parameters" element="tns:Tipos_EstadosDocumentacion_TraeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosCaratulacion_TraeSoapIn">
+    <wsdl:part name="parameters" element="tns:Tipos_EstadosCaratulacion_Trae" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosCaratulacion_TraeSoapOut">
+    <wsdl:part name="parameters" element="tns:Tipos_EstadosCaratulacion_TraeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Traer_TodosHttpGetIn" />
+  <wsdl:message name="Traer_TodosHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstado" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpGetIn">
+    <wsdl:part name="idEstado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:Estado" />
+  </wsdl:message>
+  <wsdl:message name="ModeloImpresionTraerHttpGetIn">
+    <wsdl:part name="idEstado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModeloImpresionTraerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfModeloImpresion" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosDocumentacion_TraeHttpGetIn" />
+  <wsdl:message name="Tipos_EstadosDocumentacion_TraeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstadoDocumentacion" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosCaratulacion_TraeHttpGetIn" />
+  <wsdl:message name="Tipos_EstadosCaratulacion_TraeHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstadoCaratulacion" />
+  </wsdl:message>
+  <wsdl:message name="Traer_TodosHttpPostIn" />
+  <wsdl:message name="Traer_TodosHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstado" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpPostIn">
+    <wsdl:part name="idEstado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:Estado" />
+  </wsdl:message>
+  <wsdl:message name="ModeloImpresionTraerHttpPostIn">
+    <wsdl:part name="idEstado" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModeloImpresionTraerHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfModeloImpresion" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosDocumentacion_TraeHttpPostIn" />
+  <wsdl:message name="Tipos_EstadosDocumentacion_TraeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstadoDocumentacion" />
+  </wsdl:message>
+  <wsdl:message name="Tipos_EstadosCaratulacion_TraeHttpPostIn" />
+  <wsdl:message name="Tipos_EstadosCaratulacion_TraeHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfEstadoCaratulacion" />
+  </wsdl:message>
+  <wsdl:portType name="EstadoWSSoap">
+    <wsdl:operation name="Traer_Todos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Todos los estados habilitados</wsdl:documentation>
+      <wsdl:input message="tns:Traer_TodosSoapIn" />
+      <wsdl:output message="tns:Traer_TodosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el estado dado</wsdl:documentation>
+      <wsdl:input message="tns:TraerSoapIn" />
+      <wsdl:output message="tns:TraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModeloImpresionTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todos los modelos de impresion habilitados del estado dado</wsdl:documentation>
+      <wsdl:input message="tns:ModeloImpresionTraerSoapIn" />
+      <wsdl:output message="tns:ModeloImpresionTraerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosDocumentacion_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Estados de Documentacion</wsdl:documentation>
+      <wsdl:input message="tns:Tipos_EstadosDocumentacion_TraeSoapIn" />
+      <wsdl:output message="tns:Tipos_EstadosDocumentacion_TraeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosCaratulacion_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Estados de Caratulacion</wsdl:documentation>
+      <wsdl:input message="tns:Tipos_EstadosCaratulacion_TraeSoapIn" />
+      <wsdl:output message="tns:Tipos_EstadosCaratulacion_TraeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="EstadoWSHttpGet">
+    <wsdl:operation name="Traer_Todos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Todos los estados habilitados</wsdl:documentation>
+      <wsdl:input message="tns:Traer_TodosHttpGetIn" />
+      <wsdl:output message="tns:Traer_TodosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el estado dado</wsdl:documentation>
+      <wsdl:input message="tns:TraerHttpGetIn" />
+      <wsdl:output message="tns:TraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModeloImpresionTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todos los modelos de impresion habilitados del estado dado</wsdl:documentation>
+      <wsdl:input message="tns:ModeloImpresionTraerHttpGetIn" />
+      <wsdl:output message="tns:ModeloImpresionTraerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosDocumentacion_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Estados de Documentacion</wsdl:documentation>
+      <wsdl:input message="tns:Tipos_EstadosDocumentacion_TraeHttpGetIn" />
+      <wsdl:output message="tns:Tipos_EstadosDocumentacion_TraeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosCaratulacion_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Estados de Caratulacion</wsdl:documentation>
+      <wsdl:input message="tns:Tipos_EstadosCaratulacion_TraeHttpGetIn" />
+      <wsdl:output message="tns:Tipos_EstadosCaratulacion_TraeHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="EstadoWSHttpPost">
+    <wsdl:operation name="Traer_Todos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Todos los estados habilitados</wsdl:documentation>
+      <wsdl:input message="tns:Traer_TodosHttpPostIn" />
+      <wsdl:output message="tns:Traer_TodosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae el estado dado</wsdl:documentation>
+      <wsdl:input message="tns:TraerHttpPostIn" />
+      <wsdl:output message="tns:TraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModeloImpresionTraer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae todos los modelos de impresion habilitados del estado dado</wsdl:documentation>
+      <wsdl:input message="tns:ModeloImpresionTraerHttpPostIn" />
+      <wsdl:output message="tns:ModeloImpresionTraerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosDocumentacion_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Estados de Documentacion</wsdl:documentation>
+      <wsdl:input message="tns:Tipos_EstadosDocumentacion_TraeHttpPostIn" />
+      <wsdl:output message="tns:Tipos_EstadosDocumentacion_TraeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosCaratulacion_Trae">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Trae Tipos de Estados de Caratulacion</wsdl:documentation>
+      <wsdl:input message="tns:Tipos_EstadosCaratulacion_TraeHttpPostIn" />
+      <wsdl:output message="tns:Tipos_EstadosCaratulacion_TraeHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EstadoWSSoap" type="tns:EstadoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_Todos">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer_Todos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Traer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModeloImpresionTraer">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ModeloImpresionTraer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosDocumentacion_Trae">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tipos_EstadosDocumentacion_Trae" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosCaratulacion_Trae">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Tipos_EstadosCaratulacion_Trae" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EstadoWSSoap12" type="tns:EstadoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Traer_Todos">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer_Todos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Traer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModeloImpresionTraer">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ModeloImpresionTraer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosDocumentacion_Trae">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tipos_EstadosDocumentacion_Trae" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosCaratulacion_Trae">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Tipos_EstadosCaratulacion_Trae" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EstadoWSHttpGet" type="tns:EstadoWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Traer_Todos">
+      <http:operation location="/Traer_Todos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <http:operation location="/Traer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModeloImpresionTraer">
+      <http:operation location="/ModeloImpresionTraer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosDocumentacion_Trae">
+      <http:operation location="/Tipos_EstadosDocumentacion_Trae" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosCaratulacion_Trae">
+      <http:operation location="/Tipos_EstadosCaratulacion_Trae" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EstadoWSHttpPost" type="tns:EstadoWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Traer_Todos">
+      <http:operation location="/Traer_Todos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Traer">
+      <http:operation location="/Traer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModeloImpresionTraer">
+      <http:operation location="/ModeloImpresionTraer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosDocumentacion_Trae">
+      <http:operation location="/Tipos_EstadosDocumentacion_Trae" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Tipos_EstadosCaratulacion_Trae">
+      <http:operation location="/Tipos_EstadosCaratulacion_Trae" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EstadoWS">
+    <wsdl:port name="EstadoWSSoap" binding="tns:EstadoWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/EstadoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EstadoWSSoap12" binding="tns:EstadoWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/EstadoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EstadoWSHttpGet" binding="tns:EstadoWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/EstadoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EstadoWSHttpPost" binding="tns:EstadoWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/EstadoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

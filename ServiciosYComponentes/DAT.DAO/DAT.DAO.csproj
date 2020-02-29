@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5A3F04F-85DD-4124-93C0-7955C7A672B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ar.Gov.Anses.Microinformatica.DAT.DAO</RootNamespace>
+    <AssemblyName>DAT.DAO</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Anses.Director.Session.lib">
+      <HintPath>..\Librerias\Anses.Director.Session.lib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Librerias\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LoggingAnsesSQL">
+      <HintPath>..\Librerias\LoggingAnsesSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DAT.Entidades\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\DATEmbozoWS\Bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UsuarioDirector">
+      <HintPath>..\Librerias\UsuarioDirector.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdherenteDAO.cs" />
+    <Compile Include="AdministradorDeConexion.cs" />
+    <Compile Include="AuxiliarDAO.cs" />
+    <Compile Include="BeneficiarioDAO.cs" />
+    <Compile Include="CaratulacionDAO.cs" />
+    <Compile Include="CodigoPreAprobacionDAO.cs" />
+    <Compile Include="Compresor.cs" />
+    <Compile Include="ConceptoOPPDAO.cs" />
+    <Compile Include="ConsultasBatchDAO.cs" />
+    <Compile Include="ContactoReclamoDAO.cs" />
+    <Compile Include="DocumentoDao.cs" />
+    <Compile Include="ModalidadDePagoDao.cs" />
+    <Compile Include="NovedadDAO.cs" />
+    <Compile Include="NovedadRechazadaDAO.cs" />
+    <Compile Include="NovedadTransDAO.cs" />
+    <Compile Include="OficinaEmbozadoDAO.cs" />
+    <Compile Include="CuotasDAO.cs" />
+    <Compile Include="EntidadPrivadaDAO.cs" />
+    <Compile Include="EstadoDAO.cs" />
+    <Compile Include="EstadoReclamoDao.cs" />
+    <Compile Include="ExCajaDAO.cs" />
+    <Compile Include="CierreDAO.cs" />
+    <Compile Include="ComercializadorDAO.cs" />
+    <Compile Include="AgenciaDAO.cs" />
+    <Compile Include="NovedadDocumentacionDAO.cs" />
+    <Compile Include="NovedadHistoricaDAO.cs" />
+    <Compile Include="NovedadLiquidadaDAO.cs" />
+    <Compile Include="NullableDataReader.cs" />
+    <Compile Include="NullableDataRowReader.cs" />
+    <Compile Include="ParametroDAO.cs" />
+    <Compile Include="PinLinkDAO.cs" />
+    <Compile Include="PrestadorDAO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FeriadoDAO.cs" />
+    <Compile Include="ProvinciaDAO.cs" />
+    <Compile Include="ReclamoDAO.cs" />
+    <Compile Include="RecuperoDao.cs" />
+    <Compile Include="SeguridadLogDAO.CS" />
+    <Compile Include="SeguridadMac.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="DeudaArgentaDAO.cs" />
+    <Compile Include="SolicitudDAO.cs" />
+    <Compile Include="SolicitudVamosPaseoDAO.cs" />
+    <Compile Include="TarjetaDAO.cs" />
+    <Compile Include="TasasDAO.cs" />
+    <Compile Include="TipoConcConcLiqDAO.cs" />
+    <Compile Include="TipoConceptoDAO.cs" />
+    <Compile Include="TipoDocumentoPresentadoDAO.cs" />
+    <Compile Include="SiniestroDAO.cs" />
+    <Compile Include="TipoEstadoRecuperoDao.cs" />
+    <Compile Include="TipoEstado_SCDAO.cs" />
+    <Compile Include="TipoMotivoRecuperoDao.cs" />
+    <Compile Include="UdaiDAO.cs" />
+    <Compile Include="Utilidades.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Anses.Director.Session.lib.dll" />
+    <Content Include="bin\Debug\log4net.dll" />
+    <Content Include="bin\Debug\LoggingAnsesSQL.dll" />
+    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="bin\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.dll" />
+    <Content Include="bin\Debug\Microsoft.Practices.ObjectBuilder.dll" />
+    <Content Include="bin\Debug\UsuarioDirector.dll" />
+    <Content Include="obj\Debug\DAT.DAO.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\DAT.DAO.dll" />
+    <Content Include="obj\Debug\DAT.DAO.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\log4net.dll.refresh" />
+    <None Include="obj\Debug\build.force" />
+    <None Include="obj\Debug\DAT.DAO.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAT.Entidades\DAT.Entidades.csproj">
+      <Project>{7deceaa4-e60c-4dc7-b77f-903754c25ba7}</Project>
+      <Name>DAT.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

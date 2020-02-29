@@ -1,0 +1,91 @@
+﻿.tblMasterPage
+{
+	width: 100%;
+	background-color: #fff;
+}
+
+.modalBackground
+{
+	background-color: Gray;
+	filter: alpha(opacity=70);
+	opacity: 0.7;
+}
+
+#titulomensaje
+{
+	cursor:hand;	
+}
+#msgPageRequestManagerHandler
+{
+	margin: auto;
+	display: none;
+	vertical-align: middle;
+	width: 210px;
+	float: none;
+	text-align: left;
+	padding: 10px 10px 10px 50px;
+	background: url('Imagenes/LOGO-ANSES-carga2.gif') no-repeat 10px 50%;
+	font-size: x-small;
+	background-color: #D9E6F4;
+}
+.GrillaPiePagina
+{
+	font-family: Verdana, Arial;
+	font-size: 10pt;
+	color: #25568B;
+	font-weight: bold;
+}
+
+.GrillaPiePagina a
+{	
+font-family: Verdana, Arial;
+font-size: 8pt;
+color: #000000;
+font-weight: normal;	
+}
+.TextoCeleste
+{
+	color:#B3D7E
+}
+.TextoAzul
+{
+	color:#00588A;
+    margin-left: 10px;
+}
+.TextoError
+{
+	font-size: smaller;
+	color: #ff6666;
+	font-family:MS Sans Serif, Verdana,Arial, Helvetica;
+	background-color: transparent;
+	text-align: center;
+}
+
+.listaHorizontal ul
+ {
+    margin-left:0px;
+    padding-left:0px;        	
+ }
+                
+.listaHorizontal li
+ {
+  display:inline;
+ }
+.sessionButton 
+{
+    cursor:pointer;
+    background-image: url('../../App_Themes/Imagenes/bt_exit.png');
+    width:20px;
+    height:20px;
+}
+
+.homeButton 
+{
+    cursor:pointer;
+    background-image: url('../../App_Themes/Imagenes/bt_home.png');
+    width:20px;
+    height:20px;
+}
+
+
+

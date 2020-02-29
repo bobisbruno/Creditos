@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://anme.micro.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://anme.micro.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://anme.micro.anses.gov.ar/">
+      <s:element name="Ver.1.3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="aplicacion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="casodeuso" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="trnid_pgmid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="origen_trmid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cuit_organismo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="c_sistema" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_alta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_precuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_secuencia0" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="c_org" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pre_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="doc_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dig_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="c_tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="c_seq" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caratula" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ben_facu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ben_excaja" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ben_tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ben_numero" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ben_copart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ndoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="f_alta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="f_inic_afjp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="legalta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="c_oficina_alta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="e_expe" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="e_expe_modif" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reln_c_org" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reln_pre_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reln_doc_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reln_dig_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reln_c_tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="reln_c_seq" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="relc_codagre" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_ben_facu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_ben_excaja" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_ben_tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_ben_numero" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_ben_copart" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_rub_tdoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_rub_ndoc" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="caus_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ofic_entrada" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actm_c_org" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actm_pre_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actm_doc_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actm_dig_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actm_c_tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="actm_c_seq" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="f_resol_manual" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nro_resol_manual" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prov_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cod_prov" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grhist_estado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grrelexp_cuil" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grinventario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grstock" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_gracuerdos" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grrelexped" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grresolucion" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_gractumedica" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grexpprov" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="m_grpases" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Ver.1.3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Ver.1.3Result" type="tns:ExpedienteAG" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ExpedienteAG">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CodRespuesta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mensaje" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodOrg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DigCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodTipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodSeq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Caratula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumDoc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaInicAfjp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Legalta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodOficinaAlta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EExpediente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CausCuil" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CaratulaCaus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoDocCaus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumDocCaus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FechaFallCaus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CausBenExcaja" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CausBenTipo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CausBenNumero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CausBenCopart" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ExpedienteAG" nillable="true" type="tns:ExpedienteAG" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Ver.1.3SoapIn">
+    <wsdl:part name="parameters" element="tns:Ver.1.3" />
+  </wsdl:message>
+  <wsdl:message name="Ver.1.3SoapOut">
+    <wsdl:part name="parameters" element="tns:Ver.1.3Response" />
+  </wsdl:message>
+  <wsdl:message name="Ver.1.3HttpGetIn">
+    <wsdl:part name="aplicacion" type="s:string" />
+    <wsdl:part name="casodeuso" type="s:string" />
+    <wsdl:part name="trnid_pgmid" type="s:string" />
+    <wsdl:part name="origen_trmid" type="s:string" />
+    <wsdl:part name="cuit_organismo" type="s:string" />
+    <wsdl:part name="user_id" type="s:string" />
+    <wsdl:part name="c_sistema" type="s:string" />
+    <wsdl:part name="m_alta" type="s:string" />
+    <wsdl:part name="m_precuil" type="s:string" />
+    <wsdl:part name="m_secuencia0" type="s:string" />
+    <wsdl:part name="c_org" type="s:string" />
+    <wsdl:part name="pre_cuil" type="s:string" />
+    <wsdl:part name="doc_cuil" type="s:string" />
+    <wsdl:part name="dig_cuil" type="s:string" />
+    <wsdl:part name="c_tipo" type="s:string" />
+    <wsdl:part name="c_seq" type="s:string" />
+    <wsdl:part name="caratula" type="s:string" />
+    <wsdl:part name="ben_facu" type="s:string" />
+    <wsdl:part name="ben_excaja" type="s:string" />
+    <wsdl:part name="ben_tipo" type="s:string" />
+    <wsdl:part name="ben_numero" type="s:string" />
+    <wsdl:part name="ben_copart" type="s:string" />
+    <wsdl:part name="tdoc" type="s:string" />
+    <wsdl:part name="ndoc" type="s:string" />
+    <wsdl:part name="f_alta" type="s:string" />
+    <wsdl:part name="f_inic_afjp" type="s:string" />
+    <wsdl:part name="legalta" type="s:string" />
+    <wsdl:part name="c_oficina_alta" type="s:string" />
+    <wsdl:part name="e_expe" type="s:string" />
+    <wsdl:part name="e_expe_modif" type="s:string" />
+    <wsdl:part name="reln_c_org" type="s:string" />
+    <wsdl:part name="reln_pre_cuil" type="s:string" />
+    <wsdl:part name="reln_doc_cuil" type="s:string" />
+    <wsdl:part name="reln_dig_cuil" type="s:string" />
+    <wsdl:part name="reln_c_tipo" type="s:string" />
+    <wsdl:part name="reln_c_seq" type="s:string" />
+    <wsdl:part name="relc_codagre" type="s:string" />
+    <wsdl:part name="caus_ben_facu" type="s:string" />
+    <wsdl:part name="caus_ben_excaja" type="s:string" />
+    <wsdl:part name="caus_ben_tipo" type="s:string" />
+    <wsdl:part name="caus_ben_numero" type="s:string" />
+    <wsdl:part name="caus_ben_copart" type="s:string" />
+    <wsdl:part name="caus_rub_tdoc" type="s:string" />
+    <wsdl:part name="caus_rub_ndoc" type="s:string" />
+    <wsdl:part name="caus_cuil" type="s:string" />
+    <wsdl:part name="ofic_entrada" type="s:string" />
+    <wsdl:part name="actm_c_org" type="s:string" />
+    <wsdl:part name="actm_pre_cuil" type="s:string" />
+    <wsdl:part name="actm_doc_cuil" type="s:string" />
+    <wsdl:part name="actm_dig_cuil" type="s:string" />
+    <wsdl:part name="actm_c_tipo" type="s:string" />
+    <wsdl:part name="actm_c_seq" type="s:string" />
+    <wsdl:part name="f_resol_manual" type="s:string" />
+    <wsdl:part name="nro_resol_manual" type="s:string" />
+    <wsdl:part name="prov_cuil" type="s:string" />
+    <wsdl:part name="cod_prov" type="s:string" />
+    <wsdl:part name="m_grhist_estado" type="s:string" />
+    <wsdl:part name="m_grrelexp_cuil" type="s:string" />
+    <wsdl:part name="m_grinventario" type="s:string" />
+    <wsdl:part name="m_grstock" type="s:string" />
+    <wsdl:part name="m_gracuerdos" type="s:string" />
+    <wsdl:part name="m_grrelexped" type="s:string" />
+    <wsdl:part name="m_grresolucion" type="s:string" />
+    <wsdl:part name="m_gractumedica" type="s:string" />
+    <wsdl:part name="m_grexpprov" type="s:string" />
+    <wsdl:part name="m_grpases" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ver.1.3HttpGetOut">
+    <wsdl:part name="Body" element="tns:ExpedienteAG" />
+  </wsdl:message>
+  <wsdl:message name="Ver.1.3HttpPostIn">
+    <wsdl:part name="aplicacion" type="s:string" />
+    <wsdl:part name="casodeuso" type="s:string" />
+    <wsdl:part name="trnid_pgmid" type="s:string" />
+    <wsdl:part name="origen_trmid" type="s:string" />
+    <wsdl:part name="cuit_organismo" type="s:string" />
+    <wsdl:part name="user_id" type="s:string" />
+    <wsdl:part name="c_sistema" type="s:string" />
+    <wsdl:part name="m_alta" type="s:string" />
+    <wsdl:part name="m_precuil" type="s:string" />
+    <wsdl:part name="m_secuencia0" type="s:string" />
+    <wsdl:part name="c_org" type="s:string" />
+    <wsdl:part name="pre_cuil" type="s:string" />
+    <wsdl:part name="doc_cuil" type="s:string" />
+    <wsdl:part name="dig_cuil" type="s:string" />
+    <wsdl:part name="c_tipo" type="s:string" />
+    <wsdl:part name="c_seq" type="s:string" />
+    <wsdl:part name="caratula" type="s:string" />
+    <wsdl:part name="ben_facu" type="s:string" />
+    <wsdl:part name="ben_excaja" type="s:string" />
+    <wsdl:part name="ben_tipo" type="s:string" />
+    <wsdl:part name="ben_numero" type="s:string" />
+    <wsdl:part name="ben_copart" type="s:string" />
+    <wsdl:part name="tdoc" type="s:string" />
+    <wsdl:part name="ndoc" type="s:string" />
+    <wsdl:part name="f_alta" type="s:string" />
+    <wsdl:part name="f_inic_afjp" type="s:string" />
+    <wsdl:part name="legalta" type="s:string" />
+    <wsdl:part name="c_oficina_alta" type="s:string" />
+    <wsdl:part name="e_expe" type="s:string" />
+    <wsdl:part name="e_expe_modif" type="s:string" />
+    <wsdl:part name="reln_c_org" type="s:string" />
+    <wsdl:part name="reln_pre_cuil" type="s:string" />
+    <wsdl:part name="reln_doc_cuil" type="s:string" />
+    <wsdl:part name="reln_dig_cuil" type="s:string" />
+    <wsdl:part name="reln_c_tipo" type="s:string" />
+    <wsdl:part name="reln_c_seq" type="s:string" />
+    <wsdl:part name="relc_codagre" type="s:string" />
+    <wsdl:part name="caus_ben_facu" type="s:string" />
+    <wsdl:part name="caus_ben_excaja" type="s:string" />
+    <wsdl:part name="caus_ben_tipo" type="s:string" />
+    <wsdl:part name="caus_ben_numero" type="s:string" />
+    <wsdl:part name="caus_ben_copart" type="s:string" />
+    <wsdl:part name="caus_rub_tdoc" type="s:string" />
+    <wsdl:part name="caus_rub_ndoc" type="s:string" />
+    <wsdl:part name="caus_cuil" type="s:string" />
+    <wsdl:part name="ofic_entrada" type="s:string" />
+    <wsdl:part name="actm_c_org" type="s:string" />
+    <wsdl:part name="actm_pre_cuil" type="s:string" />
+    <wsdl:part name="actm_doc_cuil" type="s:string" />
+    <wsdl:part name="actm_dig_cuil" type="s:string" />
+    <wsdl:part name="actm_c_tipo" type="s:string" />
+    <wsdl:part name="actm_c_seq" type="s:string" />
+    <wsdl:part name="f_resol_manual" type="s:string" />
+    <wsdl:part name="nro_resol_manual" type="s:string" />
+    <wsdl:part name="prov_cuil" type="s:string" />
+    <wsdl:part name="cod_prov" type="s:string" />
+    <wsdl:part name="m_grhist_estado" type="s:string" />
+    <wsdl:part name="m_grrelexp_cuil" type="s:string" />
+    <wsdl:part name="m_grinventario" type="s:string" />
+    <wsdl:part name="m_grstock" type="s:string" />
+    <wsdl:part name="m_gracuerdos" type="s:string" />
+    <wsdl:part name="m_grrelexped" type="s:string" />
+    <wsdl:part name="m_grresolucion" type="s:string" />
+    <wsdl:part name="m_gractumedica" type="s:string" />
+    <wsdl:part name="m_grexpprov" type="s:string" />
+    <wsdl:part name="m_grpases" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Ver.1.3HttpPostOut">
+    <wsdl:part name="Body" element="tns:ExpedienteAG" />
+  </wsdl:message>
+  <wsdl:portType name="AltaGenericaExpteWSSoap">
+    <wsdl:operation name="GeneraAltaGenericaExpte">
+      <wsdl:input name="Ver.1.3" message="tns:Ver.1.3SoapIn" />
+      <wsdl:output name="Ver.1.3" message="tns:Ver.1.3SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AltaGenericaExpteWSHttpGet">
+    <wsdl:operation name="GeneraAltaGenericaExpte">
+      <wsdl:input name="Ver.1.3" message="tns:Ver.1.3HttpGetIn" />
+      <wsdl:output name="Ver.1.3" message="tns:Ver.1.3HttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AltaGenericaExpteWSHttpPost">
+    <wsdl:operation name="GeneraAltaGenericaExpte">
+      <wsdl:input name="Ver.1.3" message="tns:Ver.1.3HttpPostIn" />
+      <wsdl:output name="Ver.1.3" message="tns:Ver.1.3HttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AltaGenericaExpteWSSoap" type="tns:AltaGenericaExpteWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GeneraAltaGenericaExpte">
+      <soap:operation soapAction="http://anme.micro.anses.gov.ar/Ver.1.3" style="document" />
+      <wsdl:input name="Ver.1.3">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Ver.1.3">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AltaGenericaExpteWSSoap12" type="tns:AltaGenericaExpteWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GeneraAltaGenericaExpte">
+      <soap12:operation soapAction="http://anme.micro.anses.gov.ar/Ver.1.3" style="document" />
+      <wsdl:input name="Ver.1.3">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Ver.1.3">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AltaGenericaExpteWSHttpGet" type="tns:AltaGenericaExpteWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GeneraAltaGenericaExpte">
+      <http:operation location="/Ver.1.3" />
+      <wsdl:input name="Ver.1.3">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Ver.1.3">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AltaGenericaExpteWSHttpPost" type="tns:AltaGenericaExpteWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GeneraAltaGenericaExpte">
+      <http:operation location="/Ver.1.3" />
+      <wsdl:input name="Ver.1.3">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Ver.1.3">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AltaGenericaExpteWS">
+    <wsdl:port name="AltaGenericaExpteWSSoap" binding="tns:AltaGenericaExpteWSSoap">
+      <soap:address location="http://ansesdesapp/ANMEServicio/AltaGenericaExptews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AltaGenericaExpteWSSoap12" binding="tns:AltaGenericaExpteWSSoap12">
+      <soap12:address location="http://ansesdesapp/ANMEServicio/AltaGenericaExptews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AltaGenericaExpteWSHttpGet" binding="tns:AltaGenericaExpteWSHttpGet">
+      <http:address location="http://ansesdesapp/ANMEServicio/AltaGenericaExptews.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AltaGenericaExpteWSHttpPost" binding="tns:AltaGenericaExpteWSHttpPost">
+      <http:address location="http://ansesdesapp/ANMEServicio/AltaGenericaExptews.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

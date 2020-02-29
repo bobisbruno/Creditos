@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="ObtenerTipoMotivoRecupero_TT">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerTipoMotivoRecupero_TTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTipoMotivoRecupero_TTResult" type="tns:ArrayOfTipoMotivoRecupero" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoMotivoRecupero">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoMotivoRecupero" nillable="true" type="tns:TipoMotivoRecupero" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoMotivoRecupero">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionMotivoRecupero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoWEB" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ip" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaUltimaModificacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerTipoEstadoRecupero_TT">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerTipoEstadoRecupero_TTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerTipoEstadoRecupero_TTResult" type="tns:ArrayOfTipoEstadoRecupero" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTipoEstadoRecupero">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TipoEstadoRecupero" nillable="true" type="tns:TipoEstadoRecupero" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoEstadoRecupero">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idEstadorecupero" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="descripcionEstadoRecupero" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnDCCyEE" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="enRegional" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FueNotificado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Acordado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EtapaExtrajudicial" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="EtapaJudicial" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Habilitado" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HabilitadoWeb" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Usuario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ip" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaUltimaModificacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Buscar_Recupero_T">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="recuperos" type="tns:FiltroDeRecuperos" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FiltroDeRecuperos">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Motivo" type="tns:ComboBoxItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="tns:ComboBoxItem" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorResidualDesde" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorResidualHasta" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ComboBoxItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Buscar_Recupero_TResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buscar_Recupero_TResult" type="tns:GestionRecuperoForm" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GestionRecuperoForm">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RecuperosList" type="tns:ArrayOfRecupero" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadTotalDeRegistros" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRecupero">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Recupero" nillable="true" type="tns:Recupero" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Recupero">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApellidoYNombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorResidual" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMotivoRecupero" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionMotivoDeRecupero" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdEstadoDeRecupero" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionEstadoDeRecupero" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDeEstadoDeRecupero" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadDeCreditos" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdDeRecupero" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerValorMinimoDeRecupero">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerValorMinimoDeRecuperoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObtenerValorMinimoDeRecuperoResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerModalidadDePago">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerModalidadDePagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerModalidadDePagoResult" type="tns:ArrayOfModalidadDePago" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfModalidadDePago">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ModalidadDePago" nillable="true" type="tns:ModalidadDePago" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ModalidadDePago">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ObtenerDatosDeRecupero_TXId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idRecupero" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerDatosDeRecupero_TXIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerDatosDeRecupero_TXIdResult" type="tns:RecuperoDetalleForm" />
+            <s:element minOccurs="1" maxOccurs="1" name="valorResidualTotal" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RecuperoDetalleForm">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NovedadesList" type="tns:ArrayOfDatosDeNovedadDeRecupero" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeneficioDisponibleList" type="tns:ArrayOfBeneficioDisponible" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDatosDeNovedadDeRecupero">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DatosDeNovedadDeRecupero" nillable="true" type="tns:DatosDeNovedadDeRecupero" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DatosDeNovedadDeRecupero">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdNovedad" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="VinculacionNovedadRecupero" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaDeNovedad" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorResidual" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CodigoConceptoLiquidacion" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazonSocial" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MontoDelPrestamo" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CantidadDeCuotas" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" nillable="true" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeriodoBajaBeneficiario" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdMotivoBajaBeneficiario" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoBajaBeneficiario" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OficinaDeBaja" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeriodoDeReactivacion" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdPrestador" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecuperaSobreConcepto" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBeneficioDisponible">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BeneficioDisponible" nillable="true" type="tns:BeneficioDisponible" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BeneficioDisponible">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdBeneficiario" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfectacionDisponible" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ArrayOfTipoMotivoRecupero" nillable="true" type="tns:ArrayOfTipoMotivoRecupero" />
+      <s:element name="ArrayOfTipoEstadoRecupero" nillable="true" type="tns:ArrayOfTipoEstadoRecupero" />
+      <s:element name="decimal" type="s:decimal" />
+      <s:element name="ArrayOfModalidadDePago" nillable="true" type="tns:ArrayOfModalidadDePago" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ObtenerTipoMotivoRecupero_TTSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoMotivoRecupero_TT" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoMotivoRecupero_TTSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoMotivoRecupero_TTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoEstadoRecupero_TTSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoEstadoRecupero_TT" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoEstadoRecupero_TTSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerTipoEstadoRecupero_TTResponse" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_Recupero_TSoapIn">
+    <wsdl:part name="parameters" element="tns:Buscar_Recupero_T" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_Recupero_TSoapOut">
+    <wsdl:part name="parameters" element="tns:Buscar_Recupero_TResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerValorMinimoDeRecuperoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerValorMinimoDeRecupero" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerValorMinimoDeRecuperoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerValorMinimoDeRecuperoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerModalidadDePagoSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerModalidadDePago" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerModalidadDePagoSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerModalidadDePagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosDeRecupero_TXIdSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosDeRecupero_TXId" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDatosDeRecupero_TXIdSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerDatosDeRecupero_TXIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoMotivoRecupero_TTHttpGetIn" />
+  <wsdl:message name="ObtenerTipoMotivoRecupero_TTHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoMotivoRecupero" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoEstadoRecupero_TTHttpGetIn" />
+  <wsdl:message name="ObtenerTipoEstadoRecupero_TTHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoEstadoRecupero" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerValorMinimoDeRecuperoHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerValorMinimoDeRecuperoHttpGetOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerModalidadDePagoHttpGetIn" />
+  <wsdl:message name="ObtenerModalidadDePagoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfModalidadDePago" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoMotivoRecupero_TTHttpPostIn" />
+  <wsdl:message name="ObtenerTipoMotivoRecupero_TTHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoMotivoRecupero" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerTipoEstadoRecupero_TTHttpPostIn" />
+  <wsdl:message name="ObtenerTipoEstadoRecupero_TTHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTipoEstadoRecupero" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerValorMinimoDeRecuperoHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerValorMinimoDeRecuperoHttpPostOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerModalidadDePagoHttpPostIn" />
+  <wsdl:message name="ObtenerModalidadDePagoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfModalidadDePago" />
+  </wsdl:message>
+  <wsdl:portType name="RecuperoWSSoap">
+    <wsdl:operation name="ObtenerTipoMotivoRecupero_TT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoMotivoRecupero.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerTipoMotivoRecupero_TTSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoMotivoRecupero_TTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstadoRecupero_TT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoEstadoRecupero.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerTipoEstadoRecupero_TTSoapIn" />
+      <wsdl:output message="tns:ObtenerTipoEstadoRecupero_TTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_Recupero_T">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto Recupero según el filtro parametrizado.</wsdl:documentation>
+      <wsdl:input message="tns:Buscar_Recupero_TSoapIn" />
+      <wsdl:output message="tns:Buscar_Recupero_TSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerValorMinimoDeRecupero">
+      <wsdl:input message="tns:ObtenerValorMinimoDeRecuperoSoapIn" />
+      <wsdl:output message="tns:ObtenerValorMinimoDeRecuperoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModalidadDePago">
+      <wsdl:input message="tns:ObtenerModalidadDePagoSoapIn" />
+      <wsdl:output message="tns:ObtenerModalidadDePagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosDeRecupero_TXId">
+      <wsdl:input message="tns:ObtenerDatosDeRecupero_TXIdSoapIn" />
+      <wsdl:output message="tns:ObtenerDatosDeRecupero_TXIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RecuperoWSHttpGet">
+    <wsdl:operation name="ObtenerTipoMotivoRecupero_TT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoMotivoRecupero.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerTipoMotivoRecupero_TTHttpGetIn" />
+      <wsdl:output message="tns:ObtenerTipoMotivoRecupero_TTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstadoRecupero_TT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoEstadoRecupero.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerTipoEstadoRecupero_TTHttpGetIn" />
+      <wsdl:output message="tns:ObtenerTipoEstadoRecupero_TTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerValorMinimoDeRecupero">
+      <wsdl:input message="tns:ObtenerValorMinimoDeRecuperoHttpGetIn" />
+      <wsdl:output message="tns:ObtenerValorMinimoDeRecuperoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModalidadDePago">
+      <wsdl:input message="tns:ObtenerModalidadDePagoHttpGetIn" />
+      <wsdl:output message="tns:ObtenerModalidadDePagoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RecuperoWSHttpPost">
+    <wsdl:operation name="ObtenerTipoMotivoRecupero_TT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoMotivoRecupero.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerTipoMotivoRecupero_TTHttpPostIn" />
+      <wsdl:output message="tns:ObtenerTipoMotivoRecupero_TTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstadoRecupero_TT">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna un listado del objeto TipoEstadoRecupero.</wsdl:documentation>
+      <wsdl:input message="tns:ObtenerTipoEstadoRecupero_TTHttpPostIn" />
+      <wsdl:output message="tns:ObtenerTipoEstadoRecupero_TTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerValorMinimoDeRecupero">
+      <wsdl:input message="tns:ObtenerValorMinimoDeRecuperoHttpPostIn" />
+      <wsdl:output message="tns:ObtenerValorMinimoDeRecuperoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModalidadDePago">
+      <wsdl:input message="tns:ObtenerModalidadDePagoHttpPostIn" />
+      <wsdl:output message="tns:ObtenerModalidadDePagoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RecuperoWSSoap" type="tns:RecuperoWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerTipoMotivoRecupero_TT">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ObtenerTipoMotivoRecupero_TT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstadoRecupero_TT">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ObtenerTipoEstadoRecupero_TT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_Recupero_T">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Buscar_Recupero_T" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerValorMinimoDeRecupero">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ObtenerValorMinimoDeRecupero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModalidadDePago">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ObtenerModalidadDePago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosDeRecupero_TXId">
+      <soap:operation soapAction="http://dat.anses.gov.ar/ObtenerDatosDeRecupero_TXId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RecuperoWSSoap12" type="tns:RecuperoWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ObtenerTipoMotivoRecupero_TT">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ObtenerTipoMotivoRecupero_TT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstadoRecupero_TT">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ObtenerTipoEstadoRecupero_TT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Buscar_Recupero_T">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Buscar_Recupero_T" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerValorMinimoDeRecupero">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ObtenerValorMinimoDeRecupero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModalidadDePago">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ObtenerModalidadDePago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDatosDeRecupero_TXId">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/ObtenerDatosDeRecupero_TXId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RecuperoWSHttpGet" type="tns:RecuperoWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ObtenerTipoMotivoRecupero_TT">
+      <http:operation location="/ObtenerTipoMotivoRecupero_TT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstadoRecupero_TT">
+      <http:operation location="/ObtenerTipoEstadoRecupero_TT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerValorMinimoDeRecupero">
+      <http:operation location="/ObtenerValorMinimoDeRecupero" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModalidadDePago">
+      <http:operation location="/ObtenerModalidadDePago" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RecuperoWSHttpPost" type="tns:RecuperoWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ObtenerTipoMotivoRecupero_TT">
+      <http:operation location="/ObtenerTipoMotivoRecupero_TT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerTipoEstadoRecupero_TT">
+      <http:operation location="/ObtenerTipoEstadoRecupero_TT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerValorMinimoDeRecupero">
+      <http:operation location="/ObtenerValorMinimoDeRecupero" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerModalidadDePago">
+      <http:operation location="/ObtenerModalidadDePago" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RecuperoWS">
+    <wsdl:port name="RecuperoWSSoap" binding="tns:RecuperoWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/RecuperoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RecuperoWSSoap12" binding="tns:RecuperoWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/RecuperoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RecuperoWSHttpGet" binding="tns:RecuperoWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/RecuperoWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RecuperoWSHttpPost" binding="tns:RecuperoWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/RecuperoWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

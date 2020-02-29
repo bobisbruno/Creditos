@@ -1,0 +1,15 @@
+﻿        .bodyMaster {
+	        BACKGROUND-COLOR: #e9fde5; MARGIN-TOP: 7px; WIDTH: 99%; margin-left: 0px; margin-right:0px
+        }
+        table.datos tr.datos td {
+	        BORDER-BOTTOM: #c0c0c0 2px solid; TEXT-ALIGN: left; PADDING-BOTTOM: 0px; FONT-STYLE: normal; MARGIN-TOP: 20px; WIDTH: auto; PADDING-RIGHT: 7px; FONT-FAMILY: Tahoma; MARGIN-BOTTOM: 0px; HEIGHT: 18px; FONT-SIZE: 9pt; VERTICAL-ALIGN: middle; FONT-WEIGHT: normal; PADDING-TOP: 5px
+        }
+        table.datos tr.etiquetas td {
+	        BORDER-BOTTOM: 0px; TEXT-ALIGN: left; PADDING-BOTTOM: 5px; FONT-STYLE: normal; PADDING-RIGHT: 7px; FONT-FAMILY: Century Gothic,Verdana; MARGIN-BOTTOM: 0px; COLOR: #0080ff; FONT-SIZE: 8pt; FONT-WEIGHT: normal; TEXT-DECORATION: none
+        }
+        .barraTitulo {
+	        TEXT-ALIGN: left; PADDING-BOTTOM:2px; BACKGROUND-COLOR: #000000; PADDING-LEFT: 2px; WIDTH: auto; PADDING-RIGHT: 2px; FONT-FAMILY: Calibri,Arial; COLOR: white; FONT-SIZE: 8pt; FONT-WEIGHT: bold; PADDING-TOP: 2px
+        }
+        .tablaTitulo{
+            WIDTH: 100% 
+        }

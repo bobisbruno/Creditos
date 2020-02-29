@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.tarjetashopping.com.ar/services" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="NovedadesSVCImpService" targetNamespace="http://www.tarjetashopping.com.ar/services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://www.tarjetashopping.com.ar/services" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="lote" type="tns:lote" />
+      <xs:element name="procesarLoteAltas" type="tns:procesarLoteAltas" />
+      <xs:element name="procesarLoteAltasResponse" type="tns:procesarLoteAltasResponse" />
+      <xs:element name="procesarLoteBajas" type="tns:procesarLoteBajas" />
+      <xs:element name="procesarLoteBajasResponse" type="tns:procesarLoteBajasResponse" />
+      <xs:element name="procesarLoteReposicion" type="tns:procesarLoteReposicion" />
+      <xs:element name="procesarLoteReposicionResponse" type="tns:procesarLoteReposicionResponse" />
+      <xs:element name="validarSticker" type="tns:validarSticker" />
+      <xs:element name="validarStickerResponse" type="tns:validarStickerResponse" />
+      <xs:element name="version" type="tns:version" />
+      <xs:element name="versionResponse" type="tns:versionResponse" />
+      <xs:complexType name="procesarLoteBajas">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:LoteBaja" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoteBaja">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:lote">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="novedadesBaja" nillable="true" type="tns:novedadBaja" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="lote">
+        <xs:sequence>
+          <xs:element name="nroLote" type="xs:long" />
+          <xs:element name="cantidad" type="xs:int" />
+          <xs:element minOccurs="0" name="nombreArchivo" type="xs:string" />
+          <xs:element minOccurs="0" name="fecha" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="novedadBaja">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:novedad">
+            <xs:sequence>
+              <xs:element name="codMov" type="xs:int" />
+              <xs:element name="codMotivo" type="xs:int" />
+              <xs:element minOccurs="0" name="fecNov" type="xs:string" />
+              <xs:element minOccurs="0" name="fecFac" type="xs:string" />
+              <xs:element name="saldo" type="xs:double" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="novedad">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cuil" type="xs:string" />
+          <xs:element name="idTransaccion" type="xs:long" />
+          <xs:element name="nroCredito" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="procesarLoteBajasResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:rtaLote" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="rtaLote">
+        <xs:sequence>
+          <xs:element name="cantidadErrores" type="xs:int" />
+          <xs:element name="cantidadNovedades" type="xs:int" />
+          <xs:element name="cantidadProcesadas" type="xs:int" />
+          <xs:element name="codRta" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="erroresList" nillable="true" type="xs:long" />
+          <xs:element minOccurs="0" name="fecha" type="xs:string" />
+          <xs:element minOccurs="0" name="msgRta" type="xs:string" />
+          <xs:element minOccurs="0" name="nombreArchivo" type="xs:string" />
+          <xs:element name="nroLote" type="xs:long" />
+          <xs:element minOccurs="0" name="operacion" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="rtaNovedadList" nillable="true" type="tns:rtaNovedad" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="rtaNovedad">
+        <xs:sequence>
+          <xs:element name="codRespuesta" type="xs:int" />
+          <xs:element minOccurs="0" name="data" type="xs:string" />
+          <xs:element minOccurs="0" name="msgRta" type="xs:string" />
+          <xs:element minOccurs="0" name="novedadAlta" type="tns:novedadAlta" />
+          <xs:element minOccurs="0" name="novedadBaja" type="tns:novedadBaja" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="novedadAlta">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:novedad">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="apeNom" type="xs:string" />
+              <xs:element minOccurs="0" name="esCelular" type="xs:string" />
+              <xs:element minOccurs="0" name="es_celular2" type="xs:string" />
+              <xs:element minOccurs="0" name="fecha_alta" type="xs:string" />
+              <xs:element minOccurs="0" name="mail" type="xs:string" />
+              <xs:element name="monto" type="xs:double" />
+              <xs:element name="motivo" type="xs:int" />
+              <xs:element minOccurs="0" name="nroBeneficiario" type="xs:string" />
+              <xs:element minOccurs="0" name="nroDoc" type="xs:string" />
+              <xs:element minOccurs="0" name="nroSticker" type="xs:string" />
+              <xs:element minOccurs="0" name="nro_telefono" type="xs:string" />
+              <xs:element minOccurs="0" name="nro_telefono2" type="xs:string" />
+              <xs:element name="operacion" type="xs:int" />
+              <xs:element minOccurs="0" name="sexo" type="xs:string" />
+              <xs:element minOccurs="0" name="telediscado" type="xs:string" />
+              <xs:element minOccurs="0" name="telediscado2" type="xs:string" />
+              <xs:element minOccurs="0" name="tipoDoc" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="procesarLoteReposicion">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:loteAlta" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="loteAlta">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:lote">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="novedadesAlta" nillable="true" type="tns:novedadAlta" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="procesarLoteReposicionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:rtaLote" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="procesarLoteAltas">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:loteAlta" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="procesarLoteAltasResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:rtaLote" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="version">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:complexType name="versionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="version" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validarSticker">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="tns:validacionSticker" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validacionSticker">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cuit" type="xs:long" />
+          <xs:element minOccurs="0" name="nroDoc" type="xs:string" />
+          <xs:element minOccurs="0" name="nroSticker" type="xs:long" />
+          <xs:element minOccurs="0" name="sexo" type="xs:string" />
+          <xs:element minOccurs="0" name="tipoDoc" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validarStickerResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:validacionStickerRta" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validacionStickerRta">
+        <xs:sequence>
+          <xs:element name="codRta" type="xs:int" />
+          <xs:element minOccurs="0" name="msgRta" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="procesarLoteBajasResponse">
+    <wsdl:part name="parameters" element="tns:procesarLoteBajasResponse" />
+  </wsdl:message>
+  <wsdl:message name="procesarLoteBajas">
+    <wsdl:part name="parameters" element="tns:procesarLoteBajas" />
+  </wsdl:message>
+  <wsdl:message name="version">
+    <wsdl:part name="parameters" element="tns:version" />
+  </wsdl:message>
+  <wsdl:message name="procesarLoteReposicionResponse">
+    <wsdl:part name="parameters" element="tns:procesarLoteReposicionResponse" />
+  </wsdl:message>
+  <wsdl:message name="versionResponse">
+    <wsdl:part name="parameters" element="tns:versionResponse" />
+  </wsdl:message>
+  <wsdl:message name="procesarLoteReposicion">
+    <wsdl:part name="parameters" element="tns:procesarLoteReposicion" />
+  </wsdl:message>
+  <wsdl:message name="validarStickerResponse">
+    <wsdl:part name="parameters" element="tns:validarStickerResponse" />
+  </wsdl:message>
+  <wsdl:message name="procesarLoteAltas">
+    <wsdl:part name="parameters" element="tns:procesarLoteAltas" />
+  </wsdl:message>
+  <wsdl:message name="procesarLoteAltasResponse">
+    <wsdl:part name="parameters" element="tns:procesarLoteAltasResponse" />
+  </wsdl:message>
+  <wsdl:message name="validarSticker">
+    <wsdl:part name="parameters" element="tns:validarSticker" />
+  </wsdl:message>
+  <wsdl:portType name="NovedadesSVCImp">
+    <wsdl:operation name="procesarLoteBajas">
+      <wsdl:input name="procesarLoteBajas" message="tns:procesarLoteBajas" />
+      <wsdl:output name="procesarLoteBajasResponse" message="tns:procesarLoteBajasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="procesarLoteReposicion">
+      <wsdl:input name="procesarLoteReposicion" message="tns:procesarLoteReposicion" />
+      <wsdl:output name="procesarLoteReposicionResponse" message="tns:procesarLoteReposicionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="procesarLoteAltas">
+      <wsdl:input name="procesarLoteAltas" message="tns:procesarLoteAltas" />
+      <wsdl:output name="procesarLoteAltasResponse" message="tns:procesarLoteAltasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="version">
+      <wsdl:input name="version" message="tns:version" />
+      <wsdl:output name="versionResponse" message="tns:versionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="validarSticker">
+      <wsdl:input name="validarSticker" message="tns:validarSticker" />
+      <wsdl:output name="validarStickerResponse" message="tns:validarStickerResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NovedadesSVCImpServiceSoapBinding" type="tns:NovedadesSVCImp">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="procesarLoteBajas">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="procesarLoteBajas">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="procesarLoteBajasResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="procesarLoteReposicion">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="procesarLoteReposicion">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="procesarLoteReposicionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="procesarLoteAltas">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="procesarLoteAltas">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="procesarLoteAltasResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="validarSticker">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="validarSticker">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validarStickerResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="version">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="version">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="versionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NovedadesSVCImpService">
+    <wsdl:port name="NovedadesSVCImpPort" binding="tns:NovedadesSVCImpServiceSoapBinding">
+      <soap:address location="http://10.5.50.49:8080/AnsesServices/services/NovedadesSVC" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,5 @@
+
+Microsoft (R) .NET Global Assembly Cache Utility.  Version 1.1.4318.0
+Copyright (C) Microsoft Corporation 1998-2002. All rights reserved.
+
+Assembly successfully added to the cache

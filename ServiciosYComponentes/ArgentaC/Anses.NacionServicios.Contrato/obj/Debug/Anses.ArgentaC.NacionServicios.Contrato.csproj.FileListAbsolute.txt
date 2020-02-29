@@ -1,0 +1,5 @@
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\Anses.ArgentaC.NacionServicios.Contrato\Anses.ArgentaC.NacionServicios.Contrato\bin\Debug\Anses.ArgentaC.NacionServicios.Contrato.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\Anses.ArgentaC.NacionServicios.Contrato\Anses.ArgentaC.NacionServicios.Contrato\bin\Debug\Anses.ArgentaC.NacionServicios.Contrato.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\Anses.ArgentaC.NacionServicios.Contrato\Anses.ArgentaC.NacionServicios.Contrato\obj\Debug\Anses.ArgentaC.NacionServicios.Contrato.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\Anses.ArgentaC.NacionServicios.Contrato\Anses.ArgentaC.NacionServicios.Contrato\obj\Debug\Anses.ArgentaC.NacionServicios.Contrato.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\Anses.ArgentaC.NacionServicios.Contrato\Anses.ArgentaC.NacionServicios.Contrato\obj\Debug\Anses.ArgentaC.NacionServicios.Contrato.csprojResolveAssemblyReference.cache

@@ -1,0 +1,1 @@
+<%@ WebService Language="C#" CodeBehind="~/App_Code/ParametrosWS_V1.cs" Class="ANSES.Microinformatica.DATws.ParametrosWS" %>

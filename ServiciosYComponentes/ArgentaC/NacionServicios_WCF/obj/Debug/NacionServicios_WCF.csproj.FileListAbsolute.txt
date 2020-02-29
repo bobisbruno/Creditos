@@ -1,0 +1,28 @@
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\bin\NacionServicios_WCF.dll.config
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\bin\NacionServicios_WCF.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\bin\NacionServicios_WCF.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\bin\Anses.NacionServicios.Contrato.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\bin\Newtonsoft.Json.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\bin\Anses.NacionServicios.Contrato.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\bin\Newtonsoft.Json.xml
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.csprojResolveAssemblyReference.cache
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.csprojResolveAssemblyReference.cache
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\bin\NacionServicios_WCF.dll.config
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\bin\NacionServicios_WCF.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\bin\NacionServicios_WCF.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\bin\Anses.NacionServicios.Contrato.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\bin\Newtonsoft.Json.dll
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\bin\Anses.NacionServicios.Contrato.pdb
+C:\Desarrollos.NET\YH-ARGENTAC\ServiciosYComponentes\NacionServicios_WCF\bin\Newtonsoft.Json.xml
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\bin\NacionServicios_WCF.dll.config
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\bin\NacionServicios_WCF.dll
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\bin\NacionServicios_WCF.pdb
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\bin\Anses.NacionServicios.Contrato.dll
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\bin\Anses.NacionServicios.Contrato.pdb
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.csprojResolveAssemblyReference.cache
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.dll
+C:\Desarrollos .Net\YH-DATV2\Produccion\ServiciosYComponentes\NacionServicios_WCF\obj\Debug\NacionServicios_WCF.pdb

@@ -1,0 +1,1007 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:element name="TTP_EstadoGrupoControlXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_EstadoGrupoControlXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_EstadoGrupoControlXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TablaTipoPersona">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionCorta" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TTP_TipoDocumentoXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_TipoDocumentoXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_TipoDocumentoXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_EstadoCivilXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_EstadoCivilXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_EstadoCivilXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_IncapacidadXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_IncapacidadXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_IncapacidadXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_ComprobanteIngresoPaisXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_ComprobanteIngresoPaisXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_ComprobanteIngresoPaisXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_TipoResidenciaXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_TipoResidenciaXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_TipoResidenciaXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_TipoDomicilioXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_TipoDomicilioXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_TipoDomicilioXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_EstadoFallecimientoXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_EstadoFallecimientoXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_EstadoFallecimientoXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_TipoCuilCuitXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_TipoCuilCuitXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_TipoCuilCuitXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_EstadoRespectoAfipXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_EstadoRespectoAfipXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_EstadoRespectoAfipXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_PaisXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_PaisXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_PaisXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_ProvinciaXCodigo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="codigo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TTP_ProvinciaXCodigoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TTP_ProvinciaXCodigoResult" type="tns:TablaTipoPersona" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TablaTipoPersona" nillable="true" type="tns:TablaTipoPersona" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TTP_EstadoGrupoControlXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoGrupoControlXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoGrupoControlXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoGrupoControlXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDocumentoXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_TipoDocumentoXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDocumentoXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_TipoDocumentoXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoCivilXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoCivilXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoCivilXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoCivilXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_IncapacidadXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_IncapacidadXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_IncapacidadXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_IncapacidadXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ComprobanteIngresoPaisXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_ComprobanteIngresoPaisXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ComprobanteIngresoPaisXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_ComprobanteIngresoPaisXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoResidenciaXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_TipoResidenciaXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoResidenciaXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_TipoResidenciaXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDomicilioXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_TipoDomicilioXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDomicilioXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_TipoDomicilioXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoFallecimientoXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoFallecimientoXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoFallecimientoXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoFallecimientoXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoCuilCuitXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_TipoCuilCuitXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoCuilCuitXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_TipoCuilCuitXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoRespectoAfipXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoRespectoAfipXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoRespectoAfipXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_EstadoRespectoAfipXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_PaisXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_PaisXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_PaisXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_PaisXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ProvinciaXCodigoSoapIn">
+    <wsdl:part name="parameters" element="tns:TTP_ProvinciaXCodigo" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ProvinciaXCodigoSoapOut">
+    <wsdl:part name="parameters" element="tns:TTP_ProvinciaXCodigoResponse" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoGrupoControlXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoGrupoControlXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDocumentoXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDocumentoXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoCivilXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoCivilXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_IncapacidadXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_IncapacidadXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ComprobanteIngresoPaisXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ComprobanteIngresoPaisXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoResidenciaXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoResidenciaXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDomicilioXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDomicilioXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoFallecimientoXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoFallecimientoXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoCuilCuitXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoCuilCuitXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoRespectoAfipXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoRespectoAfipXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_PaisXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_PaisXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ProvinciaXCodigoHttpGetIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ProvinciaXCodigoHttpGetOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoGrupoControlXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoGrupoControlXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDocumentoXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDocumentoXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoCivilXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoCivilXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_IncapacidadXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_IncapacidadXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ComprobanteIngresoPaisXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ComprobanteIngresoPaisXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoResidenciaXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoResidenciaXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDomicilioXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoDomicilioXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoFallecimientoXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoFallecimientoXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoCuilCuitXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_TipoCuilCuitXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoRespectoAfipXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_EstadoRespectoAfipXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_PaisXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_PaisXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ProvinciaXCodigoHttpPostIn">
+    <wsdl:part name="codigo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TTP_ProvinciaXCodigoHttpPostOut">
+    <wsdl:part name="Body" element="tns:TablaTipoPersona" />
+  </wsdl:message>
+  <wsdl:portType name="TablasTipoPersonasWSSoap">
+    <wsdl:operation name="TTP_EstadoGrupoControlXCodigo">
+      <wsdl:input message="tns:TTP_EstadoGrupoControlXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_EstadoGrupoControlXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDocumentoXCodigo">
+      <wsdl:input message="tns:TTP_TipoDocumentoXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_TipoDocumentoXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoCivilXCodigo">
+      <wsdl:input message="tns:TTP_EstadoCivilXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_EstadoCivilXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_IncapacidadXCodigo">
+      <wsdl:input message="tns:TTP_IncapacidadXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_IncapacidadXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ComprobanteIngresoPaisXCodigo">
+      <wsdl:input message="tns:TTP_ComprobanteIngresoPaisXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_ComprobanteIngresoPaisXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoResidenciaXCodigo">
+      <wsdl:input message="tns:TTP_TipoResidenciaXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_TipoResidenciaXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDomicilioXCodigo">
+      <wsdl:input message="tns:TTP_TipoDomicilioXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_TipoDomicilioXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoFallecimientoXCodigo">
+      <wsdl:input message="tns:TTP_EstadoFallecimientoXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_EstadoFallecimientoXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoCuilCuitXCodigo">
+      <wsdl:input message="tns:TTP_TipoCuilCuitXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_TipoCuilCuitXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoRespectoAfipXCodigo">
+      <wsdl:input message="tns:TTP_EstadoRespectoAfipXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_EstadoRespectoAfipXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_PaisXCodigo">
+      <wsdl:input message="tns:TTP_PaisXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_PaisXCodigoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ProvinciaXCodigo">
+      <wsdl:input message="tns:TTP_ProvinciaXCodigoSoapIn" />
+      <wsdl:output message="tns:TTP_ProvinciaXCodigoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TablasTipoPersonasWSHttpGet">
+    <wsdl:operation name="TTP_EstadoGrupoControlXCodigo">
+      <wsdl:input message="tns:TTP_EstadoGrupoControlXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_EstadoGrupoControlXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDocumentoXCodigo">
+      <wsdl:input message="tns:TTP_TipoDocumentoXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_TipoDocumentoXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoCivilXCodigo">
+      <wsdl:input message="tns:TTP_EstadoCivilXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_EstadoCivilXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_IncapacidadXCodigo">
+      <wsdl:input message="tns:TTP_IncapacidadXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_IncapacidadXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ComprobanteIngresoPaisXCodigo">
+      <wsdl:input message="tns:TTP_ComprobanteIngresoPaisXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_ComprobanteIngresoPaisXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoResidenciaXCodigo">
+      <wsdl:input message="tns:TTP_TipoResidenciaXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_TipoResidenciaXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDomicilioXCodigo">
+      <wsdl:input message="tns:TTP_TipoDomicilioXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_TipoDomicilioXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoFallecimientoXCodigo">
+      <wsdl:input message="tns:TTP_EstadoFallecimientoXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_EstadoFallecimientoXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoCuilCuitXCodigo">
+      <wsdl:input message="tns:TTP_TipoCuilCuitXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_TipoCuilCuitXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoRespectoAfipXCodigo">
+      <wsdl:input message="tns:TTP_EstadoRespectoAfipXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_EstadoRespectoAfipXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_PaisXCodigo">
+      <wsdl:input message="tns:TTP_PaisXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_PaisXCodigoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ProvinciaXCodigo">
+      <wsdl:input message="tns:TTP_ProvinciaXCodigoHttpGetIn" />
+      <wsdl:output message="tns:TTP_ProvinciaXCodigoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TablasTipoPersonasWSHttpPost">
+    <wsdl:operation name="TTP_EstadoGrupoControlXCodigo">
+      <wsdl:input message="tns:TTP_EstadoGrupoControlXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_EstadoGrupoControlXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDocumentoXCodigo">
+      <wsdl:input message="tns:TTP_TipoDocumentoXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_TipoDocumentoXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoCivilXCodigo">
+      <wsdl:input message="tns:TTP_EstadoCivilXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_EstadoCivilXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_IncapacidadXCodigo">
+      <wsdl:input message="tns:TTP_IncapacidadXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_IncapacidadXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ComprobanteIngresoPaisXCodigo">
+      <wsdl:input message="tns:TTP_ComprobanteIngresoPaisXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_ComprobanteIngresoPaisXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoResidenciaXCodigo">
+      <wsdl:input message="tns:TTP_TipoResidenciaXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_TipoResidenciaXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDomicilioXCodigo">
+      <wsdl:input message="tns:TTP_TipoDomicilioXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_TipoDomicilioXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoFallecimientoXCodigo">
+      <wsdl:input message="tns:TTP_EstadoFallecimientoXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_EstadoFallecimientoXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoCuilCuitXCodigo">
+      <wsdl:input message="tns:TTP_TipoCuilCuitXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_TipoCuilCuitXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoRespectoAfipXCodigo">
+      <wsdl:input message="tns:TTP_EstadoRespectoAfipXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_EstadoRespectoAfipXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_PaisXCodigo">
+      <wsdl:input message="tns:TTP_PaisXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_PaisXCodigoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ProvinciaXCodigo">
+      <wsdl:input message="tns:TTP_ProvinciaXCodigoHttpPostIn" />
+      <wsdl:output message="tns:TTP_ProvinciaXCodigoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TablasTipoPersonasWSSoap" type="tns:TablasTipoPersonasWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TTP_EstadoGrupoControlXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoGrupoControlXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDocumentoXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_TipoDocumentoXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoCivilXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoCivilXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_IncapacidadXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_IncapacidadXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ComprobanteIngresoPaisXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_ComprobanteIngresoPaisXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoResidenciaXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_TipoResidenciaXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDomicilioXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_TipoDomicilioXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoFallecimientoXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoFallecimientoXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoCuilCuitXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_TipoCuilCuitXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoRespectoAfipXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoRespectoAfipXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_PaisXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_PaisXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ProvinciaXCodigo">
+      <soap:operation soapAction="http://dat.anses.gov.ar/TTP_ProvinciaXCodigo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TablasTipoPersonasWSSoap12" type="tns:TablasTipoPersonasWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TTP_EstadoGrupoControlXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoGrupoControlXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDocumentoXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_TipoDocumentoXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoCivilXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoCivilXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_IncapacidadXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_IncapacidadXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ComprobanteIngresoPaisXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_ComprobanteIngresoPaisXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoResidenciaXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_TipoResidenciaXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDomicilioXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_TipoDomicilioXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoFallecimientoXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoFallecimientoXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoCuilCuitXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_TipoCuilCuitXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoRespectoAfipXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_EstadoRespectoAfipXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_PaisXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_PaisXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ProvinciaXCodigo">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/TTP_ProvinciaXCodigo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TablasTipoPersonasWSHttpGet" type="tns:TablasTipoPersonasWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TTP_EstadoGrupoControlXCodigo">
+      <http:operation location="/TTP_EstadoGrupoControlXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDocumentoXCodigo">
+      <http:operation location="/TTP_TipoDocumentoXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoCivilXCodigo">
+      <http:operation location="/TTP_EstadoCivilXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_IncapacidadXCodigo">
+      <http:operation location="/TTP_IncapacidadXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ComprobanteIngresoPaisXCodigo">
+      <http:operation location="/TTP_ComprobanteIngresoPaisXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoResidenciaXCodigo">
+      <http:operation location="/TTP_TipoResidenciaXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDomicilioXCodigo">
+      <http:operation location="/TTP_TipoDomicilioXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoFallecimientoXCodigo">
+      <http:operation location="/TTP_EstadoFallecimientoXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoCuilCuitXCodigo">
+      <http:operation location="/TTP_TipoCuilCuitXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoRespectoAfipXCodigo">
+      <http:operation location="/TTP_EstadoRespectoAfipXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_PaisXCodigo">
+      <http:operation location="/TTP_PaisXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ProvinciaXCodigo">
+      <http:operation location="/TTP_ProvinciaXCodigo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TablasTipoPersonasWSHttpPost" type="tns:TablasTipoPersonasWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TTP_EstadoGrupoControlXCodigo">
+      <http:operation location="/TTP_EstadoGrupoControlXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDocumentoXCodigo">
+      <http:operation location="/TTP_TipoDocumentoXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoCivilXCodigo">
+      <http:operation location="/TTP_EstadoCivilXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_IncapacidadXCodigo">
+      <http:operation location="/TTP_IncapacidadXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ComprobanteIngresoPaisXCodigo">
+      <http:operation location="/TTP_ComprobanteIngresoPaisXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoResidenciaXCodigo">
+      <http:operation location="/TTP_TipoResidenciaXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoDomicilioXCodigo">
+      <http:operation location="/TTP_TipoDomicilioXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoFallecimientoXCodigo">
+      <http:operation location="/TTP_EstadoFallecimientoXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_TipoCuilCuitXCodigo">
+      <http:operation location="/TTP_TipoCuilCuitXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_EstadoRespectoAfipXCodigo">
+      <http:operation location="/TTP_EstadoRespectoAfipXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_PaisXCodigo">
+      <http:operation location="/TTP_PaisXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TTP_ProvinciaXCodigo">
+      <http:operation location="/TTP_ProvinciaXCodigo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TablasTipoPersonasWS">
+    <wsdl:port name="TablasTipoPersonasWSSoap" binding="tns:TablasTipoPersonasWSSoap">
+      <soap:address location="http://localhost/DATServicioV2/TablasTipoPersonasWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TablasTipoPersonasWSSoap12" binding="tns:TablasTipoPersonasWSSoap12">
+      <soap12:address location="http://localhost/DATServicioV2/TablasTipoPersonasWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TablasTipoPersonasWSHttpGet" binding="tns:TablasTipoPersonasWSHttpGet">
+      <http:address location="http://localhost/DATServicioV2/TablasTipoPersonasWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TablasTipoPersonasWSHttpPost" binding="tns:TablasTipoPersonasWSHttpPost">
+      <http:address location="http://localhost/DATServicioV2/TablasTipoPersonasWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

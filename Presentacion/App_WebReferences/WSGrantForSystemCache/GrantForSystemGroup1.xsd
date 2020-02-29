@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Anses.Director" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Anses.Director" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfDTOServicioAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DTOServicioAction" nillable="true" type="tns:DTOServicioAction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDTOServicioAction" nillable="true" type="tns:ArrayOfDTOServicioAction" />
+  <xs:complexType name="DTOServicioAction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SoapFile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="accion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="servicio" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOServicioAction" nillable="true" type="tns:DTOServicioAction" />
+</xs:schema>

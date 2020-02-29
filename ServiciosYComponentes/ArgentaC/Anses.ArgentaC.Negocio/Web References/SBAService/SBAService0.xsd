@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="ANSeS.SBA.ServicesContracts.DTO" elementFormDefault="qualified" targetNamespace="ANSeS.SBA.ServicesContracts.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd3" namespace="ANSeS.SBA.ServicesContracts.Enums" />
+  <xs:complexType name="EnrollRequestDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:DocumentDto" />
+          <xs:element minOccurs="0" name="Fingers" nillable="true" type="tns:ArrayOfFingerDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EnrollRequestDto" nillable="true" type="tns:EnrollRequestDto" />
+  <xs:complexType name="RequestDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Entity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:ArrayOfMetadataDto" />
+      <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestDto" nillable="true" type="tns:RequestDto" />
+  <xs:complexType name="ArrayOfMetadataDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MetadataDto" nillable="true" type="tns:MetadataDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMetadataDto" nillable="true" type="tns:ArrayOfMetadataDto" />
+  <xs:complexType name="MetadataDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MetadataDto" nillable="true" type="tns:MetadataDto" />
+  <xs:complexType name="DocumentDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocumentNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentDto" nillable="true" type="tns:DocumentDto" />
+  <xs:complexType name="ArrayOfFingerDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FingerDto" nillable="true" type="tns:FingerDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFingerDto" nillable="true" type="tns:ArrayOfFingerDto" />
+  <xs:complexType name="FingerDto">
+    <xs:sequence>
+      <xs:element xmlns:q1="ANSeS.SBA.ServicesContracts.Enums" minOccurs="0" name="FingerType" type="q1:FingerType" />
+      <xs:element xmlns:q2="ANSeS.SBA.ServicesContracts.Enums" minOccurs="0" name="FingerprintType" type="q2:FingerprintType" />
+      <xs:element minOccurs="0" name="IsAmputation" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Template" nillable="true" type="xs:base64Binary" />
+      <xs:element xmlns:q3="ANSeS.SBA.ServicesContracts.Enums" minOccurs="0" name="TemplateFormat" type="q3:TemplateFormat" />
+      <xs:element minOccurs="0" name="WSQ" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FingerDto" nillable="true" type="tns:FingerDto" />
+  <xs:complexType name="EnrollResponseDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EnrollResponseDto" nillable="true" type="tns:EnrollResponseDto" />
+  <xs:complexType name="ResponseDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfResponseMessageDto" />
+      <xs:element minOccurs="0" name="HasErrors" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Metadata" nillable="true" type="tns:ArrayOfMetadataDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseDto" nillable="true" type="tns:ResponseDto" />
+  <xs:complexType name="ArrayOfResponseMessageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseMessageDto" nillable="true" type="tns:ResponseMessageDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseMessageDto" nillable="true" type="tns:ArrayOfResponseMessageDto" />
+  <xs:complexType name="ResponseMessageDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseMessageDto" nillable="true" type="tns:ResponseMessageDto" />
+  <xs:complexType name="EnrollResultRequestDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EnrollResultRequestDto" nillable="true" type="tns:EnrollResultRequestDto" />
+  <xs:complexType name="EnrollResultResponseDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:DocumentDto" />
+          <xs:element minOccurs="0" name="EnrollState" nillable="true" type="tns:ResponseMessageDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EnrollResultResponseDto" nillable="true" type="tns:EnrollResultResponseDto" />
+  <xs:complexType name="VerifyRequestDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:DocumentDto" />
+          <xs:element minOccurs="0" name="Fingers" nillable="true" type="tns:ArrayOfFingerDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VerifyRequestDto" nillable="true" type="tns:VerifyRequestDto" />
+  <xs:complexType name="VerifyResponseDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="TransactionId" type="xs:int" />
+          <xs:element minOccurs="0" name="VerifyState" nillable="true" type="tns:ResponseMessageDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VerifyResponseDto" nillable="true" type="tns:VerifyResponseDto" />
+  <xs:complexType name="IdentifyRequestDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Fingers" nillable="true" type="tns:ArrayOfFingerDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IdentifyRequestDto" nillable="true" type="tns:IdentifyRequestDto" />
+  <xs:complexType name="IdentifyResponseDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:DocumentDto" />
+          <xs:element minOccurs="0" name="IdentifyState" nillable="true" type="tns:ResponseMessageDto" />
+          <xs:element minOccurs="0" name="TransactionId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IdentifyResponseDto" nillable="true" type="tns:IdentifyResponseDto" />
+  <xs:complexType name="CuilStateRequestDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Document" nillable="true" type="tns:DocumentDto" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CuilStateRequestDto" nillable="true" type="tns:CuilStateRequestDto" />
+  <xs:complexType name="CuilStateResponseDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CuilState" nillable="true" type="tns:ResponseMessageDto" />
+          <xs:element minOccurs="0" name="LastActivityDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CuilStateResponseDto" nillable="true" type="tns:CuilStateResponseDto" />
+</xs:schema>

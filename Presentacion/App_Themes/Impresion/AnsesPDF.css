@@ -1,0 +1,116 @@
+﻿
+
+.TextoBlock {
+    font-weight: bold;
+}
+
+.miCont {
+    width: 100%;
+}
+
+h1 {
+    font-size: 14px;
+}
+
+p {
+    text-align: justify;
+    font-weight: normal;
+    font-size: 9pt;
+    /*line-height:16px;*/
+}
+
+.tabla {
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+
+    .tabla tr td {
+        font-size: 9pt;
+        border: 1px solid black;
+        padding: 3px;
+        height: 20px;
+        border: 1px solid #000;
+        padding: 3px;
+    }    
+    
+     .tbl tr td
+        {        	
+            height: 20px;
+            border: 1px solid #000;           
+            padding: 3px;
+        }
+    
+.Recuadro {
+    border: 1px solid black;
+    
+}
+
+/******************************
+           Grillas 
+******************************/
+
+.Grilla {
+    border-right: #000 1px solid;
+    border-top: #000 1px solid;
+    border-left: #000 1px solid;
+    border-bottom: #000 1px solid;
+    font-size: 8pt;
+    font-family: Arial, tahoma, helvetica;
+    text-decoration: none;
+    color: #000000;
+}
+
+    .Grilla td {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+
+    .Grilla tr td {
+        border: 1px solid #000;
+        /*padding-left: 5px;*/
+    }
+
+.GrillaHead {
+    font-family: Arial, tahoma, helvetica;
+    font-size: 6pt;
+    font-weight: bold;
+    background-color: #ccc;
+    text-align: right;
+    padding: 2px;
+}
+
+.GrillaBody {
+    color: #000000;
+    font-size: 4pt;
+    text-decoration: none;
+}
+
+/******************************/
+
+fieldset {
+    border: solid 1px #B2B2B2;
+    text-align: left;
+}
+
+legend {
+    color: #595959;
+    font-weight: bold;
+}
+
+.CajaTexto {
+    border: solid 1px #B2B2B2;
+    font-size: 11px;
+}
+
+.SaltoPagina
+        {
+            page-break-before: always;
+            margin: 0;
+            padding: 0;
+            border: none;
+            height: 1px;
+            
+        }

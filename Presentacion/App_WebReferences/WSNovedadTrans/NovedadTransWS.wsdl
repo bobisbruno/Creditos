@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dat.anses.gov.ar/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dat.anses.gov.ar/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dat.anses.gov.ar/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Novedades_T3_Alta_ConTasa_Sucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuil" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecNovedad" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoConcepto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="conceptoOPP" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="impTotal" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantCuotas" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroComprobante" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mensual" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idEstadoReg" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="montoPrestamo" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuotaTotalMensual" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TEM" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="gastoOtorgamiento" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="gastoAdmMensual" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuotaSocial" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CFTEA" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CFTNAReal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CFTEAReal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="gastoAdmMensualReal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TIRReal" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlCuotas" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idItem" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroFactura" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cbu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroTarjeta" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otro" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="prestadorServicio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="poliza" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroSocio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDomicilioBeneficiario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="idDomicilioPrestador" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroSucursal" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fVto" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="fVtoHabilSiguiente" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="idTipoDocPresentado" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="fEstimadaEntrega" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="solicitaTarjetaNominada" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoPreAprobado" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="docScaneada" type="tns:ArrayOfDocumentacionScaneada" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoDeBanco" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="codigoDeSucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentacionScaneada" nillable="true" type="tns:DocumentacionScaneada" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DocumentacionScaneada">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Idnovedad" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Imagen" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cuil" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdGralImagen" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IdImagen" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="TipoImagen" type="tns:TipoImagen" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Estado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FechaCreacion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TipoImagen">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IdTipoImagenDW" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescripcionAbrev" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Novedades_T3_Alta_ConTasa_SucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Novedades_T3_Alta_ConTasa_SucursalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Valido_Nov_T3_Gestion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="idPrestador" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="idBeneficiario" type="s:long" />
+            <s:element minOccurs="1" maxOccurs="1" name="tipoConcepto" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="conceptoOPP" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="impTotal" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="cantCuotas" type="s:unsignedByte" />
+            <s:element minOccurs="1" maxOccurs="1" name="porcentaje" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="codMovimiento" type="s:unsignedByte" />
+            <s:element minOccurs="0" maxOccurs="1" name="nroComprobante" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fecNovedad" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="mensual" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="montoPrestamo" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuotaTotalMensual" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TNA" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TEM" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="gastoOtorgamiento" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="gastoAdmMensual" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="cuotaSocial" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CFTEA" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CFTNAReal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CFTEAReal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="gastoAdmMensualReal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="TIRReal" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="bGestionErrores" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Valido_Nov_T3_GestionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Valido_Nov_T3_GestionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Novedades_T3_Alta_ConTasa_SucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:Novedades_T3_Alta_ConTasa_Sucursal" />
+  </wsdl:message>
+  <wsdl:message name="Novedades_T3_Alta_ConTasa_SucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:Novedades_T3_Alta_ConTasa_SucursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="Valido_Nov_T3_GestionSoapIn">
+    <wsdl:part name="parameters" element="tns:Valido_Nov_T3_Gestion" />
+  </wsdl:message>
+  <wsdl:message name="Valido_Nov_T3_GestionSoapOut">
+    <wsdl:part name="parameters" element="tns:Valido_Nov_T3_GestionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Valido_Nov_T3_GestionHttpGetIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idBeneficiario" type="s:string" />
+    <wsdl:part name="tipoConcepto" type="s:string" />
+    <wsdl:part name="conceptoOPP" type="s:string" />
+    <wsdl:part name="impTotal" type="s:string" />
+    <wsdl:part name="cantCuotas" type="s:string" />
+    <wsdl:part name="porcentaje" type="s:string" />
+    <wsdl:part name="codMovimiento" type="s:string" />
+    <wsdl:part name="nroComprobante" type="s:string" />
+    <wsdl:part name="fecNovedad" type="s:string" />
+    <wsdl:part name="ip" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="mensual" type="s:string" />
+    <wsdl:part name="montoPrestamo" type="s:string" />
+    <wsdl:part name="cuotaTotalMensual" type="s:string" />
+    <wsdl:part name="TNA" type="s:string" />
+    <wsdl:part name="TEM" type="s:string" />
+    <wsdl:part name="gastoOtorgamiento" type="s:string" />
+    <wsdl:part name="gastoAdmMensual" type="s:string" />
+    <wsdl:part name="cuotaSocial" type="s:string" />
+    <wsdl:part name="CFTEA" type="s:string" />
+    <wsdl:part name="CFTNAReal" type="s:string" />
+    <wsdl:part name="CFTEAReal" type="s:string" />
+    <wsdl:part name="gastoAdmMensualReal" type="s:string" />
+    <wsdl:part name="TIRReal" type="s:string" />
+    <wsdl:part name="bGestionErrores" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Valido_Nov_T3_GestionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="Valido_Nov_T3_GestionHttpPostIn">
+    <wsdl:part name="idPrestador" type="s:string" />
+    <wsdl:part name="idBeneficiario" type="s:string" />
+    <wsdl:part name="tipoConcepto" type="s:string" />
+    <wsdl:part name="conceptoOPP" type="s:string" />
+    <wsdl:part name="impTotal" type="s:string" />
+    <wsdl:part name="cantCuotas" type="s:string" />
+    <wsdl:part name="porcentaje" type="s:string" />
+    <wsdl:part name="codMovimiento" type="s:string" />
+    <wsdl:part name="nroComprobante" type="s:string" />
+    <wsdl:part name="fecNovedad" type="s:string" />
+    <wsdl:part name="ip" type="s:string" />
+    <wsdl:part name="usuario" type="s:string" />
+    <wsdl:part name="mensual" type="s:string" />
+    <wsdl:part name="montoPrestamo" type="s:string" />
+    <wsdl:part name="cuotaTotalMensual" type="s:string" />
+    <wsdl:part name="TNA" type="s:string" />
+    <wsdl:part name="TEM" type="s:string" />
+    <wsdl:part name="gastoOtorgamiento" type="s:string" />
+    <wsdl:part name="gastoAdmMensual" type="s:string" />
+    <wsdl:part name="cuotaSocial" type="s:string" />
+    <wsdl:part name="CFTEA" type="s:string" />
+    <wsdl:part name="CFTNAReal" type="s:string" />
+    <wsdl:part name="CFTEAReal" type="s:string" />
+    <wsdl:part name="gastoAdmMensualReal" type="s:string" />
+    <wsdl:part name="TIRReal" type="s:string" />
+    <wsdl:part name="bGestionErrores" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="Valido_Nov_T3_GestionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="NovedadTransWSSoap">
+    <wsdl:operation name="Novedades_T3_Alta_ConTasa_Sucursal">
+      <wsdl:input message="tns:Novedades_T3_Alta_ConTasa_SucursalSoapIn" />
+      <wsdl:output message="tns:Novedades_T3_Alta_ConTasa_SucursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Valido_Nov_T3_Gestion">
+      <wsdl:input message="tns:Valido_Nov_T3_GestionSoapIn" />
+      <wsdl:output message="tns:Valido_Nov_T3_GestionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NovedadTransWSHttpGet">
+    <wsdl:operation name="Valido_Nov_T3_Gestion">
+      <wsdl:input message="tns:Valido_Nov_T3_GestionHttpGetIn" />
+      <wsdl:output message="tns:Valido_Nov_T3_GestionHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NovedadTransWSHttpPost">
+    <wsdl:operation name="Valido_Nov_T3_Gestion">
+      <wsdl:input message="tns:Valido_Nov_T3_GestionHttpPostIn" />
+      <wsdl:output message="tns:Valido_Nov_T3_GestionHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NovedadTransWSSoap" type="tns:NovedadTransWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Novedades_T3_Alta_ConTasa_Sucursal">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Novedades_T3_Alta_ConTasa_Sucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Valido_Nov_T3_Gestion">
+      <soap:operation soapAction="http://dat.anses.gov.ar/Valido_Nov_T3_Gestion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NovedadTransWSSoap12" type="tns:NovedadTransWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Novedades_T3_Alta_ConTasa_Sucursal">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Novedades_T3_Alta_ConTasa_Sucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Valido_Nov_T3_Gestion">
+      <soap12:operation soapAction="http://dat.anses.gov.ar/Valido_Nov_T3_Gestion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NovedadTransWSHttpGet" type="tns:NovedadTransWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Valido_Nov_T3_Gestion">
+      <http:operation location="/Valido_Nov_T3_Gestion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NovedadTransWSHttpPost" type="tns:NovedadTransWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Valido_Nov_T3_Gestion">
+      <http:operation location="/Valido_Nov_T3_Gestion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NovedadTransWS">
+    <wsdl:port name="NovedadTransWSSoap" binding="tns:NovedadTransWSSoap">
+      <soap:address location="http://localhost/datserviciov2/NovedadTransWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NovedadTransWSSoap12" binding="tns:NovedadTransWSSoap12">
+      <soap12:address location="http://localhost/datserviciov2/NovedadTransWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NovedadTransWSHttpGet" binding="tns:NovedadTransWSHttpGet">
+      <http:address location="http://localhost/datserviciov2/NovedadTransWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NovedadTransWSHttpPost" binding="tns:NovedadTransWSHttpPost">
+      <http:address location="http://localhost/datserviciov2/NovedadTransWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

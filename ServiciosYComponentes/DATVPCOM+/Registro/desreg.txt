@@ -1,0 +1,4 @@
+Microsoft (R) .NET Framework Services Installation Utility Version 1.1.4322.573
+Copyright (C) Microsoft Corporation 1998-2002.  All rights reserved.
+
+Uninstallation of assembly 'C:\Desarrollo\DAT\DATVPCOM+\bin\Debug\DATVPCom+.dll' succeeded.

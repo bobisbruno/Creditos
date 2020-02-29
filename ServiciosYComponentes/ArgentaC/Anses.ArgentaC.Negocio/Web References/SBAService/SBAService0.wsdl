@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://mihuella.anses.gov.ar" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SBAService" targetNamespace="http://mihuella.anses.gov.ar" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://mihuella.anses.gov.ar/Imports">
+      <xsd:import schemaLocation="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd0" namespace="http://mihuella.anses.gov.ar" />
+      <xsd:import schemaLocation="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd2" namespace="ANSeS.SBA.ServicesContracts.DTO" />
+      <xsd:import schemaLocation="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc?xsd=xsd3" namespace="ANSeS.SBA.ServicesContracts.Enums" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISBAService_Enroll_InputMessage">
+    <wsdl:part name="parameters" element="tns:Enroll" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_Enroll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnrollResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_GetEnrollResult_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnrollResult" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_GetEnrollResult_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEnrollResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_Verify_InputMessage">
+    <wsdl:part name="parameters" element="tns:Verify" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_Verify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_Identify_InputMessage">
+    <wsdl:part name="parameters" element="tns:Identify" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_Identify_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IdentifyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_GetCuilState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuilState" />
+  </wsdl:message>
+  <wsdl:message name="ISBAService_GetCuilState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCuilStateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISBAService">
+    <wsdl:operation name="Enroll">
+      <wsdl:input wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/Enroll" message="tns:ISBAService_Enroll_InputMessage" />
+      <wsdl:output wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/EnrollResponse" message="tns:ISBAService_Enroll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEnrollResult">
+      <wsdl:input wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/GetEnrollResult" message="tns:ISBAService_GetEnrollResult_InputMessage" />
+      <wsdl:output wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/GetEnrollResultResponse" message="tns:ISBAService_GetEnrollResult_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Verify">
+      <wsdl:input wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/Verify" message="tns:ISBAService_Verify_InputMessage" />
+      <wsdl:output wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/VerifyResponse" message="tns:ISBAService_Verify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Identify">
+      <wsdl:input wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/Identify" message="tns:ISBAService_Identify_InputMessage" />
+      <wsdl:output wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/IdentifyResponse" message="tns:ISBAService_Identify_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCuilState">
+      <wsdl:input wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/GetCuilState" message="tns:ISBAService_GetCuilState_InputMessage" />
+      <wsdl:output wsaw:Action="http://mihuella.anses.gov.ar/ISBAService/GetCuilStateResponse" message="tns:ISBAService_GetCuilState_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="SBAService">
+    <wsdl:port name="CustomBinding_ISBAService" binding="i0:CustomBinding_ISBAService">
+      <soap:address location="http://ansesbiobancos1.anses.gov.ar/SBA/SBAService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

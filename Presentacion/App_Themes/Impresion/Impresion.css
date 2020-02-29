@@ -1,0 +1,135 @@
+﻿/*
+ @page{
+margin: 27px;
+width:500px;
+}
+*/
+body
+{
+    font-family: Arial,Verdana;
+    font-size: 11px;
+    height: 100%;
+    padding: 0px;
+    margin: 0px auto;
+    width: 770px;
+    color: #000;
+}
+.TextoBlock
+{
+    font-weight: bold;
+}
+
+.contenedor
+{
+    width: 100%;
+}
+
+h1
+{
+    font-size: 14px;
+}
+
+p
+{
+    text-align: justify; /*line-height:16px;*/
+}
+
+.tabla
+{
+    border-right: #000 1px solid;
+    border-top: #000 1px solid;
+    border-left: #000 1px solid;
+    border-bottom: #000 1px solid;
+}
+.tabla tr td
+{
+    height: 20px;
+    border: 1px solid #000; /*padding-left: 5px;*/
+    padding: 3px;
+}
+
+
+.SaltoPagina
+{
+    page-break-before: always;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 1px;
+}
+
+
+.tbl tr td
+{
+    height: 20px;
+    border: 1px solid #000; /*padding-left: 5px;*/
+    padding: 3px;
+}
+
+/***********************************************
+               Grillas 
+---------------------------------------------*/
+
+.Grilla
+{
+    border-right: #000 1px solid;
+    border-top: #000 1px solid;
+    border-left: #000 1px solid;
+    border-bottom: #000 1px solid;
+    font-size: 8pt;
+    font-family: Arial, tahoma, helvetica;
+    text-decoration: none;
+    color: #000000;
+}
+
+.Grilla td
+{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.Grilla tr td
+{
+    border: 1px solid #000; /*padding-left: 5px;*/
+}
+
+.GrillaHead
+{
+    font-family: Arial, tahoma, helvetica;
+    font-size: 8pt;
+    font-weight: bold;
+    background-color: #ccc;
+    text-align: center;
+    padding: 2;
+}
+
+.GrillaBody
+{
+    color: #000000;
+    font-size: 8pt;
+    text-decoration: none;
+}
+
+/***********************************************/
+
+fieldset
+{
+    border: solid 1px #B2B2B2;
+    text-align: left;
+}
+legend
+{
+    color: #595959;
+    font-weight: bold;
+}
+
+.CajaTexto
+{
+    border: solid 1px #B2B2B2;
+    font-size: 11px;
+}
+
+.AlignRight
+{
+    text-align: right;
+}

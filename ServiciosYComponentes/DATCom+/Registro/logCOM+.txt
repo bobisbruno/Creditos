@@ -1,0 +1,7 @@
+Microsoft (R) .NET Framework Services Installation Utility Version 1.1.4322.573
+Copyright (C) Microsoft Corporation 1998-2002.  All rights reserved.
+
+Installed Assembly:
+	Assembly: D:\Desarrollo\Desarrollo .Net\DAT_V1\ServiciosYComponentes\DATCom+\bin\Debug\DATCom+.dll
+	Application: DATCom+
+	TypeLib: D:\Desarrollo\Desarrollo .Net\DAT_V1\ServiciosYComponentes\DATCom+\bin\Debug\DATCom+.tlb

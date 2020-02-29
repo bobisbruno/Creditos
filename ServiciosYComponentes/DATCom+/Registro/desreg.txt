@@ -1,0 +1,6 @@
+Microsoft (R) .NET Framework Services Installation Utility Version 1.1.4322.573
+Copyright (C) Microsoft Corporation 1998-2002.  All rights reserved.
+
+
+The following un-installation error occurred:
+1: Could not find application 'name=DATCom+'.

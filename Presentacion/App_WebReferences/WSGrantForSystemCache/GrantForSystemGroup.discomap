@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ansesarqdir01.anses.gov.ar:8091/DirectorSOA/GrantForSystemGroup.svc?xsd=xsd0" filename="GrantForSystemGroup.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ansesarqdir01.anses.gov.ar:8091/DirectorSOA/GrantForSystemGroup.svc?xsd=xsd1" filename="GrantForSystemGroup0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://ansesarqdir01.anses.gov.ar:8091/DirectorSOA/GrantForSystemGroup.svc?xsd=xsd2" filename="GrantForSystemGroup1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://ansesarqdir01.anses.gov.ar:8091/DirectorSOA/GrantForSystemGroup.svc?disco" filename="GrantForSystemGroup.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://ansesarqdir01.anses.gov.ar:8091/DirectorSOA/GrantForSystemGroup.svc?wsdl" filename="WSGrantForSystemCache.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>
